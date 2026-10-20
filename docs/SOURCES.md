@@ -20,17 +20,17 @@
 ## 2. Allergènes
 
 - Liste des 14 allergènes : **règlement (UE) n° 1169/2011, annexe II** (INCO).
-- Affectation des allergènes et des traces aux ingrédients : établie manuellement pour NutriSport (`tools/ingredients.csv`) à partir de la composition usuelle des produits. Exemples de choix prudents : moutarde = moutarde + sulfites ; bouillon cube = céleri + traces de gluten et de lait ; galette de sarrasin = traces de gluten, œufs et lait. **Ces données ne remplacent pas l'étiquette du produit acheté** (avertissement affiché dans l'app).
+- Affectation des allergènes et des traces aux ingrédients : établie manuellement pour Kalori (`tools/ingredients.csv`) à partir de la composition usuelle des produits. Exemples de choix prudents : moutarde = moutarde + sulfites ; bouillon cube = céleri + traces de gluten et de lait ; galette de sarrasin = traces de gluten, œufs et lait. **Ces données ne remplacent pas l'étiquette du produit acheté** (avertissement affiché dans l'app).
 
 ## 3. Saisonnalité
 
-Table rédigée pour NutriSport (`tools/ingredients.csv`, colonne `season`), en recoupant des calendriers publics de fruits et légumes de saison en France métropolitaine, notamment ADEME, « Mes fruits et légumes de saison » (agirpourlatransition.ademe.fr) et l'API Impact CO2 (impactco2.fr). Aucune donnée brute de ces sources n'est copiée : seuls les mois de disponibilité, qui sont des faits, ont été saisis à la main. ⚖️ La licence des données ADEME reste à confirmer avant toute reprise automatique.
+Table rédigée pour Kalori (`tools/ingredients.csv`, colonne `season`), en recoupant des calendriers publics de fruits et légumes de saison en France métropolitaine, notamment ADEME, « Mes fruits et légumes de saison » (agirpourlatransition.ademe.fr) et l'API Impact CO2 (impactco2.fr). Aucune donnée brute de ces sources n'est copiée : seuls les mois de disponibilité, qui sont des faits, ont été saisis à la main. ⚖️ La licence des données ADEME reste à confirmer avant toute reprise automatique.
 
 Les produits importés sans production française significative (banane, avocat, citron) sont indiqués selon leur période usuelle de disponibilité en magasin.
 
 ## 4. Recettes et exercices
 
-- **141 recettes** et **43 descriptions d'exercices** : textes originaux rédigés pour NutriSport, sans reprise de sources tierces.
+- **141 recettes** et **43 descriptions d'exercices** : textes originaux rédigés pour Kalori, sans reprise de sources tierces.
 - Les valeurs nutritionnelles des recettes sont **calculées** à partir des ingrédients (section 1), jamais saisies à la main.
 
 ## 5. Recommandations utilisées pour les calculs

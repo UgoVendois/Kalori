@@ -12,7 +12,7 @@
 }
 
 # Les routes de navigation sont sérialisées par kotlinx.serialization.
--keep @kotlinx.serialization.Serializable class fr.nutrisport.app.navigation.** { *; }
+-keep @kotlinx.serialization.Serializable class fr.kalori.app.navigation.** { *; }
 
 # SQLCipher : classes appelées depuis le code natif (JNI).
 -keep class net.zetetic.database.** { *; }

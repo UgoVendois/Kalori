@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Génère les données embarquées de NutriSport à partir de la table Ciqual officielle.
+"""Génère les données embarquées de Kalori à partir de la table Ciqual officielle.
 
 Usage :
     python3 tools/build_seed.py <chemin/Table Ciqual 2025_FR_2025_11_03.xlsx>

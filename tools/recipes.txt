@@ -1,4 +1,4 @@
-# Recettes originales NutriSport (textes rédigés pour l'app, libres de droits tiers).
+# Recettes originales Kalori (textes rédigés pour l'app, libres de droits tiers).
 # Format :
 #   @ id | Nom | PROTÉINE_PRINCIPALE (POULTRY RED_MEAT PORK FISH SEAFOOD EGG DAIRY PLANT)
 #   + ingrédient grammes, ingrédient grammes, ...   (1 portion, poids comestible cru sauf mention "cuit/conserve")

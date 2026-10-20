@@ -11,11 +11,11 @@ plugins {
 }
 
 android {
-    namespace = "fr.nutrisport.app"
+    namespace = "fr.kalori.app"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "fr.nutrisport.app"
+        applicationId = "fr.kalori.app"
         minSdk = 26
         targetSdk = 36
         versionCode = 1

@@ -15,9 +15,7 @@ google-services.json
 *.jks
 *.keystore
 keystore.properties
-functions/.env*
-functions/node_modules/
-functions/lib/
+local-secrets.properties
 
 # Python
 __pycache__/

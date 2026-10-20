@@ -20,5 +20,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "NutriSport"
+rootProject.name = "Kalori"
 include(":app")

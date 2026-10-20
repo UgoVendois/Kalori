@@ -1,4 +1,4 @@
-# Catalogue des ingrédients NutriSport — édité à la main, valeurs nutritionnelles tirées de Ciqual par build_seed.py.
+# Catalogue des ingrédients Kalori — édité à la main, valeurs nutritionnelles tirées de Ciqual par build_seed.py.
 # Colonnes :
 #   id          identifiant stable (ne jamais renommer : référencé par les recettes et les données utilisateur)
 #   name        nom affiché
