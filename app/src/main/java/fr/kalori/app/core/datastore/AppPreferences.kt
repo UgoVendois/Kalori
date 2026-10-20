@@ -17,7 +17,7 @@ import javax.inject.Singleton
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "app_preferences")
 
 /**
- * Préférences techniques NON sensibles (version des données embarquées, avis à afficher).
+ * Préférences techniques NON sensibles (version des données embarquées, premier lancement, verrouillage).
  * Règle : aucune donnée personnelle ou de santé ici. Tout ce qui est sensible va dans la base chiffrée.
  * C'est pourquoi un DataStore non chiffré suffit (pas besoin de Tink ici).
  */
@@ -38,6 +38,20 @@ class AppPreferences @Inject constructor(
         context.dataStore.edit { it[DATA_RESET_NOTICE] = show }
     }
 
+    /** true une fois le premier lancement terminé (profil, rythme, goûts). */
+    val onboardingDone: Flow<Boolean> = context.dataStore.data.map { it[ONBOARDING_DONE] ?: false }
+
+    suspend fun setOnboardingDone(done: Boolean) {
+        context.dataStore.edit { it[ONBOARDING_DONE] = done }
+    }
+
+    /** Verrouillage de l'app par biométrie ou code de l'appareil. */
+    val appLockEnabled: Flow<Boolean> = context.dataStore.data.map { it[APP_LOCK] ?: false }
+
+    suspend fun setAppLockEnabled(enabled: Boolean) {
+        context.dataStore.edit { it[APP_LOCK] = enabled }
+    }
+
     suspend fun clear() {
         context.dataStore.edit { it.clear() }
     }
@@ -45,5 +59,7 @@ class AppPreferences @Inject constructor(
     private companion object {
         val SEED_HASH = stringPreferencesKey("seed_hash")
         val DATA_RESET_NOTICE = booleanPreferencesKey("data_reset_notice")
+        val ONBOARDING_DONE = booleanPreferencesKey("onboarding_done")
+        val APP_LOCK = booleanPreferencesKey("app_lock")
     }
 }

@@ -91,6 +91,7 @@ dependencies {
     implementation(libs.androidx.sqlite)
     implementation(libs.datastore.preferences)
     implementation(libs.tink.android)
+    implementation(libs.androidx.biometric)
 
     testImplementation(libs.junit)
     testImplementation(libs.kotlin.test)
