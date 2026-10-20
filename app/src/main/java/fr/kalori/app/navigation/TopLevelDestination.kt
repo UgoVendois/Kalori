@@ -22,8 +22,8 @@ enum class TopLevelDestination(
     val unselectedIcon: ImageVector,
     @StringRes val labelRes: Int,
 ) {
-    Tracking(TrackingRoute, TrackingRoute::class, Icons.Filled.Insights, Icons.Outlined.Insights, R.string.tab_tracking),
-    Meals(MealsRoute, MealsRoute::class, Icons.Filled.Restaurant, Icons.Outlined.Restaurant, R.string.tab_meals),
-    Workout(WorkoutRoute, WorkoutRoute::class, Icons.Filled.FitnessCenter, Icons.Outlined.FitnessCenter, R.string.tab_workout),
-    Settings(SettingsRoute, SettingsRoute::class, Icons.Filled.Settings, Icons.Outlined.Settings, R.string.tab_settings),
+    Tracking(TrackingGraph, TrackingGraph::class, Icons.Filled.Insights, Icons.Outlined.Insights, R.string.tab_tracking),
+    Meals(MealsGraph, MealsGraph::class, Icons.Filled.Restaurant, Icons.Outlined.Restaurant, R.string.tab_meals),
+    Workout(WorkoutGraph, WorkoutGraph::class, Icons.Filled.FitnessCenter, Icons.Outlined.FitnessCenter, R.string.tab_workout),
+    Settings(SettingsGraph, SettingsGraph::class, Icons.Filled.Settings, Icons.Outlined.Settings, R.string.tab_settings),
 }

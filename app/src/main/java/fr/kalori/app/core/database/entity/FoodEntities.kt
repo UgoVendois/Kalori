@@ -139,3 +139,9 @@ data class ShoppingCheckEntity(
     val ingredientId: String,
     val checked: Boolean,
 )
+
+data class MealPlanEntryWithRecipe(
+    @Embedded val entry: MealPlanEntryEntity,
+    @Relation(parentColumn = "recipeId", entityColumn = "id")
+    val recipe: RecipeEntity,
+)

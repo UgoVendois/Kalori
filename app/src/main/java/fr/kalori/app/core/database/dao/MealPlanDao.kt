@@ -2,8 +2,10 @@ package fr.kalori.app.core.database.dao
 
 import androidx.room.Dao
 import androidx.room.Query
+import androidx.room.Transaction
 import androidx.room.Upsert
 import fr.kalori.app.core.database.entity.MealPlanEntryEntity
+import fr.kalori.app.core.database.entity.MealPlanEntryWithRecipe
 import fr.kalori.app.core.database.entity.ShoppingCheckEntity
 import kotlinx.coroutines.flow.Flow
 import java.time.LocalDate
@@ -16,8 +18,17 @@ interface MealPlanDao {
     @Query("SELECT * FROM meal_plan_entry WHERE date BETWEEN :from AND :to ORDER BY date")
     suspend fun getRange(from: LocalDate, to: LocalDate): List<MealPlanEntryEntity>
 
+    @Transaction
+    @Query("SELECT * FROM meal_plan_entry WHERE date BETWEEN :from AND :to ORDER BY date")
+    fun observeRangeWithRecipe(from: LocalDate, to: LocalDate): Flow<List<MealPlanEntryWithRecipe>>
+
+    @Transaction
     @Query("SELECT * FROM meal_plan_entry WHERE date < :before ORDER BY date DESC")
-    fun observeHistory(before: LocalDate): Flow<List<MealPlanEntryEntity>>
+    fun observeHistoryWithRecipe(before: LocalDate): Flow<List<MealPlanEntryWithRecipe>>
+
+    @Transaction
+    @Query("SELECT * FROM meal_plan_entry WHERE date = :date")
+    fun observeEntryWithRecipe(date: LocalDate): Flow<MealPlanEntryWithRecipe?>
 
     @Query("SELECT * FROM meal_plan_entry ORDER BY date")
     fun observeAll(): Flow<List<MealPlanEntryEntity>>

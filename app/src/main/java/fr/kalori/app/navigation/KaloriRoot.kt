@@ -1,5 +1,6 @@
 package fr.kalori.app.navigation
 
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -17,9 +18,10 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.navigation
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import fr.kalori.app.feature.meals.MealsScreen
+import fr.kalori.app.feature.meals.mealsGraph
 import fr.kalori.app.feature.settings.SettingsScreen
 import fr.kalori.app.feature.tracking.TrackingScreen
 import fr.kalori.app.feature.workout.WorkoutScreen
@@ -30,6 +32,8 @@ fun KaloriRoot(navController: NavHostController = rememberNavController()) {
     val currentDestination = backStackEntry?.destination
 
     Scaffold(
+        // Les écrans gèrent eux-mêmes la barre d'état (TopAppBar) ; la barre d'onglets gère le bas.
+        contentWindowInsets = WindowInsets(0, 0, 0, 0),
         bottomBar = {
             KaloriBottomBar(
                 currentDestination = currentDestination,
@@ -39,13 +43,19 @@ fun KaloriRoot(navController: NavHostController = rememberNavController()) {
     ) { innerPadding ->
         NavHost(
             navController = navController,
-            startDestination = TrackingRoute,
+            startDestination = TrackingGraph,
             modifier = Modifier.padding(innerPadding),
         ) {
-            composable<TrackingRoute> { TrackingScreen() }
-            composable<MealsRoute> { MealsScreen() }
-            composable<WorkoutRoute> { WorkoutScreen() }
-            composable<SettingsRoute> { SettingsScreen() }
+            navigation<TrackingGraph>(startDestination = TrackingRoute) {
+                composable<TrackingRoute> { TrackingScreen() }
+            }
+            mealsGraph(navController)
+            navigation<WorkoutGraph>(startDestination = WorkoutRoute) {
+                composable<WorkoutRoute> { WorkoutScreen() }
+            }
+            navigation<SettingsGraph>(startDestination = SettingsRoute) {
+                composable<SettingsRoute> { SettingsScreen() }
+            }
         }
     }
 }
