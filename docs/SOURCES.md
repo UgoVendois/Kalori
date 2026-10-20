@@ -33,7 +33,9 @@ Les produits importés sans production française significative (banane, avocat,
 - **141 recettes** et **43 descriptions d'exercices** : textes originaux rédigés pour NutriSport, sans reprise de sources tierces.
 - Les valeurs nutritionnelles des recettes sont **calculées** à partir des ingrédients (section 1), jamais saisies à la main.
 
-## 5. Recommandations utilisées pour les calculs (étape 2)
+## 5. Recommandations utilisées pour les calculs
+
+Implémentation : `domain/nutrition/` (EnergyCalculator, MacroCalculator, PaceOptionsGenerator). Chaque garde-fou est couvert par un test unitaire (`PaceOptionsGeneratorTest`).
 
 | Sujet | Source | Usage dans l'app |
 |---|---|---|
@@ -44,6 +46,8 @@ Les produits importés sans production française significative (banane, avocat,
 | Répartition des macronutriments | Anses 2016, *Actualisation des repères du PNNS : élaboration des références nutritionnelles* : protéines 10-20 %, lipides 35-40 %, glucides 40-55 % de l'énergie | Lipides 35 %, glucides ≥ 40 %, avertissement hors fourchette |
 | Fibres | Anses 2016 : 30 g/j chez l'adulte | Objectif affiché (⚠ chiffre à confirmer dans le rapport) |
 | Personnes âgées | HAS : vigilance sur la fonte musculaire et la dénutrition après 70 ans | Avertissement |
-| Plancher calorique | Seuils usuels de 1 200 kcal (femmes) et 1 500 kcal (hommes) | Masquage des options en dessous ⚖️ (à faire valider par un diététicien) |
+| Mineurs, grossesse, allaitement | Besoins spécifiques nécessitant un suivi médical | Aucun objectif proposé, redirection vers un professionnel |
+| Âge | Année et mois de naissance seulement (minimisation) | Pendant le mois anniversaire, l'anniversaire est considéré comme non atteint |
+| Plancher calorique | Seuils usuels de 1 200 kcal (femmes) et 1 500 kcal (hommes) ; moyenne (1 350) si le sexe n'est pas précisé | Perte : options en dessous masquées. Maintien et prise : objectif relevé au plancher, avec une invitation à consulter ⚖️ (à faire valider par un diététicien) |
 
 Ces sources fondent des **estimations**. L'app ne pose aucun diagnostic et ne remplace pas un professionnel de santé.
