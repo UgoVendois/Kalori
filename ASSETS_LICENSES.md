@@ -20,7 +20,7 @@ Ce fichier doit être mis à jour à chaque ajout de donnée, d'image, d'icône,
 |---|---|---|
 | Icône de l'application (feuille) | Création originale (`ic_launcher_foreground.xml`) | Création personnelle |
 | Icônes de navigation et d'interface | Material Icons (`androidx.compose.material:material-icons-extended`) | Apache 2.0 |
-| Pictogrammes d'exercices (17 types de mouvement) | Création originale, prévue à l'étape 5 | Création personnelle |
+| Pictogrammes d'exercices (17 types de mouvement) | Création originale (`tools/gen_exercise_icons.py`) | Création personnelle |
 
 ## Bibliothèques
 
