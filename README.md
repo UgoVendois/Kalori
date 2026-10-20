@@ -11,7 +11,7 @@ Kotlin, Jetpack Compose (Material 3), MVVM, Hilt, Room (chiffrée par SQLCipher)
 1. Android Studio (version stable récente) : **File > Open** puis sélectionner ce dossier.
 2. Le fichier `gradle-wrapper.jar` n'est pas versionné. Android Studio télécharge Gradle à partir de `gradle/wrapper/gradle-wrapper.properties`. Pour utiliser `./gradlew` en ligne de commande, lancer une fois `gradle wrapper` (avec un Gradle installé) ou utiliser le terminal d'Android Studio.
 3. Si Android Studio propose des mises à jour d'AGP ou de bibliothèques, elles peuvent être acceptées : le catalogue `gradle/libs.versions.toml` centralise toutes les versions.
-4. Installation : brancher le téléphone (débogage USB activé) et lancer **Run** dans Android Studio, ou générer un APK signé (Build > Generate Signed App Bundle / APK) et l'installer directement.
+4. Installation rapide : brancher le téléphone (débogage USB activé) et lancer **Run** dans Android Studio (version debug).
 
 ## Documents
 - `LEGAL_CHECKLIST.md` : ce qui s'applique à un usage personnel, et ce qu'il faudrait reprendre si l'app était un jour distribuée.
@@ -28,3 +28,19 @@ Kotlin, Jetpack Compose (Material 3), MVVM, Hilt, Room (chiffrée par SQLCipher)
   ```
   La table se télécharge sur https://doi.org/10.57745/RDMHWY (Licence Ouverte Etalab 2.0). Le script n'utilise que la bibliothèque standard de Python 3.10+. Il échoue si une recette est incohérente et affiche un rapport de couverture par mois et par régime.
 - L'app réimporte le catalogue au démarrage dès que l'empreinte `seedHash` change. Les données de l'utilisateur ne sont pas touchées.
+
+## Installer la version finale sur mon téléphone
+1. Créer une fois la clé de signature (à conserver précieusement : sans elle, impossible de mettre à jour l'app installée) :
+   ```
+   keytool -genkeypair -v -keystore kalori-release.jks -alias kalori -keyalg RSA -keysize 4096 -validity 10000
+   ```
+2. Copier `keystore.properties.example` en `keystore.properties` et le compléter. Ces deux fichiers sont exclus de git.
+3. Construire et installer :
+   ```
+   ./gradlew testDebugUnitTest assembleRelease
+   adb install -r app/build/outputs/apk/release/app-release.apk
+   ```
+4. Tester la release une première fois en entier (R8 est activé : premier lancement, plats, séance, graphiques, export, variante IA si utilisée).
+
+## Sauvegarde
+Les données n'existent que sur le téléphone (base chiffrée, aucune sauvegarde cloud automatique). Exporter régulièrement depuis Paramètres > Mes données, et garder le fichier en lieu sûr : il n'est pas chiffré. Sur un nouveau téléphone, « Restaurer une sauvegarde Kalori » dès l'écran d'accueil.

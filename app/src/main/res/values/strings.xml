@@ -55,7 +55,4 @@
     <string name="shopping_period">Pour les plats du %1$s au %2$s</string>
     <string name="shopping_empty">Aucun plat prévu cette semaine.</string>
     <string name="shopping_copy_hint">« Copier » copie les articles non cochés, une ligne par article.</string>
-
-    <!-- Placeholders étape 0 -->
-    <string name="coming_soon">Écran en cours de construction</string>
 </resources>

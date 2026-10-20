@@ -19,3 +19,4 @@ local-secrets.properties
 
 # Python
 __pycache__/
+kalori-release.jks

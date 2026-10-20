@@ -1,4 +1,10 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import java.util.Properties
+
+// Signature de l'APK de release : keystore.properties (jamais versionné, voir keystore.properties.example).
+val keystoreProperties: Properties? = rootProject.file("keystore.properties")
+    .takeIf { it.exists() }
+    ?.let { file -> Properties().apply { file.inputStream().use { load(it) } } }
 
 plugins {
     alias(libs.plugins.android.application)
@@ -25,8 +31,20 @@ android {
         vectorDrawables { useSupportLibrary = true }
     }
 
+    signingConfigs {
+        if (keystoreProperties != null) {
+            create("release") {
+                storeFile = rootProject.file(keystoreProperties.getProperty("storeFile"))
+                storePassword = keystoreProperties.getProperty("storePassword")
+                keyAlias = keystoreProperties.getProperty("keyAlias")
+                keyPassword = keystoreProperties.getProperty("keyPassword")
+            }
+        }
+    }
+
     buildTypes {
         release {
+            signingConfig = signingConfigs.findByName("release")
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(
