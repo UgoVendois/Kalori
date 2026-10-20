@@ -52,6 +52,13 @@ class AppPreferences @Inject constructor(
         context.dataStore.edit { it[APP_LOCK] = enabled }
     }
 
+    /** Variantes de plats par IA activées (nécessite une clé API personnelle). */
+    val aiEnabled: Flow<Boolean> = context.dataStore.data.map { it[AI_ENABLED] ?: false }
+
+    suspend fun setAiEnabled(enabled: Boolean) {
+        context.dataStore.edit { it[AI_ENABLED] = enabled }
+    }
+
     suspend fun clear() {
         context.dataStore.edit { it.clear() }
     }
@@ -61,5 +68,6 @@ class AppPreferences @Inject constructor(
         val DATA_RESET_NOTICE = booleanPreferencesKey("data_reset_notice")
         val ONBOARDING_DONE = booleanPreferencesKey("onboarding_done")
         val APP_LOCK = booleanPreferencesKey("app_lock")
+        val AI_ENABLED = booleanPreferencesKey("ai_enabled")
     }
 }

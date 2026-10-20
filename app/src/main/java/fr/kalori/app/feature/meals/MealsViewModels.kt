@@ -12,6 +12,10 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import fr.kalori.app.R
 import fr.kalori.app.core.database.entity.IngredientEntity
+import fr.kalori.app.core.datastore.AppPreferences
+import fr.kalori.app.core.security.ApiKeyStore
+import fr.kalori.app.data.ai.AiMealService
+import fr.kalori.app.data.ai.VariantResult
 import fr.kalori.app.data.meal.FoodPreferencesRepository
 import fr.kalori.app.data.meal.MealDetail
 import fr.kalori.app.data.meal.MealPlanRepository
@@ -32,7 +36,9 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
@@ -108,6 +114,9 @@ class MealsViewModel @Inject constructor(
 class MealDetailViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     private val repository: MealPlanRepository,
+    private val aiMealService: AiMealService,
+    preferences: AppPreferences,
+    private val apiKeyStore: ApiKeyStore,
 ) : ViewModel() {
     val date: LocalDate = LocalDate.ofEpochDay(savedStateHandle.toRoute<MealDetailRoute>().epochDay)
     val today: LocalDate get() = repository.today()
@@ -122,6 +131,35 @@ class MealDetailViewModel @Inject constructor(
 
     fun replace() = viewModelScope.launch {
         repository.replace(date).messageRes()?.let { messageChannel.send(it) }
+    }
+
+    // ── Variante par IA (option) ──
+
+    private val _aiRunning = MutableStateFlow(false)
+    val aiRunning: StateFlow<Boolean> = _aiRunning.asStateFlow()
+
+    /** Bouton visible seulement si l'option est activée et qu'une clé est enregistrée. */
+    val aiAvailable: StateFlow<Boolean> = preferences.aiEnabled
+        .map { it && apiKeyStore.hasKey() }
+        .stateIn(viewModelScope, sharing, false)
+
+    private val aiMessageChannel = Channel<String>(Channel.BUFFERED)
+    val aiMessages: Flow<String> = aiMessageChannel.receiveAsFlow()
+
+    fun proposeAiVariant() {
+        if (_aiRunning.value) return
+        _aiRunning.value = true
+        viewModelScope.launch {
+            try {
+                val message = when (val result = aiMealService.proposeVariant(date)) {
+                    is VariantResult.Applied -> "Nouveau plat proposé par l'IA : ${result.name}"
+                    is VariantResult.Failed -> result.message
+                }
+                aiMessageChannel.send(message)
+            } finally {
+                _aiRunning.value = false
+            }
+        }
     }
 }
 

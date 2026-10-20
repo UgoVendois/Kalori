@@ -5,7 +5,9 @@ import fr.kalori.app.core.database.AppDatabase
 import fr.kalori.app.core.database.entity.IngredientEntity
 import fr.kalori.app.core.database.entity.MealPlanEntryEntity
 import fr.kalori.app.core.database.entity.MealPlanEntryWithRecipe
+import fr.kalori.app.core.database.entity.RecipeEntity
 import fr.kalori.app.core.database.entity.RecipeIngredientEntity
+import fr.kalori.app.core.database.entity.RecipeWithIngredients
 import fr.kalori.app.core.database.entity.ShoppingCheckEntity
 import fr.kalori.app.core.di.IoDispatcher
 import fr.kalori.app.core.logging.SafeLogger
@@ -73,6 +75,8 @@ data class ShoppingList(
 )
 
 enum class ReplaceResult { REPLACED, NO_ALTERNATIVE, NOT_PLANNED }
+
+data class VariantContext(val target: NutritionTargets, val prefs: FoodPreferences, val weekDishNames: List<String>)
 
 /**
  * Plan de repas : les 7 prochains jours (aujourd'hui inclus), l'historique et la liste de courses.
@@ -154,6 +158,43 @@ class MealPlanRepository @Inject constructor(
             val newRejected = if (meal.recipeId in rejected) listOf(current.recipeId) else rejected.toList()
             mealPlanDao.upsert(meal.toEntity(newRejected))
             ReplaceResult.REPLACED
+        }
+    }
+
+    /** Contexte du plat d'un jour pour générer une variante : cible du repas, goûts, plats de la semaine. */
+    suspend fun variantContext(date: LocalDate): VariantContext? = withContext(io) {
+        val inputs = loadInputs() ?: return@withContext null
+        val current = mealPlanDao.get(date) ?: return@withContext null
+        val weekIds = mealPlanDao.getRange(today(), today().plusDays(DAYS - 1)).map { it.recipeId }.toSet() + current.recipeId
+        val names = catalogDao.getRecipes(weekIds).map { it.recipe.name }
+        VariantContext(inputs.target, inputs.prefs, names)
+    }
+
+    /** Remplace le plat d'un jour par une recette (déjà validée), portion ajustée à la cible. */
+    suspend fun applyRecipe(date: LocalDate, recipe: RecipeEntity, lines: List<RecipeIngredientEntity>) = mutex.withLock {
+        withContext(io) {
+            val target = profileRepository.getMealTarget() ?: return@withContext
+            val current = mealPlanDao.get(date)
+            database.withTransaction {
+                catalogDao.replaceRecipes(listOf(recipe), lines)
+                val candidate = RecipeWithIngredients(recipe, lines).toCandidate()
+                val portion = MealPlanner.portionFactor(candidate, target)
+                val nutrition = recipe.nutrition() * portion
+                mealPlanDao.upsert(
+                    MealPlanEntryEntity(
+                        date = date,
+                        recipeId = recipe.id,
+                        portionFactor = portion,
+                        kcal = nutrition.kcal,
+                        protein = nutrition.protein,
+                        fat = nutrition.fat,
+                        carbs = nutrition.carbs,
+                        fiber = nutrition.fiber,
+                        status = MealStatus.PLANNED,
+                        rejectedRecipeIds = (current?.rejectedRecipeIds.orEmpty() + listOfNotNull(current?.recipeId)).distinct(),
+                    ),
+                )
+            }
         }
     }
 

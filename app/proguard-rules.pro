@@ -17,3 +17,15 @@
 # SQLCipher : classes appelées depuis le code natif (JNI).
 -keep class net.zetetic.database.** { *; }
 -keepclassmembers class net.zetetic.database.** { native <methods>; }
+
+# SDK Anthropic (variantes IA) : sérialisation Jackson par réflexion, y compris Kotlin.
+-keep class com.anthropic.** { *; }
+-keep class com.fasterxml.jackson.** { *; }
+-keep class kotlin.Metadata { *; }
+-keepattributes Signature,*Annotation*,InnerClasses,EnclosingMethod
+-dontwarn com.fasterxml.jackson.**
+-dontwarn com.github.victools.**
+-dontwarn io.swagger.**
+-dontwarn org.slf4j.**
+-dontwarn java.beans.**
+-dontwarn com.standardwebhooks.**

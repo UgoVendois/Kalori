@@ -13,9 +13,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.ArrowForward
+import androidx.compose.material.icons.outlined.AutoAwesome
 import androidx.compose.material.icons.outlined.DeleteForever
 import androidx.compose.material.icons.outlined.Download
 import androidx.compose.material.icons.outlined.Info
+import androidx.compose.material.icons.outlined.Key
 import androidx.compose.material.icons.outlined.Lock
 import androidx.compose.material.icons.outlined.Person
 import androidx.compose.material.icons.outlined.Upload
@@ -24,6 +26,7 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.ListItem
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SegmentedButton
 import androidx.compose.material3.SegmentedButtonDefaults
@@ -42,6 +45,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -50,6 +54,7 @@ import fr.kalori.app.R
 import fr.kalori.app.core.ui.Format
 import fr.kalori.app.core.ui.components.DisclaimerCard
 import fr.kalori.app.core.ui.components.KaloriScaffold
+import fr.kalori.app.data.ai.AiMealService
 import fr.kalori.app.domain.model.GoalType
 import fr.kalori.app.domain.model.UnitSystem
 import fr.kalori.app.domain.nutrition.MacroCalculator
@@ -66,6 +71,7 @@ fun SettingsScreen(
     LaunchedEffect(viewModel) { viewModel.messages.collect { snackbar.showSnackbar(it) } }
     var confirmImport by remember { mutableStateOf(false) }
     var confirmWipe by remember { mutableStateOf(false) }
+    var keyDialog by remember { mutableStateOf(false) }
 
     val exportLauncher = rememberLauncherForActivityResult(ActivityResultContracts.CreateDocument("application/json")) { uri ->
         uri?.let(viewModel::export)
@@ -152,6 +158,49 @@ fun SettingsScreen(
                 )
             }
 
+            item { Section("IA (optionnel)") }
+            item {
+                ListItem(
+                    headlineContent = { Text("Variantes de plats par IA") },
+                    supportingContent = {
+                        Text(
+                            if (state.aiKeySaved) {
+                                "Bouton « Variante IA » dans le détail d'un plat."
+                            } else {
+                                "Ajoute d'abord ta clé API Anthropic personnelle."
+                            },
+                        )
+                    },
+                    leadingContent = { Icon(Icons.Outlined.AutoAwesome, contentDescription = null) },
+                    trailingContent = {
+                        Switch(checked = state.aiEnabled, onCheckedChange = viewModel::setAiEnabled, enabled = state.aiKeySaved)
+                    },
+                )
+            }
+            item {
+                ListItem(
+                    headlineContent = { Text("Clé API") },
+                    supportingContent = { Text(if (state.aiKeySaved) "Enregistrée, chiffrée sur ce téléphone" else "Non configurée") },
+                    leadingContent = { Icon(Icons.Outlined.Key, contentDescription = null) },
+                    trailingContent = {
+                        if (state.aiKeySaved) TextButton(onClick = viewModel::clearApiKey) { Text("Supprimer") }
+                    },
+                    modifier = Modifier.clickableRow { keyDialog = true },
+                )
+            }
+            item {
+                Text(
+                    "Modèle : ${AiMealService.MODEL}. Envoyé à Anthropic : la liste des ingrédients compatibles (déjà filtrée " +
+                        "selon tes allergies, régimes, goûts et la saison), la cible du plat (kcal, protéines), le mois, tes aliments " +
+                        "aimés et les noms des plats de la semaine. Jamais ton poids, ton âge ni tes allergies. Chaque proposition " +
+                        "est revérifiée et recalculée par l'app avant d'être retenue, et marquée « Généré par IA ». " +
+                        "Coût facturé sur ton compte Anthropic : quelques centimes par variante.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(horizontal = 16.dp),
+                )
+            }
+
             item { Section("Mes données") }
             item {
                 ListItem(
@@ -200,6 +249,12 @@ fun SettingsScreen(
         }
     }
 
+    if (keyDialog) {
+        ApiKeyDialog(
+            onDismiss = { keyDialog = false },
+            onSave = { key -> keyDialog = false; viewModel.saveApiKey(key) },
+        )
+    }
     if (confirmImport) {
         AlertDialog(
             onDismissRequest = { confirmImport = false },
@@ -227,6 +282,29 @@ fun SettingsScreen(
             dismissButton = { TextButton(onClick = { confirmWipe = false }) { Text("Annuler") } },
         )
     }
+}
+
+@Composable
+private fun ApiKeyDialog(onDismiss: () -> Unit, onSave: (String) -> Unit) {
+    var key by remember { mutableStateOf("") }
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text("Clé API Anthropic") },
+        text = {
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                Text("Crée une clé sur console.anthropic.com. Elle est chiffrée sur ce téléphone et n'est jamais exportée.")
+                OutlinedTextField(
+                    value = key,
+                    onValueChange = { key = it.trim() },
+                    singleLine = true,
+                    label = { Text("sk-ant-…") },
+                    visualTransformation = PasswordVisualTransformation(),
+                )
+            }
+        },
+        confirmButton = { TextButton(onClick = { onSave(key) }, enabled = key.length > 20) { Text("Enregistrer") } },
+        dismissButton = { TextButton(onClick = onDismiss) { Text("Annuler") } },
+    )
 }
 
 @Composable

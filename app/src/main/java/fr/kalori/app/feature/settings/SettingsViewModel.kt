@@ -10,6 +10,7 @@ import fr.kalori.app.core.database.entity.UserProfileEntity
 import fr.kalori.app.core.datastore.AppPreferences
 import fr.kalori.app.core.di.IoDispatcher
 import fr.kalori.app.core.logging.SafeLogger
+import fr.kalori.app.core.security.ApiKeyStore
 import fr.kalori.app.core.security.AppLockState
 import fr.kalori.app.core.security.DeviceAuthenticator
 import fr.kalori.app.data.backup.BackupFormatException
@@ -36,6 +37,8 @@ data class SettingsUiState(
     val lockEnabled: Boolean = false,
     val lockAvailable: Boolean = false,
     val busy: Boolean = false,
+    val aiEnabled: Boolean = false,
+    val aiKeySaved: Boolean = false,
 )
 
 @HiltViewModel
@@ -45,11 +48,13 @@ class SettingsViewModel @Inject constructor(
     private val preferences: AppPreferences,
     private val lockState: AppLockState,
     private val backupRepository: BackupRepository,
+    private val apiKeyStore: ApiKeyStore,
     @ApplicationContext private val context: Context,
     @IoDispatcher private val io: CoroutineDispatcher,
 ) : ViewModel() {
 
     private val busy = MutableStateFlow(false)
+    private val aiKeySaved = MutableStateFlow(apiKeyStore.hasKey())
     private val messageChannel = Channel<String>(Channel.BUFFERED)
     val messages: Flow<String> = messageChannel.receiveAsFlow()
 
@@ -57,9 +62,25 @@ class SettingsViewModel @Inject constructor(
         profileRepository.observeProfile(),
         preferences.appLockEnabled,
         busy,
-    ) { profile, lock, isBusy ->
-        SettingsUiState(profile, lock, DeviceAuthenticator.isAvailable(context), isBusy)
+        preferences.aiEnabled,
+        aiKeySaved,
+    ) { profile, lock, isBusy, ai, keySaved ->
+        SettingsUiState(profile, lock, DeviceAuthenticator.isAvailable(context), isBusy, ai, keySaved)
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), SettingsUiState())
+
+    fun setAiEnabled(enabled: Boolean) = viewModelScope.launch { preferences.setAiEnabled(enabled) }
+
+    fun saveApiKey(key: String) = viewModelScope.launch {
+        withContext(io) { apiKeyStore.save(key) }
+        aiKeySaved.value = true
+        messageChannel.send("Clé enregistrée (chiffrée sur ce téléphone)")
+    }
+
+    fun clearApiKey() = viewModelScope.launch {
+        withContext(io) { apiKeyStore.clear() }
+        aiKeySaved.value = false
+        preferences.setAiEnabled(false)
+    }
 
     fun defaultExportName(): String = "kalori-sauvegarde-${LocalDate.now()}.json"
 
@@ -100,7 +121,11 @@ class SettingsViewModel @Inject constructor(
         }
     }
 
-    fun wipeAll() = runBusy { backupRepository.wipeAll() }
+    fun wipeAll() = runBusy {
+        backupRepository.wipeAll()
+        withContext(io) { apiKeyStore.clear() }
+        aiKeySaved.value = false
+    }
 
     private fun runBusy(block: suspend () -> Unit) {
         if (busy.value) return

@@ -47,7 +47,14 @@ android {
     }
 
     packaging {
-        resources.excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        resources.excludes += listOf(
+            "/META-INF/{AL2.0,LGPL2.1}",
+            // Doublons apportés par Jackson / le SDK Anthropic.
+            "/META-INF/DEPENDENCIES",
+            "/META-INF/LICENSE*",
+            "/META-INF/NOTICE*",
+            "/META-INF/versions/9/OSGI-INF/MANIFEST.MF",
+        )
     }
 }
 
@@ -92,6 +99,7 @@ dependencies {
     implementation(libs.datastore.preferences)
     implementation(libs.tink.android)
     implementation(libs.androidx.biometric)
+    implementation(libs.anthropic.java)
 
     testImplementation(libs.junit)
     testImplementation(libs.kotlin.test)

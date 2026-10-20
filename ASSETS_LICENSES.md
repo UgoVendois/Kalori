@@ -33,5 +33,6 @@ Ce fichier doit être mis à jour à chaque ajout de donnée, d'image, d'icône,
 | SQLCipher for Android (Community Edition, Zetetic LLC) | Licence de type BSD | **L'avis de copyright et la licence doivent être reproduits** dans la documentation de l'app (écran Licences) |
 | Vico (graphiques, étape 6) | Apache 2.0 | |
 | AndroidX Biometric (verrou de l'app) | Apache 2.0 | |
+| SDK Java Anthropic `com.anthropic:anthropic-java` 2.68.0 (IA optionnelle) et ses dépendances (OkHttp, Jackson) | MIT / Apache 2.0 | Vérifier la licence exacte du SDK lors des mises à jour |
 
 Pour la release, générer la liste exhaustive avec le plugin AboutLibraries ou `oss-licenses-plugin` (étape 7).

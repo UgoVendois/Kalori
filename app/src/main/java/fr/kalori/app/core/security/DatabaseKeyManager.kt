@@ -34,7 +34,11 @@ class DatabaseKeyManager @Inject constructor(
 ) {
     private val keyFile: File get() = File(context.noBackupFilesDir, KEY_FILE)
 
-    private val aead: Aead by lazy {
+    // Construit à la demande et remis à zéro par destroy()/clear() : après effacement du jeu de clés,
+    // un objet en cache chiffrerait encore avec l'ancienne clé, illisible au redémarrage suivant.
+    private var aeadCache: Aead? = null
+
+    private fun aead(): Aead = aeadCache ?: run {
         AeadConfig.register()
         AndroidKeysetManager.Builder()
             .withSharedPref(context, KEYSET_NAME, KEYSET_PREFS)
@@ -43,6 +47,7 @@ class DatabaseKeyManager @Inject constructor(
             .build()
             .keysetHandle
             .getPrimitive(RegistryConfiguration.get(), Aead::class.java)
+            .also { aeadCache = it }
     }
 
     /** true si une base chiffrée a déjà été créée sur cet appareil. */
@@ -57,14 +62,17 @@ class DatabaseKeyManager @Inject constructor(
         val file = keyFile
         if (file.exists()) {
             return try {
-                aead.decrypt(file.readBytes(), ASSOCIATED_DATA)
+                aead().decrypt(file.readBytes(), ASSOCIATED_DATA)
             } catch (e: GeneralSecurityException) {
+                throw DatabaseKeyLostException(e)
+            } catch (e: java.io.IOException) {
+                // Jeu de clés illisible (clé maîtresse du Keystore disparue).
                 throw DatabaseKeyLostException(e)
             }
         }
         val passphrase = ByteArray(PASSPHRASE_BYTES).also { SecureRandom().nextBytes(it) }
         val tmp = File(file.parentFile, "$KEY_FILE.tmp")
-        tmp.writeBytes(aead.encrypt(passphrase, ASSOCIATED_DATA))
+        tmp.writeBytes(aead().encrypt(passphrase, ASSOCIATED_DATA))
         check(tmp.renameTo(file)) { "Écriture de la clé impossible" }
         return passphrase
     }
@@ -74,6 +82,7 @@ class DatabaseKeyManager @Inject constructor(
     fun destroy() {
         keyFile.delete()
         context.deleteSharedPreferences(KEYSET_PREFS)
+        aeadCache = null
     }
 
     private companion object {
