@@ -32,7 +32,7 @@ import fr.kalori.app.feature.meals.mealsGraph
 import fr.kalori.app.feature.onboarding.OnboardingScreen
 import fr.kalori.app.feature.settings.SettingsScreen
 import fr.kalori.app.feature.tracking.TrackingScreen
-import fr.kalori.app.feature.workout.WorkoutScreen
+import fr.kalori.app.feature.workout.workoutGraph
 
 @Composable
 fun KaloriRoot(appViewModel: AppViewModel = hiltViewModel()) {
@@ -86,9 +86,7 @@ private fun MainScaffold(navController: NavHostController = rememberNavControlle
                 composable<TrackingRoute> { TrackingScreen() }
             }
             mealsGraph(navController)
-            navigation<WorkoutGraph>(startDestination = WorkoutRoute) {
-                composable<WorkoutRoute> { WorkoutScreen() }
-            }
+            workoutGraph(navController)
             navigation<SettingsGraph>(startDestination = SettingsRoute) {
                 composable<SettingsRoute> { SettingsScreen() }
             }

@@ -20,6 +20,10 @@ import kotlinx.serialization.Serializable
 // ── Séance ──
 @Serializable data object WorkoutGraph
 @Serializable data object WorkoutRoute
+/** templateId = 0 : création d'une séance à partir d'un modèle vide. */
+@Serializable data class WorkoutEditorRoute(val templateId: Long = 0)
+@Serializable data class WorkoutPlayerRoute(val templateId: Long)
+@Serializable data object ExerciseLibraryRoute
 
 // ── Paramètres ──
 @Serializable data object SettingsGraph
