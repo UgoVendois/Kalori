@@ -72,6 +72,9 @@ class GoalService @Inject constructor(
         )
     }
 
+    /** Rythme actuellement suivi (kg/semaine), pour le présélectionner à l'édition. */
+    suspend fun currentPace(): Double? = profileRepository.getProfile()?.paceKgPerWeek
+
     /** Enregistre le profil et le rythme choisi, note la pesée du jour, puis recalcule les plats à venir. */
     suspend fun saveGoal(draft: ProfileDraft, plan: PacePlan.Available, option: PaceOption) {
         require(option in plan.options) { "Rythme non proposé" }

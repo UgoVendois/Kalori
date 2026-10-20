@@ -1,8 +1,12 @@
+@file:UseSerializers(LocalDateSerializer::class, InstantSerializer::class)
+
 package fr.kalori.app.core.database.entity
 
 import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
+import fr.kalori.app.core.database.InstantSerializer
+import fr.kalori.app.core.database.LocalDateSerializer
 import fr.kalori.app.domain.model.ActivityLevel
 import fr.kalori.app.domain.model.GoalType
 import fr.kalori.app.domain.model.RestrictionKind
@@ -10,6 +14,8 @@ import fr.kalori.app.domain.model.Sex
 import fr.kalori.app.domain.model.UnitSystem
 import java.time.Instant
 import java.time.LocalDate
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.UseSerializers
 
 /**
  * Profil unique de l'utilisateur (une seule ligne, id = 1).
@@ -17,6 +23,7 @@ import java.time.LocalDate
  * Les valeurs sont toujours stockées en unités métriques.
  */
 @Entity(tableName = "user_profile")
+@Serializable
 data class UserProfileEntity(
     @PrimaryKey val id: Int = SINGLE_ROW_ID,
     val sex: Sex,
@@ -46,6 +53,7 @@ data class UserProfileEntity(
 }
 
 @Entity(tableName = "weight_entry", indices = [Index(value = ["date"], unique = true)])
+@Serializable
 data class WeightEntryEntity(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
     val date: LocalDate,
@@ -54,6 +62,7 @@ data class WeightEntryEntity(
 
 /** Apports saisis en plus du plat du jour (autres repas, collations), un total par jour. */
 @Entity(tableName = "daily_intake")
+@Serializable
 data class DailyIntakeEntity(
     @PrimaryKey val date: LocalDate,
     val kcal: Double,
@@ -65,6 +74,7 @@ data class DailyIntakeEntity(
 
 /** Allergènes, régimes, aliments aimés et détestés. [code] = nom d'enum ou id d'ingrédient. */
 @Entity(tableName = "user_restriction", primaryKeys = ["kind", "code"])
+@Serializable
 data class UserRestrictionEntity(
     val kind: RestrictionKind,
     val code: String,

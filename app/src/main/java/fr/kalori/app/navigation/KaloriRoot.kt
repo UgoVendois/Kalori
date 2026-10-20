@@ -30,7 +30,7 @@ import androidx.navigation.compose.rememberNavController
 import fr.kalori.app.feature.lock.LockScreen
 import fr.kalori.app.feature.meals.mealsGraph
 import fr.kalori.app.feature.onboarding.OnboardingScreen
-import fr.kalori.app.feature.settings.SettingsScreen
+import fr.kalori.app.feature.settings.settingsGraph
 import fr.kalori.app.feature.tracking.TrackingScreen
 import fr.kalori.app.feature.workout.workoutGraph
 
@@ -87,9 +87,7 @@ private fun MainScaffold(navController: NavHostController = rememberNavControlle
             }
             mealsGraph(navController)
             workoutGraph(navController)
-            navigation<SettingsGraph>(startDestination = SettingsRoute) {
-                composable<SettingsRoute> { SettingsScreen() }
-            }
+            settingsGraph(navController)
         }
     }
 }

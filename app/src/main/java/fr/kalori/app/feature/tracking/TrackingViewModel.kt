@@ -7,6 +7,7 @@ import fr.kalori.app.core.database.entity.DailyIntakeEntity
 import fr.kalori.app.data.tracking.TrackingRepository
 import fr.kalori.app.domain.model.GoalType
 import fr.kalori.app.domain.model.Nutrition
+import fr.kalori.app.domain.model.UnitSystem
 import fr.kalori.app.domain.tracking.DatedValue
 import fr.kalori.app.domain.tracking.IntakeBucket
 import fr.kalori.app.domain.tracking.Period
@@ -43,6 +44,7 @@ data class TrackingUiState(
     val intake: List<IntakeBucket> = emptyList(),
     val sessions: List<SessionBucket> = emptyList(),
     val extraToday: DailyIntakeEntity? = null,
+    val unit: UnitSystem = UnitSystem.METRIC,
 )
 
 @HiltViewModel
@@ -92,6 +94,7 @@ class TrackingViewModel @Inject constructor(
             intake = intake,
             sessions = TrackingAggregator.sessionsPerWeek(data.sessionDates, p, today),
             extraToday = data.extraToday,
+            unit = profile?.unitSystem ?: UnitSystem.METRIC,
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), TrackingUiState())
 

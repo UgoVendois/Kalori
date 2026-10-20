@@ -71,6 +71,7 @@ class GoalEditorViewModel @Inject constructor(
     init {
         viewModelScope.launch {
             val draft = goalService.currentDraft()
+            val pace = goalService.currentPace()
             _state.update { s ->
                 if (draft == null) {
                     s.copy(loaded = true)
@@ -84,6 +85,7 @@ class GoalEditorViewModel @Inject constructor(
                         weight = draft.weightKg.clean(),
                         target = draft.targetWeightKg.clean(),
                         activity = draft.activity,
+                        selectedPace = pace,
                     )
                 }
             }

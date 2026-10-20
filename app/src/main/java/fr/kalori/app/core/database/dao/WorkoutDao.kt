@@ -91,4 +91,27 @@ abstract class WorkoutDao {
 
     @Query("SELECT * FROM session_set_log WHERE sessionId = :sessionId ORDER BY id")
     abstract suspend fun getSetLogs(sessionId: Long): List<SessionSetLogEntity>
+
+    // ── Export / import ──
+    @Transaction
+    @Query("SELECT * FROM workout_template WHERE origin = 'USER'")
+    abstract suspend fun getUserTemplates(): List<WorkoutTemplateWithExercises>
+
+    @Query("SELECT * FROM workout_session ORDER BY startedAt")
+    abstract suspend fun getAllSessions(): List<WorkoutSessionEntity>
+
+    @Query("SELECT * FROM session_set_log ORDER BY id")
+    abstract suspend fun getAllSetLogs(): List<SessionSetLogEntity>
+
+    @Query("SELECT id FROM exercise")
+    abstract suspend fun getExerciseIds(): List<String>
+
+    @Query("DELETE FROM workout_template WHERE origin = 'USER'")
+    abstract suspend fun deleteUserTemplates()
+
+    @Query("DELETE FROM workout_session")
+    abstract suspend fun deleteAllSessions()
+
+    @Insert
+    abstract suspend fun insertSessions(sessions: List<WorkoutSessionEntity>)
 }

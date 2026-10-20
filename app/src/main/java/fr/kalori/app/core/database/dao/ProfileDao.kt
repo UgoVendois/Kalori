@@ -23,6 +23,9 @@ interface ProfileDao {
 
     @Upsert
     suspend fun upsert(profile: UserProfileEntity)
+
+    @Query("DELETE FROM user_profile")
+    suspend fun deleteAll()
 }
 
 @Dao
@@ -48,6 +51,24 @@ interface TrackingDao {
 
     @Upsert
     suspend fun upsertIntake(intake: DailyIntakeEntity)
+
+    @Query("SELECT * FROM weight_entry ORDER BY date")
+    suspend fun getAllWeights(): List<WeightEntryEntity>
+
+    @Query("SELECT * FROM daily_intake ORDER BY date")
+    suspend fun getAllIntakes(): List<DailyIntakeEntity>
+
+    @Insert
+    suspend fun insertWeights(weights: List<WeightEntryEntity>)
+
+    @Upsert
+    suspend fun upsertIntakes(intakes: List<DailyIntakeEntity>)
+
+    @Query("DELETE FROM weight_entry")
+    suspend fun deleteAllWeights()
+
+    @Query("DELETE FROM daily_intake")
+    suspend fun deleteAllIntakes()
 }
 
 @Dao
@@ -63,6 +84,9 @@ abstract class RestrictionDao {
 
     @Insert
     abstract suspend fun insertAll(restrictions: List<UserRestrictionEntity>)
+
+    @Query("DELETE FROM user_restriction")
+    abstract suspend fun deleteAll()
 
     /** Remplace toutes les restrictions d'un type en une seule transaction. */
     @Transaction

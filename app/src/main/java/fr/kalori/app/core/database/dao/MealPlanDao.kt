@@ -33,6 +33,15 @@ interface MealPlanDao {
     @Query("SELECT * FROM meal_plan_entry ORDER BY date")
     fun observeAll(): Flow<List<MealPlanEntryEntity>>
 
+    @Query("SELECT * FROM meal_plan_entry ORDER BY date")
+    suspend fun getAll(): List<MealPlanEntryEntity>
+
+    @Query("DELETE FROM meal_plan_entry")
+    suspend fun deleteAll()
+
+    @Query("DELETE FROM shopping_check")
+    suspend fun deleteAllChecks()
+
     @Query("SELECT * FROM meal_plan_entry WHERE date = :date")
     suspend fun get(date: LocalDate): MealPlanEntryEntity?
 

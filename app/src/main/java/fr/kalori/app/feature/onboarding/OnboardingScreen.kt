@@ -1,5 +1,7 @@
 package fr.kalori.app.feature.onboarding
 
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -50,6 +52,7 @@ fun OnboardingScreen(
     onFinished: () -> Unit,
     goalViewModel: GoalEditorViewModel = hiltViewModel(),
     prefsViewModel: FoodPreferencesViewModel = hiltViewModel(),
+    onboardingViewModel: OnboardingViewModel = hiltViewModel(),
 ) {
     var step by rememberSaveable { mutableIntStateOf(STEP_WELCOME) }
     val goal by goalViewModel.state.collectAsStateWithLifecycle()
@@ -62,7 +65,7 @@ fun OnboardingScreen(
         Column(Modifier.fillMaxSize().windowInsetsPadding(WindowInsets.safeDrawing)) {
             LinearProgressIndicator(progress = { (step + 1) / 3f }, modifier = Modifier.fillMaxWidth())
             when (step) {
-                STEP_WELCOME -> Welcome(onStart = { step = STEP_GOAL })
+                STEP_WELCOME -> Welcome(onStart = { step = STEP_GOAL }, viewModel = onboardingViewModel)
                 STEP_GOAL -> Column(Modifier.weight(1f)) {
                     Column(
                         Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(16.dp),
@@ -108,7 +111,12 @@ fun OnboardingScreen(
 }
 
 @Composable
-private fun Welcome(onStart: () -> Unit) {
+private fun Welcome(onStart: () -> Unit, viewModel: OnboardingViewModel) {
+    val restoring by viewModel.restoring.collectAsStateWithLifecycle()
+    val restoreError by viewModel.restoreError.collectAsStateWithLifecycle()
+    val restoreLauncher = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
+        uri?.let(viewModel::restore)
+    }
     Column(
         Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(24.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
@@ -127,7 +135,13 @@ private fun Welcome(onStart: () -> Unit) {
             style = MaterialTheme.typography.bodyMedium,
         )
         Spacer(Modifier.height(8.dp))
-        Button(onClick = onStart, modifier = Modifier.fillMaxWidth()) { Text("Commencer") }
+        Button(onClick = onStart, modifier = Modifier.fillMaxWidth(), enabled = !restoring) { Text("Commencer") }
+        TextButton(
+            onClick = { restoreLauncher.launch(arrayOf("application/json", "text/plain", "application/octet-stream")) },
+            modifier = Modifier.fillMaxWidth(),
+            enabled = !restoring,
+        ) { Text(if (restoring) "Restauration…" else "Restaurer une sauvegarde Kalori") }
+        restoreError?.let { Text(it, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodyMedium) }
     }
 }
 

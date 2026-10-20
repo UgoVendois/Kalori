@@ -1,3 +1,5 @@
+@file:UseSerializers(LocalDateSerializer::class, InstantSerializer::class)
+
 package fr.kalori.app.core.database.entity
 
 import androidx.room.Embedded
@@ -6,6 +8,8 @@ import androidx.room.ForeignKey
 import androidx.room.Index
 import androidx.room.PrimaryKey
 import androidx.room.Relation
+import fr.kalori.app.core.database.InstantSerializer
+import fr.kalori.app.core.database.LocalDateSerializer
 import fr.kalori.app.domain.model.Aisle
 import fr.kalori.app.domain.model.MainProtein
 import fr.kalori.app.domain.model.MealStatus
@@ -13,6 +17,8 @@ import fr.kalori.app.domain.model.PurchaseUnit
 import fr.kalori.app.domain.model.RecipeOrigin
 import java.time.Instant
 import java.time.LocalDate
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.UseSerializers
 
 /** Ingrédient du catalogue embarqué. Valeurs pour 100 g, issues de Ciqual (voir docs/INGREDIENTS_CIQUAL.md). */
 @Entity(tableName = "ingredient")
@@ -41,6 +47,7 @@ data class IngredientEntity(
  * produits par RecipeAnalyzer à l'import : jamais saisis à la main ni repris de l'IA.
  */
 @Entity(tableName = "recipe", indices = [Index("active"), Index("origin")])
+@Serializable
 data class RecipeEntity(
     @PrimaryKey val id: String,
     val name: String,
@@ -81,6 +88,7 @@ data class RecipeEntity(
     ],
     indices = [Index("ingredientId")],
 )
+@Serializable
 data class RecipeIngredientEntity(
     val recipeId: String,
     val ingredientId: String,
@@ -107,6 +115,7 @@ data class RecipeWithIngredients(
     ],
     indices = [Index("recipeId")],
 )
+@Serializable
 data class MealPlanEntryEntity(
     @PrimaryKey val date: LocalDate,
     val recipeId: String,

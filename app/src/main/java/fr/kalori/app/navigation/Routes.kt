@@ -28,3 +28,5 @@ import kotlinx.serialization.Serializable
 // ── Paramètres ──
 @Serializable data object SettingsGraph
 @Serializable data object SettingsRoute
+@Serializable data object GoalEditRoute
+@Serializable data object LicensesRoute

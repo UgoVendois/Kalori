@@ -53,6 +53,7 @@ import fr.kalori.app.core.ui.components.DisclaimerCard
 import fr.kalori.app.core.ui.components.KaloriScaffold
 import fr.kalori.app.domain.model.GoalType
 import fr.kalori.app.domain.model.Nutrition
+import fr.kalori.app.domain.model.UnitSystem
 import fr.kalori.app.domain.tracking.Period
 import java.time.LocalDate
 import kotlin.math.abs
@@ -87,23 +88,23 @@ fun TrackingScreen(viewModel: TrackingViewModel = hiltViewModel()) {
             }
 
             state.summary?.let { summary ->
-                item { GoalCard(summary, onAddWeight = { weightDialog = true }) }
+                item { GoalCard(summary, state.unit, onAddWeight = { weightDialog = true }) }
             }
 
             item {
-                ChartCard("Poids (kg)") {
+                ChartCard("Poids (${Format.weightUnit(state.unit)})") {
                     if (state.weights.isEmpty()) {
                         EmptyChart("Aucune pesée sur cette période.")
                     } else {
                         LineChart(
-                            points = state.weights.map { it.date to it.value },
+                            points = state.weights.map { it.date to Format.weightValue(it.value, state.unit) },
                             xRange = state.weightRange,
                             color = MaterialTheme.colorScheme.primary,
                             formatValue = { Format.decimal(it) },
                             formatDate = dateFormat,
-                            description = "Évolution du poids : dernière valeur ${Format.decimal(state.weights.last().value)} kg",
-                            target = state.summary?.targetKg,
-                            targetLabel = state.summary?.let { "Objectif ${Format.decimal(it.targetKg)} kg" },
+                            description = "Évolution du poids : dernière valeur ${Format.weight(state.weights.last().value, state.unit)}",
+                            target = state.summary?.targetKg?.let { Format.weightValue(it, state.unit) },
+                            targetLabel = state.summary?.let { "Objectif ${Format.weight(it.targetKg, state.unit)}" },
                         )
                     }
                 }
@@ -195,8 +196,9 @@ fun TrackingScreen(viewModel: TrackingViewModel = hiltViewModel()) {
     if (weightDialog) {
         NumberDialog(
             title = "Pesée du jour",
-            label = "Poids (kg)",
-            initial = state.summary?.currentKg?.let { Format.decimal(it) } ?: "",
+            label = "Poids (${Format.weightUnit(state.unit)})",
+            initial = state.summary?.currentKg?.let { Format.decimal(Format.weightValue(it, state.unit)) } ?: "",
+            parse = { Format.parseWeight(it, state.unit) },
             valid = { it in 30.0..300.0 },
             onDismiss = { weightDialog = false },
             onConfirm = { viewModel.saveWeight(it); weightDialog = false },
@@ -212,13 +214,13 @@ fun TrackingScreen(viewModel: TrackingViewModel = hiltViewModel()) {
 }
 
 @Composable
-private fun GoalCard(summary: GoalSummary, onAddWeight: () -> Unit) {
+private fun GoalCard(summary: GoalSummary, unit: UnitSystem, onAddWeight: () -> Unit) {
     Card(Modifier.fillMaxWidth()) {
         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Column(Modifier.weight(1f)) {
                     Text("Poids actuel", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                    Text("${Format.decimal(summary.currentKg)} kg", style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.SemiBold)
+                    Text(Format.weight(summary.currentKg, unit), style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.SemiBold)
                 }
                 TextButton(onClick = onAddWeight) {
                     Icon(Icons.Outlined.MonitorWeight, contentDescription = null)
@@ -229,13 +231,13 @@ private fun GoalCard(summary: GoalSummary, onAddWeight: () -> Unit) {
             if (progress != null) {
                 LinearProgressIndicator(progress = { progress.toFloat() }, modifier = Modifier.fillMaxWidth().height(8.dp))
                 Text(
-                    "${(progress * 100).roundToInt()} % du chemin entre ${Format.decimal(summary.startKg)} kg et ${Format.decimal(summary.targetKg)} kg",
+                    "${(progress * 100).roundToInt()} % du chemin entre ${Format.weight(summary.startKg, unit)} et ${Format.weight(summary.targetKg, unit)}",
                     style = MaterialTheme.typography.bodyMedium,
                 )
             } else {
                 val gap = summary.currentKg - summary.targetKg
                 Text(
-                    if (abs(gap) < 0.05) "Pile sur ta cible de maintien." else "Écart à ta cible de maintien : ${if (gap > 0) "+" else "−"}${Format.decimal(abs(gap))} kg",
+                    if (abs(gap) < 0.05) "Pile sur ta cible de maintien." else "Écart à ta cible de maintien : ${if (gap > 0) "+" else "−"}${Format.weight(abs(gap), unit)}",
                     style = MaterialTheme.typography.bodyMedium,
                 )
             }
@@ -285,12 +287,13 @@ private fun NumberDialog(
     title: String,
     label: String,
     initial: String,
+    parse: (String) -> Double?,
     valid: (Double) -> Boolean,
     onDismiss: () -> Unit,
     onConfirm: (Double) -> Unit,
 ) {
     var text by remember { mutableStateOf(initial) }
-    val value = text.replace(',', '.').toDoubleOrNull()
+    val value = parse(text)
     AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(title) },

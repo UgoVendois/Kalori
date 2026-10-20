@@ -38,6 +38,13 @@ abstract class CatalogDao {
     @Upsert
     abstract suspend fun upsertRecipes(recipes: List<RecipeEntity>)
 
+    @Transaction
+    @Query("SELECT * FROM recipe WHERE origin = :origin")
+    abstract suspend fun getRecipesByOrigin(origin: RecipeOrigin): List<RecipeWithIngredients>
+
+    @Query("SELECT id FROM recipe")
+    abstract suspend fun getRecipeIds(): List<String>
+
     @Query("DELETE FROM recipe_ingredient WHERE recipeId IN (:recipeIds)")
     abstract suspend fun deleteRecipeIngredients(recipeIds: Collection<String>)
 

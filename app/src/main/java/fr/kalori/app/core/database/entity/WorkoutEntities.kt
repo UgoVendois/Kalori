@@ -1,3 +1,5 @@
+@file:UseSerializers(LocalDateSerializer::class, InstantSerializer::class)
+
 package fr.kalori.app.core.database.entity
 
 import androidx.room.Embedded
@@ -6,12 +8,16 @@ import androidx.room.ForeignKey
 import androidx.room.Index
 import androidx.room.PrimaryKey
 import androidx.room.Relation
+import fr.kalori.app.core.database.InstantSerializer
+import fr.kalori.app.core.database.LocalDateSerializer
 import fr.kalori.app.domain.model.ExerciseCategory
 import fr.kalori.app.domain.model.ExerciseIcon
 import fr.kalori.app.domain.model.MuscleGroup
 import fr.kalori.app.domain.model.WorkoutGoal
 import fr.kalori.app.domain.model.WorkoutOrigin
 import java.time.Instant
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.UseSerializers
 
 @Entity(tableName = "exercise")
 data class ExerciseEntity(
@@ -34,6 +40,7 @@ data class ExerciseEntity(
     tableName = "workout_template",
     indices = [Index(value = ["seedKey"], unique = true), Index("origin")],
 )
+@Serializable
 data class WorkoutTemplateEntity(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
     val seedKey: String?,
@@ -65,6 +72,7 @@ data class WorkoutTemplateEntity(
     ],
     indices = [Index("templateId"), Index("exerciseId")],
 )
+@Serializable
 data class WorkoutTemplateExerciseEntity(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
     val templateId: Long,
@@ -98,6 +106,7 @@ data class WorkoutTemplateWithExercises(
     ],
     indices = [Index("templateId"), Index("startedAt")],
 )
+@Serializable
 data class WorkoutSessionEntity(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
     val templateId: Long?,
@@ -125,6 +134,7 @@ data class WorkoutSessionEntity(
     ],
     indices = [Index("sessionId"), Index("exerciseId")],
 )
+@Serializable
 data class SessionSetLogEntity(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
     val sessionId: Long,
