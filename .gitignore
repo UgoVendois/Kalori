@@ -1,0 +1,20 @@
+*.iml
+.gradle/
+/local.properties
+/.idea/
+.DS_Store
+/build
+/app/build
+/captures
+.externalNativeBuild
+.cxx
+.kotlin/
+
+# Secrets : ne jamais versionner
+google-services.json
+*.jks
+*.keystore
+keystore.properties
+functions/.env*
+functions/node_modules/
+functions/lib/

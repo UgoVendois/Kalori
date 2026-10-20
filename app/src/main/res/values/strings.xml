@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NutriSport</string>
+
+    <!-- Onglets -->
+    <string name="tab_tracking">Suivi</string>
+    <string name="tab_meals">Repas</string>
+    <string name="tab_workout">Séance</string>
+    <string name="tab_settings">Paramètres</string>
+
+    <!-- Avertissements permanents (pas d'allégation médicale) -->
+    <string name="disclaimer_not_medical">NutriSport ne remplace pas un médecin ni un diététicien et n\'est pas un dispositif médical. Demandez conseil à un professionnel de santé avant de modifier votre alimentation ou votre activité physique.</string>
+    <string name="disclaimer_allergens">Les allergènes affichés proviennent de vos déclarations et des bases de données utilisées. Vérifiez toujours les étiquettes des produits achetés : NutriSport ne peut pas garantir l\'absence d\'allergènes ni de traces.</string>
+
+    <!-- Placeholders étape 0 -->
+    <string name="coming_soon">Écran en cours de construction</string>
+</resources>
