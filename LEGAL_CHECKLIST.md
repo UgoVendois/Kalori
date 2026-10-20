@@ -2,7 +2,7 @@
 
 | Version de la checklist | Date | Auteur |
 |---|---|---|
-| 0.1 | 2026-10-20 | [À COMPLÉTER] |
+| 0.2 | 2026-10-20 | [À COMPLÉTER] |
 
 > **À repasser intégralement :**
 > - avant **chaque mise en production** (nouvelle version Play Store) ;
@@ -82,9 +82,10 @@ Chaque document contient en en-tête : **version**, **date d'entrée en vigueur*
 - [ ] Avertissement allergènes visible sur l'onglet Repas, le détail d'un plat et la liste de courses.
 - [ ] Les 14 allergènes de l'annexe II du règlement INCO (UE) n° 1169/2011 sont tous présents.
 - [ ] Test « aucun allergène déclaré ne passe le filtre » vert (y compris pour les recettes IA).
-- [ ] **Ciqual** : version utilisée = ______. Licence revérifiée. Attribution affichée (Paramètres > Sources et licences).
+- [ ] **Ciqual** : version utilisée = Ciqual 2025 (03/11/2025, DOI 10.57745/RDMHWY). Vérifier sur recherche.data.gouv.fr qu'aucune version plus récente n'existe ; sinon relancer `tools/build_seed.py`. Licence revérifiée. Attribution affichée (Paramètres > Sources et licences).
 - [ ] Saisonnalité : source et licence revérifiées.
-- [ ] `ASSETS_LICENSES.md` à jour (icônes, images, polices, bibliothèques open source).
+- [ ] `ASSETS_LICENSES.md` à jour (icônes, images, polices, bibliothèques open source), avis SQLCipher inclus dans l'écran Licences.
+- [ ] `./gradlew testDebugUnitTest` vert : `SeedDataTest` vérifie l'intégrité des données embarquées.
 
 ## 6. IA (variantes de plats, Premium)
 
@@ -125,3 +126,4 @@ Chaque document contient en en-tête : **version**, **date d'entrée en vigueur*
 | Version | Date | Modifications |
 |---|---|---|
 | 0.1 | 2026-10-20 | Création (étape 0 du projet). |
+| 0.2 | 2026-10-20 | Ciqual 2025, données embarquées, avis SQLCipher (étape 1). |

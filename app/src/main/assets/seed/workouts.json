@@ -1,0 +1,76 @@
+[
+ {"seedKey": "salle_full_body_debutant", "name": "Full body débutant", "category": "GYM", "goal": "ANY",
+  "description": "Trois séances par semaine pour apprendre les mouvements de base avec des charges modérées.",
+  "exercises": [
+   {"exerciseId": "goblet_squat", "sets": 3, "reps": 10, "restSec": 90},
+   {"exerciseId": "developpe_couche", "sets": 3, "reps": 10, "restSec": 90},
+   {"exerciseId": "rowing_haltere", "sets": 3, "reps": 10, "restSec": 90},
+   {"exerciseId": "developpe_militaire", "sets": 3, "reps": 10, "restSec": 90},
+   {"exerciseId": "souleve_terre_roumain", "sets": 3, "reps": 10, "restSec": 90},
+   {"exerciseId": "gainage", "sets": 3, "durationSec": 30, "restSec": 60}
+  ]},
+ {"seedKey": "salle_haut_du_corps", "name": "Haut du corps (prise de masse)", "category": "GYM", "goal": "GAIN",
+  "description": "À alterner avec « Bas du corps » : volume modéré à élevé, 8 à 12 répétitions.",
+  "exercises": [
+   {"exerciseId": "developpe_couche", "sets": 4, "reps": 8, "restSec": 120},
+   {"exerciseId": "rowing_barre", "sets": 4, "reps": 8, "restSec": 120},
+   {"exerciseId": "developpe_incline_halteres", "sets": 3, "reps": 10, "restSec": 90},
+   {"exerciseId": "tirage_vertical", "sets": 3, "reps": 10, "restSec": 90},
+   {"exerciseId": "elevations_laterales", "sets": 3, "reps": 12, "restSec": 60},
+   {"exerciseId": "curl_halteres", "sets": 3, "reps": 12, "restSec": 60},
+   {"exerciseId": "extension_triceps", "sets": 3, "reps": 12, "restSec": 60}
+  ]},
+ {"seedKey": "salle_bas_du_corps", "name": "Bas du corps (prise de masse)", "category": "GYM", "goal": "GAIN",
+  "description": "À alterner avec « Haut du corps ». Échauffement progressif conseillé sur le squat.",
+  "exercises": [
+   {"exerciseId": "squat_barre", "sets": 4, "reps": 8, "restSec": 150},
+   {"exerciseId": "souleve_terre_roumain", "sets": 4, "reps": 8, "restSec": 120},
+   {"exerciseId": "presse_cuisses", "sets": 3, "reps": 12, "restSec": 90},
+   {"exerciseId": "fentes_halteres", "sets": 3, "reps": 10, "restSec": 90},
+   {"exerciseId": "leg_curl", "sets": 3, "reps": 12, "restSec": 60},
+   {"exerciseId": "extension_mollets", "sets": 4, "reps": 15, "restSec": 60}
+  ]},
+ {"seedKey": "salle_circuit_cardio_force", "name": "Circuit cardio et renforcement", "category": "GYM", "goal": "LOSS",
+  "description": "Échauffement au rameur, circuit de renforcement à repos courts, retour au calme à vélo.",
+  "exercises": [
+   {"exerciseId": "rameur", "sets": 1, "durationSec": 300, "restSec": 60},
+   {"exerciseId": "goblet_squat", "sets": 3, "reps": 12, "restSec": 45},
+   {"exerciseId": "tirage_horizontal", "sets": 3, "reps": 12, "restSec": 45},
+   {"exerciseId": "fentes_halteres", "sets": 3, "reps": 10, "restSec": 45},
+   {"exerciseId": "pompes", "sets": 3, "reps": 10, "restSec": 45},
+   {"exerciseId": "hip_thrust", "sets": 3, "reps": 12, "restSec": 45},
+   {"exerciseId": "crunch_poulie", "sets": 3, "reps": 15, "restSec": 45},
+   {"exerciseId": "velo", "sets": 1, "durationSec": 600, "restSec": 0}
+  ]},
+ {"seedKey": "street_fondamentaux", "name": "Street : les fondamentaux", "category": "STREET", "goal": "ANY",
+  "description": "Base de la callisthénie : poussée, tirage, jambes et gainage. Faisable dans un parc avec une barre basse.",
+  "exercises": [
+   {"exerciseId": "pompes_inclinees", "sets": 3, "reps": 10, "restSec": 90},
+   {"exerciseId": "tractions_australiennes", "sets": 3, "reps": 10, "restSec": 90},
+   {"exerciseId": "squat_poids_corps", "sets": 3, "reps": 15, "restSec": 60},
+   {"exerciseId": "dips_banc", "sets": 3, "reps": 10, "restSec": 90},
+   {"exerciseId": "pont_fessier", "sets": 3, "reps": 15, "restSec": 60},
+   {"exerciseId": "gainage", "sets": 3, "durationSec": 30, "restSec": 60}
+  ]},
+ {"seedKey": "street_hiit", "name": "Street HIIT", "category": "STREET", "goal": "LOSS",
+  "description": "Circuit intense à repos courts. Réduire le nombre de tours ou supprimer les sauts si besoin.",
+  "exercises": [
+   {"exerciseId": "jumping_jacks", "sets": 4, "durationSec": 30, "restSec": 30},
+   {"exerciseId": "burpees", "sets": 4, "reps": 10, "restSec": 30},
+   {"exerciseId": "squat_saute", "sets": 4, "reps": 12, "restSec": 30},
+   {"exerciseId": "pompes", "sets": 4, "reps": 10, "restSec": 30},
+   {"exerciseId": "mountain_climbers", "sets": 4, "durationSec": 30, "restSec": 30},
+   {"exerciseId": "fentes_marchees", "sets": 4, "reps": 12, "restSec": 30}
+  ]},
+ {"seedKey": "street_force", "name": "Street : force", "category": "STREET", "goal": "GAIN",
+  "description": "Peu de répétitions, mouvements exigeants. Prérequis : 5 tractions et 10 dips propres.",
+  "exercises": [
+   {"exerciseId": "tractions", "sets": 5, "reps": 5, "restSec": 150},
+   {"exerciseId": "dips", "sets": 5, "reps": 6, "restSec": 150},
+   {"exerciseId": "pompes_declinees", "sets": 4, "reps": 10, "restSec": 90},
+   {"exerciseId": "pistol_squat_assiste", "sets": 4, "reps": 6, "restSec": 90},
+   {"exerciseId": "pike_pushups", "sets": 3, "reps": 8, "restSec": 90},
+   {"exerciseId": "releve_jambes", "sets": 3, "reps": 10, "restSec": 60},
+   {"exerciseId": "hollow_body", "sets": 3, "durationSec": 30, "restSec": 60}
+  ]}
+]
