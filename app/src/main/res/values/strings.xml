@@ -30,9 +30,9 @@
     <string name="meals_ingredients">Ingrédients</string>
     <string name="meals_steps">Préparation</string>
     <string name="meals_allergens_contains">Contient ou peut contenir : %1$s</string>
-    <string name="meals_allergens_none">Aucun des 14 allergènes réglementaires d'après nos données.</string>
+    <string name="meals_allergens_none">Aucun des 14 allergènes réglementaires d\'après nos données.</string>
     <string name="meals_nutrition_title">Valeurs nutritionnelles (portion ajustée)</string>
-    <string name="meals_history_empty">Aucun plat passé pour l'instant.</string>
+    <string name="meals_history_empty">Aucun plat passé pour l\'instant.</string>
     <string name="meals_source">Valeurs calculées à partir de la table Ciqual 2025 (Anses).</string>
     <string name="back">Retour</string>
     <string name="save">Enregistrer</string>
@@ -43,10 +43,10 @@
     <string name="prefs_diets_title">Régimes alimentaires</string>
     <string name="prefs_certified_hint">Halal et casher : Kalori exclut les ingrédients interdits, mais ne peut pas vérifier la certification des produits que tu achètes.</string>
     <string name="prefs_tastes_title">Mes goûts</string>
-    <string name="prefs_tastes_hint">J'aime : ces aliments sont favorisés. Je n'aime pas : ils sont exclus.</string>
+    <string name="prefs_tastes_hint">J\'aime : ces aliments sont favorisés. Je n\'aime pas : ils sont exclus.</string>
     <string name="prefs_search">Rechercher un aliment</string>
-    <string name="prefs_like">J'aime</string>
-    <string name="prefs_dislike">Je n'aime pas</string>
+    <string name="prefs_like">J\'aime</string>
+    <string name="prefs_dislike">Je n\'aime pas</string>
     <string name="prefs_saved">Préférences enregistrées, plats à venir recalculés</string>
 
     <!-- Liste de courses -->

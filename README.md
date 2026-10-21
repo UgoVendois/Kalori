@@ -9,7 +9,7 @@ Kotlin, Jetpack Compose (Material 3), MVVM, Hilt, Room (chiffrée par SQLCipher)
 
 ## Ouvrir le projet
 1. Android Studio (version stable récente) : **File > Open** puis sélectionner ce dossier.
-2. Le fichier `gradle-wrapper.jar` n'est pas versionné. Android Studio télécharge Gradle à partir de `gradle/wrapper/gradle-wrapper.properties`. Pour utiliser `./gradlew` en ligne de commande, lancer une fois `gradle wrapper` (avec un Gradle installé) ou utiliser le terminal d'Android Studio.
+2. Le wrapper Gradle est versionné (`./gradlew`). Le daemon Gradle exige un **JDK 21** (`gradle/gradle-daemon-jvm.properties`) : Gradle le choisit automatiquement s'il est installé (par exemple `~/.jdks/jbr-21…`, téléchargeable depuis Android Studio > Settings > Build Tools > Gradle > Gradle JDK). Le SDK Android doit contenir la plateforme **API 36** et les **build-tools 35.0.0**.
 3. Si Android Studio propose des mises à jour d'AGP ou de bibliothèques, elles peuvent être acceptées : le catalogue `gradle/libs.versions.toml` centralise toutes les versions.
 4. Installation rapide : brancher le téléphone (débogage USB activé) et lancer **Run** dans Android Studio (version debug).
 

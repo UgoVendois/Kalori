@@ -29,3 +29,6 @@
 -dontwarn org.slf4j.**
 -dontwarn java.beans.**
 -dontwarn com.standardwebhooks.**
+# Absente d'Android ; utilisée uniquement par la sortie structurée « depuis une classe » du SDK,
+# que Kalori n'emploie pas (schéma JSON écrit à la main dans AiMealService).
+-dontwarn java.lang.reflect.AnnotatedType

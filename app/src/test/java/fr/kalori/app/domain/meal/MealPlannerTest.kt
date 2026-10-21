@@ -90,8 +90,14 @@ class MealPlannerTest {
             MealContext(start.minusDays(d), meal.id, meal.mainProtein)
         }
         val plan = MealPlanner.plan(week, catalog, FoodPreferences(), mealTarget, history)
-        val recent = history.map { it.recipeId }.toSet()
-        assertTrue(plan.none { it.recipeId in recent })
+        // Règle : un même plat n'est jamais servi deux fois à moins de 14 jours d'écart.
+        // (Un plat de J−14 redevient donc possible dès J.)
+        plan.forEach { meal ->
+            history.filter { it.recipeId == meal.recipeId }.forEach { past ->
+                val gap = java.time.temporal.ChronoUnit.DAYS.between(past.date, meal.date)
+                assertTrue(gap >= 14, "${meal.recipeId} reproposé ${gap} jours après")
+            }
+        }
     }
 
     @Test
