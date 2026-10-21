@@ -3,6 +3,7 @@ package fr.kalori.app.feature.meals
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -13,23 +14,30 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.ContentCopy
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -41,6 +49,9 @@ import fr.kalori.app.core.ui.components.DisclaimerKind
 import fr.kalori.app.core.ui.components.KaloriCard
 import fr.kalori.app.core.ui.components.KaloriScaffold
 import fr.kalori.app.core.ui.components.SnackbarMessages
+import fr.kalori.app.core.ui.theme.Kalori
+import fr.kalori.app.data.meal.ShoppingList
+import fr.kalori.app.domain.meal.ShoppingItem
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -51,6 +62,7 @@ fun ShoppingListScreen(
     val list by viewModel.list.collectAsStateWithLifecycle()
     val snackbar = remember { SnackbarHostState() }
     SnackbarMessages(viewModel.messages, snackbar)
+    var editing by remember { mutableStateOf<ShoppingItem?>(null) }
 
     KaloriScaffold(
         title = stringResource(R.string.meals_shopping),
@@ -80,6 +92,9 @@ fun ShoppingListScreen(
                     modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
                     style = MaterialTheme.typography.bodyMedium,
                 )
+            }
+            if (current.total > 0) {
+                item { CostSummary(current, Modifier.padding(horizontal = 16.dp)) }
             }
             item {
                 DisclaimerCard(
@@ -125,12 +140,26 @@ fun ShoppingListScreen(
                                     textDecoration = if (checked) TextDecoration.LineThrough else null,
                                     color = if (checked) MaterialTheme.colorScheme.onSurfaceVariant else MaterialTheme.colorScheme.onSurface,
                                 )
-                                Text(
-                                    item.quantityText,
-                                    modifier = Modifier.padding(end = 12.dp),
-                                    style = MaterialTheme.typography.labelLarge,
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                )
+                                Column(horizontalAlignment = Alignment.End, modifier = Modifier.padding(end = 4.dp)) {
+                                    Text(
+                                        item.quantityText,
+                                        style = MaterialTheme.typography.labelLarge,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    )
+                                    current.itemCosts[item.ingredientId]?.let { cost ->
+                                        val custom = item.ingredientId in current.customPrices
+                                        Text(
+                                            (if (custom) "" else "≈ ") + Format.euros(cost),
+                                            modifier = Modifier
+                                                .clip(MaterialTheme.shapes.small)
+                                                .clickable { editing = item }
+                                                .padding(horizontal = 6.dp, vertical = 2.dp),
+                                            style = MaterialTheme.typography.labelMedium,
+                                            color = if (custom) Kalori.colors.snack.solid else MaterialTheme.colorScheme.primary,
+                                            textDecoration = TextDecoration.Underline,
+                                        )
+                                    }
+                                }
                             }
                         }
                     }
@@ -146,4 +175,80 @@ fun ShoppingListScreen(
             }
         }
     }
+
+    editing?.let { item ->
+        val current = list ?: return@let
+        PriceDialog(
+            item = item,
+            pricePerKg = current.pricePerKg[item.ingredientId] ?: 0.0,
+            custom = item.ingredientId in current.customPrices,
+            onDismiss = { editing = null },
+            onSave = { text -> viewModel.setPrice(item.ingredientId, text); editing = null },
+            onReset = { viewModel.setPrice(item.ingredientId, ""); editing = null },
+        )
+    }
+}
+
+/** Total estimé de la liste, comparé au budget de la semaine. */
+@Composable
+private fun CostSummary(list: ShoppingList, modifier: Modifier = Modifier) {
+    val budget = list.weeklyBudget
+    val over = budget != null && list.total > budget
+    KaloriCard(modifier = modifier, contentPadding = 14.dp, spacing = 6.dp) {
+        Row(verticalAlignment = Alignment.Bottom) {
+            Text("≈ ${Format.eurosRounded(list.total)}", style = MaterialTheme.typography.headlineSmall)
+            Text(
+                if (budget != null) "  sur $budget € de budget" else "  estimés",
+                style = MaterialTheme.typography.bodyMedium,
+                color = if (over) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(bottom = 3.dp),
+            )
+        }
+        Text(
+            "Prix moyens estimés. Touche un montant pour saisir le prix de ton magasin : " +
+                "les plats suivants en tiennent compte.",
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
+}
+
+@Composable
+private fun PriceDialog(
+    item: ShoppingItem,
+    pricePerKg: Double,
+    custom: Boolean,
+    onDismiss: () -> Unit,
+    onSave: (String) -> Unit,
+    onReset: () -> Unit,
+) {
+    val unit = if (item.quantityText.endsWith("ml") || item.quantityText.endsWith(" L")) "€/L" else "€/kg"
+    var text by remember { mutableStateOf(Format.decimal(pricePerKg, 2)) }
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text("Prix : ${item.name}") },
+        text = {
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                Text(
+                    if (custom) "Prix que tu as saisi." else "Estimation moyenne en supermarché.",
+                    style = MaterialTheme.typography.bodyMedium,
+                )
+                OutlinedTextField(
+                    value = text,
+                    onValueChange = { text = it.filter { c -> c.isDigit() || c == ',' || c == '.' }.take(7) },
+                    singleLine = true,
+                    suffix = { Text(unit) },
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
+                )
+            }
+        },
+        confirmButton = { TextButton(onClick = { onSave(text) }) { Text("Enregistrer") } },
+        dismissButton = {
+            if (custom) {
+                TextButton(onClick = onReset) { Text("Revenir à l'estimation") }
+            } else {
+                TextButton(onClick = onDismiss) { Text("Annuler") }
+            }
+        },
+    )
 }

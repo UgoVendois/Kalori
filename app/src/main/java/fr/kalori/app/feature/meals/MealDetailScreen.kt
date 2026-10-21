@@ -21,6 +21,7 @@ import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.outlined.AutoAwesome
 import androidx.compose.material.icons.outlined.CheckCircleOutline
 import androidx.compose.material.icons.outlined.Refresh
+import androidx.compose.material.icons.outlined.Schedule
 import androidx.compose.material.icons.outlined.WarningAmber
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.FilledTonalButton
@@ -29,13 +30,18 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.SegmentedButton
+import androidx.compose.material3.SegmentedButtonDefaults
+import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -56,6 +62,8 @@ import fr.kalori.app.core.ui.theme.Kalori
 import fr.kalori.app.core.ui.theme.accent
 import fr.kalori.app.data.meal.MealDetail
 import fr.kalori.app.data.meal.toShoppingIngredient
+import fr.kalori.app.domain.meal.PrepInfo
+import fr.kalori.app.domain.meal.PrepKind
 import fr.kalori.app.domain.meal.ShoppingListBuilder
 import fr.kalori.app.domain.model.Allergen
 import fr.kalori.app.domain.model.MealStatus
@@ -118,6 +126,8 @@ fun MealDetailContent(
     val meal = detail.meal
     val accent = meal.slot.accent()
     val allergens = detail.allergensMask.toFlagSet<Allergen>()
+    // Le jour où l'on cuisine pour plusieurs repas, les quantités à cuisiner sont affichées d'emblée.
+    var showCook by remember(meal.date, meal.slot) { mutableStateOf(detail.cookIngredients != null) }
 
     LazyColumn(
         modifier = modifier.fillMaxSize(),
@@ -169,6 +179,7 @@ fun MealDetailContent(
                 }
             }
         }
+        item { PrepCard(detail) }
         if (meal.outOfSeason) {
             item { DisclaimerCard(stringResource(R.string.meals_out_of_season)) }
         }
@@ -200,7 +211,20 @@ fun MealDetailContent(
         item {
             KaloriCard {
                 Text(stringResource(R.string.meals_ingredients), style = MaterialTheme.typography.titleMedium)
-                detail.ingredients.forEachIndexed { index, (ingredient, grams) ->
+                val cook = detail.cookIngredients
+                if (cook != null) {
+                    SingleChoiceSegmentedButtonRow(Modifier.fillMaxWidth()) {
+                        listOf("Ma portion", cookLabel(meal.prep)).forEachIndexed { index, label ->
+                            SegmentedButton(
+                                selected = showCook == (index == 1),
+                                onClick = { showCook = index == 1 },
+                                shape = SegmentedButtonDefaults.itemShape(index, 2),
+                            ) { Text(label, maxLines = 1) }
+                        }
+                    }
+                }
+                val shown = if (showCook && cook != null) cook else detail.ingredients
+                shown.forEachIndexed { index, (ingredient, grams) ->
                     if (index > 0) HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.6f))
                     Row(Modifier.fillMaxWidth().padding(vertical = 2.dp), horizontalArrangement = Arrangement.SpaceBetween) {
                         Text(ingredient.name, style = MaterialTheme.typography.bodyLarge)
@@ -231,3 +255,52 @@ fun MealDetailContent(
         }
     }
 }
+
+private fun cookLabel(prep: PrepInfo) = when (prep.kind) {
+    PrepKind.BATCH_DAY -> "Fournée (${prep.batchDays} j)"
+    PrepKind.COOK_WITH_LEFTOVERS -> "Avec demain midi"
+    else -> "À cuisiner"
+}
+
+/** Temps, coût, conservation et organisation (restes, fournée). */
+@Composable
+private fun PrepCard(detail: MealDetail) {
+    val meal = detail.meal
+    val kind = meal.prep.kind
+    KaloriCard(spacing = 8.dp) {
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            Icon(Icons.Outlined.Schedule, contentDescription = null, tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(20.dp))
+            Text(
+                buildList {
+                    add("${meal.prepMinutes} min")
+                    add(difficultyLabel(meal.difficulty))
+                    if (meal.unitCost > 0) add("≈ ${Format.euros(meal.cost)} la portion")
+                }.joinToString(" · "),
+                style = MaterialTheme.typography.bodyLarge,
+            )
+        }
+        val advice = when (kind) {
+            PrepKind.COOK_WITH_LEFTOVERS ->
+                "Cuisine aussi la portion de demain midi : mets-la en boîte au réfrigérateur dès qu'elle a refroidi."
+            PrepKind.LEFTOVERS ->
+                "Restes du dîner d'hier : à garder au frais jusqu'au repas, puis à bien réchauffer."
+            PrepKind.BATCH_DAY ->
+                "Jour de fournée : prépare d'un coup les ${meal.prep.batchDays} jours de la semaine."
+            PrepKind.FROM_BATCH -> "Pris dans ta fournée de la semaine : rien à préparer."
+            PrepKind.COOK -> null
+        }
+        advice?.let { Text(it, style = MaterialTheme.typography.bodyMedium) }
+        val keep = buildList {
+            if (detail.keepDays > 0) add("Se garde ${detail.keepDays} jour${if (detail.keepDays > 1) "s" else ""} une fois préparé")
+            if (detail.freezable) add("se congèle")
+        }
+        if (keep.isNotEmpty()) {
+            Text(
+                keep.joinToString(", ").replaceFirstChar { it.uppercase() } + ".",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+    }
+}
+

@@ -7,6 +7,7 @@ import fr.kalori.app.BuildConfig
 import fr.kalori.app.core.database.AppDatabase
 import fr.kalori.app.core.database.InstantSerializer
 import fr.kalori.app.core.database.entity.DailyIntakeEntity
+import fr.kalori.app.core.database.entity.IngredientPriceEntity
 import fr.kalori.app.core.database.entity.MealPlanEntryEntity
 import fr.kalori.app.core.database.entity.RecipeEntity
 import fr.kalori.app.core.database.entity.RecipeIngredientEntity
@@ -52,6 +53,8 @@ data class KaloriBackup(
     val workoutTemplateExercises: List<WorkoutTemplateExerciseEntity>,
     val sessions: List<WorkoutSessionEntity>,
     val sessionSets: List<SessionSetLogEntity>,
+    /** Prix saisis par l'utilisateur (format 3 ; absent des sauvegardes plus anciennes). */
+    val ingredientPrices: List<IngredientPriceEntity> = emptyList(),
 )
 
 data class ImportSummary(val weights: Int, val meals: Int, val workouts: Int, val sessions: Int, val skipped: Int)
@@ -93,6 +96,7 @@ class BackupRepository @Inject constructor(
                 workoutTemplateExercises = templates.flatMap { it.exercises },
                 sessions = workouts.getAllSessions(),
                 sessionSets = workouts.getAllSetLogs(),
+                ingredientPrices = database.catalogDao().getPrices(),
             ),
         )
     }
@@ -122,6 +126,7 @@ class BackupRepository @Inject constructor(
             tracking.insertWeights(backup.weights)
             tracking.upsertIntakes(backup.extraIntakes)
             database.restrictionDao().insertAll(backup.restrictions)
+            catalog.upsertPrices(backup.ingredientPrices)
 
             val ingredientIds = catalog.getIngredients().map { it.id }.toSet()
             val aiLines = backup.aiRecipeIngredients.filter { it.ingredientId in ingredientIds }
@@ -164,6 +169,7 @@ class BackupRepository @Inject constructor(
         database.trackingDao().deleteAllWeights()
         database.trackingDao().deleteAllIntakes()
         database.restrictionDao().deleteAll()
+        database.catalogDao().deleteAllPrices()
         database.mealPlanDao().deleteAllChecks()
         database.mealPlanDao().deleteAll()
         database.workoutDao().deleteAllSessions()
@@ -173,7 +179,10 @@ class BackupRepository @Inject constructor(
     }
 
     private companion object {
-        /** 2 : plusieurs repas par jour (créneaux). Les sauvegardes au format 1 restent importables. */
-        const val FORMAT = 2
+        /**
+         * 2 : plusieurs repas par jour (créneaux). 3 : budget, organisation et prix saisis.
+         * Les sauvegardes des formats précédents restent importables (valeurs par défaut).
+         */
+        const val FORMAT = 3
     }
 }

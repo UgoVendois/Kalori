@@ -1,5 +1,7 @@
 package fr.kalori.app.data.ai
 
+import fr.kalori.app.domain.model.CookingLevel
+import java.util.Locale
 import com.anthropic.client.okhttp.AnthropicOkHttpClient
 import com.anthropic.core.JsonValue
 import com.anthropic.errors.AnthropicIoException
@@ -40,7 +42,8 @@ sealed interface VariantResult {
  *
  * Données envoyées (minimisées) : la liste des ingrédients AUTORISÉS (déjà filtrée localement selon
  * allergènes, régimes, goûts et saison — les restrictions elles-mêmes ne sont pas envoyées), la cible du
- * repas (kcal, protéines), le mois, les aliments aimés et les noms des plats de la semaine à éviter.
+ * repas (kcal, protéines, budget), le niveau de cuisine, le mois, les aliments aimés et les noms des plats de la
+ * semaine à éviter.
  * Ni identifiant, ni poids, ni âge, ni allergie déclarée.
  * La réponse est revalidée et recalculée localement (AiRecipeValidator) avant d'être utilisée.
  */
@@ -71,6 +74,15 @@ class AiMealService @Inject constructor(
                     appendLine("Repas : ${mealKind(context.mealType)}")
                     appendLine("Mois : ${date.monthValue}")
                     appendLine("Cible pour ce plat : environ ${context.target.kcal} kcal et au moins ${context.target.proteinG} g de protéines.")
+                    context.budget?.let { appendLine("Budget : environ ${"%.2f".format(Locale.FRANCE, it)} € d'ingrédients pour cette portion (produits courants de supermarché).") }
+                    appendLine(
+                        when (context.cookingLevel) {
+                            CookingLevel.SIMPLE -> "Niveau de cuisine : simple (20 minutes environ, peu d'ingrédients et d'ustensiles)."
+                            CookingLevel.NORMAL -> "Niveau de cuisine : courant (45 minutes au plus)."
+                            CookingLevel.ELABORATE -> "Niveau de cuisine : élaboré accepté (mijotés, plusieurs préparations)."
+                        },
+                    )
+                    if (context.mustTravel) appendLine("Le plat est cuisiné en double et emporté le lendemain midi : il doit se conserver un jour au frais et se réchauffer.")
                     if (liked.isNotEmpty()) appendLine("Aliments appréciés (à privilégier si possible) : ${liked.joinToString(", ")}")
                     appendLine("Plats déjà prévus cette semaine (à ne pas reproduire) : ${context.weekDishNames.joinToString(" ; ")}")
                     appendLine("Ingrédients autorisés (id : nom) :")

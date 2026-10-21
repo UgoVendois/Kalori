@@ -53,6 +53,7 @@ data class SeedIngredient(
     val carbs: Double,
     val fiber: Double,
     val kcalComputed: Boolean,
+    val priceEurPerKg: Double,
 )
 
 @Serializable
@@ -61,6 +62,12 @@ data class SeedRecipe(
     val name: String,
     val mainProtein: MainProtein,
     val mealType: MealType = MealType.MAIN,
+    val prepMinutes: Int,
+    val difficulty: Int,
+    val keepDays: Int,
+    val lunchbox: Boolean,
+    val freezable: Boolean,
+    val batch: Boolean,
     val steps: List<String>,
     val ingredients: List<SeedRecipeLine>,
 )

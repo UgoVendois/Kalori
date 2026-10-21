@@ -1,6 +1,11 @@
 # Recettes originales Kalori (textes rédigés pour l'app, libres de droits tiers).
 # Format :
 #   @ id | Nom | PROTÉINE_PRINCIPALE (POULTRY RED_MEAT PORK FISH SEAFOOD EGG DAIRY PLANT)
+#   * temps=MIN niveau=1|2|3 frigo=JOURS [boite] [congel] [fournee]
+#       temps : préparation + cuisson ; niveau : 1 simple, 2 normal, 3 élaboré ;
+#       frigo : jours de conservation une fois préparé (0 = à manger tout de suite) ;
+#       boite : se transporte et se réchauffe (restes du soir pour le midi) ;
+#       congel : se congèle ; fournee : se prépare en une fois pour la semaine.
 #   + ingrédient grammes, ingrédient grammes, ...   (1 portion, poids comestible cru sauf mention "cuit/conserve")
 #   - étape
 # Le sel et le poivre ne sont pas listés (apport négligeable, toujours "selon le goût").
@@ -9,6 +14,7 @@
 # ───────────── Toute l'année ─────────────
 
 @ poulet_curry_coco | Curry de poulet au lait de coco, riz basmati | POULTRY
+* temps=30 niveau=1 frigo=3 boite congel
 + poulet_filet 140, lait_coco 80, oignon 80, tomates_pelees 150, curry 4, gingembre 5, riz_basmati 70, huile_colza 5, coriandre 5
 - Rincer le riz et le cuire 11 minutes dans de l'eau bouillante salée.
 - Faire revenir l'oignon émincé et le gingembre râpé dans l'huile, ajouter le poulet en morceaux et le curry.
@@ -16,6 +22,7 @@
 - Servir avec le riz et la coriandre ciselée.
 
 @ chili_sin_carne | Chili sin carne aux haricots rouges | PLANT
+* temps=40 niveau=1 frigo=3 boite congel
 + haricots_rouges 200, mais 60, tomates_pelees 200, oignon 80, carotte 80, cumin 3, paprika 3, riz_complet 60, huile_olive 8, ail 5
 - Cuire le riz complet environ 30 minutes.
 - Faire revenir l'oignon, l'ail et la carotte en petits dés dans l'huile.
@@ -23,6 +30,7 @@
 - Servir avec le riz.
 
 @ chili_con_carne | Chili con carne | RED_MEAT
+* temps=35 niveau=1 frigo=3 boite congel
 + boeuf_hache 120, haricots_rouges 150, tomates_pelees 200, oignon 80, cumin 3, paprika 3, riz_basmati 60, huile_olive 5, ail 5
 - Cuire le riz.
 - Dorer l'oignon et l'ail dans l'huile, ajouter la viande et l'émietter.
@@ -30,6 +38,7 @@
 - Servir avec le riz.
 
 @ dahl_lentilles_corail | Dahl de lentilles corail au lait de coco | PLANT
+* temps=30 niveau=1 frigo=3 boite congel
 + lentilles_corail 80, lait_coco 60, tomates_pelees 150, oignon 70, carotte 80, curry 4, gingembre 5, ail 5, riz_basmati 50, coriandre 5
 - Faire revenir l'oignon, l'ail et le gingembre avec le curry.
 - Ajouter la carotte râpée, les lentilles rincées, les tomates et 200 ml d'eau ; cuire 20 minutes.
@@ -37,12 +46,14 @@
 - Servir avec le riz et la coriandre.
 
 @ bolognaise_boeuf | Pâtes complètes à la bolognaise | RED_MEAT
+* temps=30 niveau=1 frigo=3 boite congel
 + pates_completes 90, boeuf_hache 110, coulis_tomate 150, oignon 60, carotte 60, huile_olive 5, parmesan 10, herbes_provence 1
 - Faire revenir l'oignon et la carotte hachés dans l'huile, ajouter la viande.
 - Verser le coulis et les herbes, mijoter 15 minutes.
 - Cuire les pâtes al dente, mélanger avec la sauce et parsemer de parmesan.
 
 @ bolognaise_lentilles | Pâtes à la bolognaise de lentilles | PLANT
+* temps=35 niveau=1 frigo=3 boite congel
 + pates 85, lentilles_vertes 50, coulis_tomate 180, oignon 60, carotte 80, champignon 80, huile_olive 8, herbes_provence 1
 - Cuire les lentilles 20 minutes dans l'eau non salée.
 - Faire revenir l'oignon, la carotte et les champignons hachés finement.
@@ -50,24 +61,28 @@
 - Servir sur les pâtes cuites al dente.
 
 @ omelette_champignons_pdt | Omelette aux champignons, pommes de terre sautées | EGG
+* temps=25 niveau=1 frigo=1
 + oeuf 165, champignon 120, pomme_de_terre 250, huile_olive 10, persil 5, emmental 15
 - Cuire les pommes de terre en dés à la poêle avec la moitié de l'huile, 20 minutes.
 - Faire sauter les champignons émincés avec le reste de l'huile.
 - Battre les œufs avec le persil, verser sur les champignons, ajouter l'emmental et cuire à feu doux.
 
 @ saumon_papillote_carottes | Saumon en papillote, carottes au cumin, riz complet | FISH
+* temps=35 niveau=1 frigo=2 boite
 + saumon 130, carotte 200, riz_complet 60, citron 30, cumin 2, huile_olive 5
 - Cuire le riz complet.
 - Disposer le saumon sur une feuille de papier cuisson avec des rondelles de citron, fermer et cuire 15 minutes à 200 °C.
 - Faire glacer les carottes en rondelles avec l'huile, le cumin et un fond d'eau.
 
 @ cabillaud_pdt_citron | Cabillaud, pommes de terre vapeur, sauce citron-persil | FISH
+* temps=30 niveau=1 frigo=2 boite
 + cabillaud 160, pomme_de_terre 300, creme_legere 30, citron 30, persil 8, carotte 150, huile_olive 10
 - Cuire les pommes de terre et les carottes à la vapeur.
 - Saisir le cabillaud 3 minutes par face dans l'huile.
 - Mélanger la crème, le jus de citron et le persil ciselé ; napper le poisson.
 
 @ tofu_saute_legumes | Tofu sauté aux carottes et champignons, riz basmati | PLANT
+* temps=25 niveau=1 frigo=3 boite
 + tofu 150, carotte 120, champignon 120, oignon 50, sauce_soja 15, gingembre 5, riz_basmati 70, huile_sesame 8, sesame 5
 - Cuire le riz.
 - Dorer le tofu en cubes dans l'huile, réserver.
@@ -75,48 +90,56 @@
 - Parsemer de sésame.
 
 @ pois_chiches_tomate | Pois chiches mijotés à la tomate et au cumin, semoule | PLANT
+* temps=25 niveau=1 frigo=3 boite congel
 + pois_chiches 200, tomates_pelees 200, oignon 80, carotte 100, cumin 3, semoule 60, huile_olive 8, coriandre 5
 - Faire revenir l'oignon et la carotte dans l'huile avec le cumin.
 - Ajouter les tomates et les pois chiches rincés, mijoter 15 minutes.
 - Préparer la semoule à l'eau bouillante et servir avec la coriandre.
 
 @ couscous_poulet | Couscous de poulet aux carottes et pois chiches | POULTRY
+* temps=45 niveau=2 frigo=3 boite congel
 + poulet_cuisse 140, semoule 60, pois_chiches 80, carotte 150, oignon 60, tomates_pelees 100, cumin 2, harissa 5, huile_olive 5
 - Dorer le poulet dans l'huile, ajouter l'oignon, les carottes en tronçons et le cumin.
 - Couvrir d'eau avec les tomates, cuire 30 minutes, ajouter les pois chiches 5 minutes avant la fin.
 - Préparer la semoule et servir avec un peu de bouillon relevé de harissa.
 
 @ hachis_parmentier | Hachis parmentier | RED_MEAT
+* temps=60 niveau=2 frigo=3 boite congel
 + boeuf_hache 110, pomme_de_terre 280, lait 60, beurre 8, oignon 60, emmental 15, carotte 80
 - Cuire les pommes de terre et les écraser avec le lait chaud et le beurre.
 - Faire revenir l'oignon et la carotte hachés avec la viande.
 - Disposer la viande dans un plat, couvrir de purée, parsemer d'emmental et gratiner 15 minutes à 200 °C.
 
 @ riz_saute_crevettes | Riz sauté aux crevettes, œuf et petits légumes | SEAFOOD
+* temps=25 niveau=1 frigo=2 boite
 + crevettes 110, riz_basmati 70, oeuf 55, carotte 80, mais 40, oignon 40, sauce_soja 10, huile_colza 8
 - Cuire le riz et le laisser refroidir.
 - Faire sauter l'oignon et la carotte en petits dés, ajouter le riz puis l'œuf battu.
 - Ajouter les crevettes, le maïs et la sauce soja, réchauffer 2 minutes.
 
 @ pates_jambon_champignons | Pâtes au jambon, champignons et crème légère | PORK
+* temps=20 niveau=1 frigo=2 boite
 + pates 85, jambon 70, champignon 120, creme_legere 40, oignon 40, parmesan 8
 - Cuire les pâtes.
 - Faire revenir l'oignon et les champignons, ajouter le jambon en lanières et la crème.
 - Mélanger avec les pâtes et le parmesan.
 
 @ galette_complete | Galettes de sarrasin complètes aux champignons | PORK
+* temps=25 niveau=2 frigo=1
 + galette_sarrasin 180, jambon 50, oeuf 55, emmental 25, champignon 80, beurre 5
 - Faire sauter les champignons émincés.
 - Réchauffer les galettes dans une poêle beurrée, garnir de jambon, champignons et emmental.
 - Casser l'œuf au centre d'une galette, couvrir jusqu'à ce que le blanc soit pris, replier les bords.
 
 @ lentilles_lardons | Lentilles vertes aux lardons et carottes | PORK
+* temps=40 niveau=1 frigo=3 boite congel
 + lentilles_vertes 80, lardons 50, carotte 120, oignon 60, herbes_provence 1, moutarde 5, pain_complet 40
 - Faire revenir les lardons et l'oignon sans matière grasse.
 - Ajouter les lentilles, les carottes en rondelles, les herbes et couvrir d'eau ; cuire 25 minutes.
 - Lier avec la moutarde et servir avec le pain.
 
 @ bowl_quinoa_betterave | Bowl de quinoa, pois chiches rôtis, betterave et tahin | PLANT
+* temps=40 niveau=2 frigo=3 boite
 + quinoa 60, pois_chiches 150, betterave 100, carotte 80, tahin 15, citron 15, paprika 2, huile_olive 5
 - Cuire le quinoa 12 minutes.
 - Rôtir les pois chiches avec l'huile et le paprika 20 minutes à 200 °C.
@@ -124,29 +147,34 @@
 - Assembler et napper de tahin détendu au jus de citron et à l'eau.
 
 @ salade_riz_thon | Salade de riz au thon, maïs et œuf | FISH
+* temps=25 niveau=1 frigo=2 boite
 + riz_basmati 70, thon_conserve 80, mais 60, oeuf 55, carotte 60, huile_olive 10, vinaigre_vin 5, ciboulette 5
 - Cuire le riz et l'œuf (10 minutes), laisser refroidir.
 - Mélanger le riz, le thon émietté, le maïs et la carotte râpée.
 - Assaisonner d'huile, de vinaigre et de ciboulette, ajouter l'œuf en quartiers.
 
 @ dinde_moutarde_pdt | Escalope de dinde à la moutarde, pommes de terre rôties | POULTRY
+* temps=40 niveau=1 frigo=3 boite
 + dinde_escalope 140, moutarde 10, creme_legere 30, pomme_de_terre 250, huile_olive 10, thym 1, carotte 100
 - Rôtir les pommes de terre et les carottes en morceaux avec l'huile et le thym, 35 minutes à 200 °C.
 - Saisir la dinde à la poêle, déglacer avec la crème mélangée à la moutarde.
 
 @ boeuf_carottes | Bœuf mijoté aux carottes | RED_MEAT
+* temps=150 niveau=2 frigo=3 boite congel
 + boeuf_braiser 140, carotte 200, oignon 60, vin_rouge 50, pomme_de_terre 200, huile_olive 5, thym 1, concentre_tomate 10
 - Dorer la viande en morceaux dans une cocotte, ajouter l'oignon.
 - Déglacer au vin, ajouter le concentré, le thym, les carottes et couvrir d'eau.
 - Mijoter 2 heures à couvert, ajouter les pommes de terre 30 minutes avant la fin.
 
 @ oeufs_sauce_tomate | Œufs pochés à la sauce tomate épicée, pain complet | EGG
+* temps=25 niveau=1 frigo=1
 + oeuf 110, tomates_pelees 250, oignon 70, cumin 2, paprika 2, pain_complet 80, huile_olive 8, coriandre 5, feta 20
 - Faire revenir l'oignon dans l'huile avec les épices, ajouter les tomates et cuire 10 minutes.
 - Creuser deux puits, y casser les œufs, couvrir et cuire 6 minutes.
 - Parsemer de feta et de coriandre, servir avec le pain.
 
 @ risotto_champignons | Risotto aux champignons et parmesan | DAIRY
+* temps=40 niveau=2 frigo=2 boite
 + riz_blanc 80, champignon 150, oignon 50, parmesan 20, bouillon_legumes 5, vin_blanc 30, huile_olive 8, persil 5
 - Préparer 400 ml de bouillon chaud.
 - Nacrer le riz avec l'oignon dans l'huile, déglacer au vin.
@@ -154,65 +182,76 @@
 - Incorporer les champignons sautés, le parmesan et le persil.
 
 @ pates_thon_olives | Pâtes à la sauce tomate, thon et olives | FISH
+* temps=20 niveau=1 frigo=2 boite
 + pates 85, thon_conserve 80, coulis_tomate 150, olives_noires 20, oignon 40, huile_olive 5, basilic 3
 - Cuire les pâtes.
 - Faire revenir l'oignon, ajouter le coulis, le thon émietté et les olives ; chauffer 5 minutes.
 - Mélanger avec les pâtes et le basilic.
 
 @ quesadillas_haricots | Quesadillas aux haricots rouges, maïs et emmental | DAIRY
+* temps=20 niveau=1 frigo=1
 + tortilla 80, haricots_rouges 120, mais 50, emmental 30, oignon_rouge 30, cumin 2, yaourt_grec 30
 - Écraser grossièrement les haricots avec le cumin.
 - Garnir une tortilla de haricots, maïs, oignon et emmental, couvrir de la seconde.
 - Dorer 3 minutes de chaque côté à la poêle, servir avec le yaourt.
 
 @ poulet_creme_champignons | Poulet à la crème de champignons, riz | POULTRY
+* temps=30 niveau=1 frigo=3 boite
 + poulet_filet 140, champignon 150, creme_legere 40, riz_basmati 65, oignon 40, thym 1, carotte 100
 - Cuire le riz et les carottes en rondelles à la vapeur.
 - Dorer le poulet, ajouter l'oignon et les champignons, puis la crème et le thym ; mijoter 5 minutes.
 
 @ maquereau_moutarde | Maquereau rôti à la moutarde, pommes de terre et carottes | FISH
+* temps=40 niveau=1 frigo=2 boite
 + maquereau 120, moutarde 10, pomme_de_terre 220, carotte 120, huile_olive 5, persil 5
 - Rôtir les pommes de terre et les carottes avec l'huile, 30 minutes à 200 °C.
 - Badigeonner les filets de moutarde et les ajouter au four pour les 10 dernières minutes.
 - Parsemer de persil.
 
 @ pates_sardines_citron | Pâtes complètes aux sardines, citron et persil | FISH
+* temps=15 niveau=1 frigo=2 boite
 + pates_completes 85, sardine_conserve 80, citron 20, ail 5, persil 8, huile_olive 5, chapelure 10
 - Cuire les pâtes.
 - Dorer la chapelure dans l'huile avec l'ail.
 - Mélanger les pâtes avec les sardines émiettées, le zeste et le jus de citron, le persil et la chapelure.
 
 @ porc_saute_gingembre | Sauté de porc au gingembre et carottes, riz | PORK
+* temps=30 niveau=1 frigo=3 boite
 + porc_filet 130, carotte 150, oignon 50, gingembre 5, sauce_soja 15, miel 8, riz_basmati 70, huile_colza 5
 - Cuire le riz.
 - Saisir le porc en lamelles, ajouter l'oignon, les carottes en bâtonnets et le gingembre.
 - Laquer avec la sauce soja et le miel, cuire 3 minutes.
 
 @ tempeh_bowl | Bowl de tempeh mariné, riz complet et carottes | PLANT
+* temps=35 niveau=2 frigo=3 boite
 + tempeh 120, riz_complet 60, carotte 120, sauce_soja 10, gingembre 5, sesame 5, huile_sesame 5, coriandre 5
 - Cuire le riz complet.
 - Mariner le tempeh en tranches dans la sauce soja et le gingembre, puis le dorer dans l'huile.
 - Servir avec la carotte râpée, le sésame et la coriandre.
 
 @ polenta_champignons_oeuf | Polenta crémeuse aux champignons et œuf mollet | EGG
+* temps=30 niveau=2 frigo=1
 + polenta 70, lait 150, champignon 150, oeuf 55, parmesan 15, beurre 5, ail 5, persil 5
 - Cuire la polenta dans le lait et 100 ml d'eau en remuant, 5 minutes ; ajouter le parmesan.
 - Faire sauter les champignons avec le beurre et l'ail.
 - Cuire l'œuf 6 minutes, l'écaler et le poser sur la polenta avec les champignons.
 
 @ tajine_agneau | Tajine d'agneau aux carottes et pois chiches | RED_MEAT
+* temps=110 niveau=3 frigo=3 boite congel
 + agneau_gigot 120, carotte 150, pois_chiches 100, oignon 60, cumin 2, cannelle 1, semoule 50, huile_olive 5, coriandre 5, raisins_secs 15
 - Dorer l'agneau en cubes avec l'oignon et les épices.
 - Ajouter les carottes, couvrir d'eau et mijoter 45 minutes.
 - Ajouter les pois chiches et les raisins secs 10 minutes avant la fin ; servir avec la semoule et la coriandre.
 
 @ poke_saumon | Poke bowl saumon, avocat et riz | FISH
+* temps=25 niveau=2 frigo=1
 + saumon 110, riz_basmati 70, avocat 60, carotte 60, sauce_soja 10, sesame 5, gingembre 3
 - Cuire le riz et le laisser tiédir.
 - Couper le saumon en cubes (très frais, ou le saisir rapidement).
 - Disposer le riz, le saumon, l'avocat et la carotte râpée ; arroser de sauce soja au gingembre et parsemer de sésame.
 
 @ blanquette_veau | Blanquette de veau légère, carottes et champignons | RED_MEAT
+* temps=100 niveau=3 frigo=3 boite congel
 + veau_escalope 140, carotte 120, champignon 100, oignon 40, creme_legere 30, citron 10, riz_basmati 60, farine 8, bouillon_volaille 5
 - Pocher le veau en morceaux 25 minutes dans 400 ml de bouillon avec l'oignon et les carottes.
 - Ajouter les champignons 10 minutes avant la fin.
@@ -220,70 +259,82 @@
 - Servir avec le riz.
 
 @ boulettes_boeuf_tomate | Boulettes de bœuf à la sauce tomate, semoule | RED_MEAT
+* temps=40 niveau=2 frigo=3 boite congel
 + boeuf_hache 120, chapelure 10, oeuf 25, coulis_tomate 150, oignon 40, semoule 60, cumin 2, persil 5, huile_olive 5
 - Mélanger la viande, la chapelure, l'œuf battu, le cumin et le persil ; former des boulettes.
 - Les dorer dans l'huile, ajouter l'oignon et le coulis, mijoter 15 minutes.
 - Servir avec la semoule.
 
 @ falafels_four | Falafels au four, boulgour et yaourt aux herbes | PLANT
+* temps=50 niveau=3 frigo=3 boite congel
 + pois_chiches 180, farine 15, oignon 30, coriandre 10, cumin 2, boulgour 50, yaourt_grec 60, carotte 80, huile_olive 10
 - Mixer les pois chiches, l'oignon, la coriandre, le cumin et la farine ; former des galettes.
 - Les badigeonner d'huile et cuire 25 minutes à 200 °C en les retournant.
 - Cuire le boulgour 10 minutes, servir avec la carotte râpée et le yaourt.
 
 @ bol_riz_boeuf | Bol de riz au bœuf, carottes, œuf et sésame | RED_MEAT
+* temps=30 niveau=2 frigo=2 boite
 + boeuf_hache 100, riz_basmati 70, carotte 100, oeuf 55, champignon 80, sauce_soja 10, sesame 5, huile_sesame 5
 - Cuire le riz.
 - Faire sauter séparément la viande, les champignons et la carotte en julienne.
 - Cuire l'œuf au plat et le poser sur le riz garni ; arroser de sauce soja et parsemer de sésame.
 
 @ galettes_champignons_oeuf | Galettes de sarrasin aux champignons, œuf et emmental | EGG
+* temps=20 niveau=1 frigo=1
 + galette_sarrasin 120, oeuf 55, champignon 120, emmental 25, beurre 5, creme_legere 20
 - Faire sauter les champignons et les lier avec la crème.
 - Garnir les galettes réchauffées, casser l'œuf, ajouter l'emmental et replier.
 
 @ poulet_yaourt_epices | Poulet mariné au yaourt et aux épices, riz et carottes | POULTRY
+* temps=45 niveau=2 frigo=3 boite
 + poulet_filet 140, yaourt 60, curry 3, paprika 2, citron 10, riz_basmati 65, carotte 150, coriandre 5, huile_colza 5
 - Mariner le poulet en morceaux 30 minutes dans le yaourt, les épices et le citron.
 - Le cuire à la poêle dans l'huile 10 minutes.
 - Servir avec le riz, les carottes vapeur et la coriandre.
 
 @ salade_haricots_thon | Salade de haricots blancs, thon, oignon rouge et persil | FISH
+* temps=10 niveau=1 frigo=2 boite
 + haricots_blancs 180, thon_conserve 80, oignon_rouge 40, persil 10, huile_olive 10, vinaigre_vin 5, pain_complet 50
 - Rincer les haricots, émincer finement l'oignon.
 - Mélanger avec le thon, le persil, l'huile et le vinaigre.
 - Servir avec le pain.
 
 @ lieu_coco | Lieu noir au lait de coco et à la tomate, riz | FISH
+* temps=30 niveau=1 frigo=2 boite
 + lieu_noir 160, lait_coco 60, tomates_pelees 100, oignon 40, gingembre 5, curry 2, riz_basmati 65, citron 10, coriandre 5
 - Cuire le riz.
 - Faire revenir l'oignon et le gingembre, ajouter les tomates, le curry et le lait de coco.
 - Pocher le poisson en morceaux 8 minutes dans la sauce, ajouter le citron et la coriandre.
 
 @ seitan_champignons | Seitan sauté aux champignons et carottes, riz complet | PLANT
+* temps=35 niveau=1 frigo=3 boite
 + seitan 120, champignon 150, carotte 100, oignon 40, sauce_soja 10, riz_complet 60, huile_olive 8, thym 1
 - Cuire le riz complet.
 - Dorer le seitan en lamelles, ajouter l'oignon, les carottes et les champignons.
 - Assaisonner de sauce soja et de thym.
 
 @ veloute_carottes_lentilles | Velouté de carottes et lentilles corail, tartine au houmous | PLANT
+* temps=35 niveau=1 frigo=3 boite congel
 + carotte 300, lentilles_corail 50, oignon 50, cumin 2, lait_coco 30, pain_complet 60, tahin 10, pois_chiches 60
 - Cuire les carottes, l'oignon et les lentilles 20 minutes dans 500 ml d'eau avec le cumin ; mixer avec le lait de coco.
 - Mixer les pois chiches avec le tahin et un peu d'eau ; tartiner sur le pain grillé.
 
 @ omelette_pdt_oignon | Omelette aux pommes de terre et oignons | EGG
+* temps=35 niveau=1 frigo=2 boite
 + oeuf 165, pomme_de_terre 250, oignon 60, huile_olive 10, persil 5, carotte 100
 - Cuire les pommes de terre en fines tranches et l'oignon dans l'huile à feu doux 15 minutes.
 - Verser les œufs battus, cuire à couvert puis retourner.
 - Servir avec la carotte râpée au persil.
 
 @ dinde_curry_lentilles | Dinde au curry doux et lentilles corail | POULTRY
+* temps=30 niveau=1 frigo=3 boite congel
 + dinde_escalope 130, lentilles_corail 50, carotte 120, oignon 50, curry 3, lait_coco 40, riz_basmati 40, coriandre 5
 - Cuire les lentilles et le riz.
 - Dorer la dinde en cubes avec l'oignon et le curry, ajouter les carottes râpées et le lait de coco.
 - Ajouter les lentilles, mijoter 5 minutes et servir avec le riz.
 
 @ tofu_fume_pdt | Poêlée de pommes de terre, tofu fumé et champignons | PLANT
+* temps=25 niveau=1 frigo=2 boite
 + tofu_fume 120, pomme_de_terre 250, champignon 120, oignon 50, huile_olive 10, persil 5
 - Cuire les pommes de terre en dés à la poêle dans l'huile, 20 minutes.
 - Ajouter l'oignon, les champignons et le tofu fumé en dés, poursuivre 8 minutes.
@@ -292,174 +343,203 @@
 # ───────────── Été (juin à septembre) ─────────────
 
 @ ratatouille_pois_chiches | Ratatouille aux pois chiches et quinoa | PLANT
+* temps=50 niveau=2 frigo=3 boite congel
 + courgette 150, aubergine 150, poivron_rouge 100, tomate 150, oignon 50, pois_chiches 120, quinoa 50, huile_olive 10, herbes_provence 1, ail 5
 - Faire revenir séparément les légumes en dés dans l'huile, puis les réunir avec l'ail et les herbes.
 - Mijoter 25 minutes, ajouter les pois chiches en fin de cuisson.
 - Servir avec le quinoa.
 
 @ salade_nicoise | Salade niçoise | FISH
+* temps=25 niveau=1 frigo=1 boite
 + thon_conserve 80, oeuf 55, tomate 150, haricot_vert 100, pomme_de_terre 150, olives_noires 20, laitue 50, huile_olive 10, vinaigre_vin 5
 - Cuire les pommes de terre, les haricots verts et l'œuf ; laisser refroidir.
 - Disposer la salade, les tomates en quartiers, le thon et les olives.
 - Assaisonner d'huile et de vinaigre.
 
 @ poulet_courgettes_boulgour | Poulet grillé, courgettes rôties et boulgour | POULTRY
+* temps=30 niveau=1 frigo=3 boite
 + poulet_filet 140, courgette 250, boulgour 70, citron 15, huile_olive 10, menthe 3
 - Rôtir les courgettes en rondelles avec la moitié de l'huile, 20 minutes à 200 °C.
 - Griller le poulet avec le reste de l'huile et le citron.
 - Cuire le boulgour et servir avec la menthe ciselée.
 
 @ taboule_feta | Taboulé aux herbes, tomates, concombre et feta | DAIRY
+* temps=25 niveau=1 frigo=2 boite
 + boulgour 70, tomate 150, concombre 120, persil 20, menthe 10, citron 30, huile_olive 10, feta 50, pois_chiches 60
 - Cuire le boulgour et le laisser refroidir.
 - Couper les tomates et le concombre en petits dés, ciseler les herbes.
 - Mélanger avec les pois chiches, le citron et l'huile ; ajouter la feta émiettée.
 
 @ pates_courgettes_basilic | Pâtes aux courgettes, basilic, pignons et parmesan | DAIRY
+* temps=20 niveau=1 frigo=2 boite
 + pates 85, courgette 200, basilic 10, pignons 10, parmesan 15, huile_olive 8, ail 5
 - Cuire les pâtes.
 - Faire sauter les courgettes en fines demi-rondelles avec l'ail dans l'huile.
 - Mélanger avec les pâtes, le basilic, les pignons torréfiés et le parmesan.
 
 @ salade_pates_mozzarella | Salade de pâtes, tomates cerises, mozzarella et roquette | DAIRY
+* temps=20 niveau=1 frigo=2 boite
 + pates 80, tomate_cerise 150, mozzarella 60, basilic 5, roquette 30, huile_olive 10, vinaigre_balsamique 5
 - Cuire les pâtes, les refroidir.
 - Mélanger avec les tomates coupées en deux, la mozzarella en dés, la roquette et le basilic.
 - Assaisonner d'huile et de vinaigre balsamique.
 
 @ aubergines_farcies | Aubergines farcies au bœuf et à la tomate, riz | RED_MEAT
+* temps=60 niveau=2 frigo=3 boite congel
 + aubergine 250, boeuf_hache 110, tomate 120, oignon 40, riz_basmati 50, emmental 15, herbes_provence 1, huile_olive 5
 - Couper l'aubergine en deux, évider la chair et la hacher.
 - Faire revenir l'oignon, la viande, la chair d'aubergine et la tomate avec les herbes.
 - Farcir, parsemer d'emmental et cuire 30 minutes à 190 °C ; servir avec le riz.
 
 @ brochettes_dinde_poivrons | Brochettes de dinde aux poivrons, riz et sauce yaourt | POULTRY
+* temps=35 niveau=2 frigo=2 boite
 + dinde_escalope 140, poivron_rouge 150, oignon_rouge 50, riz_basmati 65, huile_olive 10, paprika 2, yaourt_grec 40
 - Mariner la dinde en cubes avec l'huile et le paprika.
 - Monter les brochettes en alternant dinde, poivron et oignon ; griller 12 minutes.
 - Servir avec le riz et le yaourt.
 
 @ saumon_haricots_verts | Saumon, haricots verts et pommes de terre grenaille | FISH
+* temps=30 niveau=1 frigo=2 boite
 + saumon 120, haricot_vert 200, pomme_de_terre 200, citron 15, huile_olive 5, ciboulette 5
 - Cuire les pommes de terre et les haricots verts à la vapeur.
 - Saisir le saumon côté peau 6 minutes, puis 2 minutes côté chair.
 - Arroser de citron et parsemer de ciboulette.
 
 @ salade_lentilles_ete | Salade de lentilles, concombre, radis et chèvre | DAIRY
+* temps=30 niveau=1 frigo=2 boite
 + lentilles_vertes 80, concombre 100, radis 60, tomate 100, chevre_frais 40, huile_colza 10, vinaigre_vin 5, persil 5, echalote 15, pain_complet 40
 - Cuire les lentilles 20 minutes, les refroidir.
 - Couper les légumes en dés, ciseler l'échalote et le persil.
 - Mélanger, assaisonner et émietter le chèvre ; servir avec le pain.
 
 @ crevettes_courgettes_curry | Crevettes sautées aux courgettes et curry doux, riz | SEAFOOD
+* temps=25 niveau=1 frigo=2 boite
 + crevettes 120, courgette 200, lait_coco 50, curry 3, riz_basmati 70, oignon 40, huile_colza 5, coriandre 5
 - Cuire le riz.
 - Faire sauter l'oignon et les courgettes, ajouter le curry et le lait de coco.
 - Ajouter les crevettes 2 minutes et la coriandre.
 
 @ aubergines_parmigiana | Aubergines à la parmigiana, salade de roquette | DAIRY
+* temps=70 niveau=3 frigo=3 boite congel
 + aubergine 250, coulis_tomate 150, mozzarella 70, parmesan 15, basilic 5, huile_olive 10, pain_campagne 60, roquette 30
 - Griller les tranches d'aubergine badigeonnées d'huile.
 - Alterner dans un plat aubergines, coulis, mozzarella et basilic ; finir par le parmesan.
 - Cuire 25 minutes à 190 °C, servir avec la roquette et le pain.
 
 @ frittata_courgettes_feta | Frittata aux courgettes et à la feta, salade | EGG
+* temps=30 niveau=1 frigo=2 boite
 + oeuf 165, courgette 200, feta 40, oignon 40, huile_olive 8, pain_complet 50, laitue 50, menthe 3
 - Faire revenir l'oignon et les courgettes râpées dans l'huile.
 - Verser les œufs battus avec la menthe, émietter la feta et cuire à couvert 10 minutes.
 - Servir avec la salade et le pain.
 
 @ boeuf_brocoli_sesame | Bœuf sauté au brocoli et au sésame, riz | RED_MEAT
+* temps=25 niveau=1 frigo=2 boite
 + boeuf_bavette 130, brocoli 200, sauce_soja 15, gingembre 5, ail 5, riz_basmati 65, huile_sesame 8, sesame 5
 - Cuire le riz et blanchir le brocoli 3 minutes.
 - Saisir le bœuf en lamelles à feu vif, ajouter l'ail, le gingembre et le brocoli.
 - Déglacer à la sauce soja et parsemer de sésame.
 
 @ cabillaud_fenouil | Cabillaud rôti au fenouil et citron, quinoa | FISH
+* temps=40 niveau=1 frigo=2 boite
 + cabillaud 160, fenouil 200, citron 20, quinoa 60, huile_olive 10, thym 1, olives_noires 20
 - Rôtir le fenouil émincé avec l'huile et le thym 20 minutes à 200 °C.
 - Poser le cabillaud et les olives dessus, arroser de citron, cuire encore 12 minutes.
 - Servir avec le quinoa.
 
 @ poulet_basquaise | Poulet aux poivrons et tomates, riz | POULTRY
+* temps=45 niveau=1 frigo=3 boite congel
 + poulet_cuisse 150, poivron_rouge 150, tomate 150, oignon 60, ail 5, paprika 2, riz_basmati 65, huile_olive 8
 - Dorer le poulet dans l'huile, ajouter l'oignon et les poivrons en lanières.
 - Ajouter les tomates, l'ail et le paprika, mijoter 30 minutes.
 - Servir avec le riz.
 
 @ tofu_haricots_cacahuetes | Tofu sauté aux haricots verts et cacahuètes, riz | PLANT
+* temps=25 niveau=1 frigo=2 boite
 + tofu 150, haricot_vert 200, cacahuetes 15, sauce_soja 15, riz_basmati 60, huile_colza 8, ail 5, citron 10
 - Cuire le riz et blanchir les haricots 5 minutes.
 - Dorer le tofu, ajouter les haricots, l'ail et la sauce soja.
 - Parsemer de cacahuètes concassées et arroser de citron.
 
 @ salade_quinoa_peches | Salade de quinoa, pêches, roquette et chèvre frais | DAIRY
+* temps=25 niveau=1 frigo=1 boite
 + quinoa 60, peche 150, roquette 40, chevre_frais 50, noix 10, huile_olive 8, vinaigre_balsamique 5, pois_chiches 80
 - Cuire le quinoa et le refroidir.
 - Mélanger avec les pêches en quartiers, la roquette et les pois chiches.
 - Ajouter le chèvre émietté et les noix, assaisonner.
 
 @ truite_amandes | Truite aux amandes, haricots verts et pommes de terre | FISH
+* temps=30 niveau=2 frigo=1
 + truite 150, amandes 15, haricot_vert 200, pomme_de_terre 200, beurre 5, citron 15, persil 5
 - Cuire les pommes de terre et les haricots à la vapeur.
 - Cuire la truite au beurre 4 minutes par face, ajouter les amandes effilées pour les dorer.
 - Arroser de citron et parsemer de persil.
 
 @ assiette_melon_jambon | Melon, jambon blanc, mozzarella et pain complet | PORK
+* temps=10 niveau=1 frigo=1 boite
 + melon 250, jambon 80, mozzarella 60, pain_complet 60, roquette 30, huile_olive 5, basilic 3
 - Couper le melon en tranches et la mozzarella en rondelles.
 - Disposer avec le jambon et la roquette, arroser d'huile et parsemer de basilic.
 - Servir avec le pain.
 
 @ salade_cesar | Salade César au poulet | POULTRY
+* temps=30 niveau=2 frigo=1 boite
 + poulet_filet 130, laitue 100, parmesan 15, pain_campagne 50, yaourt_grec 40, citron 10, moutarde 5, huile_olive 8, tomate_cerise 80
 - Griller le poulet et le couper en lamelles ; faire des croûtons avec le pain.
 - Mélanger le yaourt, la moutarde, le citron, l'huile et la moitié du parmesan.
 - Assembler la laitue, les tomates, le poulet et les croûtons, napper de sauce et parsemer de parmesan.
 
 @ curry_legumes_ete | Curry de légumes d'été et pois chiches au lait de coco | PLANT
+* temps=40 niveau=1 frigo=3 boite congel
 + courgette 150, aubergine 100, poivron_rouge 100, pois_chiches 150, lait_coco 60, curry 4, riz_basmati 55, oignon 40
 - Cuire le riz.
 - Faire revenir l'oignon avec le curry, ajouter les légumes en dés et cuire 15 minutes.
 - Ajouter les pois chiches et le lait de coco, mijoter 5 minutes.
 
 @ porc_abricots | Filet mignon de porc aux abricots, semoule | PORK
+* temps=40 niveau=2 frigo=3 boite
 + porc_filet 140, abricot 120, oignon 40, miel 5, semoule 60, cannelle 1, huile_olive 5, amandes 10
 - Dorer le filet mignon en médaillons, ajouter l'oignon.
 - Ajouter les abricots en quartiers, le miel et la cannelle, cuire 10 minutes.
 - Servir avec la semoule et les amandes.
 
 @ orecchiette_brocoli | Pâtes au brocoli, ail, citron et parmesan | DAIRY
+* temps=20 niveau=1 frigo=2 boite
 + pates 85, brocoli 200, ail 5, citron 10, parmesan 15, huile_olive 8, pignons 8
 - Cuire les pâtes avec les fleurettes de brocoli pendant les 4 dernières minutes.
 - Faire dorer l'ail dans l'huile, ajouter les pâtes et le brocoli égouttés.
 - Ajouter le zeste et le jus de citron, le parmesan et les pignons.
 
 @ poulet_figues | Poulet aux figues et au miel, semoule | POULTRY
+* temps=40 niveau=2 frigo=3 boite
 + poulet_cuisse 150, figue 100, oignon 40, miel 5, semoule 60, cannelle 1, amandes 10
 - Dorer le poulet, ajouter l'oignon et la cannelle.
 - Ajouter les figues coupées en deux et le miel, cuire 15 minutes à couvert.
 - Servir avec la semoule et les amandes.
 
 @ moules_marinieres | Moules marinières et pommes de terre au four | SEAFOOD
+* temps=40 niveau=2 frigo=1
 + moules 200, vin_blanc 50, echalote 30, persil 8, beurre 5, pomme_de_terre 250, huile_olive 8, creme_legere 20
 - Rôtir les pommes de terre en quartiers avec l'huile, 35 minutes à 210 °C.
 - Faire suer l'échalote dans le beurre, ajouter le vin et les moules ; couvrir et cuire jusqu'à ouverture.
 - Ajouter la crème et le persil.
 
 @ salade_tomates_mozza_lentilles | Salade de tomates, lentilles, mozzarella et basilic | DAIRY
+* temps=25 niveau=1 frigo=1 boite
 + tomate 250, lentilles_vertes 60, mozzarella 60, basilic 8, huile_olive 10, vinaigre_balsamique 5, pain_complet 50
 - Cuire les lentilles et les laisser refroidir.
 - Disposer les tomates en tranches, la mozzarella et les lentilles.
 - Assaisonner, parsemer de basilic et servir avec le pain.
 
 @ wraps_poulet_crudites | Wraps de poulet, radis, concombre et yaourt à la menthe | POULTRY
+* temps=25 niveau=1 frigo=1 boite
 + tortilla 80, poulet_filet 110, radis 60, concombre 80, laitue 30, yaourt_grec 40, menthe 3, huile_olive 5
 - Griller le poulet dans l'huile et l'émincer.
 - Mélanger le yaourt et la menthe ciselée.
 - Garnir les tortillas de salade, poulet, radis et concombre en bâtonnets, napper de sauce et rouler.
 
 @ gratin_courgettes_riz | Gratin de courgettes au riz et au chèvre | DAIRY
+* temps=50 niveau=2 frigo=3 boite congel
 + courgette 300, riz_basmati 50, chevre_frais 50, oeuf 55, lait 80, herbes_provence 1, huile_olive 5
 - Cuire le riz. Faire revenir les courgettes en dés dans l'huile.
 - Mélanger avec le riz, l'œuf battu, le lait et les herbes ; émietter le chèvre dessus.
@@ -468,12 +548,14 @@
 # ───────────── Printemps (avril à juin) ─────────────
 
 @ saumon_asperges | Saumon et asperges vertes rôties, riz complet | FISH
+* temps=30 niveau=1 frigo=2 boite
 + saumon 120, asperge_verte 200, riz_complet 60, citron 15, huile_olive 5, ciboulette 5
 - Cuire le riz complet.
 - Rôtir les asperges avec l'huile 12 minutes à 200 °C, ajouter le saumon et poursuivre 10 minutes.
 - Arroser de citron et parsemer de ciboulette.
 
 @ risotto_asperges_pois | Risotto aux asperges et petits pois | DAIRY
+* temps=40 niveau=2 frigo=2 boite
 + riz_blanc 75, asperge_verte 150, petits_pois 80, parmesan 20, oignon 40, bouillon_legumes 5, huile_olive 8, menthe 3
 - Préparer 400 ml de bouillon chaud.
 - Nacrer le riz avec l'oignon, puis ajouter le bouillon louche par louche pendant 18 minutes.
@@ -481,83 +563,97 @@
 - Incorporer le parmesan et la menthe.
 
 @ oeufs_asperges | Œufs mollets, asperges vertes et mouillettes | EGG
+* temps=20 niveau=1 frigo=1
 + oeuf 110, asperge_verte 200, pain_complet 80, beurre 8, parmesan 10
 - Cuire les asperges 8 minutes à la vapeur.
 - Cuire les œufs 6 minutes dans l'eau bouillante.
 - Griller le pain, le beurrer et le couper en mouillettes ; parsemer les asperges de parmesan.
 
 @ poulet_petits_pois | Poulet aux petits pois et carottes nouvelles | POULTRY
+* temps=40 niveau=1 frigo=3 boite congel
 + poulet_cuisse 150, petits_pois 150, carotte 120, oignon 40, pomme_de_terre 150, huile_olive 5, thym 1
 - Dorer le poulet dans l'huile avec l'oignon.
 - Ajouter les carottes, les pommes de terre, le thym et un verre d'eau ; cuire 25 minutes à couvert.
 - Ajouter les petits pois pour les 10 dernières minutes.
 
 @ salade_epinards_fraises | Salade de pousses d'épinard, fraises, chèvre et quinoa | DAIRY
+* temps=25 niveau=1 frigo=1 boite
 + pousses_epinard 60, fraise 120, chevre_frais 50, noix 12, quinoa 60, huile_colza 8, vinaigre_balsamique 5, pois_chiches 60
 - Cuire le quinoa et le refroidir.
 - Mélanger les pousses, les fraises coupées, les pois chiches et le quinoa.
 - Ajouter le chèvre et les noix, assaisonner.
 
 @ pates_epinards_ricotta | Pâtes aux épinards et ricotta | DAIRY
+* temps=20 niveau=1 frigo=2 boite
 + pates 85, epinard 200, ricotta 60, parmesan 10, ail 5, huile_olive 5
 - Cuire les pâtes.
 - Faire tomber les épinards avec l'ail dans l'huile.
 - Mélanger avec la ricotta, les pâtes et le parmesan.
 
 @ curry_pois_chiches_epinards | Curry de pois chiches aux épinards, riz | PLANT
+* temps=30 niveau=1 frigo=3 boite congel
 + pois_chiches 180, epinard 200, tomates_pelees 150, lait_coco 40, curry 4, oignon 50, riz_basmati 55, gingembre 5
 - Cuire le riz.
 - Faire revenir l'oignon et le gingembre avec le curry, ajouter les tomates et les pois chiches.
 - Mijoter 10 minutes, ajouter les épinards et le lait de coco jusqu'à ce qu'ils tombent.
 
 @ navarin_agneau | Navarin d'agneau aux petits pois et carottes | RED_MEAT
+* temps=100 niveau=3 frigo=3 boite congel
 + agneau_gigot 130, petits_pois 120, carotte 120, pomme_de_terre 150, oignon 40, concentre_tomate 10, thym 1, huile_olive 5
 - Dorer l'agneau en morceaux, ajouter l'oignon et le concentré.
 - Couvrir d'eau, ajouter le thym, les carottes et les pommes de terre ; mijoter 45 minutes.
 - Ajouter les petits pois 10 minutes avant la fin.
 
 @ salade_pdt_radis_oeufs | Salade de pommes de terre, radis, œufs et ciboulette | EGG
+* temps=30 niveau=1 frigo=2 boite
 + pomme_de_terre 250, radis 100, oeuf 110, ciboulette 8, yaourt_grec 50, moutarde 5, laitue 50, huile_colza 10
 - Cuire les pommes de terre et les œufs (10 minutes), refroidir.
 - Mélanger le yaourt, la moutarde, l'huile et la ciboulette.
 - Assembler avec les radis en rondelles et la salade.
 
 @ cabillaud_puree_pois | Cabillaud et purée de petits pois à la menthe | FISH
+* temps=30 niveau=2 frigo=2 boite
 + cabillaud 160, petits_pois 200, pomme_de_terre 150, menthe 5, creme_legere 30, huile_olive 5
 - Cuire les petits pois et la pomme de terre, les écraser avec la crème et la menthe.
 - Saisir le cabillaud dans l'huile 3 minutes par face.
 
 @ tofu_laque_asperges | Tofu laqué, asperges et riz basmati | PLANT
+* temps=30 niveau=2 frigo=2 boite
 + tofu 150, asperge_verte 180, sauce_soja 15, miel 5, riz_basmati 65, sesame 5, huile_sesame 5
 - Cuire le riz et les asperges à la vapeur.
 - Dorer le tofu en tranches, laquer avec la sauce soja et le miel.
 - Parsemer de sésame.
 
 @ omelette_epinards_chevre | Omelette aux épinards et chèvre, pommes de terre | EGG
+* temps=25 niveau=1 frigo=1
 + oeuf 165, epinard 150, chevre_frais 30, pomme_de_terre 200, huile_olive 8
 - Cuire les pommes de terre en rondelles à la poêle dans l'huile.
 - Faire tomber les épinards, verser les œufs battus et émietter le chèvre.
 - Cuire à feu doux à couvert.
 
 @ pates_petits_pois_jambon | Pâtes aux petits pois, jambon et crème légère | PORK
+* temps=20 niveau=1 frigo=2 boite
 + pates 85, petits_pois 120, jambon 60, creme_legere 40, parmesan 10, oignon 30
 - Cuire les pâtes avec les petits pois.
 - Faire revenir l'oignon, ajouter le jambon et la crème.
 - Mélanger avec les pâtes et le parmesan.
 
 @ salade_quinoa_asperges | Salade tiède de quinoa, asperges, radis et pois chiches | PLANT
+* temps=30 niveau=1 frigo=2 boite
 + quinoa 60, asperge_verte 150, radis 60, pois_chiches 120, huile_olive 10, citron 20, persil 8
 - Cuire le quinoa et les asperges en tronçons.
 - Mélanger avec les pois chiches et les radis émincés.
 - Assaisonner d'huile, de citron et de persil.
 
 @ poulet_epinards_creme | Poulet aux épinards à la crème, pâtes | POULTRY
+* temps=25 niveau=1 frigo=3 boite
 + poulet_filet 130, epinard 200, creme_legere 40, pates 75, ail 5, parmesan 10
 - Cuire les pâtes.
 - Dorer le poulet en morceaux, ajouter l'ail et les épinards.
 - Lier avec la crème, mélanger aux pâtes et parsemer de parmesan.
 
 @ maquereau_salade_radis | Maquereau grillé, salade de pommes de terre et radis | FISH
+* temps=35 niveau=2 frigo=2 boite
 + maquereau 120, pomme_de_terre 220, radis 80, roquette 40, moutarde 5, vinaigre_vin 5, huile_colza 5, ciboulette 5
 - Cuire les pommes de terre à l'eau.
 - Griller le maquereau 4 minutes par face.
@@ -566,71 +662,83 @@
 # ───────────── Automne et hiver (septembre à avril) ─────────────
 
 @ veloute_butternut_lentilles | Velouté de butternut aux lentilles corail, pain complet | PLANT
+* temps=40 niveau=1 frigo=3 boite congel
 + butternut 300, lentilles_corail 50, oignon 50, lait_coco 40, curry 2, pain_complet 70, graines_courge 10
 - Cuire la butternut en cubes, l'oignon et les lentilles 20 minutes dans 500 ml d'eau avec le curry.
 - Mixer avec le lait de coco.
 - Servir avec les graines de courge torréfiées et le pain.
 
 @ saumon_poireaux | Saumon, fondue de poireaux et riz | FISH
+* temps=35 niveau=1 frigo=2 boite
 + saumon 120, poireau 200, creme_legere 30, riz_basmati 60, beurre 5
 - Cuire le riz.
 - Faire fondre les poireaux émincés dans le beurre 15 minutes, ajouter la crème.
 - Cuire le saumon à la poêle et le servir sur la fondue.
 
 @ gratin_chou_fleur_jambon | Gratin de chou-fleur au jambon | PORK
+* temps=50 niveau=2 frigo=3 boite congel
 + chou_fleur 300, jambon 70, lait 150, farine 15, beurre 8, emmental 25, pain_complet 40
 - Cuire le chou-fleur en fleurettes 8 minutes à la vapeur.
 - Préparer une béchamel avec le beurre, la farine et le lait.
 - Disposer chou-fleur et jambon, napper de béchamel, parsemer d'emmental et gratiner 20 minutes ; servir avec le pain.
 
 @ pot_au_feu | Pot-au-feu aux légumes d'hiver | RED_MEAT
+* temps=180 niveau=3 frigo=3 boite congel
 + boeuf_braiser 140, carotte 120, poireau 100, navet 100, pomme_de_terre 150, celeri_rave 60, thym 1, moutarde 5
 - Mettre la viande dans l'eau froide, porter à frémissement et écumer.
 - Ajouter le thym et cuire 2 heures, puis les légumes pendant 40 minutes.
 - Servir avec la moutarde.
 
 @ potee_chou | Potée de chou vert, carottes et lardons | PORK
+* temps=90 niveau=2 frigo=3 boite congel
 + chou_vert 250, lardons 60, carotte 120, pomme_de_terre 250, oignon 40, thym 1
 - Blanchir le chou émincé 5 minutes.
 - Faire revenir les lardons et l'oignon, ajouter le chou, les carottes, les pommes de terre et le thym.
 - Couvrir d'eau à mi-hauteur et cuire 40 minutes à couvert.
 
 @ curry_patate_douce | Curry de patate douce et pois chiches | PLANT
+* temps=35 niveau=1 frigo=3 boite congel
 + patate_douce 200, pois_chiches 150, lait_coco 50, tomates_pelees 100, curry 4, oignon 40, riz_basmati 40, coriandre 5
 - Cuire le riz.
 - Faire revenir l'oignon avec le curry, ajouter la patate douce en cubes et les tomates ; cuire 20 minutes.
 - Ajouter les pois chiches et le lait de coco, parsemer de coriandre.
 
 @ poulet_legumes_racines | Poulet rôti aux légumes racines | POULTRY
+* temps=60 niveau=1 frigo=3 boite
 + poulet_cuisse 160, panais 120, carotte 120, patate_douce 120, huile_olive 10, thym 1, ail 5
 - Couper les légumes en bâtonnets, les mélanger avec l'huile, l'ail et le thym.
 - Disposer le poulet dessus et rôtir 40 minutes à 200 °C.
 
 @ endives_jambon | Endives au jambon gratinées | PORK
+* temps=60 niveau=2 frigo=3 boite congel
 + endive 300, jambon 80, lait 150, farine 15, beurre 8, emmental 25, pomme_de_terre 150
 - Cuire les endives 15 minutes à la vapeur et bien les égoutter ; cuire les pommes de terre.
 - Rouler chaque endive dans une tranche de jambon.
 - Napper de béchamel (beurre, farine, lait), parsemer d'emmental et gratiner 20 minutes.
 
 @ cabillaud_puree_celeri | Cabillaud, purée de céleri-rave et noisettes | FISH
+* temps=45 niveau=2 frigo=2 boite
 + cabillaud 160, celeri_rave 200, pomme_de_terre 150, lait 50, beurre 8, ciboulette 5, noisettes 10
 - Cuire le céleri et la pomme de terre, les écraser avec le lait et le beurre.
 - Cuire le cabillaud à la poêle.
 - Parsemer de noisettes concassées et de ciboulette.
 
 @ salade_endives_comte | Salade d'endives, pomme, noix et comté, œuf dur | DAIRY
+* temps=20 niveau=1 frigo=1 boite
 + endive 200, pomme 120, noix 15, comte 40, pain_complet 60, huile_colza 8, moutarde 5, oeuf 55
 - Cuire l'œuf 10 minutes.
 - Émincer les endives, couper la pomme et le comté en dés.
 - Assaisonner d'une vinaigrette moutardée, ajouter les noix et l'œuf ; servir avec le pain.
 
 @ lentilles_potiron | Lentilles vertes mijotées au potiron et au cumin | PLANT
+* temps=45 niveau=1 frigo=3 boite congel
 + lentilles_vertes 75, potiron 250, oignon 50, carotte 80, cumin 2, huile_olive 8, pain_complet 40, coriandre 5
 - Faire revenir l'oignon avec le cumin dans l'huile.
 - Ajouter les lentilles, le potiron et la carotte en dés, couvrir d'eau et cuire 25 minutes.
 - Parsemer de coriandre, servir avec le pain.
 
 @ risotto_potiron | Risotto au potiron et parmesan | DAIRY
+* temps=45 niveau=2 frigo=2 boite
 + riz_blanc 80, potiron 200, oignon 40, parmesan 20, bouillon_legumes 5, huile_olive 8, graines_courge 10
 - Préparer 400 ml de bouillon chaud.
 - Faire revenir l'oignon et le potiron en petits dés, ajouter le riz.
@@ -638,178 +746,208 @@
 - Incorporer le parmesan, parsemer de graines de courge.
 
 @ dinde_choux_bruxelles | Dinde, choux de Bruxelles rôtis et pommes de terre | POULTRY
+* temps=45 niveau=1 frigo=3 boite
 + dinde_escalope 140, chou_bruxelles 200, pomme_de_terre 200, huile_olive 10, moutarde 5
 - Rôtir les choux coupés en deux et les pommes de terre avec l'huile, 30 minutes à 200 °C.
 - Saisir la dinde et la badigeonner de moutarde.
 
 @ porc_chou_rouge_pommes | Filet mignon, chou rouge braisé aux pommes | PORK
+* temps=60 niveau=2 frigo=3 boite congel
 + porc_filet 140, chou_rouge 200, pomme 100, oignon 40, vinaigre_vin 10, pomme_de_terre 150, huile_olive 5, cannelle 1
 - Braiser le chou émincé avec l'oignon, la pomme, le vinaigre et la cannelle 40 minutes à couvert.
 - Cuire les pommes de terre à la vapeur.
 - Rôtir le filet mignon 20 minutes à 190 °C, le trancher.
 
 @ tartiflette_legere | Tartiflette légère, salade de mâche | PORK
+* temps=50 niveau=2 frigo=3 boite
 + pomme_de_terre 300, lardons 40, oignon 60, creme_legere 30, comte 35, mache 50
 - Cuire les pommes de terre et les couper en rondelles.
 - Faire revenir les lardons et l'oignon.
 - Alterner dans un plat avec la crème, couvrir de comté et gratiner 20 minutes ; servir avec la mâche.
 
 @ veloute_poireaux_oeuf | Velouté poireaux-pommes de terre, œuf poché et tartine de chèvre | EGG
+* temps=40 niveau=2 frigo=1
 + poireau 250, pomme_de_terre 200, oeuf 55, pain_complet 50, chevre_frais 30, creme_legere 20
 - Cuire les poireaux et les pommes de terre 20 minutes, mixer avec la crème.
 - Pocher l'œuf 3 minutes dans l'eau frémissante vinaigrée.
 - Servir avec la tartine de chèvre grillée.
 
 @ wok_tofu_chou | Wok de tofu au chou vert, carottes et cacahuètes | PLANT
+* temps=25 niveau=1 frigo=2 boite
 + tofu 150, chou_vert 200, carotte 100, cacahuetes 15, sauce_soja 15, gingembre 5, riz_basmati 60, huile_colza 8
 - Cuire le riz.
 - Dorer le tofu, ajouter le chou émincé finement, les carottes et le gingembre ; cuire 6 minutes à feu vif.
 - Ajouter la sauce soja et les cacahuètes.
 
 @ lieu_poireaux | Lieu noir, poireaux à la crème et pommes de terre | FISH
+* temps=35 niveau=1 frigo=2 boite
 + lieu_noir 170, poireau 200, creme_legere 30, pomme_de_terre 200, beurre 5
 - Cuire les pommes de terre à la vapeur.
 - Fondre les poireaux dans le beurre, ajouter la crème.
 - Cuire le lieu 10 minutes sur les poireaux, à couvert.
 
 @ butternut_quinoa_feta | Butternut rôtie, quinoa, feta et graines de courge | DAIRY
+* temps=45 niveau=1 frigo=3 boite
 + butternut 300, quinoa 60, feta 40, graines_courge 10, mache 40, huile_olive 8, miel 5
 - Rôtir la butternut en cubes avec l'huile et le miel 30 minutes à 200 °C.
 - Cuire le quinoa.
 - Mélanger avec la mâche, la feta émiettée et les graines.
 
 @ couscous_hiver | Couscous végétarien aux légumes d'hiver | PLANT
+* temps=60 niveau=2 frigo=3 boite congel
 + semoule 65, pois_chiches 120, carotte 100, navet 100, butternut 150, oignon 40, tomates_pelees 100, cumin 2, cannelle 1, huile_olive 8, harissa 5, raisins_secs 10
 - Faire revenir l'oignon avec les épices, ajouter les légumes en morceaux et les tomates, couvrir d'eau.
 - Cuire 30 minutes, ajouter les pois chiches et les raisins secs.
 - Préparer la semoule et servir avec la harissa.
 
 @ salade_mache_betterave | Salade de mâche, betterave, œuf mollet, noix et pommes de terre | EGG
+* temps=30 niveau=1 frigo=1 boite
 + mache 80, betterave 120, oeuf 110, noix 10, pomme_de_terre 200, huile_colza 10, vinaigre_vin 5
 - Cuire les pommes de terre et les œufs (6 minutes).
 - Disposer la mâche, la betterave en dés et les pommes de terre tièdes.
 - Ajouter les œufs et les noix, assaisonner.
 
 @ poulet_chou_fleur_curry | Poulet et chou-fleur rôtis au curry, boulgour | POULTRY
+* temps=45 niveau=1 frigo=3 boite
 + poulet_filet 140, chou_fleur 250, curry 3, yaourt_grec 40, boulgour 60, huile_olive 8
 - Mélanger le chou-fleur et le poulet en morceaux avec l'huile et le curry, rôtir 25 minutes à 200 °C.
 - Cuire le boulgour.
 - Servir avec le yaourt.
 
 @ hachis_patate_douce | Hachis parmentier de patate douce | RED_MEAT
+* temps=60 niveau=2 frigo=3 boite congel
 + boeuf_hache 110, patate_douce 250, oignon 50, carotte 80, emmental 15, lait 30
 - Cuire la patate douce et l'écraser avec le lait.
 - Faire revenir l'oignon, la carotte et la viande.
 - Recouvrir de purée, parsemer d'emmental et gratiner 15 minutes.
 
 @ saumon_endives_orange | Saumon rôti, endives braisées à l'orange, riz | FISH
+* temps=40 niveau=2 frigo=2 boite
 + saumon 120, endive 200, orange 100, riz_basmati 55, beurre 5, miel 5
 - Cuire le riz.
 - Braiser les endives coupées en deux dans le beurre avec le jus d'orange et le miel, 20 minutes.
 - Rôtir le saumon 12 minutes à 200 °C, servir avec les suprêmes d'orange.
 
 @ tortilla_espagnole | Tortilla espagnole et salade d'endives | EGG
+* temps=40 niveau=2 frigo=2 boite
 + oeuf 165, pomme_de_terre 250, oignon 60, huile_olive 10, endive 100
 - Cuire doucement les pommes de terre en fines tranches et l'oignon dans l'huile, 20 minutes.
 - Mélanger aux œufs battus, cuire à feu doux puis retourner.
 - Servir avec les endives émincées.
 
 @ chili_patate_douce | Chili de patate douce et haricots rouges | PLANT
+* temps=45 niveau=1 frigo=3 boite congel
 + patate_douce 200, haricots_rouges 150, tomates_pelees 200, oignon 50, cumin 3, paprika 2, mais 40, huile_olive 5
 - Faire revenir l'oignon avec les épices.
 - Ajouter la patate douce en cubes et les tomates, cuire 20 minutes.
 - Ajouter les haricots et le maïs, réchauffer 5 minutes.
 
 @ salade_lentilles_poire | Salade de lentilles, poire, noix et chèvre | DAIRY
+* temps=30 niveau=1 frigo=2 boite
 + lentilles_vertes 70, poire 120, noix 12, chevre_frais 40, mache 50, huile_colza 8, vinaigre_balsamique 5
 - Cuire les lentilles et les laisser tiédir.
 - Mélanger avec la mâche et la poire en lamelles.
 - Ajouter le chèvre et les noix, assaisonner.
 
 @ pates_poireaux_lardons | Pâtes aux poireaux et lardons | PORK
+* temps=25 niveau=1 frigo=2 boite
 + pates 85, poireau 200, lardons 40, creme_legere 30, parmesan 10
 - Cuire les pâtes.
 - Faire revenir les lardons, ajouter les poireaux émincés et cuire 10 minutes, puis la crème.
 - Mélanger avec les pâtes et le parmesan.
 
 @ curry_butternut_tofu | Curry de butternut et tofu au lait de coco | PLANT
+* temps=40 niveau=1 frigo=3 boite congel
 + butternut 250, tofu 130, lait_coco 50, curry 4, oignon 40, riz_basmati 55, coriandre 5
 - Cuire le riz.
 - Faire revenir l'oignon avec le curry, ajouter la butternut en cubes et 100 ml d'eau ; cuire 15 minutes.
 - Ajouter le tofu en dés et le lait de coco, mijoter 5 minutes.
 
 @ minestrone_hiver | Minestrone d'hiver aux haricots blancs | PLANT
+* temps=50 niveau=1 frigo=3 boite congel
 + haricots_blancs 150, pates 40, carotte 100, poireau 100, chou_vert 100, tomates_pelees 100, parmesan 15, huile_olive 8, celeri_rave 50
 - Faire revenir les légumes en petits dés dans l'huile.
 - Ajouter les tomates et 600 ml d'eau, cuire 25 minutes.
 - Ajouter les pâtes et les haricots 10 minutes avant la fin ; servir avec le parmesan.
 
 @ veloute_chou_fleur_comte | Velouté de chou-fleur, tartines de comté | DAIRY
+* temps=35 niveau=1 frigo=3 boite congel
 + chou_fleur 300, pomme_de_terre 100, lait 100, comte 40, pain_complet 70, noisettes 10
 - Cuire le chou-fleur et la pomme de terre 20 minutes, mixer avec le lait.
 - Griller le pain garni de comté.
 - Parsemer le velouté de noisettes concassées.
 
 @ boeuf_panais_puree | Bavette, purée de panais et carottes | RED_MEAT
+* temps=40 niveau=2 frigo=2 boite
 + boeuf_bavette 140, panais 200, carotte 100, lait 50, beurre 8, mache 40
 - Cuire le panais et les carottes, les écraser avec le lait et le beurre.
 - Saisir la bavette 3 minutes par face, la laisser reposer.
 - Servir avec la mâche.
 
 @ maquereau_lentilles | Maquereau, lentilles tièdes et poireaux vinaigrette | FISH
+* temps=40 niveau=2 frigo=2 boite
 + maquereau 110, lentilles_vertes 60, poireau 150, moutarde 5, vinaigre_vin 5, huile_colza 5, persil 5
 - Cuire les lentilles 20 minutes et les poireaux en tronçons 15 minutes.
 - Griller le maquereau.
 - Assaisonner lentilles et poireaux d'une vinaigrette moutardée, parsemer de persil.
 
 @ crevettes_patate_douce | Crevettes, purée de patate douce au gingembre et brocoli | SEAFOOD
+* temps=40 niveau=2 frigo=2 boite
 + crevettes 130, patate_douce 250, gingembre 5, lait_coco 30, brocoli 150, huile_colza 5
 - Cuire la patate douce et l'écraser avec le lait de coco et le gingembre.
 - Cuire le brocoli à la vapeur.
 - Faire sauter les crevettes 2 minutes dans l'huile.
 
 @ poulet_poire_noix | Salade tiède de poulet, poire, noix et mâche | POULTRY
+* temps=25 niveau=1 frigo=1 boite
 + poulet_filet 120, poire 120, mache 60, noix 12, pomme_de_terre 200, huile_colza 8, vinaigre_balsamique 5
 - Cuire les pommes de terre et griller le poulet.
 - Disposer la mâche, la poire en lamelles, le poulet et les pommes de terre.
 - Ajouter les noix et la vinaigrette.
 
 @ gratin_patate_douce_poireaux | Gratin de patate douce et poireaux au chèvre | DAIRY
+* temps=55 niveau=2 frigo=3 boite congel
 + patate_douce 250, poireau 150, chevre_frais 50, creme_legere 40, lentilles_corail 30, thym 1
 - Cuire les lentilles corail 10 minutes.
 - Alterner patate douce en fines tranches, poireaux émincés et lentilles dans un plat.
 - Napper de crème, émietter le chèvre et cuire 40 minutes à 190 °C.
 
 @ soupe_pois_chiches_chou | Soupe épaisse de pois chiches, chou vert et carottes | PLANT
+* temps=45 niveau=1 frigo=3 boite congel
 + pois_chiches 180, chou_vert 150, carotte 120, oignon 50, cumin 2, tomates_pelees 100, huile_olive 8, pain_complet 50
 - Faire revenir l'oignon avec le cumin.
 - Ajouter le chou, les carottes, les tomates et 500 ml d'eau ; cuire 25 minutes.
 - Ajouter les pois chiches et servir avec le pain.
 
 @ agneau_navets | Agneau mijoté aux navets et carottes, semoule | RED_MEAT
+* temps=100 niveau=3 frigo=3 boite congel
 + agneau_gigot 120, navet 150, carotte 120, oignon 40, cumin 2, semoule 60, huile_olive 5
 - Dorer l'agneau avec l'oignon et le cumin.
 - Ajouter les légumes en morceaux, couvrir d'eau et mijoter 45 minutes.
 - Servir avec la semoule.
 
 @ omelette_poireaux | Omelette aux poireaux et comté, salade d'endives | EGG
+* temps=25 niveau=1 frigo=1
 + oeuf 165, poireau 150, comte 25, endive 100, pain_complet 50, beurre 5
 - Fondre les poireaux émincés dans le beurre 10 minutes.
 - Verser les œufs battus, parsemer de comté et cuire à feu doux.
 - Servir avec les endives et le pain.
 
 @ truite_chou_fleur | Truite, chou-fleur rôti au cumin et quinoa | FISH
+* temps=40 niveau=2 frigo=2 boite
 + truite 140, chou_fleur 250, cumin 2, quinoa 50, huile_olive 8, citron 15
 - Rôtir le chou-fleur avec l'huile et le cumin 25 minutes à 200 °C.
 - Cuire le quinoa ; cuire la truite à la poêle 4 minutes par face.
 - Arroser de citron.
 
 @ tofu_choux_bruxelles | Tofu fumé, choux de Bruxelles et pommes de terre rôtis | PLANT
+* temps=40 niveau=1 frigo=3 boite
 + tofu_fume 130, chou_bruxelles 200, pomme_de_terre 200, huile_olive 10, moutarde 5
 - Rôtir les choux coupés en deux et les pommes de terre avec l'huile, 30 minutes à 200 °C.
 - Ajouter le tofu fumé en dés pour les 10 dernières minutes, puis la moutarde.
 
 @ pates_chou_fleur_noisettes | Pâtes complètes au chou-fleur rôti, noisettes et parmesan | DAIRY
+* temps=35 niveau=1 frigo=2 boite
 + pates_completes 85, chou_fleur 200, noisettes 12, parmesan 15, ail 5, huile_olive 8, persil 5
 - Rôtir le chou-fleur en petites fleurettes avec l'huile et l'ail, 20 minutes à 200 °C.
 - Cuire les pâtes et les mélanger avec le chou-fleur.
@@ -818,47 +956,55 @@
 # ───────────── Compléments véganes (couverture printemps / été) ─────────────
 
 @ pates_haricots_blancs_tomate | Pâtes complètes aux haricots blancs, tomate et olives | PLANT
+* temps=20 niveau=1 frigo=3 boite
 + pates_completes 85, haricots_blancs 120, coulis_tomate 150, olives_noires 20, oignon 40, ail 5, huile_olive 8, basilic 5
 - Cuire les pâtes.
 - Faire revenir l'oignon et l'ail, ajouter le coulis, les haricots rincés et les olives ; mijoter 10 minutes.
 - Mélanger avec les pâtes et le basilic.
 
 @ bowl_riz_haricots_avocat | Bowl de riz complet, haricots rouges, maïs et avocat | PLANT
+* temps=35 niveau=1 frigo=1 boite
 + riz_complet 60, haricots_rouges 150, mais 60, avocat 70, oignon_rouge 30, citron 15, coriandre 5, cumin 2
 - Cuire le riz complet.
 - Réchauffer les haricots avec le cumin.
 - Assembler avec le maïs, l'avocat en tranches et l'oignon émincé ; arroser de citron et parsemer de coriandre.
 
 @ salade_quinoa_pois_chiches_ete | Salade de quinoa, pois chiches, tomates, concombre et menthe | PLANT
+* temps=25 niveau=1 frigo=2 boite
 + quinoa 65, pois_chiches 150, tomate 150, concombre 120, menthe 8, persil 10, citron 20, huile_olive 10
 - Cuire le quinoa et le refroidir.
 - Couper les légumes en dés, ciseler les herbes.
 - Mélanger avec les pois chiches, le citron et l'huile.
 
 @ tian_legumes_lentilles | Tian de légumes du soleil et lentilles vertes | PLANT
+* temps=70 niveau=2 frigo=3 boite congel
 + courgette 150, tomate 150, aubergine 150, lentilles_vertes 70, oignon 40, huile_olive 10, herbes_provence 1, ail 5
 - Cuire les lentilles 20 minutes et les étaler dans un plat avec l'oignon et l'ail émincés.
 - Disposer dessus les légumes en rondelles alternées, arroser d'huile et parsemer d'herbes.
 - Cuire 40 minutes à 180 °C.
 
 @ tempeh_haricots_verts | Poêlée de tempeh, haricots verts et pommes de terre | PLANT
+* temps=30 niveau=1 frigo=2 boite
 + tempeh 120, haricot_vert 200, pomme_de_terre 200, huile_olive 8, sauce_soja 10, ail 5
 - Cuire les pommes de terre et les haricots à la vapeur.
 - Dorer le tempeh en dés dans l'huile avec l'ail, ajouter les légumes et la sauce soja.
 
 @ salade_lentilles_radis_roquette | Salade de lentilles, radis, roquette et noix | PLANT
+* temps=30 niveau=1 frigo=2 boite
 + lentilles_vertes 80, radis 80, roquette 40, noix 12, huile_colza 8, vinaigre_vin 5, echalote 15, pain_complet 50
 - Cuire les lentilles 20 minutes, les laisser tiédir.
 - Mélanger avec les radis en rondelles, la roquette et l'échalote ciselée.
 - Assaisonner et ajouter les noix ; servir avec le pain.
 
 @ risotto_petits_pois_menthe | Risotto aux petits pois, menthe et amandes | PLANT
+* temps=40 niveau=2 frigo=2 boite
 + riz_blanc 80, petits_pois 150, oignon 40, bouillon_legumes 5, huile_olive 10, menthe 5, citron 10, amandes 15
 - Préparer 400 ml de bouillon chaud.
 - Nacrer le riz avec l'oignon dans l'huile, mouiller de bouillon louche par louche pendant 18 minutes.
 - Ajouter les petits pois à mi-cuisson, puis le citron, la menthe et les amandes effilées.
 
 @ wok_tofu_courgettes | Wok de tofu, courgettes et carottes, riz basmati | PLANT
+* temps=25 niveau=1 frigo=2 boite
 + tofu 150, courgette 200, carotte 80, sauce_soja 15, gingembre 5, riz_basmati 65, huile_sesame 8, sesame 5
 - Cuire le riz.
 - Dorer le tofu en cubes, ajouter les courgettes et les carottes en bâtonnets et le gingembre ; cuire 5 minutes à feu vif.
@@ -867,146 +1013,175 @@
 # ═════════════ Petits-déjeuners (type BREAKFAST) ═════════════
 
 @ porridge_banane_noix | Porridge à la banane et aux noix | DAIRY | BREAKFAST
+* temps=10 niveau=1 frigo=0
 + flocons_avoine 60, lait 200, banane 120, noix 15, cannelle 1
 - Cuire les flocons dans le lait 4 minutes à feu doux en remuant.
 - Ajouter la banane en rondelles, les noix concassées et la cannelle.
 
 @ porridge_vegan_cacahuete | Porridge au lait de soja, banane et beurre de cacahuète | PLANT | BREAKFAST
+* temps=10 niveau=1 frigo=0
 + flocons_avoine 60, boisson_soja 250, banane 100, beurre_cacahuete 15
 - Cuire les flocons dans la boisson au soja 4 minutes.
 - Garnir de banane et d'une cuillère de beurre de cacahuète.
 
 @ tartines_avocat_oeuf | Tartines d'avocat et œuf mollet | EGG | BREAKFAST
+* temps=10 niveau=1 frigo=0
 + pain_complet 80, avocat 70, oeuf 55, citron 5
 - Cuire l'œuf 6 minutes, l'écaler.
 - Écraser l'avocat avec le citron, tartiner le pain grillé et poser l'œuf coupé en deux.
 
 @ tartines_cacahuete_banane | Tartines beurre de cacahuète et banane | PLANT | BREAKFAST
+* temps=5 niveau=1 frigo=0
 + pain_complet 80, beurre_cacahuete 20, banane 100
 - Griller le pain.
 - Tartiner de beurre de cacahuète et couvrir de rondelles de banane.
 
 @ fromage_blanc_muesli | Fromage blanc, muesli, banane et miel | DAIRY | BREAKFAST
+* temps=5 niveau=1 frigo=0
 + fromage_blanc 200, muesli 50, banane 100, miel 10
 - Verser le fromage blanc dans un bol.
 - Ajouter le muesli, la banane en rondelles et un filet de miel.
 
 @ oeufs_brouilles_tartines | Œufs brouillés à la ciboulette et pain complet | EGG | BREAKFAST
+* temps=10 niveau=1 frigo=0
 + oeuf 110, pain_complet 70, beurre 5, ciboulette 3, orange 150
 - Battre les œufs, les cuire doucement dans le beurre en remuant.
 - Parsemer de ciboulette, servir avec le pain grillé et l'orange en quartiers.
 
 @ omelette_jambon | Omelette au jambon et tartine | EGG | BREAKFAST
+* temps=10 niveau=1 frigo=0
 + oeuf 110, jambon 40, pain_complet 60, beurre 5
 - Battre les œufs, ajouter le jambon en dés.
 - Cuire dans le beurre et servir avec le pain grillé.
 
 @ tartines_saumon_fromage_frais | Tartines de fromage frais et saumon fumé | FISH | BREAKFAST
+* temps=5 niveau=1 frigo=0
 + pain_complet 80, fromage_frais 60, saumon_fume 50, citron 5
 - Griller le pain et le tartiner de fromage frais.
 - Ajouter le saumon fumé et quelques gouttes de citron.
 
 @ bowl_yaourt_grec_muesli | Bol de yaourt à la grecque, muesli et noix | DAIRY | BREAKFAST
+* temps=5 niveau=1 frigo=0
 + yaourt_grec 170, muesli 40, miel 10, noix 10
 - Verser le yaourt dans un bol.
 - Ajouter le muesli, les noix et le miel.
 
 @ tofu_brouille | Tofu brouillé aux champignons et tartine | PLANT | BREAKFAST
+* temps=15 niveau=1 frigo=0
 + tofu 120, pain_complet 70, champignon 60, huile_olive 5, paprika 1
 - Émietter le tofu, le faire revenir dans l'huile avec les champignons émincés et le paprika.
 - Servir avec le pain grillé.
 
 @ smoothie_bowl_banane | Smoothie bowl banane, soja et chia | PLANT | BREAKFAST
+* temps=10 niveau=1 frigo=0
 + yaourt_soja 200, banane 120, flocons_avoine 30, graines_chia 10
 - Mixer le yaourt au soja avec la moitié de la banane.
 - Verser dans un bol, garnir du reste de banane, des flocons et des graines de chia.
 
 @ pancakes_avoine_banane | Pancakes avoine et banane | EGG | BREAKFAST
+* temps=20 niveau=2 frigo=2 congel fournee
 + flocons_avoine 50, oeuf 55, banane 100, lait 50, huile_colza 5
 - Mixer les flocons, l'œuf, la banane et le lait.
 - Cuire de petits pancakes dans une poêle huilée, 2 minutes par face.
 
 @ tartines_houmous | Tartines de houmous et carottes râpées | PLANT | BREAKFAST
+* temps=5 niveau=1 frigo=0
 + pain_cereales 80, houmous 50, carotte 60
 - Griller le pain et le tartiner de houmous.
 - Ajouter la carotte finement râpée.
 
 @ galettes_riz_cacahuete | Galettes de riz, beurre de cacahuète, banane et lait de soja | PLANT | BREAKFAST
+* temps=5 niveau=1 frigo=0
 + galette_riz 27, beurre_cacahuete 20, banane 100, boisson_soja 200
 - Tartiner les galettes de riz de beurre de cacahuète.
 - Ajouter la banane en rondelles, servir avec un verre de boisson au soja.
 
 @ yaourt_grec_banane_noix | Yaourt à la grecque, banane, noix et miel | DAIRY | BREAKFAST
+* temps=5 niveau=1 frigo=0
 + yaourt_grec 170, banane 100, noix 15, miel 10
 - Verser le yaourt dans un bol.
 - Ajouter la banane, les noix et le miel.
 
 @ fromage_blanc_compote | Fromage blanc, compote de pomme et amandes | DAIRY | BREAKFAST
+* temps=5 niveau=1 frigo=0
 + fromage_blanc 200, compote_pomme 100, amandes 15, galette_riz 18
 - Mélanger le fromage blanc et la compote.
 - Parsemer d'amandes concassées, servir avec les galettes de riz.
 
 @ chia_pudding_mangue | Pudding de chia à la mangue | PLANT | BREAKFAST
+* temps=10 niveau=1 frigo=2
 + boisson_soja 200, graines_chia 25, mangue 100, amandes 15
 - La veille, mélanger la boisson au soja et les graines de chia, réserver au frais.
 - Le matin, ajouter la mangue en dés et les amandes.
 
 @ petit_dejeuner_classique | Tartines beurre-confiture et café au lait | DAIRY | BREAKFAST
+* temps=5 niveau=1 frigo=0
 + pain_campagne 80, beurre 10, confiture_fraise 20, lait 250
 - Griller le pain, le tartiner de beurre et de confiture.
 - Servir avec un bol de lait chaud (avec café ou chicorée si souhaité).
 
 @ tartines_comte_pomme | Tartines de comté et pomme | DAIRY | BREAKFAST
+* temps=5 niveau=1 frigo=0
 + pain_complet 70, comte 30, pomme 120
 - Griller le pain et le couvrir de fines tranches de comté.
 - Servir avec la pomme.
 
 @ yaourt_fraises_flocons | Yaourt aux fraises et flocons d'avoine | DAIRY | BREAKFAST
+* temps=5 niveau=1 frigo=0
 + yaourt_grec 150, fraise 150, flocons_avoine 40, miel 8
 - Couper les fraises, les ajouter au yaourt.
 - Parsemer de flocons et d'un filet de miel.
 
 @ porridge_myrtilles | Porridge aux myrtilles et amandes | DAIRY | BREAKFAST
+* temps=10 niveau=1 frigo=0
 + flocons_avoine 60, lait 200, myrtille 100, amandes 10
 - Cuire les flocons dans le lait 4 minutes.
 - Ajouter les myrtilles et les amandes effilées.
 
 @ porridge_pomme_cannelle | Porridge pomme-cannelle | DAIRY | BREAKFAST
+* temps=10 niveau=1 frigo=0
 + flocons_avoine 60, lait 200, pomme 120, cannelle 1, noix 10
 - Faire revenir la pomme en dés avec la cannelle 3 minutes.
 - Cuire les flocons dans le lait, ajouter la pomme et les noix.
 
 @ fromage_blanc_kiwi | Fromage blanc, kiwi et muesli | DAIRY | BREAKFAST
+* temps=5 niveau=1 frigo=0
 + fromage_blanc 200, kiwi 160, muesli 40
 - Éplucher les kiwis et les couper en rondelles.
 - Les ajouter au fromage blanc avec le muesli.
 
 @ bowl_peches | Bol de yaourt aux pêches et muesli | DAIRY | BREAKFAST
+* temps=5 niveau=1 frigo=0
 + yaourt_grec 150, peche 150, muesli 40
 - Couper la pêche en morceaux.
 - L'ajouter au yaourt avec le muesli.
 
 @ tartines_tomate_oeuf | Tartines tomate, huile d'olive et œuf | EGG | BREAKFAST
+* temps=10 niveau=1 frigo=0
 + pain_campagne 80, tomate 120, oeuf 55, huile_olive 5
 - Griller le pain, frotter avec la tomate coupée et arroser d'huile.
 - Cuire l'œuf au plat et le poser sur la tartine avec le reste de tomate.
 
 @ overnight_oats_abricots | Overnight oats aux abricots | DAIRY | BREAKFAST
+* temps=10 niveau=1 frigo=3
 + flocons_avoine 50, yaourt 125, abricot 120, lait 80
 - La veille, mélanger les flocons, le yaourt et le lait, réserver au frais.
 - Le matin, ajouter les abricots en morceaux.
 
 @ porridge_poire_chocolat | Porridge poire et chocolat noir | DAIRY | BREAKFAST
+* temps=10 niveau=1 frigo=0
 + flocons_avoine 60, lait 200, poire 120, chocolat_noir 10
 - Cuire les flocons dans le lait 4 minutes.
 - Ajouter la poire en dés et le chocolat râpé.
 
 @ smoothie_bowl_fraises | Smoothie bowl fraises et soja | PLANT | BREAKFAST
+* temps=10 niveau=1 frigo=0
 + yaourt_soja 200, fraise 150, flocons_avoine 40, graines_chia 10
 - Mixer le yaourt au soja avec la moitié des fraises.
 - Garnir du reste des fraises, des flocons et du chia.
 
 @ porridge_vegan_pomme | Porridge à l'avoine, pomme et noix | PLANT | BREAKFAST
+* temps=10 niveau=1 frigo=0
 + flocons_avoine 60, boisson_avoine 250, pomme 120, noix 10
 - Cuire les flocons dans la boisson à l'avoine 4 minutes.
 - Ajouter la pomme râpée et les noix.
@@ -1014,74 +1189,177 @@
 # ═════════════ Collations (type SNACK) ═════════════
 
 @ collation_pomme_amandes | Pomme et amandes | PLANT | SNACK
+* temps=2 niveau=1 frigo=0
 + pomme 150, amandes 20
 - Croquer la pomme avec une poignée d'amandes.
 
 @ collation_banane_cacahuete | Banane et beurre de cacahuète | PLANT | SNACK
+* temps=2 niveau=1 frigo=0
 + banane 120, beurre_cacahuete 15
 - Couper la banane en rondelles et les tremper dans le beurre de cacahuète.
 
 @ collation_yaourt_grec_miel | Yaourt à la grecque, miel et noix | DAIRY | SNACK
+* temps=3 niveau=1 frigo=0
 + yaourt_grec 150, miel 10, noix 10
 - Ajouter le miel et les noix au yaourt.
 
 @ collation_fromage_blanc_framboises | Fromage blanc et framboises | DAIRY | SNACK
+* temps=3 niveau=1 frigo=0
 + fromage_blanc 150, framboise 100, amandes 10
 - Ajouter les framboises et les amandes au fromage blanc.
 
 @ collation_houmous_carottes | Houmous et bâtonnets de carotte | PLANT | SNACK
+* temps=5 niveau=1 frigo=0
 + houmous 50, carotte 120
 - Couper la carotte en bâtonnets et les tremper dans le houmous.
 
 @ collation_galettes_chocolat | Galettes de riz, chocolat noir et noisettes | PLANT | SNACK
+* temps=3 niveau=1 frigo=0
 + galette_riz 18, chocolat_noir 15, noisettes 10
 - Déguster les galettes avec le chocolat et les noisettes.
 
 @ collation_dattes_noix | Dattes et noix | PLANT | SNACK
+* temps=2 niveau=1 frigo=0
 + dattes 40, noix 15
 - Ouvrir les dattes et les garnir de cerneaux de noix.
 
 @ collation_fruits_secs | Abricots secs, amandes et noisettes | PLANT | SNACK
+* temps=2 niveau=1 frigo=0
 + abricots_secs 30, amandes 15, noisettes 10
 - Mélanger les fruits secs dans un petit bol.
 
 @ collation_yaourt_soja_compote | Yaourt au soja, compote et graines de lin | PLANT | SNACK
+* temps=3 niveau=1 frigo=0
 + yaourt_soja 200, compote_pomme 100, graines_lin 8
 - Mélanger le yaourt et la compote, parsemer de graines de lin.
 
 @ collation_clementines_noix | Clémentines et noix | PLANT | SNACK
+* temps=2 niveau=1 frigo=0
 + clementine 210, noix 10
 - Éplucher les clémentines, servir avec les noix.
 
 @ collation_kiwi_petit_suisse | Kiwis et petits-suisses | DAIRY | SNACK
+* temps=3 niveau=1 frigo=0
 + kiwi 160, fromage_frais 120
 - Couper les kiwis, servir avec les petits-suisses.
 
 @ collation_oeuf_dur_tartine | Œuf dur et tartine complète | EGG | SNACK
+* temps=12 niveau=1 frigo=3
 + oeuf 110, pain_complet 40
 - Cuire les œufs 10 minutes, les écaler.
 - Servir avec le pain.
 
 @ collation_smoothie_banane | Smoothie banane et avoine | DAIRY | SNACK
+* temps=5 niveau=1 frigo=0
 + lait 250, banane 120, flocons_avoine 20
 - Mixer le lait, la banane et les flocons jusqu'à obtenir une texture lisse.
 
 @ collation_tartine_comte | Tartine de comté | DAIRY | SNACK
+* temps=3 niveau=1 frigo=0
 + pain_complet 50, comte 30
 - Poser le comté en lamelles sur le pain.
 
 @ collation_poire_noisettes | Poire et noisettes | PLANT | SNACK
+* temps=2 niveau=1 frigo=0
 + poire 150, noisettes 15
 - Couper la poire en quartiers, servir avec les noisettes.
 
 @ collation_mangue_soja | Mangue et yaourt au soja | PLANT | SNACK
+* temps=3 niveau=1 frigo=0
 + mangue 150, yaourt_soja 150
 - Couper la mangue en dés et l'ajouter au yaourt.
 
 @ collation_pruneaux_amandes | Pruneaux et amandes | PLANT | SNACK
+* temps=2 niveau=1 frigo=0
 + pruneaux 40, amandes 15
 - Servir les pruneaux avec les amandes.
 
 @ collation_yaourt_cerises | Yaourt nature et cerises | DAIRY | SNACK
+* temps=3 niveau=1 frigo=0
 + yaourt 125, cerise 150, amandes 10
 - Dénoyauter les cerises et les ajouter au yaourt avec les amandes.
+
+# ───────────── Fournées de la semaine (préparées en une fois) ─────────────
+
+@ cookies_avoine_chocolat | Cookies à l'avoine et au chocolat noir | EGG | SNACK
+* temps=30 niveau=1 frigo=7 congel fournee
++ flocons_avoine 15, farine 15, beurre 10, sucre_roux 10, oeuf 8, chocolat_noir 10, levure_chimique 1
+- Préchauffer le four à 180 °C et faire fondre le beurre.
+- Mélanger le beurre, le sucre et l'œuf battu, puis ajouter la farine, les flocons, la levure et le chocolat haché.
+- Former deux petites boules par portion sur une plaque, les aplatir et cuire 10 à 12 minutes.
+- Laisser refroidir sur une grille. Se garde 7 jours dans une boîte hermétique, ou au congélateur.
+
+@ cookies_banane_cacahuete | Cookies banane, avoine et beurre de cacahuète | PLANT | SNACK
+* temps=25 niveau=1 frigo=5 congel fournee
++ banane 40, flocons_avoine 25, beurre_cacahuete 15, chocolat_noir 5
+- Préchauffer le four à 180 °C.
+- Écraser la banane, la mélanger avec le beurre de cacahuète, les flocons et le chocolat haché.
+- Former les cookies sur une plaque et cuire 15 minutes.
+- Laisser refroidir. Se garde 5 jours au frais dans une boîte ; congeler le reste et le sortir la veille.
+
+@ energy_balls_dattes_cacao | Energy balls dattes, amandes et cacao | PLANT | SNACK
+* temps=15 niveau=1 frigo=7 congel fournee
++ dattes 25, amandes 12, flocons_avoine 10, cacao 3
+- Mixer les amandes, puis ajouter les dattes dénoyautées, les flocons et le cacao ; mixer jusqu'à obtenir une pâte.
+- Former trois boules par portion avec les mains légèrement humides.
+- Garder dans une boîte au réfrigérateur : 7 jours.
+
+@ barres_cereales_miel | Barres de céréales au miel et fruits secs | PLANT | SNACK
+* temps=35 niveau=1 frigo=7 fournee
++ flocons_avoine 25, miel 10, beurre_cacahuete 8, raisins_secs 8, amandes 6
+- Préchauffer le four à 170 °C.
+- Faire tiédir le miel avec le beurre de cacahuète, puis mélanger avec les flocons, les raisins et les amandes concassées.
+- Tasser dans un moule recouvert de papier cuisson et cuire 20 minutes.
+- Découper en barres une fois refroidi. Se garde 7 jours dans une boîte hermétique.
+
+@ muffins_pomme_cannelle | Muffins pomme-cannelle | EGG | SNACK
+* temps=35 niveau=1 frigo=4 congel fournee
++ farine 25, sucre 6, oeuf 10, lait 15, huile_colza 5, pomme 25, levure_chimique 1, cannelle 1
+- Préchauffer le four à 180 °C.
+- Mélanger la farine, le sucre, la levure et la cannelle ; ajouter l'œuf, le lait et l'huile, puis la pomme en petits dés.
+- Répartir dans des moules à muffins et cuire 20 à 25 minutes.
+- Se garde 4 jours dans une boîte ; congeler le reste et le sortir la veille.
+
+@ banana_bread_noix | Banana bread aux noix | EGG | SNACK
+* temps=60 niveau=2 frigo=4 congel fournee
++ farine 20, banane 30, oeuf 10, sucre_roux 6, beurre 6, noix 6, levure_chimique 1
+- Préchauffer le four à 175 °C et faire fondre le beurre.
+- Écraser les bananes, ajouter l'œuf, le sucre et le beurre, puis la farine, la levure et les noix concassées.
+- Verser dans un moule à cake et cuire 45 à 50 minutes.
+- Découper en tranches une fois refroidi : 4 jours dans une boîte, ou congeler les tranches.
+
+@ mendiants_chocolat_amandes | Mendiants au chocolat noir, amandes et raisins | PLANT | SNACK
+* temps=20 niveau=1 frigo=14 fournee
++ chocolat_noir 15, amandes 8, noisettes 5, raisins_secs 5
+- Faire fondre le chocolat au bain-marie ou au micro-ondes par petites périodes.
+- Déposer des petits disques de chocolat sur du papier cuisson et les garnir d'amandes, de noisettes et de raisins.
+- Laisser durcir au frais. Se garde 2 semaines dans une boîte.
+
+@ granola_maison_yaourt | Granola maison, yaourt et pomme | DAIRY | BREAKFAST
+* temps=35 niveau=1 frigo=14 fournee
++ flocons_avoine 45, amandes 10, miel 10, huile_colza 5, yaourt 125, pomme 100
+- Préchauffer le four à 160 °C. Mélanger les flocons, les amandes concassées, le miel et l'huile.
+- Étaler sur une plaque et cuire 20 à 25 minutes en remuant à mi-cuisson ; laisser refroidir et garder en bocal (2 semaines).
+- Chaque matin : servir le granola sur le yaourt, avec la pomme coupée.
+
+@ granola_noix_soja | Granola noix-cannelle, yaourt au soja et banane | PLANT | BREAKFAST
+* temps=35 niveau=1 frigo=14 fournee
++ flocons_avoine 45, noix 10, raisins_secs 10, huile_colza 6, cannelle 1, yaourt_soja 100, banane 100
+- Préchauffer le four à 160 °C. Mélanger les flocons, les noix concassées, la cannelle et l'huile.
+- Cuire 20 minutes en remuant à mi-cuisson, ajouter les raisins une fois refroidi et garder en bocal (2 semaines).
+- Chaque matin : servir sur le yaourt au soja avec la banane en rondelles.
+
+@ muffins_oeufs_champignons | Muffins aux œufs, champignons et emmental, pain complet | EGG | BREAKFAST
+* temps=30 niveau=1 frigo=4 congel fournee
++ oeuf 110, champignon 50, emmental 15, ciboulette 2, pain_complet 50
+- Préchauffer le four à 180 °C. Battre les œufs, ajouter les champignons émincés, l'emmental et la ciboulette.
+- Répartir dans des moules à muffins et cuire 20 minutes.
+- Se garde 4 jours au réfrigérateur (congeler le reste) ; réchauffer 30 secondes au micro-ondes et servir avec le pain.
+
+@ banana_bread_fromage_blanc | Banana bread et fromage blanc | EGG | BREAKFAST
+* temps=60 niveau=2 frigo=4 congel fournee
++ farine 30, banane 45, oeuf 15, sucre_roux 8, beurre 8, noix 8, levure_chimique 1, fromage_blanc 100
+- Préchauffer le four à 175 °C et faire fondre le beurre.
+- Écraser les bananes, ajouter l'œuf, le sucre et le beurre, puis la farine, la levure et les noix concassées.
+- Cuire 45 à 50 minutes dans un moule à cake ; découper en tranches (4 jours dans une boîte, ou congeler).
+- Chaque matin : une tranche avec le fromage blanc.

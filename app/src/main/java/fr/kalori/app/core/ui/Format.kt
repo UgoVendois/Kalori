@@ -41,6 +41,12 @@ object Format {
         text.replace(',', '.').trim().toDoubleOrNull()?.let { if (unit == UnitSystem.IMPERIAL) it / LB_PER_KG else it }
 
     /** 1.25 → « 1,25 » ; 1.0 → « 1 ». */
+    /** Prix au centime : « 2,40 € ». */
+    fun euros(value: Double): String = "%.2f €".format(Locale.FRENCH, value)
+
+    /** Montant arrondi à l'euro : « 48 € ». */
+    fun eurosRounded(value: Double): String = "${value.roundToInt()} €"
+
     fun decimal(value: Double, decimals: Int = 1): String {
         val text = "%.${decimals}f".format(Locale.FRENCH, value)
         return if (text.contains(',')) text.trimEnd('0').trimEnd(',') else text

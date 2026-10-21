@@ -53,3 +53,31 @@ fun migration1To2(today: () -> LocalDate = { LocalDate.now() }) = object : Migra
         db.execSQL("CREATE INDEX IF NOT EXISTS `index_meal_plan_entry_recipeId` ON `meal_plan_entry` (`recipeId`)")
     }
 }
+
+/**
+ * v2 → v3 : budget, niveau de cuisine, restes pour le midi et fournées de la semaine.
+ * - ingredient : prix estimé ; recipe : temps, difficulté, conservation, transportable, congélation, fournée
+ *   (valeurs réelles posées au réimport du catalogue, qui suit la mise à jour de l'app).
+ * - user_profile : budget hebdomadaire (aucun par défaut) et réglages d'organisation.
+ * - ingredient_price : prix saisis par l'utilisateur.
+ */
+val MIGRATION_2_3 = object : Migration(2, 3) {
+    override fun migrate(db: SupportSQLiteDatabase) {
+        db.execSQL("ALTER TABLE `ingredient` ADD COLUMN `priceEurPerKg` REAL NOT NULL DEFAULT 0")
+        db.execSQL("ALTER TABLE `recipe` ADD COLUMN `prepMinutes` INTEGER NOT NULL DEFAULT 30")
+        db.execSQL("ALTER TABLE `recipe` ADD COLUMN `difficulty` INTEGER NOT NULL DEFAULT 1")
+        db.execSQL("ALTER TABLE `recipe` ADD COLUMN `keepDays` INTEGER NOT NULL DEFAULT 0")
+        db.execSQL("ALTER TABLE `recipe` ADD COLUMN `lunchbox` INTEGER NOT NULL DEFAULT 0")
+        db.execSQL("ALTER TABLE `recipe` ADD COLUMN `freezable` INTEGER NOT NULL DEFAULT 0")
+        db.execSQL("ALTER TABLE `recipe` ADD COLUMN `batch` INTEGER NOT NULL DEFAULT 0")
+        db.execSQL("ALTER TABLE `user_profile` ADD COLUMN `weeklyBudgetEur` INTEGER")
+        db.execSQL("ALTER TABLE `user_profile` ADD COLUMN `cookingLevel` TEXT NOT NULL DEFAULT 'NORMAL'")
+        db.execSQL("ALTER TABLE `user_profile` ADD COLUMN `lunchLeftovers` INTEGER NOT NULL DEFAULT 0")
+        db.execSQL("ALTER TABLE `user_profile` ADD COLUMN `weeklyBreakfast` INTEGER NOT NULL DEFAULT 0")
+        db.execSQL("ALTER TABLE `user_profile` ADD COLUMN `weeklySnack` INTEGER NOT NULL DEFAULT 0")
+        db.execSQL(
+            "CREATE TABLE IF NOT EXISTS `ingredient_price` (`ingredientId` TEXT NOT NULL, `eurPerKg` REAL NOT NULL, " +
+                "PRIMARY KEY(`ingredientId`))",
+        )
+    }
+}

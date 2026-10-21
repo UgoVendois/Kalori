@@ -52,6 +52,7 @@ object SeedMapper {
         fat = seed.fat,
         carbs = seed.carbs,
         fiber = seed.fiber,
+        priceEurPerKg = seed.priceEurPerKg,
     )
 
     fun facts(ingredient: IngredientEntity) = IngredientFacts(
@@ -89,6 +90,12 @@ object SeedMapper {
             allergensMask = analysis.allergensMask,
             dietMask = analysis.dietMask,
             seasonMask = analysis.seasonMask,
+            prepMinutes = seed.prepMinutes,
+            difficulty = seed.difficulty,
+            keepDays = seed.keepDays,
+            lunchbox = seed.lunchbox,
+            freezable = seed.freezable,
+            batch = seed.batch,
         )
         return entity to lines.map { RecipeIngredientEntity(seed.id, it.ingredientId, it.grams) }
     }

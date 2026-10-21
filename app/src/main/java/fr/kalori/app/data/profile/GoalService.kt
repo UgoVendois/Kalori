@@ -1,5 +1,6 @@
 package fr.kalori.app.data.profile
 
+import fr.kalori.app.domain.model.CookingLevel
 import fr.kalori.app.core.database.dao.TrackingDao
 import fr.kalori.app.core.database.entity.UserProfileEntity
 import fr.kalori.app.data.meal.MealPlanRepository
@@ -118,8 +119,37 @@ class GoalService @Inject constructor(
         mealPlanRepository.regenerateUpcoming()
     }
 
+    /** Budget et organisation de la semaine ; les repas encore prévus sont recomposés. */
+    suspend fun setOrganization(organization: Organization) {
+        val profile = profileRepository.getProfile() ?: return
+        val updated = profile.copy(
+            weeklyBudgetEur = organization.weeklyBudgetEur?.coerceIn(MIN_BUDGET, MAX_BUDGET),
+            cookingLevel = organization.cookingLevel,
+            lunchLeftovers = organization.lunchLeftovers,
+            weeklyBreakfast = organization.weeklyBreakfast,
+            weeklySnack = organization.weeklySnack,
+        )
+        if (updated == profile) return
+        profileRepository.saveProfile(updated.copy(updatedAt = Instant.now(clock)))
+        mealPlanRepository.regenerateUpcoming()
+    }
+
     suspend fun setUnitSystem(unitSystem: UnitSystem) {
         val profile = profileRepository.getProfile() ?: return
         profileRepository.saveProfile(profile.copy(unitSystem = unitSystem, updatedAt = Instant.now(clock)))
     }
 }
+
+/** Budget et organisation de la semaine, tels que réglés dans « Mes goûts et restrictions ». */
+data class Organization(
+    val weeklyBudgetEur: Int? = null,
+    val cookingLevel: CookingLevel = CookingLevel.NORMAL,
+    val lunchLeftovers: Boolean = false,
+    val weeklyBreakfast: Boolean = false,
+    val weeklySnack: Boolean = false,
+)
+
+fun UserProfileEntity.organization() = Organization(weeklyBudgetEur, cookingLevel, lunchLeftovers, weeklyBreakfast, weeklySnack)
+
+private const val MIN_BUDGET = 1
+private const val MAX_BUDGET = 1000

@@ -66,6 +66,27 @@ class SeedDataTest {
     }
 
     @Test
+    fun `every ingredient has a plausible estimated price`() {
+        bundle.ingredients.forEach { assertTrue(it.priceEurPerKg in 0.5..100.0, "${it.id} : ${it.priceEurPerKg} €/kg") }
+    }
+
+    @Test
+    fun `organisation data supports every setting all year round`() {
+        val recipes = bundle.recipes.map { SeedMapper.recipe(it, facts, Instant.EPOCH).first }
+        recipes.forEach {
+            assertTrue(it.prepMinutes in 1..240 && it.difficulty in 1..3, "${it.id} : temps ou niveau invalide")
+            if (it.batch) assertTrue(it.keepDays >= 7 || it.freezable, "${it.id} : une fournée doit tenir la semaine")
+        }
+        for (month in 1..12) {
+            val inSeason = recipes.filter { SeasonMask.contains(it.seasonMask, month) }
+            val simpleLunchbox = inSeason.count { it.mealType == MealType.MAIN && it.difficulty == 1 && it.lunchbox && it.keepDays >= 1 }
+            assertTrue(simpleLunchbox >= 14, "mois $month : $simpleLunchbox plats simples à emporter")
+            assertTrue(inSeason.count { it.mealType == MealType.SNACK && it.batch } >= 5, "mois $month : peu de fournées de collation")
+            assertTrue(inSeason.count { it.mealType == MealType.BREAKFAST && it.batch } >= 3, "mois $month : peu de petits-déjeuners en fournée")
+        }
+    }
+
+    @Test
     fun `nutrition values are complete and sane`() {
         for (i in bundle.ingredients) {
             assertTrue(i.kcal in 0.0..900.0, "${i.id} kcal=${i.kcal}")

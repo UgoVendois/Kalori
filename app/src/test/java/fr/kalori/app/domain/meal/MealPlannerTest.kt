@@ -1,6 +1,5 @@
 package fr.kalori.app.domain.meal
 
-import fr.kalori.app.data.seed.SeedMapper
 import fr.kalori.app.domain.model.Allergen
 import fr.kalori.app.domain.model.Diet
 import fr.kalori.app.domain.model.GoalType
@@ -13,8 +12,6 @@ import fr.kalori.app.domain.model.SnackMode
 import fr.kalori.app.domain.model.toMask
 import fr.kalori.app.domain.nutrition.MacroCalculator
 import org.junit.Test
-import java.io.File
-import java.time.Instant
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 import kotlin.random.Random
@@ -27,23 +24,7 @@ import kotlin.test.assertTrue
 class MealPlannerTest {
 
     /** Catalogue réel embarqué dans l'app. */
-    private val catalog: List<MealCandidate> by lazy {
-        val bundle = SeedMapper.parse { File("src/main/assets/seed/$it").readText() }
-        val facts = bundle.ingredients.map(SeedMapper::ingredient).associate { it.id to SeedMapper.facts(it) }
-        bundle.recipes.map { seed ->
-            val (r, lines) = SeedMapper.recipe(seed, facts, Instant.EPOCH)
-            MealCandidate(
-                id = r.id,
-                mainProtein = r.mainProtein,
-                mealType = r.mealType,
-                nutrition = Nutrition(r.kcal, r.protein, r.fat, r.carbs, r.fiber),
-                allergensMask = r.allergensMask,
-                dietMask = r.dietMask,
-                seasonMask = r.seasonMask,
-                ingredientIds = lines.map { it.ingredientId }.toSet(),
-            )
-        }
-    }
+    private val catalog: List<MealCandidate> get() = TestCatalog.candidates
     private val byId by lazy { catalog.associateBy { it.id } }
     private val daily = MacroCalculator.targets(2720, 80.0, GoalType.GAIN)
     private val slotTargets = MealSchedule.targets(daily, MealSlot.mains.toSet(), SnackMode.AUTO)

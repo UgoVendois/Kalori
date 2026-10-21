@@ -185,3 +185,7 @@ absentes de Ciqual et recalculées à partir des macronutriments (facteurs du r�
 | `galette_riz` | Galette de riz soufflé | 7352 | Galette de riz complet soufflé | 381 | 8.4 | 3.0 | 77.9 | 3.4 |
 | `kaki` | Kaki | 13066 | Kaki, chair et peau, cru | 66 | 0.9 | 0.1 | 14.3 | 3.4 |
 | `mangue` | Mangue | 13025 | Mangue, chair sans peau, sans noyau, crue | 71 | 0.6 | 0.2 | 14.3 | 1.6 |
+| `sucre` | Sucre | 31016 | Sucre blanc | 399 | 0.0 | 0.0 | 99.7 | 0.0 |
+| `sucre_roux` | Sucre roux | 31017 | Sucre roux | 393 | 0.1 | 0.0 | 98.1 | 0.0 |
+| `levure_chimique` | Levure chimique | 11046 | Levure chimique ou poudre à lever | 108 | 0.1 | 0.0 | 26.9 | 0.2 |
+| `cacao` | Cacao en poudre non sucré | 18100 | Cacao, sans sucres ajoutés, poudre soluble | 387 | 22.4 | 20.6 | 11.6 | 29.5 |

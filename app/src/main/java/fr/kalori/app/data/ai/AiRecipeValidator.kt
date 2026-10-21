@@ -124,6 +124,11 @@ object AiRecipeValidator {
             allergensMask = analysis.allergensMask,
             dietMask = analysis.dietMask,
             seasonMask = analysis.seasonMask,
+            // L'IA ne renseigne pas l'organisation : valeurs prudentes (un plat se garde 2 jours et s'emporte).
+            prepMinutes = 30,
+            difficulty = 1,
+            keepDays = if (mealType == MealType.MAIN) 2 else 0,
+            lunchbox = mealType == MealType.MAIN,
         )
         return AiValidation.Valid(recipe, lines.map { RecipeIngredientEntity(recipeId, it.ingredientId, it.grams) })
     }

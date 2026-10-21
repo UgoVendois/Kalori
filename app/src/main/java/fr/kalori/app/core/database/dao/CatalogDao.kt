@@ -5,6 +5,7 @@ import androidx.room.Query
 import androidx.room.Transaction
 import androidx.room.Upsert
 import fr.kalori.app.core.database.entity.IngredientEntity
+import fr.kalori.app.core.database.entity.IngredientPriceEntity
 import fr.kalori.app.core.database.entity.RecipeEntity
 import fr.kalori.app.core.database.entity.RecipeIngredientEntity
 import fr.kalori.app.core.database.entity.RecipeWithIngredients
@@ -62,4 +63,21 @@ abstract class CatalogDao {
         deleteRecipeIngredients(recipes.map { it.id })
         upsertRecipeIngredients(lines)
     }
+
+    // ── Prix saisis par l'utilisateur ──
+
+    @Query("SELECT * FROM ingredient_price")
+    abstract fun observePrices(): Flow<List<IngredientPriceEntity>>
+
+    @Query("SELECT * FROM ingredient_price")
+    abstract suspend fun getPrices(): List<IngredientPriceEntity>
+
+    @Upsert
+    abstract suspend fun upsertPrices(prices: List<IngredientPriceEntity>)
+
+    @Query("DELETE FROM ingredient_price WHERE ingredientId = :ingredientId")
+    abstract suspend fun deletePrice(ingredientId: String)
+
+    @Query("DELETE FROM ingredient_price")
+    abstract suspend fun deleteAllPrices()
 }

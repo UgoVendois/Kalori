@@ -12,181 +12,187 @@
 #   unit        unité d'achat : g | ml | piece
 #   piece_g     grammes comestibles par pièce (unit = piece)
 #   piece_label libellé de la pièce
-id;name;ciqual;aisle;allergens;traces;diet;season;unit;piece_g;piece_label
-tomate;Tomate;20276;FRUITS_VEGETABLES;;;;6-10;piece;120;pièce
-tomate_cerise;Tomate cerise;20172;FRUITS_VEGETABLES;;;;6-10;g;;
-courgette;Courgette;20020;FRUITS_VEGETABLES;;;;6-10;piece;250;pièce
-aubergine;Aubergine;20053;FRUITS_VEGETABLES;;;;7-10;piece;300;pièce
-poivron_rouge;Poivron rouge;20087;FRUITS_VEGETABLES;;;;7-10;piece;150;pièce
-concombre;Concombre;20019;FRUITS_VEGETABLES;;;;5-9;piece;300;pièce
-carotte;Carotte;20009;FRUITS_VEGETABLES;;;;all;g;;
-poireau;Poireau;20039;FRUITS_VEGETABLES;;;;9-4;g;;
-oignon;Oignon;20034;FRUITS_VEGETABLES;;;;all;piece;100;pièce
-oignon_rouge;Oignon rouge;20238;FRUITS_VEGETABLES;;;;all;piece;100;pièce
-echalote;Échalote;20097;FRUITS_VEGETABLES;;;;all;piece;30;pièce
-ail;Ail;11000;FRUITS_VEGETABLES;;;;all;piece;5;gousse
-pomme_de_terre;Pomme de terre;4008;FRUITS_VEGETABLES;;;;all;g;;
-patate_douce;Patate douce;4101;FRUITS_VEGETABLES;;;;10-3;g;;
-brocoli;Brocoli;20057;FRUITS_VEGETABLES;;;;6-11;g;;
-chou_fleur;Chou-fleur;20016;FRUITS_VEGETABLES;;;;9-4;g;;
-chou_vert;Chou vert;20069;FRUITS_VEGETABLES;;;;10-3;g;;
-chou_rouge;Chou rouge;20014;FRUITS_VEGETABLES;;;;9-3;g;;
-chou_bruxelles;Chou de Bruxelles;20058;FRUITS_VEGETABLES;;;;10-2;g;;
-epinard;Épinard;20059;FRUITS_VEGETABLES;;;;3-5,9-11;g;;
-pousses_epinard;Jeunes pousses d'épinard;20270;FRUITS_VEGETABLES;;;;3-5,9-11;g;;
-haricot_vert;Haricot vert;20061;FRUITS_VEGETABLES;;;;6-9;g;;
-petits_pois;Petits pois frais;20072;FRUITS_VEGETABLES;;;;5-7;g;;
-asperge_verte;Asperge verte;20279;FRUITS_VEGETABLES;;;;4-6;g;;
-champignon;Champignon de Paris;20056;FRUITS_VEGETABLES;;;;all;g;;
-butternut;Courge butternut;20138;FRUITS_VEGETABLES;;;;9-2;g;;
-potiron;Potiron;20044;FRUITS_VEGETABLES;;;;9-12;g;;
-celeri_rave;Céleri-rave;20055;FRUITS_VEGETABLES;CELERY;;;9-3;g;;
-celeri_branche;Céleri branche;20023;FRUITS_VEGETABLES;CELERY;;;6-11;g;;
-fenouil;Fenouil;20028;FRUITS_VEGETABLES;;;;6-10;g;;
-navet;Navet;20064;FRUITS_VEGETABLES;;;;10-3;g;;
-betterave;Betterave cuite;20003;FRUITS_VEGETABLES;;;;all;g;;
-radis;Radis;20045;FRUITS_VEGETABLES;;;;4-9;g;;
-laitue;Laitue;20031;FRUITS_VEGETABLES;;;;4-10;g;;
-mache;Mâche;20099;FRUITS_VEGETABLES;;;;10-3;g;;
-roquette;Roquette;20217;FRUITS_VEGETABLES;;;;4-10;g;;
-endive;Endive;20026;FRUITS_VEGETABLES;;;;10-4;g;;
-panais;Panais;20181;FRUITS_VEGETABLES;;;;10-3;g;;
-avocat;Avocat;13004;FRUITS_VEGETABLES;;;;10-5;piece;150;pièce
-citron;Citron;13009;FRUITS_VEGETABLES;;;;all;piece;60;pièce
-gingembre;Gingembre frais;11074;FRUITS_VEGETABLES;;;;all;g;;
-persil;Persil frais;11014;FRUITS_VEGETABLES;;;;all;g;;
-basilic;Basilic frais;11033;FRUITS_VEGETABLES;;;;all;g;;
-coriandre;Coriandre fraîche;11094;FRUITS_VEGETABLES;;;;all;g;;
-ciboulette;Ciboulette fraîche;11003;FRUITS_VEGETABLES;;;;all;g;;
-menthe;Menthe fraîche;11027;FRUITS_VEGETABLES;;;;all;g;;
-pomme;Pomme;13039;FRUITS_VEGETABLES;;;;8-4;piece;150;pièce
-poire;Poire;13037;FRUITS_VEGETABLES;;;;8-3;piece;150;pièce
-orange;Orange;13034;FRUITS_VEGETABLES;;;;11-4;piece;150;pièce
-clementine;Clémentine;13024;FRUITS_VEGETABLES;;;;11-2;piece;70;pièce
-banane;Banane;13005;FRUITS_VEGETABLES;;;;all;piece;120;pièce
-kiwi;Kiwi;13021;FRUITS_VEGETABLES;;;;11-4;piece;80;pièce
-fraise;Fraise;13014;FRUITS_VEGETABLES;;;;4-7;g;;
-framboise;Framboise;13015;FRUITS_VEGETABLES;;;;6-9;g;;
-cerise;Cerise;13008;FRUITS_VEGETABLES;;;;5-7;g;;
-abricot;Abricot;13000;FRUITS_VEGETABLES;;;;6-8;g;;
-peche;Pêche;13043;FRUITS_VEGETABLES;;;;6-9;piece;150;pièce
-melon;Melon;13026;FRUITS_VEGETABLES;;;;6-9;g;;
-raisin;Raisin;13395;FRUITS_VEGETABLES;;;;8-10;g;;
-prune;Prune;13100;FRUITS_VEGETABLES;;;;7-9;g;;
-figue;Figue;13012;FRUITS_VEGETABLES;;;;8-10;piece;50;pièce
-myrtille;Myrtille;13028;FRUITS_VEGETABLES;;;;7-9;g;;
-poulet_filet;Filet de poulet;36017;BUTCHER;;;MEAT;all;g;;
-poulet_cuisse;Cuisse de poulet (viande);36024;BUTCHER;;;MEAT;all;g;;
-dinde_escalope;Escalope de dinde;36304;BUTCHER;;;MEAT;all;g;;
-boeuf_hache;Steak haché 5 % MG;6250;BUTCHER;;;MEAT;all;g;;
-boeuf_bavette;Bavette de bœuf;6212;BUTCHER;;;MEAT;all;g;;
-boeuf_braiser;Bœuf à braiser;6231;BUTCHER;;;MEAT;all;g;;
-veau_escalope;Escalope de veau;6521;BUTCHER;;;MEAT;all;g;;
-agneau_gigot;Gigot d'agneau;21502;BUTCHER;;;MEAT;all;g;;
-porc_filet;Filet mignon de porc;28204;BUTCHER;;;MEAT|PORK;all;g;;
-jambon;Jambon blanc;28900;BUTCHER;;;MEAT|PORK;all;g;;
-lardons;Lardons nature;28501;BUTCHER;;;MEAT|PORK;all;g;;
-saumon;Pavé de saumon;26036;FISHMONGER;FISH;;FISH;all;g;;
-cabillaud;Dos de cabillaud;26043;FISHMONGER;FISH;;FISH;all;g;;
-lieu_noir;Lieu noir;26134;FISHMONGER;FISH;;FISH;all;g;;
-truite;Truite;27009;FISHMONGER;FISH;;FISH;all;g;;
-maquereau;Maquereau;26051;FISHMONGER;FISH;;FISH;all;g;;
-crevettes;Crevettes cuites;10007;FISHMONGER;CRUSTACEANS;;SHELLFISH;all;g;;
-moules;Moules;10014;FISHMONGER;MOLLUSCS;;SHELLFISH;7-2;g;;
-thon_conserve;Thon au naturel (conserve);26039;CANNED_LEGUMES;FISH;;FISH;all;g;;
-sardine_conserve;Sardines à l'huile d'olive (conserve);26040;CANNED_LEGUMES;FISH;;FISH;all;g;;
-oeuf;Œuf;22000;DAIRY_EGGS;EGGS;;EGG;all;piece;55;œuf
-lait;Lait demi-écrémé;19041;DAIRY_EGGS;MILK;;DAIRY;all;ml;;
-yaourt;Yaourt nature;19593;DAIRY_EGGS;MILK;;DAIRY;all;piece;125;pot
-yaourt_grec;Yaourt à la grecque;19860;DAIRY_EGGS;MILK;;DAIRY;all;g;;
-fromage_blanc;Fromage blanc 0 %;19644;DAIRY_EGGS;MILK;;DAIRY;all;g;;
-creme_legere;Crème légère 15 %;19436;DAIRY_EGGS;MILK;;DAIRY;all;ml;;
-beurre;Beurre doux;16400;DAIRY_EGGS;MILK;;DAIRY;all;g;;
-emmental;Emmental râpé;12118;DAIRY_EGGS;MILK;;DAIRY;all;g;;
-parmesan;Parmesan;12120;DAIRY_EGGS;MILK;;DAIRY;all;g;;
-mozzarella;Mozzarella;19590;DAIRY_EGGS;MILK;;DAIRY;all;piece;125;boule
-feta;Feta;12066;DAIRY_EGGS;MILK;;DAIRY;all;g;;
-chevre_frais;Fromage de chèvre frais;12805;DAIRY_EGGS;MILK;;DAIRY;all;g;;
-comte;Comté;12110;DAIRY_EGGS;MILK;;DAIRY;all;g;;
-ricotta;Ricotta;19585;DAIRY_EGGS;MILK;;DAIRY;all;g;;
-tofu;Tofu ferme nature;20904;PLANT_PROTEINS;SOY;;;all;g;;
-tofu_fume;Tofu fumé;20912;PLANT_PROTEINS;SOY;;;all;g;;
-tempeh;Tempeh;20917;PLANT_PROTEINS;SOY;;;all;g;;
-seitan;Seitan;25598;PLANT_PROTEINS;GLUTEN;SOY;;all;g;;
-boisson_soja;Boisson au soja nature;18900;PLANT_PROTEINS;SOY;;;all;ml;;
-riz_basmati;Riz basmati;9119;STARCHES;;;;all;g;;
-riz_complet;Riz complet;9102;STARCHES;;;;all;g;;
-riz_blanc;Riz rond (risotto);9100;STARCHES;;;;all;g;;
-pates;Pâtes;9810;STARCHES;GLUTEN;EGGS;;all;g;;
-pates_completes;Pâtes complètes;9870;STARCHES;GLUTEN;EGGS;;all;g;;
-semoule;Semoule de couscous;9610;STARCHES;GLUTEN;;;all;g;;
-quinoa;Quinoa;9340;STARCHES;;;;all;g;;
-boulgour;Boulgour;9690;STARCHES;GLUTEN;;;all;g;;
-flocons_avoine;Flocons d'avoine;32140;STARCHES;GLUTEN;;;all;g;;
-sarrasin;Sarrasin;9380;STARCHES;;GLUTEN;;all;g;;
-polenta;Polenta;9614;STARCHES;;;;all;g;;
-farine;Farine de blé;9435;STARCHES;GLUTEN;;;all;g;;
-chapelure;Chapelure;7500;STARCHES;GLUTEN;;;all;g;;
-lentilles_vertes;Lentilles vertes;20585;CANNED_LEGUMES;;;;all;g;;
-lentilles_corail;Lentilles corail;20535;CANNED_LEGUMES;;;;all;g;;
-pois_chiches;Pois chiches (conserve, égouttés);20532;CANNED_LEGUMES;;;;all;g;;
-haricots_rouges;Haricots rouges (conserve, égouttés);20524;CANNED_LEGUMES;;;;all;g;;
-haricots_blancs;Haricots blancs (conserve, égouttés);20511;CANNED_LEGUMES;;;;all;g;;
-mais;Maïs doux (conserve);20066;CANNED_LEGUMES;;;;all;g;;
-tomates_pelees;Tomates pelées (conserve);20137;CANNED_LEGUMES;;;;all;g;;
-coulis_tomate;Coulis de tomate;20260;CANNED_LEGUMES;;;;all;g;;
-lait_coco;Lait de coco;18041;CANNED_LEGUMES;;;;all;ml;;
-olives_noires;Olives noires;13032;CANNED_LEGUMES;;;;all;g;;
-pain_complet;Pain complet;7110;BAKERY;GLUTEN;SESAME;;all;g;;
-pain_campagne;Pain de campagne;7100;BAKERY;GLUTEN;SESAME;;all;g;;
-tortilla;Tortilla de blé;7815;BAKERY;GLUTEN;;;all;piece;40;galette
-galette_sarrasin;Galette de sarrasin;23801;BAKERY;;GLUTEN|EGGS|MILK;;all;piece;60;galette
-noix;Cerneaux de noix;15005;NUTS_SEEDS;NUTS;;;all;g;;
-amandes;Amandes;15000;NUTS_SEEDS;NUTS;;;all;g;;
-noisettes;Noisettes;15004;NUTS_SEEDS;NUTS;;;all;g;;
-noix_cajou;Noix de cajou;15054;NUTS_SEEDS;NUTS;PEANUTS;;all;g;;
-cacahuetes;Cacahuètes;15001;NUTS_SEEDS;PEANUTS;NUTS;;all;g;;
-sesame;Graines de sésame;15010;NUTS_SEEDS;SESAME;;;all;g;;
-graines_courge;Graines de courge;15064;NUTS_SEEDS;;NUTS;;all;g;;
-pignons;Pignons de pin;15025;NUTS_SEEDS;;NUTS|PEANUTS;;all;g;;
-raisins_secs;Raisins secs;13046;NUTS_SEEDS;SULPHITES;;;all;g;;
-huile_olive;Huile d'olive;17270;PANTRY;;;;all;ml;;
-huile_colza;Huile de colza;17130;PANTRY;;;;all;ml;;
-huile_sesame;Huile de sésame;17400;PANTRY;SESAME;;;all;ml;;
-vinaigre_balsamique;Vinaigre balsamique;11091;PANTRY;SULPHITES;;;all;ml;;
-vinaigre_vin;Vinaigre de vin;11220;PANTRY;SULPHITES;;;all;ml;;
-moutarde;Moutarde;11013;PANTRY;MUSTARD|SULPHITES;;;all;g;;
-sauce_soja;Sauce soja;11104;PANTRY;SOY|GLUTEN;;;all;ml;;
-miel;Miel;31008;PANTRY;;;HONEY;all;g;;
-tahin;Tahin (purée de sésame);15203;PANTRY;SESAME;;;all;g;;
-harissa;Harissa;11112;PANTRY;;;;all;g;;
-concentre_tomate;Concentré de tomate;20068;PANTRY;;;;all;g;;
-bouillon_legumes;Bouillon de légumes (cube);11041;PANTRY;CELERY;GLUTEN|MILK;;all;g;;
-bouillon_volaille;Bouillon de volaille (cube);11174;PANTRY;CELERY;GLUTEN|MILK;MEAT;all;g;;
-curry;Curry en poudre;11005;SPICES;;MUSTARD|CELERY;;all;g;;
-cumin;Cumin;11042;SPICES;;;;all;g;;
-paprika;Paprika;11049;SPICES;;;;all;g;;
-cannelle;Cannelle;11025;SPICES;;;;all;g;;
-herbes_provence;Herbes de Provence;11060;SPICES;;;;all;g;;
-thym;Thym séché;11038;SPICES;;;;all;g;;
-vin_blanc;Vin blanc sec (cuisine);5215;DRINKS;SULPHITES;;ALCOHOL;all;ml;;
-vin_rouge;Vin rouge (cuisine);5214;DRINKS;SULPHITES;;ALCOHOL;all;ml;;
-yaourt_soja;Yaourt au soja nature;19693;PLANT_PROTEINS;SOY;;;all;piece;100;pot
-boisson_avoine;Boisson à l'avoine;18899;PLANT_PROTEINS;GLUTEN;;;all;ml;;
-houmous;Houmous;25621;PLANT_PROTEINS;SESAME;;;all;g;;
-beurre_cacahuete;Beurre de cacahuète;15202;NUTS_SEEDS;PEANUTS;NUTS;;all;g;;
-graines_chia;Graines de chia;15047;NUTS_SEEDS;;NUTS;;all;g;;
-graines_lin;Graines de lin;15034;NUTS_SEEDS;;;;all;g;;
-dattes;Dattes;13011;NUTS_SEEDS;;;;all;g;;
-abricots_secs;Abricots secs;13001;NUTS_SEEDS;SULPHITES;;;all;g;;
-pruneaux;Pruneaux;13042;NUTS_SEEDS;;SULPHITES;;all;g;;
-chocolat_noir;Chocolat noir 70 %;31074;BREAKFAST_SWEET;;MILK|NUTS|SOY;;all;g;;
-compote_pomme;Compote de pomme sans sucre ajouté;13151;BREAKFAST_SWEET;;;;all;g;;
-confiture_fraise;Confiture de fraise;31024;BREAKFAST_SWEET;;;;all;g;;
-muesli;Muesli sans sucre ajouté;32141;BREAKFAST_SWEET;GLUTEN;NUTS;;all;g;;
-fromage_frais;Petit-suisse nature;19664;DAIRY_EGGS;MILK;;DAIRY;all;piece;60;pot
-saumon_fume;Saumon fumé;26037;FISHMONGER;FISH;;FISH;all;g;;
-pain_cereales;Pain aux céréales;7255;BAKERY;GLUTEN;SESAME;;all;g;;
-galette_riz;Galette de riz soufflé;7352;BAKERY;;GLUTEN;;all;piece;9;galette
-kaki;Kaki;13066;FRUITS_VEGETABLES;;;;10-12;piece;200;pièce
-mangue;Mangue;13025;FRUITS_VEGETABLES;;;;all;piece;300;pièce
+#   price       prix moyen ESTIMÉ en €/kg (€/L pour les unités ml), supermarché, gamme courante,
+#               2025-2026 : ordre de grandeur pour le budget, modifiable dans l'app
+id;name;ciqual;aisle;allergens;traces;diet;season;unit;piece_g;piece_label;price
+tomate;Tomate;20276;FRUITS_VEGETABLES;;;;6-10;piece;120;pièce;3.2
+tomate_cerise;Tomate cerise;20172;FRUITS_VEGETABLES;;;;6-10;g;;;6
+courgette;Courgette;20020;FRUITS_VEGETABLES;;;;6-10;piece;250;pièce;2.5
+aubergine;Aubergine;20053;FRUITS_VEGETABLES;;;;7-10;piece;300;pièce;3
+poivron_rouge;Poivron rouge;20087;FRUITS_VEGETABLES;;;;7-10;piece;150;pièce;4
+concombre;Concombre;20019;FRUITS_VEGETABLES;;;;5-9;piece;300;pièce;3
+carotte;Carotte;20009;FRUITS_VEGETABLES;;;;all;g;;;1.5
+poireau;Poireau;20039;FRUITS_VEGETABLES;;;;9-4;g;;;2.5
+oignon;Oignon;20034;FRUITS_VEGETABLES;;;;all;piece;100;pièce;1.8
+oignon_rouge;Oignon rouge;20238;FRUITS_VEGETABLES;;;;all;piece;100;pièce;2.5
+echalote;Échalote;20097;FRUITS_VEGETABLES;;;;all;piece;30;pièce;5
+ail;Ail;11000;FRUITS_VEGETABLES;;;;all;piece;5;gousse;8
+pomme_de_terre;Pomme de terre;4008;FRUITS_VEGETABLES;;;;all;g;;;1.4
+patate_douce;Patate douce;4101;FRUITS_VEGETABLES;;;;10-3;g;;;3
+brocoli;Brocoli;20057;FRUITS_VEGETABLES;;;;6-11;g;;;3.5
+chou_fleur;Chou-fleur;20016;FRUITS_VEGETABLES;;;;9-4;g;;;3
+chou_vert;Chou vert;20069;FRUITS_VEGETABLES;;;;10-3;g;;;2
+chou_rouge;Chou rouge;20014;FRUITS_VEGETABLES;;;;9-3;g;;;2
+chou_bruxelles;Chou de Bruxelles;20058;FRUITS_VEGETABLES;;;;10-2;g;;;4
+epinard;Épinard;20059;FRUITS_VEGETABLES;;;;3-5,9-11;g;;;4
+pousses_epinard;Jeunes pousses d'épinard;20270;FRUITS_VEGETABLES;;;;3-5,9-11;g;;;12
+haricot_vert;Haricot vert;20061;FRUITS_VEGETABLES;;;;6-9;g;;;4
+petits_pois;Petits pois frais;20072;FRUITS_VEGETABLES;;;;5-7;g;;;3.5
+asperge_verte;Asperge verte;20279;FRUITS_VEGETABLES;;;;4-6;g;;;12
+champignon;Champignon de Paris;20056;FRUITS_VEGETABLES;;;;all;g;;;5
+butternut;Courge butternut;20138;FRUITS_VEGETABLES;;;;9-2;g;;;2.2
+potiron;Potiron;20044;FRUITS_VEGETABLES;;;;9-12;g;;;2.5
+celeri_rave;Céleri-rave;20055;FRUITS_VEGETABLES;CELERY;;;9-3;g;;;2.5
+celeri_branche;Céleri branche;20023;FRUITS_VEGETABLES;CELERY;;;6-11;g;;;3
+fenouil;Fenouil;20028;FRUITS_VEGETABLES;;;;6-10;g;;;3.5
+navet;Navet;20064;FRUITS_VEGETABLES;;;;10-3;g;;;2.5
+betterave;Betterave cuite;20003;FRUITS_VEGETABLES;;;;all;g;;;3
+radis;Radis;20045;FRUITS_VEGETABLES;;;;4-9;g;;;4
+laitue;Laitue;20031;FRUITS_VEGETABLES;;;;4-10;g;;;3
+mache;Mâche;20099;FRUITS_VEGETABLES;;;;10-3;g;;;12
+roquette;Roquette;20217;FRUITS_VEGETABLES;;;;4-10;g;;;14
+endive;Endive;20026;FRUITS_VEGETABLES;;;;10-4;g;;;3
+panais;Panais;20181;FRUITS_VEGETABLES;;;;10-3;g;;;3.5
+avocat;Avocat;13004;FRUITS_VEGETABLES;;;;10-5;piece;150;pièce;6.5
+citron;Citron;13009;FRUITS_VEGETABLES;;;;all;piece;60;pièce;4
+gingembre;Gingembre frais;11074;FRUITS_VEGETABLES;;;;all;g;;;8
+persil;Persil frais;11014;FRUITS_VEGETABLES;;;;all;g;;;20
+basilic;Basilic frais;11033;FRUITS_VEGETABLES;;;;all;g;;;30
+coriandre;Coriandre fraîche;11094;FRUITS_VEGETABLES;;;;all;g;;;20
+ciboulette;Ciboulette fraîche;11003;FRUITS_VEGETABLES;;;;all;g;;;30
+menthe;Menthe fraîche;11027;FRUITS_VEGETABLES;;;;all;g;;;25
+pomme;Pomme;13039;FRUITS_VEGETABLES;;;;8-4;piece;150;pièce;2.5
+poire;Poire;13037;FRUITS_VEGETABLES;;;;8-3;piece;150;pièce;3
+orange;Orange;13034;FRUITS_VEGETABLES;;;;11-4;piece;150;pièce;2.5
+clementine;Clémentine;13024;FRUITS_VEGETABLES;;;;11-2;piece;70;pièce;3
+banane;Banane;13005;FRUITS_VEGETABLES;;;;all;piece;120;pièce;2
+kiwi;Kiwi;13021;FRUITS_VEGETABLES;;;;11-4;piece;80;pièce;4
+fraise;Fraise;13014;FRUITS_VEGETABLES;;;;4-7;g;;;9
+framboise;Framboise;13015;FRUITS_VEGETABLES;;;;6-9;g;;;20
+cerise;Cerise;13008;FRUITS_VEGETABLES;;;;5-7;g;;;9
+abricot;Abricot;13000;FRUITS_VEGETABLES;;;;6-8;g;;;5
+peche;Pêche;13043;FRUITS_VEGETABLES;;;;6-9;piece;150;pièce;4
+melon;Melon;13026;FRUITS_VEGETABLES;;;;6-9;g;;;3
+raisin;Raisin;13395;FRUITS_VEGETABLES;;;;8-10;g;;;4.5
+prune;Prune;13100;FRUITS_VEGETABLES;;;;7-9;g;;;4
+figue;Figue;13012;FRUITS_VEGETABLES;;;;8-10;piece;50;pièce;9
+myrtille;Myrtille;13028;FRUITS_VEGETABLES;;;;7-9;g;;;12
+poulet_filet;Filet de poulet;36017;BUTCHER;;;MEAT;all;g;;;14
+poulet_cuisse;Cuisse de poulet (viande);36024;BUTCHER;;;MEAT;all;g;;;7
+dinde_escalope;Escalope de dinde;36304;BUTCHER;;;MEAT;all;g;;;14
+boeuf_hache;Steak haché 5 % MG;6250;BUTCHER;;;MEAT;all;g;;;13
+boeuf_bavette;Bavette de bœuf;6212;BUTCHER;;;MEAT;all;g;;;25
+boeuf_braiser;Bœuf à braiser;6231;BUTCHER;;;MEAT;all;g;;;16
+veau_escalope;Escalope de veau;6521;BUTCHER;;;MEAT;all;g;;;30
+agneau_gigot;Gigot d'agneau;21502;BUTCHER;;;MEAT;all;g;;;22
+porc_filet;Filet mignon de porc;28204;BUTCHER;;;MEAT|PORK;all;g;;;15
+jambon;Jambon blanc;28900;BUTCHER;;;MEAT|PORK;all;g;;;13
+lardons;Lardons nature;28501;BUTCHER;;;MEAT|PORK;all;g;;;11
+saumon;Pavé de saumon;26036;FISHMONGER;FISH;;FISH;all;g;;;25
+cabillaud;Dos de cabillaud;26043;FISHMONGER;FISH;;FISH;all;g;;;18
+lieu_noir;Lieu noir;26134;FISHMONGER;FISH;;FISH;all;g;;;15
+truite;Truite;27009;FISHMONGER;FISH;;FISH;all;g;;;18
+maquereau;Maquereau;26051;FISHMONGER;FISH;;FISH;all;g;;;10
+crevettes;Crevettes cuites;10007;FISHMONGER;CRUSTACEANS;;SHELLFISH;all;g;;;18
+moules;Moules;10014;FISHMONGER;MOLLUSCS;;SHELLFISH;7-2;g;;;5
+thon_conserve;Thon au naturel (conserve);26039;CANNED_LEGUMES;FISH;;FISH;all;g;;;14
+sardine_conserve;Sardines à l'huile d'olive (conserve);26040;CANNED_LEGUMES;FISH;;FISH;all;g;;;13
+oeuf;Œuf;22000;DAIRY_EGGS;EGGS;;EGG;all;piece;55;œuf;5
+lait;Lait demi-écrémé;19041;DAIRY_EGGS;MILK;;DAIRY;all;ml;;;1.1
+yaourt;Yaourt nature;19593;DAIRY_EGGS;MILK;;DAIRY;all;piece;125;pot;2
+yaourt_grec;Yaourt à la grecque;19860;DAIRY_EGGS;MILK;;DAIRY;all;g;;;4.5
+fromage_blanc;Fromage blanc 0 %;19644;DAIRY_EGGS;MILK;;DAIRY;all;g;;;3
+creme_legere;Crème légère 15 %;19436;DAIRY_EGGS;MILK;;DAIRY;all;ml;;;4
+beurre;Beurre doux;16400;DAIRY_EGGS;MILK;;DAIRY;all;g;;;10
+emmental;Emmental râpé;12118;DAIRY_EGGS;MILK;;DAIRY;all;g;;;10
+parmesan;Parmesan;12120;DAIRY_EGGS;MILK;;DAIRY;all;g;;;25
+mozzarella;Mozzarella;19590;DAIRY_EGGS;MILK;;DAIRY;all;piece;125;boule;9
+feta;Feta;12066;DAIRY_EGGS;MILK;;DAIRY;all;g;;;13
+chevre_frais;Fromage de chèvre frais;12805;DAIRY_EGGS;MILK;;DAIRY;all;g;;;16
+comte;Comté;12110;DAIRY_EGGS;MILK;;DAIRY;all;g;;;18
+ricotta;Ricotta;19585;DAIRY_EGGS;MILK;;DAIRY;all;g;;;10
+tofu;Tofu ferme nature;20904;PLANT_PROTEINS;SOY;;;all;g;;;9
+tofu_fume;Tofu fumé;20912;PLANT_PROTEINS;SOY;;;all;g;;;12
+tempeh;Tempeh;20917;PLANT_PROTEINS;SOY;;;all;g;;;16
+seitan;Seitan;25598;PLANT_PROTEINS;GLUTEN;SOY;;all;g;;;15
+boisson_soja;Boisson au soja nature;18900;PLANT_PROTEINS;SOY;;;all;ml;;;1.8
+riz_basmati;Riz basmati;9119;STARCHES;;;;all;g;;;3.5
+riz_complet;Riz complet;9102;STARCHES;;;;all;g;;;3
+riz_blanc;Riz rond (risotto);9100;STARCHES;;;;all;g;;;2
+pates;Pâtes;9810;STARCHES;GLUTEN;EGGS;;all;g;;;1.8
+pates_completes;Pâtes complètes;9870;STARCHES;GLUTEN;EGGS;;all;g;;;2.4
+semoule;Semoule de couscous;9610;STARCHES;GLUTEN;;;all;g;;;2
+quinoa;Quinoa;9340;STARCHES;;;;all;g;;;7
+boulgour;Boulgour;9690;STARCHES;GLUTEN;;;all;g;;;3
+flocons_avoine;Flocons d'avoine;32140;STARCHES;GLUTEN;;;all;g;;;2
+sarrasin;Sarrasin;9380;STARCHES;;GLUTEN;;all;g;;;5
+polenta;Polenta;9614;STARCHES;;;;all;g;;;3
+farine;Farine de blé;9435;STARCHES;GLUTEN;;;all;g;;;1
+chapelure;Chapelure;7500;STARCHES;GLUTEN;;;all;g;;;4
+lentilles_vertes;Lentilles vertes;20585;CANNED_LEGUMES;;;;all;g;;;4
+lentilles_corail;Lentilles corail;20535;CANNED_LEGUMES;;;;all;g;;;4.5
+pois_chiches;Pois chiches (conserve, égouttés);20532;CANNED_LEGUMES;;;;all;g;;;2.5
+haricots_rouges;Haricots rouges (conserve, égouttés);20524;CANNED_LEGUMES;;;;all;g;;;2.5
+haricots_blancs;Haricots blancs (conserve, égouttés);20511;CANNED_LEGUMES;;;;all;g;;;2.5
+mais;Maïs doux (conserve);20066;CANNED_LEGUMES;;;;all;g;;;4
+tomates_pelees;Tomates pelées (conserve);20137;CANNED_LEGUMES;;;;all;g;;;2
+coulis_tomate;Coulis de tomate;20260;CANNED_LEGUMES;;;;all;g;;;2.5
+lait_coco;Lait de coco;18041;CANNED_LEGUMES;;;;all;ml;;;5
+olives_noires;Olives noires;13032;CANNED_LEGUMES;;;;all;g;;;12
+pain_complet;Pain complet;7110;BAKERY;GLUTEN;SESAME;;all;g;;;5
+pain_campagne;Pain de campagne;7100;BAKERY;GLUTEN;SESAME;;all;g;;;5
+tortilla;Tortilla de blé;7815;BAKERY;GLUTEN;;;all;piece;40;galette;7
+galette_sarrasin;Galette de sarrasin;23801;BAKERY;;GLUTEN|EGGS|MILK;;all;piece;60;galette;10
+noix;Cerneaux de noix;15005;NUTS_SEEDS;NUTS;;;all;g;;;18
+amandes;Amandes;15000;NUTS_SEEDS;NUTS;;;all;g;;;15
+noisettes;Noisettes;15004;NUTS_SEEDS;NUTS;;;all;g;;;16
+noix_cajou;Noix de cajou;15054;NUTS_SEEDS;NUTS;PEANUTS;;all;g;;;18
+cacahuetes;Cacahuètes;15001;NUTS_SEEDS;PEANUTS;NUTS;;all;g;;;8
+sesame;Graines de sésame;15010;NUTS_SEEDS;SESAME;;;all;g;;;12
+graines_courge;Graines de courge;15064;NUTS_SEEDS;;NUTS;;all;g;;;15
+pignons;Pignons de pin;15025;NUTS_SEEDS;;NUTS|PEANUTS;;all;g;;;60
+raisins_secs;Raisins secs;13046;NUTS_SEEDS;SULPHITES;;;all;g;;;7
+huile_olive;Huile d'olive;17270;PANTRY;;;;all;ml;;;10
+huile_colza;Huile de colza;17130;PANTRY;;;;all;ml;;;3
+huile_sesame;Huile de sésame;17400;PANTRY;SESAME;;;all;ml;;;15
+vinaigre_balsamique;Vinaigre balsamique;11091;PANTRY;SULPHITES;;;all;ml;;;6
+vinaigre_vin;Vinaigre de vin;11220;PANTRY;SULPHITES;;;all;ml;;;3
+moutarde;Moutarde;11013;PANTRY;MUSTARD|SULPHITES;;;all;g;;;5
+sauce_soja;Sauce soja;11104;PANTRY;SOY|GLUTEN;;;all;ml;;;8
+miel;Miel;31008;PANTRY;;;HONEY;all;g;;;14
+tahin;Tahin (purée de sésame);15203;PANTRY;SESAME;;;all;g;;;14
+harissa;Harissa;11112;PANTRY;;;;all;g;;;15
+concentre_tomate;Concentré de tomate;20068;PANTRY;;;;all;g;;;6
+bouillon_legumes;Bouillon de légumes (cube);11041;PANTRY;CELERY;GLUTEN|MILK;;all;g;;;15
+bouillon_volaille;Bouillon de volaille (cube);11174;PANTRY;CELERY;GLUTEN|MILK;MEAT;all;g;;;15
+curry;Curry en poudre;11005;SPICES;;MUSTARD|CELERY;;all;g;;;25
+cumin;Cumin;11042;SPICES;;;;all;g;;;30
+paprika;Paprika;11049;SPICES;;;;all;g;;;25
+cannelle;Cannelle;11025;SPICES;;;;all;g;;;30
+herbes_provence;Herbes de Provence;11060;SPICES;;;;all;g;;;30
+thym;Thym séché;11038;SPICES;;;;all;g;;;40
+vin_blanc;Vin blanc sec (cuisine);5215;DRINKS;SULPHITES;;ALCOHOL;all;ml;;;5
+vin_rouge;Vin rouge (cuisine);5214;DRINKS;SULPHITES;;ALCOHOL;all;ml;;;5
+yaourt_soja;Yaourt au soja nature;19693;PLANT_PROTEINS;SOY;;;all;piece;100;pot;4.5
+boisson_avoine;Boisson à l'avoine;18899;PLANT_PROTEINS;GLUTEN;;;all;ml;;;2
+houmous;Houmous;25621;PLANT_PROTEINS;SESAME;;;all;g;;;10
+beurre_cacahuete;Beurre de cacahuète;15202;NUTS_SEEDS;PEANUTS;NUTS;;all;g;;;9
+graines_chia;Graines de chia;15047;NUTS_SEEDS;;NUTS;;all;g;;;12
+graines_lin;Graines de lin;15034;NUTS_SEEDS;;;;all;g;;;6
+dattes;Dattes;13011;NUTS_SEEDS;;;;all;g;;;8
+abricots_secs;Abricots secs;13001;NUTS_SEEDS;SULPHITES;;;all;g;;;12
+pruneaux;Pruneaux;13042;NUTS_SEEDS;;SULPHITES;;all;g;;;10
+chocolat_noir;Chocolat noir 70 %;31074;BREAKFAST_SWEET;;MILK|NUTS|SOY;;all;g;;;13
+compote_pomme;Compote de pomme sans sucre ajouté;13151;BREAKFAST_SWEET;;;;all;g;;;3.5
+confiture_fraise;Confiture de fraise;31024;BREAKFAST_SWEET;;;;all;g;;;5
+muesli;Muesli sans sucre ajouté;32141;BREAKFAST_SWEET;GLUTEN;NUTS;;all;g;;;5
+fromage_frais;Petit-suisse nature;19664;DAIRY_EGGS;MILK;;DAIRY;all;piece;60;pot;9
+saumon_fume;Saumon fumé;26037;FISHMONGER;FISH;;FISH;all;g;;;35
+pain_cereales;Pain aux céréales;7255;BAKERY;GLUTEN;SESAME;;all;g;;;6
+galette_riz;Galette de riz soufflé;7352;BAKERY;;GLUTEN;;all;piece;9;galette;10
+kaki;Kaki;13066;FRUITS_VEGETABLES;;;;10-12;piece;200;pièce;4
+mangue;Mangue;13025;FRUITS_VEGETABLES;;;;all;piece;300;pièce;5
+sucre;Sucre;31016;PANTRY;;;;all;g;;;1.2
+sucre_roux;Sucre roux;31017;PANTRY;;;;all;g;;;2.5
+levure_chimique;Levure chimique;11046;PANTRY;;;;all;g;;;20
+cacao;Cacao en poudre non sucré;18100;PANTRY;;MILK;;all;g;;;15

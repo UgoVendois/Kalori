@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Close
@@ -24,21 +25,24 @@ import androidx.compose.material.icons.outlined.BakeryDining
 import androidx.compose.material.icons.outlined.Block
 import androidx.compose.material.icons.outlined.BreakfastDining
 import androidx.compose.material.icons.outlined.CheckCircle
+import androidx.compose.material.icons.outlined.Eco
 import androidx.compose.material.icons.outlined.EggAlt
 import androidx.compose.material.icons.outlined.ExpandLess
 import androidx.compose.material.icons.outlined.ExpandMore
 import androidx.compose.material.icons.outlined.FavoriteBorder
+import androidx.compose.material.icons.outlined.Grain
 import androidx.compose.material.icons.outlined.Grass
 import androidx.compose.material.icons.outlined.Inventory2
 import androidx.compose.material.icons.outlined.KebabDining
+import androidx.compose.material.icons.outlined.Kitchen
+import androidx.compose.material.icons.outlined.LunchDining
 import androidx.compose.material.icons.outlined.RiceBowl
+import androidx.compose.material.icons.outlined.Savings
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material.icons.outlined.SetMeal
 import androidx.compose.material.icons.outlined.Spa
-import androidx.compose.material.icons.outlined.Eco
 import androidx.compose.material.icons.outlined.WaterDrop
 import androidx.compose.material.icons.outlined.WineBar
-import androidx.compose.material.icons.outlined.Grain
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilterChipDefaults
@@ -49,6 +53,7 @@ import androidx.compose.material3.SegmentedButton
 import androidx.compose.material3.SegmentedButtonDefaults
 import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -56,6 +61,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -70,6 +76,7 @@ import fr.kalori.app.core.ui.theme.accent
 import fr.kalori.app.domain.meal.DietRules
 import fr.kalori.app.domain.model.Aisle
 import fr.kalori.app.domain.model.Allergen
+import fr.kalori.app.domain.model.CookingLevel
 import fr.kalori.app.domain.model.Diet
 import fr.kalori.app.domain.model.MealSlot
 import fr.kalori.app.domain.model.SnackMode
@@ -85,6 +92,11 @@ class FoodPreferencesActions(
     val onToggleAisle: (Aisle) -> Unit,
     val onToggleMainSlot: (MealSlot) -> Unit,
     val onSnackMode: (SnackMode) -> Unit,
+    val onBudget: (String) -> Unit = {},
+    val onCookingLevel: (CookingLevel) -> Unit = {},
+    val onLunchLeftovers: (Boolean) -> Unit = {},
+    val onWeeklyBreakfast: (Boolean) -> Unit = {},
+    val onWeeklySnack: (Boolean) -> Unit = {},
 )
 
 fun FoodPreferencesViewModel.actions() = FoodPreferencesActions(
@@ -96,6 +108,11 @@ fun FoodPreferencesViewModel.actions() = FoodPreferencesActions(
     onToggleAisle = ::toggleAisle,
     onToggleMainSlot = ::toggleMainSlot,
     onSnackMode = ::setSnackMode,
+    onBudget = ::setBudget,
+    onCookingLevel = ::setCookingLevel,
+    onLunchLeftovers = ::setLunchLeftovers,
+    onWeeklyBreakfast = ::setWeeklyBreakfast,
+    onWeeklySnack = ::setWeeklySnack,
 )
 
 /** « Mes goûts et restrictions » : chaque modification est enregistrée automatiquement. */
@@ -187,6 +204,7 @@ fun LazyListScope.foodPreferencesItems(state: FoodPreferencesUiState, actions: F
                 Hint("« Si besoin » : une collation est ajoutée quand ton objectif est élevé ou que tu prends peu de repas.")
             }
         }
+        item(key = "organization") { OrganizationCard(state.schedule, actions) }
     }
 
     item(key = "allergens") {
@@ -261,6 +279,90 @@ fun LazyListScope.foodPreferencesItems(state: FoodPreferencesUiState, actions: F
                 }
             }
         }
+    }
+}
+
+/** Budget, niveau de cuisine, restes pour le midi et recettes de la semaine. */
+@Composable
+private fun OrganizationCard(schedule: ScheduleState, actions: FoodPreferencesActions) {
+    val organization = schedule.organization
+    KaloriCard {
+        CardTitle("Budget et organisation", "Les repas à venir sont recomposés à chaque changement.")
+
+        OutlinedTextField(
+            value = organization.weeklyBudgetEur?.toString().orEmpty(),
+            onValueChange = actions.onBudget,
+            modifier = Modifier.fillMaxWidth(),
+            singleLine = true,
+            shape = MaterialTheme.shapes.medium,
+            label = { Text("Budget courses par semaine") },
+            placeholder = { Text("Pas de limite") },
+            leadingIcon = { Icon(Icons.Outlined.Savings, contentDescription = null) },
+            suffix = { Text("€") },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            supportingText = {
+                Text(
+                    buildString {
+                        schedule.cheapestWeek?.let { append("Pour ton objectif, compte au moins ~$it € par semaine. ") }
+                        append("Prix moyens estimés, modifiables dans la liste de courses.")
+                    },
+                )
+            },
+        )
+
+        Text("Niveau de cuisine", style = MaterialTheme.typography.labelLarge)
+        SingleChoiceSegmentedButtonRow(Modifier.fillMaxWidth()) {
+            CookingLevel.entries.forEachIndexed { index, level ->
+                SegmentedButton(
+                    selected = organization.cookingLevel == level,
+                    onClick = { actions.onCookingLevel(level) },
+                    shape = SegmentedButtonDefaults.itemShape(index, CookingLevel.entries.size),
+                ) { Text(level.label) }
+            }
+        }
+        Hint(organization.cookingLevel.description)
+
+        val leftoversPossible = MealSlot.NOON in schedule.mains && MealSlot.EVENING in schedule.mains
+        SwitchRow(
+            icon = Icons.Outlined.LunchDining,
+            title = "Midi : restes du dîner de la veille",
+            text = if (leftoversPossible) {
+                "Le dîner est cuisiné en double : la 2ᵉ portion part dans ta boîte pour le lendemain midi."
+            } else {
+                "Active le midi et le soir pour utiliser les restes."
+            },
+            checked = organization.lunchLeftovers && leftoversPossible,
+            enabled = leftoversPossible,
+            onChange = actions.onLunchLeftovers,
+        )
+        SwitchRow(
+            icon = Icons.Outlined.Kitchen,
+            title = "Même collation toute la semaine",
+            text = "Une fournée préparée en début de semaine : cookies, barres, energy balls…",
+            checked = organization.weeklySnack && schedule.snackMode != SnackMode.NEVER,
+            enabled = schedule.snackMode != SnackMode.NEVER,
+            onChange = actions.onWeeklySnack,
+        )
+        SwitchRow(
+            icon = Icons.Outlined.BreakfastDining,
+            title = "Même petit-déjeuner toute la semaine",
+            text = if (MealSlot.MORNING in schedule.mains) "Préparé en une fois (granola, muffins…) ou sans cuisson." else "Active le matin pour l'utiliser.",
+            checked = organization.weeklyBreakfast && MealSlot.MORNING in schedule.mains,
+            enabled = MealSlot.MORNING in schedule.mains,
+            onChange = actions.onWeeklyBreakfast,
+        )
+    }
+}
+
+@Composable
+private fun SwitchRow(icon: ImageVector, title: String, text: String, checked: Boolean, enabled: Boolean, onChange: (Boolean) -> Unit) {
+    Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+        Icon(icon, contentDescription = null, tint = MaterialTheme.colorScheme.primary)
+        Column(Modifier.weight(1f)) {
+            Text(title, style = MaterialTheme.typography.bodyLarge)
+            Hint(text)
+        }
+        Switch(checked = checked, onCheckedChange = onChange, enabled = enabled)
     }
 }
 

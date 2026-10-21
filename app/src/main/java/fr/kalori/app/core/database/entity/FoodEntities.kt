@@ -43,6 +43,17 @@ data class IngredientEntity(
     val fat: Double,
     val carbs: Double,
     val fiber: Double,
+    /** Prix moyen estimé en €/kg (€/L pour les liquides), modifiable par l'utilisateur (v3). */
+    @ColumnInfo(defaultValue = "0")
+    val priceEurPerKg: Double = 0.0,
+)
+
+/** Prix saisi par l'utilisateur pour un ingrédient, prioritaire sur l'estimation embarquée. */
+@Entity(tableName = "ingredient_price")
+@Serializable
+data class IngredientPriceEntity(
+    @PrimaryKey val ingredientId: String,
+    val eurPerKg: Double,
 )
 
 /**
@@ -73,6 +84,23 @@ data class RecipeEntity(
     val allergensMask: Int,
     val dietMask: Int,
     val seasonMask: Int,
+    /** Préparation + cuisson, en minutes (colonnes ajoutées en v3). */
+    @ColumnInfo(defaultValue = "30")
+    val prepMinutes: Int = 30,
+    /** 1 simple, 2 normal, 3 élaboré. */
+    @ColumnInfo(defaultValue = "1")
+    val difficulty: Int = 1,
+    /** Jours de conservation une fois préparé (0 : à manger tout de suite). */
+    @ColumnInfo(defaultValue = "0")
+    val keepDays: Int = 0,
+    /** Se transporte et se réchauffe : peut servir de restes pour le midi. */
+    @ColumnInfo(defaultValue = "0")
+    val lunchbox: Boolean = false,
+    @ColumnInfo(defaultValue = "0")
+    val freezable: Boolean = false,
+    /** Se prépare en une fois pour la semaine (cookies, granola…). */
+    @ColumnInfo(defaultValue = "0")
+    val batch: Boolean = false,
 )
 
 @Entity(

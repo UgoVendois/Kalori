@@ -14,7 +14,8 @@ import fr.kalori.app.domain.model.RestrictionKind
 
 fun RecipeEntity.nutrition() = Nutrition(kcal, protein, fat, carbs, fiber)
 
-fun RecipeWithIngredients.toCandidate() = MealCandidate(
+/** [cost] : coût estimé d'une portion de base (voir PriceBook). */
+fun RecipeWithIngredients.toCandidate(cost: Double = 0.0) = MealCandidate(
     id = recipe.id,
     mainProtein = recipe.mainProtein,
     mealType = recipe.mealType,
@@ -23,6 +24,12 @@ fun RecipeWithIngredients.toCandidate() = MealCandidate(
     dietMask = recipe.dietMask,
     seasonMask = recipe.seasonMask,
     ingredientIds = ingredients.map { it.ingredientId }.toSet(),
+    cost = cost,
+    prepMinutes = recipe.prepMinutes,
+    difficulty = recipe.difficulty,
+    keepDays = recipe.keepDays,
+    lunchbox = recipe.lunchbox,
+    batch = recipe.batch,
 )
 
 fun IngredientEntity.toShoppingIngredient() = ShoppingIngredient(

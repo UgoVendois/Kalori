@@ -8,6 +8,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import fr.kalori.app.core.database.AppDatabase
+import fr.kalori.app.core.database.MIGRATION_2_3
 import fr.kalori.app.core.database.migration1To2
 import fr.kalori.app.core.database.dao.CatalogDao
 import fr.kalori.app.core.database.dao.MealPlanDao
@@ -55,7 +56,7 @@ object DatabaseModule {
         }
         return Room.databaseBuilder(context, AppDatabase::class.java, AppDatabase.NAME)
             .openHelperFactory(SupportOpenHelperFactory(passphrase))
-            .addMigrations(migration1To2())
+            .addMigrations(migration1To2(), MIGRATION_2_3)
             .build()
     }
 

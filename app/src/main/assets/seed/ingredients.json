@@ -23,7 +23,8 @@
   "fat": 0.25,
   "carbs": 3.42,
   "fiber": 1.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 3.2
  },
  {
   "id": "tomate_cerise",
@@ -49,7 +50,8 @@
   "fat": 0.25,
   "carbs": 5.62,
   "fiber": 1.2,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 6.0
  },
  {
   "id": "courgette",
@@ -75,7 +77,8 @@
   "fat": 0.32,
   "carbs": 1.75,
   "fiber": 1.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 2.5
  },
  {
   "id": "aubergine",
@@ -100,7 +103,8 @@
   "fat": 0.18,
   "carbs": 2.7,
   "fiber": 3.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 3.0
  },
  {
   "id": "poivron_rouge",
@@ -125,7 +129,8 @@
   "fat": 0.25,
   "carbs": 5.98,
   "fiber": 3.2,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 4.0
  },
  {
   "id": "concombre",
@@ -151,7 +156,8 @@
   "fat": 0.11,
   "carbs": 2.87,
   "fiber": 0.5,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 3.0
  },
  {
   "id": "carotte",
@@ -184,7 +190,8 @@
   "fat": 0.25,
   "carbs": 5.16,
   "fiber": 2.9,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 1.5
  },
  {
   "id": "poireau",
@@ -213,7 +220,8 @@
   "fat": 0.3,
   "carbs": 4.55,
   "fiber": 1.8,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 2.5
  },
  {
   "id": "oignon",
@@ -246,7 +254,8 @@
   "fat": 0.62,
   "carbs": 6.25,
   "fiber": 1.7,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 1.8
  },
  {
   "id": "oignon_rouge",
@@ -279,7 +288,8 @@
   "fat": 0.4,
   "carbs": 5.63,
   "fiber": 2.5,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 2.5
  },
  {
   "id": "echalote",
@@ -312,7 +322,8 @@
   "fat": 0.25,
   "carbs": 12.2,
   "fiber": 2.6,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 5.0
  },
  {
   "id": "ail",
@@ -345,7 +356,8 @@
   "fat": 0.25,
   "carbs": 18.6,
   "fiber": 5.8,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 8.0
  },
  {
   "id": "pomme_de_terre",
@@ -378,7 +390,8 @@
   "fat": 0.09,
   "carbs": 16.2,
   "fiber": 2.2,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 1.4
  },
  {
   "id": "patate_douce",
@@ -405,7 +418,8 @@
   "fat": 0.05,
   "carbs": 17.1,
   "fiber": 3.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 3.0
  },
  {
   "id": "brocoli",
@@ -432,7 +446,8 @@
   "fat": 0.36,
   "carbs": 2.15,
   "fiber": 2.6,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 3.5
  },
  {
   "id": "chou_fleur",
@@ -461,7 +476,8 @@
   "fat": 0.7,
   "carbs": 2.13,
   "fiber": 2.2,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 3.0
  },
  {
   "id": "chou_vert",
@@ -488,7 +504,8 @@
   "fat": 0.14,
   "carbs": 2.74,
   "fiber": 2.55,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 2.0
  },
  {
   "id": "chou_rouge",
@@ -516,7 +533,8 @@
   "fat": 0.25,
   "carbs": 4.33,
   "fiber": 2.8,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 2.0
  },
  {
   "id": "chou_bruxelles",
@@ -542,7 +560,8 @@
   "fat": 0.3,
   "carbs": 4.59,
   "fiber": 3.8,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 4.0
  },
  {
   "id": "epinard",
@@ -569,7 +588,8 @@
   "fat": 0.39,
   "carbs": 3.06,
   "fiber": 2.6,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 4.0
  },
  {
   "id": "pousses_epinard",
@@ -596,7 +616,8 @@
   "fat": 0.4,
   "carbs": 0.0,
   "fiber": 2.4,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 12.0
  },
  {
   "id": "haricot_vert",
@@ -621,7 +642,8 @@
   "fat": 0.22,
   "carbs": 4.14,
   "fiber": 2.7,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 4.0
  },
  {
   "id": "petits_pois",
@@ -645,7 +667,8 @@
   "fat": 0.4,
   "carbs": 11.4,
   "fiber": 5.1,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 3.5
  },
  {
   "id": "asperge_verte",
@@ -669,7 +692,8 @@
   "fat": 0.27,
   "carbs": 2.03,
   "fiber": 2.15,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 12.0
  },
  {
   "id": "champignon",
@@ -702,7 +726,8 @@
   "fat": 0.36,
   "carbs": 1.83,
   "fiber": 1.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 5.0
  },
  {
   "id": "butternut",
@@ -729,7 +754,8 @@
   "fat": 0.1,
   "carbs": 5.4,
   "fiber": 2.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 2.2
  },
  {
   "id": "potiron",
@@ -754,7 +780,8 @@
   "fat": 0.1,
   "carbs": 3.5,
   "fiber": 0.5,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 2.5
  },
  {
   "id": "celeri_rave",
@@ -784,7 +811,8 @@
   "fat": 0.25,
   "carbs": 3.98,
   "fiber": 4.5,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 2.5
  },
  {
   "id": "celeri_branche",
@@ -813,7 +841,8 @@
   "fat": 0.25,
   "carbs": 2.41,
   "fiber": 2.2,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 3.0
  },
  {
   "id": "fenouil",
@@ -839,7 +868,8 @@
   "fat": 0.25,
   "carbs": 2.63,
   "fiber": 2.6,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 3.5
  },
  {
   "id": "navet",
@@ -866,7 +896,8 @@
   "fat": 0.1,
   "carbs": 4.39,
   "fiber": 1.8,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 2.5
  },
  {
   "id": "betterave",
@@ -899,7 +930,8 @@
   "fat": 0.4,
   "carbs": 7.13,
   "fiber": 2.5,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 3.0
  },
  {
   "id": "radis",
@@ -926,7 +958,8 @@
   "fat": 0.25,
   "carbs": 1.53,
   "fiber": 1.4,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 4.0
  },
  {
   "id": "laitue",
@@ -954,7 +987,8 @@
   "fat": 0.2,
   "carbs": 1.22,
   "fiber": 1.1,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 3.0
  },
  {
   "id": "mache",
@@ -981,7 +1015,8 @@
   "fat": 0.25,
   "carbs": 0.5,
   "fiber": 2.3,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 12.0
  },
  {
   "id": "roquette",
@@ -1009,7 +1044,8 @@
   "fat": 0.66,
   "carbs": 2.1,
   "fiber": 1.6,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 14.0
  },
  {
   "id": "endive",
@@ -1037,7 +1073,8 @@
   "fat": 0.25,
   "carbs": 2.83,
   "fiber": 1.1,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 3.0
  },
  {
   "id": "panais",
@@ -1064,7 +1101,8 @@
   "fat": 0.3,
   "carbs": 12.6,
   "fiber": 4.9,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 3.5
  },
  {
   "id": "avocat",
@@ -1093,7 +1131,8 @@
   "fat": 20.6,
   "carbs": 0.0,
   "fiber": 3.6,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 6.5
  },
  {
   "id": "citron",
@@ -1126,7 +1165,8 @@
   "fat": 0.25,
   "carbs": 1.56,
   "fiber": 0.25,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 4.0
  },
  {
   "id": "gingembre",
@@ -1159,7 +1199,8 @@
   "fat": 1.1,
   "carbs": 3.4,
   "fiber": 2.7,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 8.0
  },
  {
   "id": "persil",
@@ -1192,7 +1233,8 @@
   "fat": 0.63,
   "carbs": 4.1,
   "fiber": 4.3,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 20.0
  },
  {
   "id": "basilic",
@@ -1225,7 +1267,8 @@
   "fat": 0.64,
   "carbs": 3.4,
   "fiber": 1.6,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 30.0
  },
  {
   "id": "coriandre",
@@ -1258,7 +1301,8 @@
   "fat": 0.52,
   "carbs": 0.87,
   "fiber": 2.8,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 20.0
  },
  {
   "id": "ciboulette",
@@ -1291,7 +1335,8 @@
   "fat": 0.46,
   "carbs": 2.85,
   "fiber": 2.55,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 30.0
  },
  {
   "id": "menthe",
@@ -1324,7 +1369,8 @@
   "fat": 0.84,
   "carbs": 5.3,
   "fiber": 7.4,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 25.0
  },
  {
   "id": "pomme",
@@ -1354,7 +1400,8 @@
   "fat": 0.25,
   "carbs": 11.6,
   "fiber": 1.4,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 2.5
  },
  {
   "id": "poire",
@@ -1383,7 +1430,8 @@
   "fat": 0.27,
   "carbs": 12.3,
   "fiber": 2.9,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 3.0
  },
  {
   "id": "orange",
@@ -1410,7 +1458,8 @@
   "fat": 0.25,
   "carbs": 8.03,
   "fiber": 2.7,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 2.5
  },
  {
   "id": "clementine",
@@ -1435,7 +1484,8 @@
   "fat": 0.25,
   "carbs": 9.17,
   "fiber": 1.7,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 3.0
  },
  {
   "id": "banane",
@@ -1468,7 +1518,8 @@
   "fat": 0.25,
   "carbs": 19.7,
   "fiber": 2.7,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 2.0
  },
  {
   "id": "kiwi",
@@ -1495,7 +1546,8 @@
   "fat": 0.6,
   "carbs": 11.0,
   "fiber": 2.4,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 4.0
  },
  {
   "id": "fraise",
@@ -1520,7 +1572,8 @@
   "fat": 0.25,
   "carbs": 6.03,
   "fiber": 3.8,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 9.0
  },
  {
   "id": "framboise",
@@ -1545,7 +1598,8 @@
   "fat": 0.8,
   "carbs": 5.83,
   "fiber": 4.3,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 20.0
  },
  {
   "id": "cerise",
@@ -1569,7 +1623,8 @@
   "fat": 0.15,
   "carbs": 13.0,
   "fiber": 1.6,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 9.0
  },
  {
   "id": "abricot",
@@ -1593,7 +1648,8 @@
   "fat": 0.25,
   "carbs": 9.01,
   "fiber": 1.7,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 5.0
  },
  {
   "id": "peche",
@@ -1618,7 +1674,8 @@
   "fat": 0.25,
   "carbs": 7.55,
   "fiber": 1.5,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 4.0
  },
  {
   "id": "melon",
@@ -1643,7 +1700,8 @@
   "fat": 0.25,
   "carbs": 14.8,
   "fiber": 1.3,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 3.0
  },
  {
   "id": "raisin",
@@ -1667,7 +1725,8 @@
   "fat": 0.25,
   "carbs": 16.3,
   "fiber": 1.11,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 4.5
  },
  {
   "id": "prune",
@@ -1691,7 +1750,8 @@
   "fat": 0.28,
   "carbs": 9.92,
   "fiber": 1.4,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 4.0
  },
  {
   "id": "figue",
@@ -1715,7 +1775,8 @@
   "fat": 0.25,
   "carbs": 13.5,
   "fiber": 4.1,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 9.0
  },
  {
   "id": "myrtille",
@@ -1739,7 +1800,8 @@
   "fat": 0.33,
   "carbs": 10.6,
   "fiber": 2.4,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 12.0
  },
  {
   "id": "poulet_filet",
@@ -1774,7 +1836,8 @@
   "fat": 1.5,
   "carbs": 0.0,
   "fiber": 0.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 14.0
  },
  {
   "id": "poulet_cuisse",
@@ -1809,7 +1872,8 @@
   "fat": 4.05,
   "carbs": 0.0,
   "fiber": 0.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 7.0
  },
  {
   "id": "dinde_escalope",
@@ -1844,7 +1908,8 @@
   "fat": 1.48,
   "carbs": 0.0,
   "fiber": 0.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 14.0
  },
  {
   "id": "boeuf_hache",
@@ -1879,7 +1944,8 @@
   "fat": 4.59,
   "carbs": 0.3,
   "fiber": 0.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 13.0
  },
  {
   "id": "boeuf_bavette",
@@ -1914,7 +1980,8 @@
   "fat": 5.67,
   "carbs": 0.0,
   "fiber": 0.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 25.0
  },
  {
   "id": "boeuf_braiser",
@@ -1949,7 +2016,8 @@
   "fat": 7.5,
   "carbs": 0.0,
   "fiber": 0.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 16.0
  },
  {
   "id": "veau_escalope",
@@ -1984,7 +2052,8 @@
   "fat": 3.28,
   "carbs": 0.58,
   "fiber": 0.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 30.0
  },
  {
   "id": "agneau_gigot",
@@ -2019,7 +2088,8 @@
   "fat": 5.13,
   "carbs": 0.48,
   "fiber": 0.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 22.0
  },
  {
   "id": "porc_filet",
@@ -2055,7 +2125,8 @@
   "fat": 4.09,
   "carbs": 0.4,
   "fiber": 0.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 15.0
  },
  {
   "id": "jambon",
@@ -2091,7 +2162,8 @@
   "fat": 2.83,
   "carbs": 0.76,
   "fiber": 0.1,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 13.0
  },
  {
   "id": "lardons",
@@ -2127,7 +2199,8 @@
   "fat": 22.1,
   "carbs": 1.01,
   "fiber": 0.38,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 11.0
  },
  {
   "id": "saumon",
@@ -2164,7 +2237,8 @@
   "fat": 12.4,
   "carbs": 0.0,
   "fiber": 0.12,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 25.0
  },
  {
   "id": "cabillaud",
@@ -2201,7 +2275,8 @@
   "fat": 0.57,
   "carbs": 0.0,
   "fiber": 0.1,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 18.0
  },
  {
   "id": "lieu_noir",
@@ -2238,7 +2313,8 @@
   "fat": 0.8,
   "carbs": 0.0,
   "fiber": 0.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 15.0
  },
  {
   "id": "truite",
@@ -2275,7 +2351,8 @@
   "fat": 6.24,
   "carbs": 0.0,
   "fiber": 0.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 18.0
  },
  {
   "id": "maquereau",
@@ -2312,7 +2389,8 @@
   "fat": 13.5,
   "carbs": 0.93,
   "fiber": 0.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 10.0
  },
  {
   "id": "crevettes",
@@ -2349,7 +2427,8 @@
   "fat": 0.79,
   "carbs": 0.2,
   "fiber": 0.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 18.0
  },
  {
   "id": "moules",
@@ -2382,7 +2461,8 @@
   "fat": 1.82,
   "carbs": 2.69,
   "fiber": 0.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 5.0
  },
  {
   "id": "thon_conserve",
@@ -2419,7 +2499,8 @@
   "fat": 3.94,
   "carbs": 0.0,
   "fiber": 0.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 14.0
  },
  {
   "id": "sardine_conserve",
@@ -2456,7 +2537,8 @@
   "fat": 14.5,
   "carbs": 0.11,
   "fiber": 0.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 13.0
  },
  {
   "id": "oeuf",
@@ -2493,7 +2575,8 @@
   "fat": 9.83,
   "carbs": 0.06,
   "fiber": 0.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 5.0
  },
  {
   "id": "lait",
@@ -2531,7 +2614,8 @@
   "fat": 1.56,
   "carbs": 5.0,
   "fiber": 0.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 1.1
  },
  {
   "id": "yaourt",
@@ -2569,7 +2653,8 @@
   "fat": 1.68,
   "carbs": 4.26,
   "fiber": 0.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 2.0
  },
  {
   "id": "yaourt_grec",
@@ -2607,7 +2692,8 @@
   "fat": 8.16,
   "carbs": 3.73,
   "fiber": 0.07,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 4.5
  },
  {
   "id": "fromage_blanc",
@@ -2645,7 +2731,8 @@
   "fat": 0.05,
   "carbs": 4.22,
   "fiber": 0.04,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 3.0
  },
  {
   "id": "creme_legere",
@@ -2683,7 +2770,8 @@
   "fat": 16.0,
   "carbs": 4.3,
   "fiber": 0.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 4.0
  },
  {
   "id": "beurre",
@@ -2721,7 +2809,8 @@
   "fat": 83.0,
   "carbs": 0.71,
   "fiber": 0.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 10.0
  },
  {
   "id": "emmental",
@@ -2758,7 +2847,8 @@
   "fat": 28.2,
   "carbs": 0.58,
   "fiber": 0.04,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 10.0
  },
  {
   "id": "parmesan",
@@ -2795,7 +2885,8 @@
   "fat": 31.0,
   "carbs": 1.14,
   "fiber": 0.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 25.0
  },
  {
   "id": "mozzarella",
@@ -2833,7 +2924,8 @@
   "fat": 17.7,
   "carbs": 0.7,
   "fiber": 0.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 9.0
  },
  {
   "id": "feta",
@@ -2870,7 +2962,8 @@
   "fat": 24.3,
   "carbs": 0.45,
   "fiber": 0.2,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 13.0
  },
  {
   "id": "chevre_frais",
@@ -2908,7 +3001,8 @@
   "fat": 15.2,
   "carbs": 2.5,
   "fiber": 0.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 16.0
  },
  {
   "id": "comte",
@@ -2945,7 +3039,8 @@
   "fat": 33.8,
   "carbs": 0.0,
   "fiber": 0.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 18.0
  },
  {
   "id": "ricotta",
@@ -2983,7 +3078,8 @@
   "fat": 10.7,
   "carbs": 4.09,
   "fiber": 0.0,
-  "kcalComputed": true
+  "kcalComputed": true,
+  "priceEurPerKg": 10.0
  },
  {
   "id": "tofu",
@@ -3018,7 +3114,8 @@
   "fat": 8.5,
   "carbs": 2.87,
   "fiber": 0.25,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 9.0
  },
  {
   "id": "tofu_fume",
@@ -3053,7 +3150,8 @@
   "fat": 9.5,
   "carbs": 2.91,
   "fiber": 0.25,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 12.0
  },
  {
   "id": "tempeh",
@@ -3088,7 +3186,8 @@
   "fat": 4.7,
   "carbs": 7.89,
   "fiber": 6.2,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 16.0
  },
  {
   "id": "seitan",
@@ -3125,7 +3224,8 @@
   "fat": 2.5,
   "carbs": 6.74,
   "fiber": 0.9,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 15.0
  },
  {
   "id": "boisson_soja",
@@ -3160,7 +3260,8 @@
   "fat": 2.1,
   "carbs": 1.87,
   "fiber": 0.71,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 1.8
  },
  {
   "id": "riz_basmati",
@@ -3193,7 +3294,8 @@
   "fat": 0.63,
   "carbs": 78.4,
   "fiber": 1.06,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 3.5
  },
  {
   "id": "riz_complet",
@@ -3226,7 +3328,8 @@
   "fat": 2.8,
   "carbs": 71.4,
   "fiber": 5.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 3.0
  },
  {
   "id": "riz_blanc",
@@ -3259,7 +3362,8 @@
   "fat": 0.79,
   "carbs": 77.5,
   "fiber": 1.53,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 2.0
  },
  {
   "id": "pates",
@@ -3296,7 +3400,8 @@
   "fat": 1.6,
   "carbs": 72.7,
   "fiber": 2.91,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 1.8
  },
  {
   "id": "pates_completes",
@@ -3333,7 +3438,8 @@
   "fat": 2.2,
   "carbs": 67.6,
   "fiber": 6.1,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 2.4
  },
  {
   "id": "semoule",
@@ -3368,7 +3474,8 @@
   "fat": 1.28,
   "carbs": 69.8,
   "fiber": 3.7,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 2.0
  },
  {
   "id": "quinoa",
@@ -3401,7 +3508,8 @@
   "fat": 6.07,
   "carbs": 58.1,
   "fiber": 7.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 7.0
  },
  {
   "id": "boulgour",
@@ -3436,7 +3544,8 @@
   "fat": 1.42,
   "carbs": 65.8,
   "fiber": 10.5,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 3.0
  },
  {
   "id": "flocons_avoine",
@@ -3471,7 +3580,8 @@
   "fat": 7.82,
   "carbs": 57.7,
   "fiber": 11.2,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 2.0
  },
  {
   "id": "sarrasin",
@@ -3506,7 +3616,8 @@
   "fat": 3.4,
   "carbs": 67.5,
   "fiber": 4.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 5.0
  },
  {
   "id": "polenta",
@@ -3539,7 +3650,8 @@
   "fat": 1.8,
   "carbs": 74.0,
   "fiber": 3.2,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 3.0
  },
  {
   "id": "farine",
@@ -3574,7 +3686,8 @@
   "fat": 1.0,
   "carbs": 71.5,
   "fiber": 3.5,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 1.0
  },
  {
   "id": "chapelure",
@@ -3609,7 +3722,8 @@
   "fat": 1.6,
   "carbs": 74.3,
   "fiber": 5.4,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 4.0
  },
  {
   "id": "lentilles_vertes",
@@ -3642,7 +3756,8 @@
   "fat": 1.8,
   "carbs": 44.5,
   "fiber": 16.4,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 4.0
  },
  {
   "id": "lentilles_corail",
@@ -3675,7 +3790,8 @@
   "fat": 0.8,
   "carbs": 44.9,
   "fiber": 15.4,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 4.5
  },
  {
   "id": "pois_chiches",
@@ -3708,7 +3824,8 @@
   "fat": 2.68,
   "carbs": 15.0,
   "fiber": 5.45,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 2.5
  },
  {
   "id": "haricots_rouges",
@@ -3741,7 +3858,8 @@
   "fat": 0.97,
   "carbs": 13.0,
   "fiber": 7.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 2.5
  },
  {
   "id": "haricots_blancs",
@@ -3774,7 +3892,8 @@
   "fat": 0.5,
   "carbs": 10.9,
   "fiber": 7.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 2.5
  },
  {
   "id": "mais",
@@ -3807,7 +3926,8 @@
   "fat": 1.68,
   "carbs": 18.3,
   "fiber": 3.1,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 4.0
  },
  {
   "id": "tomates_pelees",
@@ -3840,7 +3960,8 @@
   "fat": 0.25,
   "carbs": 3.15,
   "fiber": 1.9,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 2.0
  },
  {
   "id": "coulis_tomate",
@@ -3873,7 +3994,8 @@
   "fat": 0.2,
   "carbs": 7.57,
   "fiber": 2.6,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 2.5
  },
  {
   "id": "lait_coco",
@@ -3906,7 +4028,8 @@
   "fat": 19.2,
   "carbs": 4.29,
   "fiber": 0.75,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 5.0
  },
  {
   "id": "olives_noires",
@@ -3939,7 +4062,8 @@
   "fat": 17.2,
   "carbs": 0.05,
   "fiber": 6.2,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 12.0
  },
  {
   "id": "pain_complet",
@@ -3976,7 +4100,8 @@
   "fat": 1.7,
   "carbs": 41.2,
   "fiber": 7.3,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 5.0
  },
  {
   "id": "pain_campagne",
@@ -4013,7 +4138,8 @@
   "fat": 1.3,
   "carbs": 50.0,
   "fiber": 4.3,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 5.0
  },
  {
   "id": "tortilla",
@@ -4048,7 +4174,8 @@
   "fat": 7.48,
   "carbs": 53.0,
   "fiber": 2.89,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 7.0
  },
  {
   "id": "galette_sarrasin",
@@ -4085,7 +4212,8 @@
   "fat": 1.74,
   "carbs": 30.5,
   "fiber": 0.5,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 10.0
  },
  {
   "id": "noix",
@@ -4120,7 +4248,8 @@
   "fat": 67.3,
   "carbs": 6.88,
   "fiber": 6.7,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 18.0
  },
  {
   "id": "amandes",
@@ -4155,7 +4284,8 @@
   "fat": 51.3,
   "carbs": 9.51,
   "fiber": 12.5,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 15.0
  },
  {
   "id": "noisettes",
@@ -4190,7 +4320,8 @@
   "fat": 56.9,
   "carbs": 7.16,
   "fiber": 11.6,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 16.0
  },
  {
   "id": "noix_cajou",
@@ -4227,7 +4358,8 @@
   "fat": 48.1,
   "carbs": 21.3,
   "fiber": 8.4,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 18.0
  },
  {
   "id": "cacahuetes",
@@ -4264,7 +4396,8 @@
   "fat": 49.1,
   "carbs": 14.8,
   "fiber": 8.6,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 8.0
  },
  {
   "id": "sesame",
@@ -4299,7 +4432,8 @@
   "fat": 49.7,
   "carbs": 12.8,
   "fiber": 11.8,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 12.0
  },
  {
   "id": "graines_courge",
@@ -4334,7 +4468,8 @@
   "fat": 49.1,
   "carbs": 5.39,
   "fiber": 6.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 15.0
  },
  {
   "id": "pignons",
@@ -4370,7 +4505,8 @@
   "fat": 68.4,
   "carbs": 2.93,
   "fiber": 10.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 60.0
  },
  {
   "id": "raisins_secs",
@@ -4405,7 +4541,8 @@
   "fat": 0.9,
   "carbs": 73.2,
   "fiber": 4.2,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 7.0
  },
  {
   "id": "huile_olive",
@@ -4438,7 +4575,8 @@
   "fat": 99.9,
   "carbs": 0.0,
   "fiber": 0.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 10.0
  },
  {
   "id": "huile_colza",
@@ -4471,7 +4609,8 @@
   "fat": 100.0,
   "carbs": 0.0,
   "fiber": 0.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 3.0
  },
  {
   "id": "huile_sesame",
@@ -4506,7 +4645,8 @@
   "fat": 100.0,
   "carbs": 0.0,
   "fiber": 0.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 15.0
  },
  {
   "id": "vinaigre_balsamique",
@@ -4541,7 +4681,8 @@
   "fat": 0.3,
   "carbs": 18.0,
   "fiber": 0.75,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 6.0
  },
  {
   "id": "vinaigre_vin",
@@ -4576,7 +4717,8 @@
   "fat": 0.0,
   "carbs": 0.0,
   "fiber": 0.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 3.0
  },
  {
   "id": "moutarde",
@@ -4612,7 +4754,8 @@
   "fat": 11.2,
   "carbs": 4.33,
   "fiber": 0.5,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 5.0
  },
  {
   "id": "sauce_soja",
@@ -4648,7 +4791,8 @@
   "fat": 0.25,
   "carbs": 1.72,
   "fiber": 0.9,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 8.0
  },
  {
   "id": "miel",
@@ -4683,7 +4827,8 @@
   "fat": 0.0,
   "carbs": 82.1,
   "fiber": 0.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 14.0
  },
  {
   "id": "tahin",
@@ -4718,7 +4863,8 @@
   "fat": 53.4,
   "carbs": 13.8,
   "fiber": 7.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 14.0
  },
  {
   "id": "harissa",
@@ -4751,7 +4897,8 @@
   "fat": 2.9,
   "carbs": 7.3,
   "fiber": 5.1,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 15.0
  },
  {
   "id": "concentre_tomate",
@@ -4784,7 +4931,8 @@
   "fat": 0.53,
   "carbs": 17.1,
   "fiber": 4.2,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 6.0
  },
  {
   "id": "bouillon_legumes",
@@ -4822,7 +4970,8 @@
   "fat": 16.0,
   "carbs": 26.0,
   "fiber": 0.25,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 15.0
  },
  {
   "id": "bouillon_volaille",
@@ -4862,7 +5011,8 @@
   "fat": 8.0,
   "carbs": 17.0,
   "fiber": 0.5,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 15.0
  },
  {
   "id": "curry",
@@ -4898,7 +5048,8 @@
   "fat": 14.0,
   "carbs": 2.63,
   "fiber": 53.2,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 25.0
  },
  {
   "id": "cumin",
@@ -4931,7 +5082,8 @@
   "fat": 22.3,
   "carbs": 33.7,
   "fiber": 10.5,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 30.0
  },
  {
   "id": "paprika",
@@ -4964,7 +5116,8 @@
   "fat": 12.9,
   "carbs": 18.8,
   "fiber": 34.9,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 25.0
  },
  {
   "id": "cannelle",
@@ -4997,7 +5150,8 @@
   "fat": 1.24,
   "carbs": 27.5,
   "fiber": 53.1,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 30.0
  },
  {
   "id": "herbes_provence",
@@ -5030,7 +5184,8 @@
   "fat": 7.2,
   "carbs": 23.1,
   "fiber": 40.1,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 30.0
  },
  {
   "id": "thym",
@@ -5063,7 +5218,8 @@
   "fat": 7.43,
   "carbs": 26.9,
   "fiber": 37.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 40.0
  },
  {
   "id": "vin_blanc",
@@ -5100,7 +5256,8 @@
   "fat": 0.0,
   "carbs": 0.17,
   "fiber": 0.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 5.0
  },
  {
   "id": "vin_rouge",
@@ -5137,7 +5294,8 @@
   "fat": 0.25,
   "carbs": 0.0,
   "fiber": 0.5,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 5.0
  },
  {
   "id": "yaourt_soja",
@@ -5172,7 +5330,8 @@
   "fat": 1.9,
   "carbs": 2.05,
   "fiber": 0.8,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 4.5
  },
  {
   "id": "boisson_avoine",
@@ -5207,7 +5366,8 @@
   "fat": 1.1,
   "carbs": 7.78,
   "fiber": 0.25,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 2.0
  },
  {
   "id": "houmous",
@@ -5242,7 +5402,8 @@
   "fat": 19.9,
   "carbs": 9.0,
   "fiber": 5.18,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 10.0
  },
  {
   "id": "beurre_cacahuete",
@@ -5279,7 +5440,8 @@
   "fat": 51.4,
   "carbs": 17.3,
   "fiber": 5.0,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 9.0
  },
  {
   "id": "graines_chia",
@@ -5314,7 +5476,8 @@
   "fat": 30.7,
   "carbs": 7.72,
   "fiber": 34.4,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 12.0
  },
  {
   "id": "graines_lin",
@@ -5347,7 +5510,8 @@
   "fat": 40.3,
   "carbs": 6.49,
   "fiber": 24.4,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 6.0
  },
  {
   "id": "dattes",
@@ -5380,7 +5544,8 @@
   "fat": 0.25,
   "carbs": 64.7,
   "fiber": 7.3,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 8.0
  },
  {
   "id": "abricots_secs",
@@ -5415,7 +5580,8 @@
   "fat": 0.5,
   "carbs": 59.1,
   "fiber": 8.3,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 12.0
  },
  {
   "id": "pruneaux",
@@ -5450,7 +5616,8 @@
   "fat": 0.4,
   "carbs": 55.4,
   "fiber": 5.1,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 10.0
  },
  {
   "id": "chocolat_noir",
@@ -5487,7 +5654,8 @@
   "fat": 46.3,
   "carbs": 26.9,
   "fiber": 12.8,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 13.0
  },
  {
   "id": "compote_pomme",
@@ -5520,7 +5688,8 @@
   "fat": 0.13,
   "carbs": 15.1,
   "fiber": 1.3,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 3.5
  },
  {
   "id": "confiture_fraise",
@@ -5553,7 +5722,8 @@
   "fat": 0.5,
   "carbs": 60.5,
   "fiber": 0.7,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 5.0
  },
  {
   "id": "muesli",
@@ -5590,7 +5760,8 @@
   "fat": 11.6,
   "carbs": 61.8,
   "fiber": 8.36,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 5.0
  },
  {
   "id": "fromage_frais",
@@ -5628,7 +5799,8 @@
   "fat": 3.9,
   "carbs": 3.11,
   "fiber": 0.07,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 9.0
  },
  {
   "id": "saumon_fume",
@@ -5665,7 +5837,8 @@
   "fat": 10.5,
   "carbs": 0.13,
   "fiber": 0.26,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 35.0
  },
  {
   "id": "pain_cereales",
@@ -5702,7 +5875,8 @@
   "fat": 3.2,
   "carbs": 46.9,
   "fiber": 5.2,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 6.0
  },
  {
   "id": "galette_riz",
@@ -5737,7 +5911,8 @@
   "fat": 3.0,
   "carbs": 77.9,
   "fiber": 3.4,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 10.0
  },
  {
   "id": "kaki",
@@ -5761,7 +5936,8 @@
   "fat": 0.15,
   "carbs": 14.3,
   "fiber": 3.4,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 4.0
  },
  {
   "id": "mangue",
@@ -5794,6 +5970,145 @@
   "fat": 0.25,
   "carbs": 14.3,
   "fiber": 1.6,
-  "kcalComputed": false
+  "kcalComputed": false,
+  "priceEurPerKg": 5.0
+ },
+ {
+  "id": "sucre",
+  "name": "Sucre",
+  "ciqualCode": "31016",
+  "ciqualName": "Sucre blanc",
+  "aisle": "PANTRY",
+  "allergens": [],
+  "traces": [],
+  "diet": [],
+  "seasonMonths": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12
+  ],
+  "unit": "G",
+  "pieceGrams": null,
+  "pieceLabel": null,
+  "kcal": 399.0,
+  "protein": 0.0,
+  "fat": 0.0,
+  "carbs": 99.7,
+  "fiber": 0.0,
+  "kcalComputed": false,
+  "priceEurPerKg": 1.2
+ },
+ {
+  "id": "sucre_roux",
+  "name": "Sucre roux",
+  "ciqualCode": "31017",
+  "ciqualName": "Sucre roux",
+  "aisle": "PANTRY",
+  "allergens": [],
+  "traces": [],
+  "diet": [],
+  "seasonMonths": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12
+  ],
+  "unit": "G",
+  "pieceGrams": null,
+  "pieceLabel": null,
+  "kcal": 393.0,
+  "protein": 0.12,
+  "fat": 0.0,
+  "carbs": 98.1,
+  "fiber": 0.0,
+  "kcalComputed": false,
+  "priceEurPerKg": 2.5
+ },
+ {
+  "id": "levure_chimique",
+  "name": "Levure chimique",
+  "ciqualCode": "11046",
+  "ciqualName": "Levure chimique ou poudre à lever",
+  "aisle": "PANTRY",
+  "allergens": [],
+  "traces": [],
+  "diet": [],
+  "seasonMonths": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12
+  ],
+  "unit": "G",
+  "pieceGrams": null,
+  "pieceLabel": null,
+  "kcal": 108.0,
+  "protein": 0.1,
+  "fat": 0.0,
+  "carbs": 26.9,
+  "fiber": 0.2,
+  "kcalComputed": false,
+  "priceEurPerKg": 20.0
+ },
+ {
+  "id": "cacao",
+  "name": "Cacao en poudre non sucré",
+  "ciqualCode": "18100",
+  "ciqualName": "Cacao, sans sucres ajoutés, poudre soluble",
+  "aisle": "PANTRY",
+  "allergens": [],
+  "traces": [
+   "MILK"
+  ],
+  "diet": [],
+  "seasonMonths": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12
+  ],
+  "unit": "G",
+  "pieceGrams": null,
+  "pieceLabel": null,
+  "kcal": 387.0,
+  "protein": 22.4,
+  "fat": 20.6,
+  "carbs": 11.6,
+  "fiber": 29.5,
+  "kcalComputed": false,
+  "priceEurPerKg": 15.0
  }
 ]

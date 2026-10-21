@@ -12,6 +12,10 @@ import fr.kalori.app.core.ui.components.KaloriScaffold
 import fr.kalori.app.core.ui.theme.KaloriTheme
 import fr.kalori.app.data.meal.DayMeal
 import fr.kalori.app.data.meal.MealDetail
+import fr.kalori.app.data.profile.Organization
+import fr.kalori.app.domain.meal.PrepKind
+import fr.kalori.app.domain.meal.PrepInfo
+import fr.kalori.app.data.meal.PriceBook
 import fr.kalori.app.data.profile.slotTargets
 import fr.kalori.app.data.seed.SeedMapper
 import fr.kalori.app.domain.meal.FoodPreferences
@@ -61,6 +65,7 @@ class ScreenshotTest {
     private val ingredients = bundle.ingredients.map(SeedMapper::ingredient)
     private val facts = ingredients.associate { it.id to SeedMapper.facts(it) }
     private val recipes = bundle.recipes.associate { seed -> seed.id to SeedMapper.recipe(seed, facts, Instant.EPOCH) }
+    private val prices = PriceBook(ingredients, emptyList())
 
     private val today = LocalDate.of(2026, 10, 21)
     private val profile = UserProfileEntity(
@@ -71,14 +76,22 @@ class ScreenshotTest {
     )
     private val targets = profile.slotTargets()
 
-    private fun meal(date: LocalDate, slot: MealSlot, recipeId: String, status: MealStatus = MealStatus.PLANNED): DayMeal {
-        val (recipe, _) = recipes.getValue(recipeId)
+    private fun meal(
+        date: LocalDate,
+        slot: MealSlot,
+        recipeId: String,
+        status: MealStatus = MealStatus.PLANNED,
+        prep: ((Double) -> PrepInfo)? = null,
+    ): DayMeal {
+        val (recipe, lines) = recipes.getValue(recipeId)
         val portion = (targets.getValue(slot).kcal / recipe.kcal).coerceIn(0.5, 2.0)
         return DayMeal(
             date = date, slot = slot, recipeId = recipe.id, name = recipe.name, mainProtein = recipe.mainProtein,
             mealType = recipe.mealType, portionFactor = portion,
             nutrition = Nutrition(recipe.kcal, recipe.protein, recipe.fat, recipe.carbs, recipe.fiber) * portion,
             status = status, outOfSeason = false, aiGenerated = false,
+            prepMinutes = recipe.prepMinutes, difficulty = recipe.difficulty, unitCost = prices.cost(lines),
+            prep = prep?.invoke(portion) ?: PrepInfo(PrepKind.COOK, portion),
         )
     }
 
@@ -126,20 +139,41 @@ class ScreenshotTest {
         MealsScreenPreview(mealsState.copy(meals = mapOf(today to meals), slotTargets = noBreakfast))
     }
 
+    /** Restes du soir pour le midi, fournée de cookies et budget de la semaine. */
+    @Test fun meals_organization() = shoot("meals_organization") {
+        val dates = (0L..6L).map { today.plusDays(it) }
+        val day = { date: LocalDate ->
+            listOf(
+                meal(date, MealSlot.MORNING, "granola_maison_yaourt"),
+                meal(date, MealSlot.NOON, "chili_sin_carne", prep = { PrepInfo(PrepKind.LEFTOVERS, 0.0) }),
+                meal(date, MealSlot.SNACK, "cookies_avoine_chocolat", prep = { PrepInfo(PrepKind.BATCH_DAY, it * 5, batchDays = 5) }),
+                meal(date, MealSlot.EVENING, "lentilles_lardons", prep = { PrepInfo(PrepKind.COOK_WITH_LEFTOVERS, it * 2.1) }),
+            )
+        }
+        MealsScreenPreview(mealsState.copy(meals = dates.associateWith(day), weeklyBudget = 60))
+    }
+
+    /** Dîner cuisiné en double pour le lendemain midi : quantités « à cuisiner » affichées d'emblée. */
+    @Config(qualifiers = "w411dp-h1600dp-xxhdpi")
     @Test fun meal_detail() = shoot("meal_detail") {
-        val (recipe, lines) = recipes.getValue("poulet_curry_coco")
+        val (recipe, lines) = recipes.getValue("lentilles_lardons")
         val byId = ingredients.associateBy { it.id }
+        val dinner = meal(today, MealSlot.EVENING, "lentilles_lardons", prep = { PrepInfo(PrepKind.COOK_WITH_LEFTOVERS, it * 2.1) })
         val detail = MealDetail(
-            meal = dayMeals[1],
-            ingredients = lines.map { byId.getValue(it.ingredientId) to it.grams * dayMeals[1].portionFactor },
+            meal = dinner,
+            ingredients = lines.map { byId.getValue(it.ingredientId) to it.grams * dinner.portionFactor },
             allergensMask = recipe.allergensMask,
             steps = recipe.steps,
+            cookIngredients = lines.map { byId.getValue(it.ingredientId) to it.grams * dinner.prep.cookPortions },
+            keepDays = recipe.keepDays,
+            freezable = recipe.freezable,
         )
-        KaloriScaffold(title = "Midi · Aujourd'hui", onBack = {}) { padding ->
+        KaloriScaffold(title = "Soir · Aujourd'hui", onBack = {}) { padding ->
             MealDetailContent(detail, editable = true, canToggleEaten = true, onReplace = {}, onToggleEaten = {}, modifier = Modifier.padding(padding))
         }
     }
 
+    @Config(qualifiers = "w411dp-h1900dp-xxhdpi")
     @Test fun food_preferences() = shoot("food_preferences") { PreferencesPreview() }
 
     @Test fun food_preferences_dark() = shoot("food_preferences_dark", dark = true) { PreferencesPreview() }
@@ -156,7 +190,13 @@ class ScreenshotTest {
             ),
             ingredients = ingredients,
             expandedAisles = setOf(Aisle.FRUITS_VEGETABLES),
-            schedule = ScheduleState(true, setOf(MealSlot.NOON, MealSlot.EVENING), SnackMode.AUTO),
+            schedule = ScheduleState(
+                available = true,
+                mains = setOf(MealSlot.NOON, MealSlot.EVENING),
+                snackMode = SnackMode.AUTO,
+                organization = Organization(weeklyBudgetEur = 60, lunchLeftovers = true, weeklySnack = true),
+                cheapestWeek = 45,
+            ),
             saveState = SaveState.SAVED,
         )
         KaloriScaffold(title = "Mes goûts et restrictions", onBack = {}, actions = { SaveIndicator(state.saveState) }) { padding ->

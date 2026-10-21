@@ -104,6 +104,13 @@ enum class SnackMode(val label: String) {
     NEVER("Jamais"),
 }
 
+/** Niveau de cuisine souhaité : difficulté maximale des recettes proposées. */
+enum class CookingLevel(val label: String, val maxDifficulty: Int, val description: String) {
+    SIMPLE("Simple", 1, "Rapide, peu d'ingrédients"),
+    NORMAL("Normal", 2, "Un peu plus de préparation"),
+    ELABORATE("Élaboré", 3, "Plats mijotés et recettes travaillées"),
+}
+
 enum class MealStatus { PLANNED, EATEN, SKIPPED }
 
 enum class RestrictionKind { ALLERGEN, DIET, LIKE, DISLIKE }

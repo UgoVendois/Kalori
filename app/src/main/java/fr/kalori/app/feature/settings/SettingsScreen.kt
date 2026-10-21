@@ -241,7 +241,7 @@ fun SettingsContent(state: SettingsUiState, actions: SettingsActions, modifier: 
                 )
                 Text(
                     "Modèle : ${AiMealService.MODEL}. Envoyé : la liste des ingrédients compatibles (déjà filtrée selon tes allergies, " +
-                        "régimes, goûts et la saison), la cible du repas, le mois et les repas de la semaine. Jamais ton poids, ton âge " +
+                        "régimes, goûts et la saison), la cible et le budget du repas, ton niveau de cuisine, le mois et les repas de la semaine. Jamais ton poids, ton âge " +
                         "ni tes allergies. Chaque proposition est revérifiée par l'app. Quelques centimes par variante, sur ton compte Anthropic.",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,

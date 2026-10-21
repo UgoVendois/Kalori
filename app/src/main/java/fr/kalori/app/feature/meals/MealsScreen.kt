@@ -5,6 +5,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -23,8 +25,11 @@ import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.outlined.AutoAwesome
 import androidx.compose.material.icons.outlined.CheckCircleOutline
 import androidx.compose.material.icons.outlined.History
+import androidx.compose.material.icons.outlined.Kitchen
+import androidx.compose.material.icons.outlined.LunchDining
 import androidx.compose.material.icons.outlined.Refresh
 import androidx.compose.material.icons.outlined.RestaurantMenu
+import androidx.compose.material.icons.outlined.Schedule
 import androidx.compose.material.icons.outlined.ShoppingCart
 import androidx.compose.material.icons.outlined.Tune
 import androidx.compose.material.icons.outlined.WbSunny
@@ -46,6 +51,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -57,6 +63,7 @@ import fr.kalori.app.core.ui.Format
 import fr.kalori.app.core.ui.components.DisclaimerCard
 import fr.kalori.app.core.ui.components.DisclaimerKind
 import fr.kalori.app.core.ui.components.EmptyState
+import fr.kalori.app.core.ui.components.IconBadge
 import fr.kalori.app.core.ui.components.KaloriCard
 import fr.kalori.app.core.ui.components.KaloriScaffold
 import fr.kalori.app.core.ui.components.MacroBar
@@ -66,6 +73,7 @@ import fr.kalori.app.core.ui.components.SnackbarMessages
 import fr.kalori.app.core.ui.components.Tag
 import fr.kalori.app.core.ui.theme.Kalori
 import fr.kalori.app.data.meal.DayMeal
+import fr.kalori.app.domain.meal.PrepKind
 import fr.kalori.app.domain.model.MealSlot
 import fr.kalori.app.domain.model.MealStatus
 import fr.kalori.app.domain.model.Nutrition
@@ -137,6 +145,7 @@ fun MealsContent(
             else -> {
                 item { DaySelector(state.dates, state.selectedDate, state.today, state.meals, onSelectDate) }
                 item { DaySummary(state.selectedMeals, state.dailyKcal) }
+                item { WeekBudget(state.weekCost, state.weeklyBudget, onOpenPreferences) }
                 val meals = state.selectedMeals.associateBy { it.slot }
                 state.slotTargets.keys.sortedBy { it.ordinal }.forEach { slot ->
                     item(key = "${state.selectedDate}_$slot") {
@@ -237,14 +246,18 @@ private fun DaySummary(meals: List<DayMeal>, dailyKcal: Int) {
     }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun MealCard(meal: DayMeal, onOpen: () -> Unit, onReplace: () -> Unit, onToggleEaten: () -> Unit) {
     val eaten = meal.status == MealStatus.EATEN
     KaloriCard(onClick = onOpen) {
         SlotHeader(meal.slot, Format.kcal(meal.nutrition.kcal))
         Text(meal.name, style = MaterialTheme.typography.titleLarge)
-        if (meal.aiGenerated || meal.outOfSeason) {
-            Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+        PrepLine(meal)
+        val prepTag = meal.prepTag()
+        if (meal.aiGenerated || meal.outOfSeason || prepTag != null) {
+            FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                prepTag?.let { (text, icon) -> Tag(text, Kalori.colors.snack.container, Kalori.colors.snack.content, icon = icon) }
                 if (meal.aiGenerated) {
                     Tag(stringResource(R.string.meals_ai_label), Kalori.colors.evening.container, Kalori.colors.evening.content, icon = Icons.Outlined.AutoAwesome)
                 }
@@ -275,6 +288,89 @@ private fun MealCard(meal: DayMeal, onOpen: () -> Unit, onReplace: () -> Unit, o
                 }
             }
         }
+    }
+}
+
+/** Temps, difficulté et coût de la portion ; rien à cuisiner pour des restes ou une fournée déjà prête. */
+@Composable
+private fun PrepLine(meal: DayMeal) {
+    val nothingToCook = meal.prep.kind == PrepKind.LEFTOVERS || meal.prep.kind == PrepKind.FROM_BATCH
+    Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+        Icon(
+            if (nothingToCook) Icons.Outlined.LunchDining else Icons.Outlined.Schedule,
+            contentDescription = null,
+            modifier = Modifier.size(16.dp),
+            tint = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        val parts = buildList {
+            if (nothingToCook) add("Rien à cuisiner") else add("${meal.prepMinutes} min · ${difficultyLabel(meal.difficulty)}")
+            if (meal.unitCost > 0) add("≈ ${Format.euros(meal.cost)}")
+        }
+        Text(parts.joinToString(" · "), style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+    }
+}
+
+fun difficultyLabel(difficulty: Int) = when (difficulty) {
+    1 -> "simple"
+    2 -> "normal"
+    else -> "élaboré"
+}
+
+/** Étiquette d'organisation : restes, portion pour demain midi, fournée. */
+fun DayMeal.prepTag(): Pair<String, ImageVector>? = when (prep.kind) {
+    PrepKind.COOK -> null
+    PrepKind.COOK_WITH_LEFTOVERS -> "+ 1 portion pour demain midi" to Icons.Outlined.LunchDining
+    PrepKind.LEFTOVERS -> "Restes d'hier soir" to Icons.Outlined.LunchDining
+    PrepKind.BATCH_DAY -> "Fournée pour ${prep.batchDays} jours" to Icons.Outlined.Kitchen
+    PrepKind.FROM_BATCH -> "De ta fournée" to Icons.Outlined.Kitchen
+}
+
+/** Courses estimées des 7 jours, comparées au budget s'il y en a un. */
+@Composable
+private fun WeekBudget(cost: Double, budget: Int?, onOpenPreferences: () -> Unit) {
+    if (cost <= 0.0) return
+    val over = budget != null && cost > budget
+    KaloriCard(contentPadding = 14.dp, spacing = 8.dp) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            IconBadge(Icons.Outlined.ShoppingCart, if (over) Kalori.colors.noon else Kalori.colors.snack, size = 36.dp)
+            Spacer(Modifier.width(12.dp))
+            Column(Modifier.weight(1f)) {
+                Text("Courses des 7 jours", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                Row(verticalAlignment = Alignment.Bottom) {
+                    Text("≈ ${Format.eurosRounded(cost)}", style = MaterialTheme.typography.titleLarge)
+                    if (budget != null) {
+                        Text(
+                            " / $budget € de budget",
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            modifier = Modifier.padding(bottom = 2.dp),
+                        )
+                    }
+                }
+            }
+            if (budget == null) TextButton(onClick = onOpenPreferences) { Text("Fixer un budget") }
+        }
+        if (budget != null) {
+            LinearProgressIndicator(
+                progress = { (cost / budget).toFloat().coerceIn(0f, 1f) },
+                modifier = Modifier.fillMaxWidth().height(8.dp).clip(CircleShape),
+                color = if (over) MaterialTheme.colorScheme.error else Kalori.colors.snack.solid,
+                trackColor = MaterialTheme.colorScheme.surfaceContainerHighest,
+                drawStopIndicator = {},
+            )
+            if (over) {
+                Text(
+                    "Au-dessus de ton budget : remplace un plat, ou corrige les prix dans la liste de courses.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.error,
+                )
+            }
+        }
+        Text(
+            "Estimation à partir de prix moyens en supermarché.",
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
     }
 }
 

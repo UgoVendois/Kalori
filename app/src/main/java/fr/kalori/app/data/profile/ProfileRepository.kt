@@ -3,6 +3,7 @@ package fr.kalori.app.data.profile
 import fr.kalori.app.core.database.dao.ProfileDao
 import fr.kalori.app.core.database.entity.UserProfileEntity
 import fr.kalori.app.domain.meal.MealSchedule
+import fr.kalori.app.domain.meal.PlanSettings
 import fr.kalori.app.domain.model.MealSlot
 import fr.kalori.app.domain.model.toFlagSet
 import fr.kalori.app.domain.nutrition.NutritionTargets
@@ -40,3 +41,16 @@ fun UserProfileEntity.enabledMains(): Set<MealSlot> = enabledSlotsMask.toFlagSet
 
 fun UserProfileEntity.slotTargets(): Map<MealSlot, NutritionTargets> =
     MealSchedule.targets(dailyTargets(), enabledMains(), snackMode)
+
+/** Organisation de la semaine. Les restes du midi supposent un dîner et un midi tous deux pris. */
+fun UserProfileEntity.planSettings(): PlanSettings {
+    val mains = enabledMains()
+    return PlanSettings(
+        cookingLevel = cookingLevel,
+        lunchLeftovers = lunchLeftovers && MealSlot.NOON in mains && MealSlot.EVENING in mains,
+        weeklySlots = buildSet {
+            if (weeklyBreakfast) add(MealSlot.MORNING)
+            if (weeklySnack) add(MealSlot.SNACK)
+        },
+    )
+}

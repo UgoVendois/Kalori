@@ -12,6 +12,7 @@ import fr.kalori.app.core.database.dao.WorkoutDao
 import fr.kalori.app.core.database.entity.DailyIntakeEntity
 import fr.kalori.app.core.database.entity.ExerciseEntity
 import fr.kalori.app.core.database.entity.IngredientEntity
+import fr.kalori.app.core.database.entity.IngredientPriceEntity
 import fr.kalori.app.core.database.entity.MealPlanEntryEntity
 import fr.kalori.app.core.database.entity.RecipeEntity
 import fr.kalori.app.core.database.entity.RecipeIngredientEntity
@@ -30,7 +31,7 @@ import fr.kalori.app.core.database.entity.WorkoutTemplateExerciseEntity
  * qui effacerait les données de santé de l'utilisateur sans son accord.
  */
 @Database(
-    version = 2,
+    version = 3,
     exportSchema = true,
     entities = [
         UserProfileEntity::class,
@@ -41,6 +42,7 @@ import fr.kalori.app.core.database.entity.WorkoutTemplateExerciseEntity
         RecipeEntity::class,
         RecipeIngredientEntity::class,
         MealPlanEntryEntity::class,
+        IngredientPriceEntity::class,
         ShoppingCheckEntity::class,
         ExerciseEntity::class,
         WorkoutTemplateEntity::class,

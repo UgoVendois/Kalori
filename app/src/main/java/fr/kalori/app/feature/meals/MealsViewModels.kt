@@ -12,6 +12,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import fr.kalori.app.R
 import fr.kalori.app.core.database.entity.IngredientEntity
+import fr.kalori.app.core.database.entity.UserProfileEntity
 import fr.kalori.app.core.datastore.AppPreferences
 import fr.kalori.app.core.di.ApplicationScope
 import fr.kalori.app.core.security.ApiKeyStore
@@ -24,6 +25,8 @@ import fr.kalori.app.data.meal.MealPlanRepository
 import fr.kalori.app.data.meal.ReplaceResult
 import fr.kalori.app.data.meal.ShoppingList
 import fr.kalori.app.data.profile.GoalService
+import fr.kalori.app.data.profile.Organization
+import fr.kalori.app.data.profile.organization
 import fr.kalori.app.data.profile.ProfileRepository
 import fr.kalori.app.data.profile.enabledMains
 import fr.kalori.app.data.profile.slotTargets
@@ -31,6 +34,7 @@ import fr.kalori.app.domain.meal.FoodPreferences
 import fr.kalori.app.domain.meal.ShoppingListBuilder
 import fr.kalori.app.domain.model.Aisle
 import fr.kalori.app.domain.model.Allergen
+import fr.kalori.app.domain.model.CookingLevel
 import fr.kalori.app.domain.model.Diet
 import fr.kalori.app.domain.model.MealSlot
 import fr.kalori.app.domain.model.MealStatus
@@ -79,8 +83,12 @@ data class MealsUiState(
     /** Créneaux actifs et leur cible, dans l'ordre de la journée. */
     val slotTargets: Map<MealSlot, NutritionTargets> = emptyMap(),
     val dailyKcal: Int = 0,
+    val weeklyBudget: Int? = null,
 ) {
     val selectedMeals: List<DayMeal> get() = meals[selectedDate].orEmpty()
+
+    /** Courses estimées des 7 jours affichés (restes et fournées comptés le jour où l'on cuisine). */
+    val weekCost: Double get() = meals.values.flatten().sumOf { it.cookCost }
 }
 
 @HiltViewModel
@@ -111,6 +119,7 @@ class MealsViewModel @Inject constructor(
             meals = meals.groupBy { it.date },
             slotTargets = profile?.slotTargets().orEmpty(),
             dailyKcal = profile?.kcalTarget ?: 0,
+            weeklyBudget = profile?.weeklyBudgetEur,
         )
     }.stateIn(viewModelScope, sharing, MealsUiState(today = repository.today(), selectedDate = repository.today()))
 
@@ -225,6 +234,9 @@ data class ScheduleState(
     val available: Boolean = false,
     val mains: Set<MealSlot> = MealSlot.mains.toSet(),
     val snackMode: SnackMode = SnackMode.AUTO,
+    val organization: Organization = Organization(),
+    /** Ordre de grandeur du budget minimal pour l'objectif (plats les moins chers), en €/semaine. */
+    val cheapestWeek: Int? = null,
 )
 
 data class FoodPreferencesUiState(
@@ -242,6 +254,7 @@ class FoodPreferencesViewModel @Inject constructor(
     private val repository: FoodPreferencesRepository,
     private val goalService: GoalService,
     private val profileRepository: ProfileRepository,
+    private val mealPlanRepository: MealPlanRepository,
     @ApplicationScope private val applicationScope: CoroutineScope,
 ) : ViewModel() {
 
@@ -261,7 +274,7 @@ class FoodPreferencesViewModel @Inject constructor(
                 it.copy(
                     loaded = true,
                     prefs = current,
-                    schedule = if (profile == null) ScheduleState() else ScheduleState(true, profile.enabledMains(), profile.snackMode),
+                    schedule = profile?.let { scheduleOf(it) } ?: ScheduleState(),
                 )
             }
         }
@@ -270,7 +283,7 @@ class FoodPreferencesViewModel @Inject constructor(
     /** Recharge le réglage des repas (au premier lancement, le profil est créé après l'ouverture de l'écran). */
     fun refreshSchedule() = viewModelScope.launch {
         val profile = profileRepository.getProfile() ?: return@launch
-        draft.update { it.copy(schedule = ScheduleState(true, profile.enabledMains(), profile.snackMode)) }
+        draft.update { it.copy(schedule = scheduleOf(profile)) }
     }
 
     fun toggleAllergen(allergen: Allergen) = editPrefs { it.copy(allergens = it.allergens.toggle(allergen)) }
@@ -299,6 +312,45 @@ class FoodPreferencesViewModel @Inject constructor(
     }
 
     fun setSnackMode(mode: SnackMode) = updateSchedule(draft.value.schedule.copy(snackMode = mode))
+
+    /** Budget saisi au clavier : enregistré après une courte pause de frappe. */
+    fun setBudget(text: String) {
+        val budget = text.filter(Char::isDigit).take(4).toIntOrNull()?.takeIf { it > 0 }
+        editOrganization(debounce = true) { it.copy(weeklyBudgetEur = budget) }
+    }
+
+    fun setCookingLevel(level: CookingLevel) = editOrganization { it.copy(cookingLevel = level) }
+
+    fun setLunchLeftovers(enabled: Boolean) = editOrganization { it.copy(lunchLeftovers = enabled) }
+
+    fun setWeeklyBreakfast(enabled: Boolean) = editOrganization { it.copy(weeklyBreakfast = enabled) }
+
+    fun setWeeklySnack(enabled: Boolean) = editOrganization { it.copy(weeklySnack = enabled) }
+
+    private var pendingOrganization: Job? = null
+
+    private fun editOrganization(debounce: Boolean = false, change: (Organization) -> Organization) {
+        val schedule = draft.value.schedule
+        val organization = change(schedule.organization)
+        draft.update { it.copy(schedule = schedule.copy(organization = organization), saveState = SaveState.SAVING) }
+        pendingOrganization?.cancel()
+        pendingOrganization = viewModelScope.launch {
+            if (debounce) delay(SAVE_DEBOUNCE_MS)
+            // Hors du ViewModel : quitter l'écran juste après ne perd pas le réglage.
+            applicationScope.launch {
+                goalService.setOrganization(organization)
+                draft.update { it.copy(saveState = SaveState.SAVED) }
+            }
+        }
+    }
+
+    private suspend fun scheduleOf(profile: UserProfileEntity) = ScheduleState(
+        available = true,
+        mains = profile.enabledMains(),
+        snackMode = profile.snackMode,
+        organization = profile.organization(),
+        cheapestWeek = mealPlanRepository.cheapestWeekEstimate(),
+    )
 
     /** Termine l'enregistrement en cours (premier lancement), puis [onDone]. */
     fun flush(onDone: () -> Unit) {
@@ -363,6 +415,12 @@ class ShoppingListViewModel @Inject constructor(
 
     fun setChecked(ingredientId: String, checked: Boolean) = viewModelScope.launch {
         repository.setChecked(ingredientId, checked)
+    }
+
+    /** Prix saisi (texte libre, virgule acceptée) ; vide ou invalide revient à l'estimation. */
+    fun setPrice(ingredientId: String, text: String) = viewModelScope.launch {
+        val price = text.replace(',', '.').trim().toDoubleOrNull()?.takeIf { it > 0 && it < 1000 }
+        repository.setPrice(ingredientId, price)
     }
 
     /** Copie les articles non cochés (tous si tout est coché) en texte brut, une ligne par article. */

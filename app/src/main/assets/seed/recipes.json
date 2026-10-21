@@ -4,6 +4,12 @@
   "name": "Curry de poulet au lait de coco, riz basmati",
   "mainProtein": "POULTRY",
   "mealType": "MAIN",
+  "prepMinutes": 30,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Rincer le riz et le cuire 11 minutes dans de l'eau bouillante salée.",
    "Faire revenir l'oignon émincé et le gingembre râpé dans l'huile, ajouter le poulet en morceaux et le curry.",
@@ -54,6 +60,12 @@
   "name": "Chili sin carne aux haricots rouges",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 40,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Cuire le riz complet environ 30 minutes.",
    "Faire revenir l'oignon, l'ail et la carotte en petits dés dans l'huile.",
@@ -108,6 +120,12 @@
   "name": "Chili con carne",
   "mainProtein": "RED_MEAT",
   "mealType": "MAIN",
+  "prepMinutes": 35,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Cuire le riz.",
    "Dorer l'oignon et l'ail dans l'huile, ajouter la viande et l'émietter.",
@@ -158,6 +176,12 @@
   "name": "Dahl de lentilles corail au lait de coco",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 30,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Faire revenir l'oignon, l'ail et le gingembre avec le curry.",
    "Ajouter la carotte râpée, les lentilles rincées, les tomates et 200 ml d'eau ; cuire 20 minutes.",
@@ -212,6 +236,12 @@
   "name": "Pâtes complètes à la bolognaise",
   "mainProtein": "RED_MEAT",
   "mealType": "MAIN",
+  "prepMinutes": 30,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Faire revenir l'oignon et la carotte hachés dans l'huile, ajouter la viande.",
    "Verser le coulis et les herbes, mijoter 15 minutes.",
@@ -257,6 +287,12 @@
   "name": "Pâtes à la bolognaise de lentilles",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 35,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Cuire les lentilles 20 minutes dans l'eau non salée.",
    "Faire revenir l'oignon, la carotte et les champignons hachés finement.",
@@ -303,6 +339,12 @@
   "name": "Omelette aux champignons, pommes de terre sautées",
   "mainProtein": "EGG",
   "mealType": "MAIN",
+  "prepMinutes": 25,
+  "difficulty": 1,
+  "keepDays": 1,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les pommes de terre en dés à la poêle avec la moitié de l'huile, 20 minutes.",
    "Faire sauter les champignons émincés avec le reste de l'huile.",
@@ -340,6 +382,12 @@
   "name": "Saumon en papillote, carottes au cumin, riz complet",
   "mainProtein": "FISH",
   "mealType": "MAIN",
+  "prepMinutes": 35,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire le riz complet.",
    "Disposer le saumon sur une feuille de papier cuisson avec des rondelles de citron, fermer et cuire 15 minutes à 200 °C.",
@@ -377,6 +425,12 @@
   "name": "Cabillaud, pommes de terre vapeur, sauce citron-persil",
   "mainProtein": "FISH",
   "mealType": "MAIN",
+  "prepMinutes": 30,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les pommes de terre et les carottes à la vapeur.",
    "Saisir le cabillaud 3 minutes par face dans l'huile.",
@@ -418,6 +472,12 @@
   "name": "Tofu sauté aux carottes et champignons, riz basmati",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 25,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire le riz.",
    "Dorer le tofu en cubes dans l'huile, réserver.",
@@ -468,6 +528,12 @@
   "name": "Pois chiches mijotés à la tomate et au cumin, semoule",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 25,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Faire revenir l'oignon et la carotte dans l'huile avec le cumin.",
    "Ajouter les tomates et les pois chiches rincés, mijoter 15 minutes.",
@@ -513,6 +579,12 @@
   "name": "Couscous de poulet aux carottes et pois chiches",
   "mainProtein": "POULTRY",
   "mealType": "MAIN",
+  "prepMinutes": 45,
+  "difficulty": 2,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Dorer le poulet dans l'huile, ajouter l'oignon, les carottes en tronçons et le cumin.",
    "Couvrir d'eau avec les tomates, cuire 30 minutes, ajouter les pois chiches 5 minutes avant la fin.",
@@ -562,6 +634,12 @@
   "name": "Hachis parmentier",
   "mainProtein": "RED_MEAT",
   "mealType": "MAIN",
+  "prepMinutes": 60,
+  "difficulty": 2,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Cuire les pommes de terre et les écraser avec le lait chaud et le beurre.",
    "Faire revenir l'oignon et la carotte hachés avec la viande.",
@@ -603,6 +681,12 @@
   "name": "Riz sauté aux crevettes, œuf et petits légumes",
   "mainProtein": "SEAFOOD",
   "mealType": "MAIN",
+  "prepMinutes": 25,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire le riz et le laisser refroidir.",
    "Faire sauter l'oignon et la carotte en petits dés, ajouter le riz puis l'œuf battu.",
@@ -648,6 +732,12 @@
   "name": "Pâtes au jambon, champignons et crème légère",
   "mainProtein": "PORK",
   "mealType": "MAIN",
+  "prepMinutes": 20,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les pâtes.",
    "Faire revenir l'oignon et les champignons, ajouter le jambon en lanières et la crème.",
@@ -685,6 +775,12 @@
   "name": "Galettes de sarrasin complètes aux champignons",
   "mainProtein": "PORK",
   "mealType": "MAIN",
+  "prepMinutes": 25,
+  "difficulty": 2,
+  "keepDays": 1,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Faire sauter les champignons émincés.",
    "Réchauffer les galettes dans une poêle beurrée, garnir de jambon, champignons et emmental.",
@@ -722,6 +818,12 @@
   "name": "Lentilles vertes aux lardons et carottes",
   "mainProtein": "PORK",
   "mealType": "MAIN",
+  "prepMinutes": 40,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Faire revenir les lardons et l'oignon sans matière grasse.",
    "Ajouter les lentilles, les carottes en rondelles, les herbes et couvrir d'eau ; cuire 25 minutes.",
@@ -763,6 +865,12 @@
   "name": "Bowl de quinoa, pois chiches rôtis, betterave et tahin",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 40,
+  "difficulty": 2,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire le quinoa 12 minutes.",
    "Rôtir les pois chiches avec l'huile et le paprika 20 minutes à 200 °C.",
@@ -809,6 +917,12 @@
   "name": "Salade de riz au thon, maïs et œuf",
   "mainProtein": "FISH",
   "mealType": "MAIN",
+  "prepMinutes": 25,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire le riz et l'œuf (10 minutes), laisser refroidir.",
    "Mélanger le riz, le thon émietté, le maïs et la carotte râpée.",
@@ -854,6 +968,12 @@
   "name": "Escalope de dinde à la moutarde, pommes de terre rôties",
   "mainProtein": "POULTRY",
   "mealType": "MAIN",
+  "prepMinutes": 40,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Rôtir les pommes de terre et les carottes en morceaux avec l'huile et le thym, 35 minutes à 200 °C.",
    "Saisir la dinde à la poêle, déglacer avec la crème mélangée à la moutarde."
@@ -894,6 +1014,12 @@
   "name": "Bœuf mijoté aux carottes",
   "mainProtein": "RED_MEAT",
   "mealType": "MAIN",
+  "prepMinutes": 150,
+  "difficulty": 2,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Dorer la viande en morceaux dans une cocotte, ajouter l'oignon.",
    "Déglacer au vin, ajouter le concentré, le thym, les carottes et couvrir d'eau.",
@@ -939,6 +1065,12 @@
   "name": "Œufs pochés à la sauce tomate épicée, pain complet",
   "mainProtein": "EGG",
   "mealType": "MAIN",
+  "prepMinutes": 25,
+  "difficulty": 1,
+  "keepDays": 1,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Faire revenir l'oignon dans l'huile avec les épices, ajouter les tomates et cuire 10 minutes.",
    "Creuser deux puits, y casser les œufs, couvrir et cuire 6 minutes.",
@@ -988,6 +1120,12 @@
   "name": "Risotto aux champignons et parmesan",
   "mainProtein": "DAIRY",
   "mealType": "MAIN",
+  "prepMinutes": 40,
+  "difficulty": 2,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Préparer 400 ml de bouillon chaud.",
    "Nacrer le riz avec l'oignon dans l'huile, déglacer au vin.",
@@ -1034,6 +1172,12 @@
   "name": "Pâtes à la sauce tomate, thon et olives",
   "mainProtein": "FISH",
   "mealType": "MAIN",
+  "prepMinutes": 20,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les pâtes.",
    "Faire revenir l'oignon, ajouter le coulis, le thon émietté et les olives ; chauffer 5 minutes.",
@@ -1075,6 +1219,12 @@
   "name": "Quesadillas aux haricots rouges, maïs et emmental",
   "mainProtein": "DAIRY",
   "mealType": "MAIN",
+  "prepMinutes": 20,
+  "difficulty": 1,
+  "keepDays": 1,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Écraser grossièrement les haricots avec le cumin.",
    "Garnir une tortilla de haricots, maïs, oignon et emmental, couvrir de la seconde.",
@@ -1116,6 +1266,12 @@
   "name": "Poulet à la crème de champignons, riz",
   "mainProtein": "POULTRY",
   "mealType": "MAIN",
+  "prepMinutes": 30,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire le riz et les carottes en rondelles à la vapeur.",
    "Dorer le poulet, ajouter l'oignon et les champignons, puis la crème et le thym ; mijoter 5 minutes."
@@ -1156,6 +1312,12 @@
   "name": "Maquereau rôti à la moutarde, pommes de terre et carottes",
   "mainProtein": "FISH",
   "mealType": "MAIN",
+  "prepMinutes": 40,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Rôtir les pommes de terre et les carottes avec l'huile, 30 minutes à 200 °C.",
    "Badigeonner les filets de moutarde et les ajouter au four pour les 10 dernières minutes.",
@@ -1193,6 +1355,12 @@
   "name": "Pâtes complètes aux sardines, citron et persil",
   "mainProtein": "FISH",
   "mealType": "MAIN",
+  "prepMinutes": 15,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les pâtes.",
    "Dorer la chapelure dans l'huile avec l'ail.",
@@ -1234,6 +1402,12 @@
   "name": "Sauté de porc au gingembre et carottes, riz",
   "mainProtein": "PORK",
   "mealType": "MAIN",
+  "prepMinutes": 30,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire le riz.",
    "Saisir le porc en lamelles, ajouter l'oignon, les carottes en bâtonnets et le gingembre.",
@@ -1279,6 +1453,12 @@
   "name": "Bowl de tempeh mariné, riz complet et carottes",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 35,
+  "difficulty": 2,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire le riz complet.",
    "Mariner le tempeh en tranches dans la sauce soja et le gingembre, puis le dorer dans l'huile.",
@@ -1324,6 +1504,12 @@
   "name": "Polenta crémeuse aux champignons et œuf mollet",
   "mainProtein": "EGG",
   "mealType": "MAIN",
+  "prepMinutes": 30,
+  "difficulty": 2,
+  "keepDays": 1,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire la polenta dans le lait et 100 ml d'eau en remuant, 5 minutes ; ajouter le parmesan.",
    "Faire sauter les champignons avec le beurre et l'ail.",
@@ -1369,6 +1555,12 @@
   "name": "Tajine d'agneau aux carottes et pois chiches",
   "mainProtein": "RED_MEAT",
   "mealType": "MAIN",
+  "prepMinutes": 110,
+  "difficulty": 3,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Dorer l'agneau en cubes avec l'oignon et les épices.",
    "Ajouter les carottes, couvrir d'eau et mijoter 45 minutes.",
@@ -1422,6 +1614,12 @@
   "name": "Poke bowl saumon, avocat et riz",
   "mainProtein": "FISH",
   "mealType": "MAIN",
+  "prepMinutes": 25,
+  "difficulty": 2,
+  "keepDays": 1,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire le riz et le laisser tiédir.",
    "Couper le saumon en cubes (très frais, ou le saisir rapidement).",
@@ -1463,6 +1661,12 @@
   "name": "Blanquette de veau légère, carottes et champignons",
   "mainProtein": "RED_MEAT",
   "mealType": "MAIN",
+  "prepMinutes": 100,
+  "difficulty": 3,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Pocher le veau en morceaux 25 minutes dans 400 ml de bouillon avec l'oignon et les carottes.",
    "Ajouter les champignons 10 minutes avant la fin.",
@@ -1513,6 +1717,12 @@
   "name": "Boulettes de bœuf à la sauce tomate, semoule",
   "mainProtein": "RED_MEAT",
   "mealType": "MAIN",
+  "prepMinutes": 40,
+  "difficulty": 2,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Mélanger la viande, la chapelure, l'œuf battu, le cumin et le persil ; former des boulettes.",
    "Les dorer dans l'huile, ajouter l'oignon et le coulis, mijoter 15 minutes.",
@@ -1562,6 +1772,12 @@
   "name": "Falafels au four, boulgour et yaourt aux herbes",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 50,
+  "difficulty": 3,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Mixer les pois chiches, l'oignon, la coriandre, le cumin et la farine ; former des galettes.",
    "Les badigeonner d'huile et cuire 25 minutes à 200 °C en les retournant.",
@@ -1611,6 +1827,12 @@
   "name": "Bol de riz au bœuf, carottes, œuf et sésame",
   "mainProtein": "RED_MEAT",
   "mealType": "MAIN",
+  "prepMinutes": 30,
+  "difficulty": 2,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire le riz.",
    "Faire sauter séparément la viande, les champignons et la carotte en julienne.",
@@ -1656,6 +1878,12 @@
   "name": "Galettes de sarrasin aux champignons, œuf et emmental",
   "mainProtein": "EGG",
   "mealType": "MAIN",
+  "prepMinutes": 20,
+  "difficulty": 1,
+  "keepDays": 1,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Faire sauter les champignons et les lier avec la crème.",
    "Garnir les galettes réchauffées, casser l'œuf, ajouter l'emmental et replier."
@@ -1692,6 +1920,12 @@
   "name": "Poulet mariné au yaourt et aux épices, riz et carottes",
   "mainProtein": "POULTRY",
   "mealType": "MAIN",
+  "prepMinutes": 45,
+  "difficulty": 2,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Mariner le poulet en morceaux 30 minutes dans le yaourt, les épices et le citron.",
    "Le cuire à la poêle dans l'huile 10 minutes.",
@@ -1741,6 +1975,12 @@
   "name": "Salade de haricots blancs, thon, oignon rouge et persil",
   "mainProtein": "FISH",
   "mealType": "MAIN",
+  "prepMinutes": 10,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Rincer les haricots, émincer finement l'oignon.",
    "Mélanger avec le thon, le persil, l'huile et le vinaigre.",
@@ -1782,6 +2022,12 @@
   "name": "Lieu noir au lait de coco et à la tomate, riz",
   "mainProtein": "FISH",
   "mealType": "MAIN",
+  "prepMinutes": 30,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire le riz.",
    "Faire revenir l'oignon et le gingembre, ajouter les tomates, le curry et le lait de coco.",
@@ -1831,6 +2077,12 @@
   "name": "Seitan sauté aux champignons et carottes, riz complet",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 35,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire le riz complet.",
    "Dorer le seitan en lamelles, ajouter l'oignon, les carottes et les champignons.",
@@ -1876,6 +2128,12 @@
   "name": "Velouté de carottes et lentilles corail, tartine au houmous",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 35,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Cuire les carottes, l'oignon et les lentilles 20 minutes dans 500 ml d'eau avec le cumin ; mixer avec le lait de coco.",
    "Mixer les pois chiches avec le tahin et un peu d'eau ; tartiner sur le pain grillé."
@@ -1920,6 +2178,12 @@
   "name": "Omelette aux pommes de terre et oignons",
   "mainProtein": "EGG",
   "mealType": "MAIN",
+  "prepMinutes": 35,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les pommes de terre en fines tranches et l'oignon dans l'huile à feu doux 15 minutes.",
    "Verser les œufs battus, cuire à couvert puis retourner.",
@@ -1957,6 +2221,12 @@
   "name": "Dinde au curry doux et lentilles corail",
   "mainProtein": "POULTRY",
   "mealType": "MAIN",
+  "prepMinutes": 30,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Cuire les lentilles et le riz.",
    "Dorer la dinde en cubes avec l'oignon et le curry, ajouter les carottes râpées et le lait de coco.",
@@ -2002,6 +2272,12 @@
   "name": "Poêlée de pommes de terre, tofu fumé et champignons",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 25,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les pommes de terre en dés à la poêle dans l'huile, 20 minutes.",
    "Ajouter l'oignon, les champignons et le tofu fumé en dés, poursuivre 8 minutes.",
@@ -2039,6 +2315,12 @@
   "name": "Ratatouille aux pois chiches et quinoa",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 50,
+  "difficulty": 2,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Faire revenir séparément les légumes en dés dans l'huile, puis les réunir avec l'ail et les herbes.",
    "Mijoter 25 minutes, ajouter les pois chiches en fin de cuisson.",
@@ -2092,6 +2374,12 @@
   "name": "Salade niçoise",
   "mainProtein": "FISH",
   "mealType": "MAIN",
+  "prepMinutes": 25,
+  "difficulty": 1,
+  "keepDays": 1,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les pommes de terre, les haricots verts et l'œuf ; laisser refroidir.",
    "Disposer la salade, les tomates en quartiers, le thon et les olives.",
@@ -2141,6 +2429,12 @@
   "name": "Poulet grillé, courgettes rôties et boulgour",
   "mainProtein": "POULTRY",
   "mealType": "MAIN",
+  "prepMinutes": 30,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Rôtir les courgettes en rondelles avec la moitié de l'huile, 20 minutes à 200 °C.",
    "Griller le poulet avec le reste de l'huile et le citron.",
@@ -2178,6 +2472,12 @@
   "name": "Taboulé aux herbes, tomates, concombre et feta",
   "mainProtein": "DAIRY",
   "mealType": "MAIN",
+  "prepMinutes": 25,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire le boulgour et le laisser refroidir.",
    "Couper les tomates et le concombre en petits dés, ciseler les herbes.",
@@ -2227,6 +2527,12 @@
   "name": "Pâtes aux courgettes, basilic, pignons et parmesan",
   "mainProtein": "DAIRY",
   "mealType": "MAIN",
+  "prepMinutes": 20,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les pâtes.",
    "Faire sauter les courgettes en fines demi-rondelles avec l'ail dans l'huile.",
@@ -2268,6 +2574,12 @@
   "name": "Salade de pâtes, tomates cerises, mozzarella et roquette",
   "mainProtein": "DAIRY",
   "mealType": "MAIN",
+  "prepMinutes": 20,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les pâtes, les refroidir.",
    "Mélanger avec les tomates coupées en deux, la mozzarella en dés, la roquette et le basilic.",
@@ -2309,6 +2621,12 @@
   "name": "Aubergines farcies au bœuf et à la tomate, riz",
   "mainProtein": "RED_MEAT",
   "mealType": "MAIN",
+  "prepMinutes": 60,
+  "difficulty": 2,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Couper l'aubergine en deux, évider la chair et la hacher.",
    "Faire revenir l'oignon, la viande, la chair d'aubergine et la tomate avec les herbes.",
@@ -2354,6 +2672,12 @@
   "name": "Brochettes de dinde aux poivrons, riz et sauce yaourt",
   "mainProtein": "POULTRY",
   "mealType": "MAIN",
+  "prepMinutes": 35,
+  "difficulty": 2,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Mariner la dinde en cubes avec l'huile et le paprika.",
    "Monter les brochettes en alternant dinde, poivron et oignon ; griller 12 minutes.",
@@ -2395,6 +2719,12 @@
   "name": "Saumon, haricots verts et pommes de terre grenaille",
   "mainProtein": "FISH",
   "mealType": "MAIN",
+  "prepMinutes": 30,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les pommes de terre et les haricots verts à la vapeur.",
    "Saisir le saumon côté peau 6 minutes, puis 2 minutes côté chair.",
@@ -2432,6 +2762,12 @@
   "name": "Salade de lentilles, concombre, radis et chèvre",
   "mainProtein": "DAIRY",
   "mealType": "MAIN",
+  "prepMinutes": 30,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les lentilles 20 minutes, les refroidir.",
    "Couper les légumes en dés, ciseler l'échalote et le persil.",
@@ -2485,6 +2821,12 @@
   "name": "Crevettes sautées aux courgettes et curry doux, riz",
   "mainProtein": "SEAFOOD",
   "mealType": "MAIN",
+  "prepMinutes": 25,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire le riz.",
    "Faire sauter l'oignon et les courgettes, ajouter le curry et le lait de coco.",
@@ -2530,6 +2872,12 @@
   "name": "Aubergines à la parmigiana, salade de roquette",
   "mainProtein": "DAIRY",
   "mealType": "MAIN",
+  "prepMinutes": 70,
+  "difficulty": 3,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Griller les tranches d'aubergine badigeonnées d'huile.",
    "Alterner dans un plat aubergines, coulis, mozzarella et basilic ; finir par le parmesan.",
@@ -2575,6 +2923,12 @@
   "name": "Frittata aux courgettes et à la feta, salade",
   "mainProtein": "EGG",
   "mealType": "MAIN",
+  "prepMinutes": 30,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Faire revenir l'oignon et les courgettes râpées dans l'huile.",
    "Verser les œufs battus avec la menthe, émietter la feta et cuire à couvert 10 minutes.",
@@ -2620,6 +2974,12 @@
   "name": "Bœuf sauté au brocoli et au sésame, riz",
   "mainProtein": "RED_MEAT",
   "mealType": "MAIN",
+  "prepMinutes": 25,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire le riz et blanchir le brocoli 3 minutes.",
    "Saisir le bœuf en lamelles à feu vif, ajouter l'ail, le gingembre et le brocoli.",
@@ -2665,6 +3025,12 @@
   "name": "Cabillaud rôti au fenouil et citron, quinoa",
   "mainProtein": "FISH",
   "mealType": "MAIN",
+  "prepMinutes": 40,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Rôtir le fenouil émincé avec l'huile et le thym 20 minutes à 200 °C.",
    "Poser le cabillaud et les olives dessus, arroser de citron, cuire encore 12 minutes.",
@@ -2706,6 +3072,12 @@
   "name": "Poulet aux poivrons et tomates, riz",
   "mainProtein": "POULTRY",
   "mealType": "MAIN",
+  "prepMinutes": 45,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Dorer le poulet dans l'huile, ajouter l'oignon et les poivrons en lanières.",
    "Ajouter les tomates, l'ail et le paprika, mijoter 30 minutes.",
@@ -2751,6 +3123,12 @@
   "name": "Tofu sauté aux haricots verts et cacahuètes, riz",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 25,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire le riz et blanchir les haricots 5 minutes.",
    "Dorer le tofu, ajouter les haricots, l'ail et la sauce soja.",
@@ -2796,6 +3174,12 @@
   "name": "Salade de quinoa, pêches, roquette et chèvre frais",
   "mainProtein": "DAIRY",
   "mealType": "MAIN",
+  "prepMinutes": 25,
+  "difficulty": 1,
+  "keepDays": 1,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire le quinoa et le refroidir.",
    "Mélanger avec les pêches en quartiers, la roquette et les pois chiches.",
@@ -2841,6 +3225,12 @@
   "name": "Truite aux amandes, haricots verts et pommes de terre",
   "mainProtein": "FISH",
   "mealType": "MAIN",
+  "prepMinutes": 30,
+  "difficulty": 2,
+  "keepDays": 1,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les pommes de terre et les haricots à la vapeur.",
    "Cuire la truite au beurre 4 minutes par face, ajouter les amandes effilées pour les dorer.",
@@ -2882,6 +3272,12 @@
   "name": "Melon, jambon blanc, mozzarella et pain complet",
   "mainProtein": "PORK",
   "mealType": "MAIN",
+  "prepMinutes": 10,
+  "difficulty": 1,
+  "keepDays": 1,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Couper le melon en tranches et la mozzarella en rondelles.",
    "Disposer avec le jambon et la roquette, arroser d'huile et parsemer de basilic.",
@@ -2923,6 +3319,12 @@
   "name": "Salade César au poulet",
   "mainProtein": "POULTRY",
   "mealType": "MAIN",
+  "prepMinutes": 30,
+  "difficulty": 2,
+  "keepDays": 1,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Griller le poulet et le couper en lamelles ; faire des croûtons avec le pain.",
    "Mélanger le yaourt, la moutarde, le citron, l'huile et la moitié du parmesan.",
@@ -2972,6 +3374,12 @@
   "name": "Curry de légumes d'été et pois chiches au lait de coco",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 40,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Cuire le riz.",
    "Faire revenir l'oignon avec le curry, ajouter les légumes en dés et cuire 15 minutes.",
@@ -3017,6 +3425,12 @@
   "name": "Filet mignon de porc aux abricots, semoule",
   "mainProtein": "PORK",
   "mealType": "MAIN",
+  "prepMinutes": 40,
+  "difficulty": 2,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Dorer le filet mignon en médaillons, ajouter l'oignon.",
    "Ajouter les abricots en quartiers, le miel et la cannelle, cuire 10 minutes.",
@@ -3062,6 +3476,12 @@
   "name": "Pâtes au brocoli, ail, citron et parmesan",
   "mainProtein": "DAIRY",
   "mealType": "MAIN",
+  "prepMinutes": 20,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les pâtes avec les fleurettes de brocoli pendant les 4 dernières minutes.",
    "Faire dorer l'ail dans l'huile, ajouter les pâtes et le brocoli égouttés.",
@@ -3103,6 +3523,12 @@
   "name": "Poulet aux figues et au miel, semoule",
   "mainProtein": "POULTRY",
   "mealType": "MAIN",
+  "prepMinutes": 40,
+  "difficulty": 2,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Dorer le poulet, ajouter l'oignon et la cannelle.",
    "Ajouter les figues coupées en deux et le miel, cuire 15 minutes à couvert.",
@@ -3144,6 +3570,12 @@
   "name": "Moules marinières et pommes de terre au four",
   "mainProtein": "SEAFOOD",
   "mealType": "MAIN",
+  "prepMinutes": 40,
+  "difficulty": 2,
+  "keepDays": 1,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Rôtir les pommes de terre en quartiers avec l'huile, 35 minutes à 210 °C.",
    "Faire suer l'échalote dans le beurre, ajouter le vin et les moules ; couvrir et cuire jusqu'à ouverture.",
@@ -3189,6 +3621,12 @@
   "name": "Salade de tomates, lentilles, mozzarella et basilic",
   "mainProtein": "DAIRY",
   "mealType": "MAIN",
+  "prepMinutes": 25,
+  "difficulty": 1,
+  "keepDays": 1,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les lentilles et les laisser refroidir.",
    "Disposer les tomates en tranches, la mozzarella et les lentilles.",
@@ -3230,6 +3668,12 @@
   "name": "Wraps de poulet, radis, concombre et yaourt à la menthe",
   "mainProtein": "POULTRY",
   "mealType": "MAIN",
+  "prepMinutes": 25,
+  "difficulty": 1,
+  "keepDays": 1,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Griller le poulet dans l'huile et l'émincer.",
    "Mélanger le yaourt et la menthe ciselée.",
@@ -3275,6 +3719,12 @@
   "name": "Gratin de courgettes au riz et au chèvre",
   "mainProtein": "DAIRY",
   "mealType": "MAIN",
+  "prepMinutes": 50,
+  "difficulty": 2,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Cuire le riz. Faire revenir les courgettes en dés dans l'huile.",
    "Mélanger avec le riz, l'œuf battu, le lait et les herbes ; émietter le chèvre dessus.",
@@ -3316,6 +3766,12 @@
   "name": "Saumon et asperges vertes rôties, riz complet",
   "mainProtein": "FISH",
   "mealType": "MAIN",
+  "prepMinutes": 30,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire le riz complet.",
    "Rôtir les asperges avec l'huile 12 minutes à 200 °C, ajouter le saumon et poursuivre 10 minutes.",
@@ -3353,6 +3809,12 @@
   "name": "Risotto aux asperges et petits pois",
   "mainProtein": "DAIRY",
   "mealType": "MAIN",
+  "prepMinutes": 40,
+  "difficulty": 2,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Préparer 400 ml de bouillon chaud.",
    "Nacrer le riz avec l'oignon, puis ajouter le bouillon louche par louche pendant 18 minutes.",
@@ -3399,6 +3861,12 @@
   "name": "Œufs mollets, asperges vertes et mouillettes",
   "mainProtein": "EGG",
   "mealType": "MAIN",
+  "prepMinutes": 20,
+  "difficulty": 1,
+  "keepDays": 1,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les asperges 8 minutes à la vapeur.",
    "Cuire les œufs 6 minutes dans l'eau bouillante.",
@@ -3432,6 +3900,12 @@
   "name": "Poulet aux petits pois et carottes nouvelles",
   "mainProtein": "POULTRY",
   "mealType": "MAIN",
+  "prepMinutes": 40,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Dorer le poulet dans l'huile avec l'oignon.",
    "Ajouter les carottes, les pommes de terre, le thym et un verre d'eau ; cuire 25 minutes à couvert.",
@@ -3473,6 +3947,12 @@
   "name": "Salade de pousses d'épinard, fraises, chèvre et quinoa",
   "mainProtein": "DAIRY",
   "mealType": "MAIN",
+  "prepMinutes": 25,
+  "difficulty": 1,
+  "keepDays": 1,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire le quinoa et le refroidir.",
    "Mélanger les pousses, les fraises coupées, les pois chiches et le quinoa.",
@@ -3518,6 +3998,12 @@
   "name": "Pâtes aux épinards et ricotta",
   "mainProtein": "DAIRY",
   "mealType": "MAIN",
+  "prepMinutes": 20,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les pâtes.",
    "Faire tomber les épinards avec l'ail dans l'huile.",
@@ -3555,6 +4041,12 @@
   "name": "Curry de pois chiches aux épinards, riz",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 30,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Cuire le riz.",
    "Faire revenir l'oignon et le gingembre avec le curry, ajouter les tomates et les pois chiches.",
@@ -3600,6 +4092,12 @@
   "name": "Navarin d'agneau aux petits pois et carottes",
   "mainProtein": "RED_MEAT",
   "mealType": "MAIN",
+  "prepMinutes": 100,
+  "difficulty": 3,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Dorer l'agneau en morceaux, ajouter l'oignon et le concentré.",
    "Couvrir d'eau, ajouter le thym, les carottes et les pommes de terre ; mijoter 45 minutes.",
@@ -3645,6 +4143,12 @@
   "name": "Salade de pommes de terre, radis, œufs et ciboulette",
   "mainProtein": "EGG",
   "mealType": "MAIN",
+  "prepMinutes": 30,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les pommes de terre et les œufs (10 minutes), refroidir.",
    "Mélanger le yaourt, la moutarde, l'huile et la ciboulette.",
@@ -3690,6 +4194,12 @@
   "name": "Cabillaud et purée de petits pois à la menthe",
   "mainProtein": "FISH",
   "mealType": "MAIN",
+  "prepMinutes": 30,
+  "difficulty": 2,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les petits pois et la pomme de terre, les écraser avec la crème et la menthe.",
    "Saisir le cabillaud dans l'huile 3 minutes par face."
@@ -3726,6 +4236,12 @@
   "name": "Tofu laqué, asperges et riz basmati",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 30,
+  "difficulty": 2,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire le riz et les asperges à la vapeur.",
    "Dorer le tofu en tranches, laquer avec la sauce soja et le miel.",
@@ -3767,6 +4283,12 @@
   "name": "Omelette aux épinards et chèvre, pommes de terre",
   "mainProtein": "EGG",
   "mealType": "MAIN",
+  "prepMinutes": 25,
+  "difficulty": 1,
+  "keepDays": 1,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les pommes de terre en rondelles à la poêle dans l'huile.",
    "Faire tomber les épinards, verser les œufs battus et émietter le chèvre.",
@@ -3800,6 +4322,12 @@
   "name": "Pâtes aux petits pois, jambon et crème légère",
   "mainProtein": "PORK",
   "mealType": "MAIN",
+  "prepMinutes": 20,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les pâtes avec les petits pois.",
    "Faire revenir l'oignon, ajouter le jambon et la crème.",
@@ -3837,6 +4365,12 @@
   "name": "Salade tiède de quinoa, asperges, radis et pois chiches",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 30,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire le quinoa et les asperges en tronçons.",
    "Mélanger avec les pois chiches et les radis émincés.",
@@ -3878,6 +4412,12 @@
   "name": "Poulet aux épinards à la crème, pâtes",
   "mainProtein": "POULTRY",
   "mealType": "MAIN",
+  "prepMinutes": 25,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les pâtes.",
    "Dorer le poulet en morceaux, ajouter l'ail et les épinards.",
@@ -3915,6 +4455,12 @@
   "name": "Maquereau grillé, salade de pommes de terre et radis",
   "mainProtein": "FISH",
   "mealType": "MAIN",
+  "prepMinutes": 35,
+  "difficulty": 2,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les pommes de terre à l'eau.",
    "Griller le maquereau 4 minutes par face.",
@@ -3960,6 +4506,12 @@
   "name": "Velouté de butternut aux lentilles corail, pain complet",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 40,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Cuire la butternut en cubes, l'oignon et les lentilles 20 minutes dans 500 ml d'eau avec le curry.",
    "Mixer avec le lait de coco.",
@@ -4001,6 +4553,12 @@
   "name": "Saumon, fondue de poireaux et riz",
   "mainProtein": "FISH",
   "mealType": "MAIN",
+  "prepMinutes": 35,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire le riz.",
    "Faire fondre les poireaux émincés dans le beurre 15 minutes, ajouter la crème.",
@@ -4034,6 +4592,12 @@
   "name": "Gratin de chou-fleur au jambon",
   "mainProtein": "PORK",
   "mealType": "MAIN",
+  "prepMinutes": 50,
+  "difficulty": 2,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Cuire le chou-fleur en fleurettes 8 minutes à la vapeur.",
    "Préparer une béchamel avec le beurre, la farine et le lait.",
@@ -4075,6 +4639,12 @@
   "name": "Pot-au-feu aux légumes d'hiver",
   "mainProtein": "RED_MEAT",
   "mealType": "MAIN",
+  "prepMinutes": 180,
+  "difficulty": 3,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Mettre la viande dans l'eau froide, porter à frémissement et écumer.",
    "Ajouter le thym et cuire 2 heures, puis les légumes pendant 40 minutes.",
@@ -4120,6 +4690,12 @@
   "name": "Potée de chou vert, carottes et lardons",
   "mainProtein": "PORK",
   "mealType": "MAIN",
+  "prepMinutes": 90,
+  "difficulty": 2,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Blanchir le chou émincé 5 minutes.",
    "Faire revenir les lardons et l'oignon, ajouter le chou, les carottes, les pommes de terre et le thym.",
@@ -4157,6 +4733,12 @@
   "name": "Curry de patate douce et pois chiches",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 35,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Cuire le riz.",
    "Faire revenir l'oignon avec le curry, ajouter la patate douce en cubes et les tomates ; cuire 20 minutes.",
@@ -4202,6 +4784,12 @@
   "name": "Poulet rôti aux légumes racines",
   "mainProtein": "POULTRY",
   "mealType": "MAIN",
+  "prepMinutes": 60,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Couper les légumes en bâtonnets, les mélanger avec l'huile, l'ail et le thym.",
    "Disposer le poulet dessus et rôtir 40 minutes à 200 °C."
@@ -4242,6 +4830,12 @@
   "name": "Endives au jambon gratinées",
   "mainProtein": "PORK",
   "mealType": "MAIN",
+  "prepMinutes": 60,
+  "difficulty": 2,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Cuire les endives 15 minutes à la vapeur et bien les égoutter ; cuire les pommes de terre.",
    "Rouler chaque endive dans une tranche de jambon.",
@@ -4283,6 +4877,12 @@
   "name": "Cabillaud, purée de céleri-rave et noisettes",
   "mainProtein": "FISH",
   "mealType": "MAIN",
+  "prepMinutes": 45,
+  "difficulty": 2,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire le céleri et la pomme de terre, les écraser avec le lait et le beurre.",
    "Cuire le cabillaud à la poêle.",
@@ -4324,6 +4924,12 @@
   "name": "Salade d'endives, pomme, noix et comté, œuf dur",
   "mainProtein": "DAIRY",
   "mealType": "MAIN",
+  "prepMinutes": 20,
+  "difficulty": 1,
+  "keepDays": 1,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire l'œuf 10 minutes.",
    "Émincer les endives, couper la pomme et le comté en dés.",
@@ -4369,6 +4975,12 @@
   "name": "Lentilles vertes mijotées au potiron et au cumin",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 45,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Faire revenir l'oignon avec le cumin dans l'huile.",
    "Ajouter les lentilles, le potiron et la carotte en dés, couvrir d'eau et cuire 25 minutes.",
@@ -4414,6 +5026,12 @@
   "name": "Risotto au potiron et parmesan",
   "mainProtein": "DAIRY",
   "mealType": "MAIN",
+  "prepMinutes": 45,
+  "difficulty": 2,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Préparer 400 ml de bouillon chaud.",
    "Faire revenir l'oignon et le potiron en petits dés, ajouter le riz.",
@@ -4456,6 +5074,12 @@
   "name": "Dinde, choux de Bruxelles rôtis et pommes de terre",
   "mainProtein": "POULTRY",
   "mealType": "MAIN",
+  "prepMinutes": 45,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Rôtir les choux coupés en deux et les pommes de terre avec l'huile, 30 minutes à 200 °C.",
    "Saisir la dinde et la badigeonner de moutarde."
@@ -4488,6 +5112,12 @@
   "name": "Filet mignon, chou rouge braisé aux pommes",
   "mainProtein": "PORK",
   "mealType": "MAIN",
+  "prepMinutes": 60,
+  "difficulty": 2,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Braiser le chou émincé avec l'oignon, la pomme, le vinaigre et la cannelle 40 minutes à couvert.",
    "Cuire les pommes de terre à la vapeur.",
@@ -4533,6 +5163,12 @@
   "name": "Tartiflette légère, salade de mâche",
   "mainProtein": "PORK",
   "mealType": "MAIN",
+  "prepMinutes": 50,
+  "difficulty": 2,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les pommes de terre et les couper en rondelles.",
    "Faire revenir les lardons et l'oignon.",
@@ -4570,6 +5206,12 @@
   "name": "Velouté poireaux-pommes de terre, œuf poché et tartine de chèvre",
   "mainProtein": "EGG",
   "mealType": "MAIN",
+  "prepMinutes": 40,
+  "difficulty": 2,
+  "keepDays": 1,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les poireaux et les pommes de terre 20 minutes, mixer avec la crème.",
    "Pocher l'œuf 3 minutes dans l'eau frémissante vinaigrée.",
@@ -4607,6 +5249,12 @@
   "name": "Wok de tofu au chou vert, carottes et cacahuètes",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 25,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire le riz.",
    "Dorer le tofu, ajouter le chou émincé finement, les carottes et le gingembre ; cuire 6 minutes à feu vif.",
@@ -4652,6 +5300,12 @@
   "name": "Lieu noir, poireaux à la crème et pommes de terre",
   "mainProtein": "FISH",
   "mealType": "MAIN",
+  "prepMinutes": 35,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les pommes de terre à la vapeur.",
    "Fondre les poireaux dans le beurre, ajouter la crème.",
@@ -4685,6 +5339,12 @@
   "name": "Butternut rôtie, quinoa, feta et graines de courge",
   "mainProtein": "DAIRY",
   "mealType": "MAIN",
+  "prepMinutes": 45,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Rôtir la butternut en cubes avec l'huile et le miel 30 minutes à 200 °C.",
    "Cuire le quinoa.",
@@ -4726,6 +5386,12 @@
   "name": "Couscous végétarien aux légumes d'hiver",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 60,
+  "difficulty": 2,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Faire revenir l'oignon avec les épices, ajouter les légumes en morceaux et les tomates, couvrir d'eau.",
    "Cuire 30 minutes, ajouter les pois chiches et les raisins secs.",
@@ -4787,6 +5453,12 @@
   "name": "Salade de mâche, betterave, œuf mollet, noix et pommes de terre",
   "mainProtein": "EGG",
   "mealType": "MAIN",
+  "prepMinutes": 30,
+  "difficulty": 1,
+  "keepDays": 1,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les pommes de terre et les œufs (6 minutes).",
    "Disposer la mâche, la betterave en dés et les pommes de terre tièdes.",
@@ -4828,6 +5500,12 @@
   "name": "Poulet et chou-fleur rôtis au curry, boulgour",
   "mainProtein": "POULTRY",
   "mealType": "MAIN",
+  "prepMinutes": 45,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Mélanger le chou-fleur et le poulet en morceaux avec l'huile et le curry, rôtir 25 minutes à 200 °C.",
    "Cuire le boulgour.",
@@ -4865,6 +5543,12 @@
   "name": "Hachis parmentier de patate douce",
   "mainProtein": "RED_MEAT",
   "mealType": "MAIN",
+  "prepMinutes": 60,
+  "difficulty": 2,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Cuire la patate douce et l'écraser avec le lait.",
    "Faire revenir l'oignon, la carotte et la viande.",
@@ -4902,6 +5586,12 @@
   "name": "Saumon rôti, endives braisées à l'orange, riz",
   "mainProtein": "FISH",
   "mealType": "MAIN",
+  "prepMinutes": 40,
+  "difficulty": 2,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire le riz.",
    "Braiser les endives coupées en deux dans le beurre avec le jus d'orange et le miel, 20 minutes.",
@@ -4939,6 +5629,12 @@
   "name": "Tortilla espagnole et salade d'endives",
   "mainProtein": "EGG",
   "mealType": "MAIN",
+  "prepMinutes": 40,
+  "difficulty": 2,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire doucement les pommes de terre en fines tranches et l'oignon dans l'huile, 20 minutes.",
    "Mélanger aux œufs battus, cuire à feu doux puis retourner.",
@@ -4972,6 +5668,12 @@
   "name": "Chili de patate douce et haricots rouges",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 45,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Faire revenir l'oignon avec les épices.",
    "Ajouter la patate douce en cubes et les tomates, cuire 20 minutes.",
@@ -5017,6 +5719,12 @@
   "name": "Salade de lentilles, poire, noix et chèvre",
   "mainProtein": "DAIRY",
   "mealType": "MAIN",
+  "prepMinutes": 30,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les lentilles et les laisser tiédir.",
    "Mélanger avec la mâche et la poire en lamelles.",
@@ -5058,6 +5766,12 @@
   "name": "Pâtes aux poireaux et lardons",
   "mainProtein": "PORK",
   "mealType": "MAIN",
+  "prepMinutes": 25,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les pâtes.",
    "Faire revenir les lardons, ajouter les poireaux émincés et cuire 10 minutes, puis la crème.",
@@ -5091,6 +5805,12 @@
   "name": "Curry de butternut et tofu au lait de coco",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 40,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Cuire le riz.",
    "Faire revenir l'oignon avec le curry, ajouter la butternut en cubes et 100 ml d'eau ; cuire 15 minutes.",
@@ -5132,6 +5852,12 @@
   "name": "Minestrone d'hiver aux haricots blancs",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 50,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Faire revenir les légumes en petits dés dans l'huile.",
    "Ajouter les tomates et 600 ml d'eau, cuire 25 minutes.",
@@ -5181,6 +5907,12 @@
   "name": "Velouté de chou-fleur, tartines de comté",
   "mainProtein": "DAIRY",
   "mealType": "MAIN",
+  "prepMinutes": 35,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Cuire le chou-fleur et la pomme de terre 20 minutes, mixer avec le lait.",
    "Griller le pain garni de comté.",
@@ -5218,6 +5950,12 @@
   "name": "Bavette, purée de panais et carottes",
   "mainProtein": "RED_MEAT",
   "mealType": "MAIN",
+  "prepMinutes": 40,
+  "difficulty": 2,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire le panais et les carottes, les écraser avec le lait et le beurre.",
    "Saisir la bavette 3 minutes par face, la laisser reposer.",
@@ -5255,6 +5993,12 @@
   "name": "Maquereau, lentilles tièdes et poireaux vinaigrette",
   "mainProtein": "FISH",
   "mealType": "MAIN",
+  "prepMinutes": 40,
+  "difficulty": 2,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les lentilles 20 minutes et les poireaux en tronçons 15 minutes.",
    "Griller le maquereau.",
@@ -5296,6 +6040,12 @@
   "name": "Crevettes, purée de patate douce au gingembre et brocoli",
   "mainProtein": "SEAFOOD",
   "mealType": "MAIN",
+  "prepMinutes": 40,
+  "difficulty": 2,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire la patate douce et l'écraser avec le lait de coco et le gingembre.",
    "Cuire le brocoli à la vapeur.",
@@ -5333,6 +6083,12 @@
   "name": "Salade tiède de poulet, poire, noix et mâche",
   "mainProtein": "POULTRY",
   "mealType": "MAIN",
+  "prepMinutes": 25,
+  "difficulty": 1,
+  "keepDays": 1,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les pommes de terre et griller le poulet.",
    "Disposer la mâche, la poire en lamelles, le poulet et les pommes de terre.",
@@ -5374,6 +6130,12 @@
   "name": "Gratin de patate douce et poireaux au chèvre",
   "mainProtein": "DAIRY",
   "mealType": "MAIN",
+  "prepMinutes": 55,
+  "difficulty": 2,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Cuire les lentilles corail 10 minutes.",
    "Alterner patate douce en fines tranches, poireaux émincés et lentilles dans un plat.",
@@ -5411,6 +6173,12 @@
   "name": "Soupe épaisse de pois chiches, chou vert et carottes",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 45,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Faire revenir l'oignon avec le cumin.",
    "Ajouter le chou, les carottes, les tomates et 500 ml d'eau ; cuire 25 minutes.",
@@ -5456,6 +6224,12 @@
   "name": "Agneau mijoté aux navets et carottes, semoule",
   "mainProtein": "RED_MEAT",
   "mealType": "MAIN",
+  "prepMinutes": 100,
+  "difficulty": 3,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Dorer l'agneau avec l'oignon et le cumin.",
    "Ajouter les légumes en morceaux, couvrir d'eau et mijoter 45 minutes.",
@@ -5497,6 +6271,12 @@
   "name": "Omelette aux poireaux et comté, salade d'endives",
   "mainProtein": "EGG",
   "mealType": "MAIN",
+  "prepMinutes": 25,
+  "difficulty": 1,
+  "keepDays": 1,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Fondre les poireaux émincés dans le beurre 10 minutes.",
    "Verser les œufs battus, parsemer de comté et cuire à feu doux.",
@@ -5534,6 +6314,12 @@
   "name": "Truite, chou-fleur rôti au cumin et quinoa",
   "mainProtein": "FISH",
   "mealType": "MAIN",
+  "prepMinutes": 40,
+  "difficulty": 2,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Rôtir le chou-fleur avec l'huile et le cumin 25 minutes à 200 °C.",
    "Cuire le quinoa ; cuire la truite à la poêle 4 minutes par face.",
@@ -5571,6 +6357,12 @@
   "name": "Tofu fumé, choux de Bruxelles et pommes de terre rôtis",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 40,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Rôtir les choux coupés en deux et les pommes de terre avec l'huile, 30 minutes à 200 °C.",
    "Ajouter le tofu fumé en dés pour les 10 dernières minutes, puis la moutarde."
@@ -5603,6 +6395,12 @@
   "name": "Pâtes complètes au chou-fleur rôti, noisettes et parmesan",
   "mainProtein": "DAIRY",
   "mealType": "MAIN",
+  "prepMinutes": 35,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Rôtir le chou-fleur en petites fleurettes avec l'huile et l'ail, 20 minutes à 200 °C.",
    "Cuire les pâtes et les mélanger avec le chou-fleur.",
@@ -5644,6 +6442,12 @@
   "name": "Pâtes complètes aux haricots blancs, tomate et olives",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 20,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les pâtes.",
    "Faire revenir l'oignon et l'ail, ajouter le coulis, les haricots rincés et les olives ; mijoter 10 minutes.",
@@ -5689,6 +6493,12 @@
   "name": "Bowl de riz complet, haricots rouges, maïs et avocat",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 35,
+  "difficulty": 1,
+  "keepDays": 1,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire le riz complet.",
    "Réchauffer les haricots avec le cumin.",
@@ -5734,6 +6544,12 @@
   "name": "Salade de quinoa, pois chiches, tomates, concombre et menthe",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 25,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire le quinoa et le refroidir.",
    "Couper les légumes en dés, ciseler les herbes.",
@@ -5779,6 +6595,12 @@
   "name": "Tian de légumes du soleil et lentilles vertes",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 70,
+  "difficulty": 2,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
   "steps": [
    "Cuire les lentilles 20 minutes et les étaler dans un plat avec l'oignon et l'ail émincés.",
    "Disposer dessus les légumes en rondelles alternées, arroser d'huile et parsemer d'herbes.",
@@ -5824,6 +6646,12 @@
   "name": "Poêlée de tempeh, haricots verts et pommes de terre",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 30,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les pommes de terre et les haricots à la vapeur.",
    "Dorer le tempeh en dés dans l'huile avec l'ail, ajouter les légumes et la sauce soja."
@@ -5860,6 +6688,12 @@
   "name": "Salade de lentilles, radis, roquette et noix",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 30,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les lentilles 20 minutes, les laisser tiédir.",
    "Mélanger avec les radis en rondelles, la roquette et l'échalote ciselée.",
@@ -5905,6 +6739,12 @@
   "name": "Risotto aux petits pois, menthe et amandes",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 40,
+  "difficulty": 2,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Préparer 400 ml de bouillon chaud.",
    "Nacrer le riz avec l'oignon dans l'huile, mouiller de bouillon louche par louche pendant 18 minutes.",
@@ -5950,6 +6790,12 @@
   "name": "Wok de tofu, courgettes et carottes, riz basmati",
   "mainProtein": "PLANT",
   "mealType": "MAIN",
+  "prepMinutes": 25,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire le riz.",
    "Dorer le tofu en cubes, ajouter les courgettes et les carottes en bâtonnets et le gingembre ; cuire 5 minutes à feu vif.",
@@ -5995,6 +6841,12 @@
   "name": "Porridge à la banane et aux noix",
   "mainProtein": "DAIRY",
   "mealType": "BREAKFAST",
+  "prepMinutes": 10,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les flocons dans le lait 4 minutes à feu doux en remuant.",
    "Ajouter la banane en rondelles, les noix concassées et la cannelle."
@@ -6027,6 +6879,12 @@
   "name": "Porridge au lait de soja, banane et beurre de cacahuète",
   "mainProtein": "PLANT",
   "mealType": "BREAKFAST",
+  "prepMinutes": 10,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les flocons dans la boisson au soja 4 minutes.",
    "Garnir de banane et d'une cuillère de beurre de cacahuète."
@@ -6055,6 +6913,12 @@
   "name": "Tartines d'avocat et œuf mollet",
   "mainProtein": "EGG",
   "mealType": "BREAKFAST",
+  "prepMinutes": 10,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire l'œuf 6 minutes, l'écaler.",
    "Écraser l'avocat avec le citron, tartiner le pain grillé et poser l'œuf coupé en deux."
@@ -6083,6 +6947,12 @@
   "name": "Tartines beurre de cacahuète et banane",
   "mainProtein": "PLANT",
   "mealType": "BREAKFAST",
+  "prepMinutes": 5,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Griller le pain.",
    "Tartiner de beurre de cacahuète et couvrir de rondelles de banane."
@@ -6107,6 +6977,12 @@
   "name": "Fromage blanc, muesli, banane et miel",
   "mainProtein": "DAIRY",
   "mealType": "BREAKFAST",
+  "prepMinutes": 5,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Verser le fromage blanc dans un bol.",
    "Ajouter le muesli, la banane en rondelles et un filet de miel."
@@ -6135,6 +7011,12 @@
   "name": "Œufs brouillés à la ciboulette et pain complet",
   "mainProtein": "EGG",
   "mealType": "BREAKFAST",
+  "prepMinutes": 10,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Battre les œufs, les cuire doucement dans le beurre en remuant.",
    "Parsemer de ciboulette, servir avec le pain grillé et l'orange en quartiers."
@@ -6167,6 +7049,12 @@
   "name": "Omelette au jambon et tartine",
   "mainProtein": "EGG",
   "mealType": "BREAKFAST",
+  "prepMinutes": 10,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Battre les œufs, ajouter le jambon en dés.",
    "Cuire dans le beurre et servir avec le pain grillé."
@@ -6195,6 +7083,12 @@
   "name": "Tartines de fromage frais et saumon fumé",
   "mainProtein": "FISH",
   "mealType": "BREAKFAST",
+  "prepMinutes": 5,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Griller le pain et le tartiner de fromage frais.",
    "Ajouter le saumon fumé et quelques gouttes de citron."
@@ -6223,6 +7117,12 @@
   "name": "Bol de yaourt à la grecque, muesli et noix",
   "mainProtein": "DAIRY",
   "mealType": "BREAKFAST",
+  "prepMinutes": 5,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Verser le yaourt dans un bol.",
    "Ajouter le muesli, les noix et le miel."
@@ -6251,6 +7151,12 @@
   "name": "Tofu brouillé aux champignons et tartine",
   "mainProtein": "PLANT",
   "mealType": "BREAKFAST",
+  "prepMinutes": 15,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Émietter le tofu, le faire revenir dans l'huile avec les champignons émincés et le paprika.",
    "Servir avec le pain grillé."
@@ -6283,6 +7189,12 @@
   "name": "Smoothie bowl banane, soja et chia",
   "mainProtein": "PLANT",
   "mealType": "BREAKFAST",
+  "prepMinutes": 10,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Mixer le yaourt au soja avec la moitié de la banane.",
    "Verser dans un bol, garnir du reste de banane, des flocons et des graines de chia."
@@ -6311,6 +7223,12 @@
   "name": "Pancakes avoine et banane",
   "mainProtein": "EGG",
   "mealType": "BREAKFAST",
+  "prepMinutes": 20,
+  "difficulty": 2,
+  "keepDays": 2,
+  "lunchbox": false,
+  "freezable": true,
+  "batch": true,
   "steps": [
    "Mixer les flocons, l'œuf, la banane et le lait.",
    "Cuire de petits pancakes dans une poêle huilée, 2 minutes par face."
@@ -6343,6 +7261,12 @@
   "name": "Tartines de houmous et carottes râpées",
   "mainProtein": "PLANT",
   "mealType": "BREAKFAST",
+  "prepMinutes": 5,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Griller le pain et le tartiner de houmous.",
    "Ajouter la carotte finement râpée."
@@ -6367,6 +7291,12 @@
   "name": "Galettes de riz, beurre de cacahuète, banane et lait de soja",
   "mainProtein": "PLANT",
   "mealType": "BREAKFAST",
+  "prepMinutes": 5,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Tartiner les galettes de riz de beurre de cacahuète.",
    "Ajouter la banane en rondelles, servir avec un verre de boisson au soja."
@@ -6395,6 +7325,12 @@
   "name": "Yaourt à la grecque, banane, noix et miel",
   "mainProtein": "DAIRY",
   "mealType": "BREAKFAST",
+  "prepMinutes": 5,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Verser le yaourt dans un bol.",
    "Ajouter la banane, les noix et le miel."
@@ -6423,6 +7359,12 @@
   "name": "Fromage blanc, compote de pomme et amandes",
   "mainProtein": "DAIRY",
   "mealType": "BREAKFAST",
+  "prepMinutes": 5,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Mélanger le fromage blanc et la compote.",
    "Parsemer d'amandes concassées, servir avec les galettes de riz."
@@ -6451,6 +7393,12 @@
   "name": "Pudding de chia à la mangue",
   "mainProtein": "PLANT",
   "mealType": "BREAKFAST",
+  "prepMinutes": 10,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "La veille, mélanger la boisson au soja et les graines de chia, réserver au frais.",
    "Le matin, ajouter la mangue en dés et les amandes."
@@ -6479,6 +7427,12 @@
   "name": "Tartines beurre-confiture et café au lait",
   "mainProtein": "DAIRY",
   "mealType": "BREAKFAST",
+  "prepMinutes": 5,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Griller le pain, le tartiner de beurre et de confiture.",
    "Servir avec un bol de lait chaud (avec café ou chicorée si souhaité)."
@@ -6507,6 +7461,12 @@
   "name": "Tartines de comté et pomme",
   "mainProtein": "DAIRY",
   "mealType": "BREAKFAST",
+  "prepMinutes": 5,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Griller le pain et le couvrir de fines tranches de comté.",
    "Servir avec la pomme."
@@ -6531,6 +7491,12 @@
   "name": "Yaourt aux fraises et flocons d'avoine",
   "mainProtein": "DAIRY",
   "mealType": "BREAKFAST",
+  "prepMinutes": 5,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Couper les fraises, les ajouter au yaourt.",
    "Parsemer de flocons et d'un filet de miel."
@@ -6559,6 +7525,12 @@
   "name": "Porridge aux myrtilles et amandes",
   "mainProtein": "DAIRY",
   "mealType": "BREAKFAST",
+  "prepMinutes": 10,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les flocons dans le lait 4 minutes.",
    "Ajouter les myrtilles et les amandes effilées."
@@ -6587,6 +7559,12 @@
   "name": "Porridge pomme-cannelle",
   "mainProtein": "DAIRY",
   "mealType": "BREAKFAST",
+  "prepMinutes": 10,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Faire revenir la pomme en dés avec la cannelle 3 minutes.",
    "Cuire les flocons dans le lait, ajouter la pomme et les noix."
@@ -6619,6 +7597,12 @@
   "name": "Fromage blanc, kiwi et muesli",
   "mainProtein": "DAIRY",
   "mealType": "BREAKFAST",
+  "prepMinutes": 5,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Éplucher les kiwis et les couper en rondelles.",
    "Les ajouter au fromage blanc avec le muesli."
@@ -6643,6 +7627,12 @@
   "name": "Bol de yaourt aux pêches et muesli",
   "mainProtein": "DAIRY",
   "mealType": "BREAKFAST",
+  "prepMinutes": 5,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Couper la pêche en morceaux.",
    "L'ajouter au yaourt avec le muesli."
@@ -6667,6 +7657,12 @@
   "name": "Tartines tomate, huile d'olive et œuf",
   "mainProtein": "EGG",
   "mealType": "BREAKFAST",
+  "prepMinutes": 10,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Griller le pain, frotter avec la tomate coupée et arroser d'huile.",
    "Cuire l'œuf au plat et le poser sur la tartine avec le reste de tomate."
@@ -6695,6 +7691,12 @@
   "name": "Overnight oats aux abricots",
   "mainProtein": "DAIRY",
   "mealType": "BREAKFAST",
+  "prepMinutes": 10,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "La veille, mélanger les flocons, le yaourt et le lait, réserver au frais.",
    "Le matin, ajouter les abricots en morceaux."
@@ -6723,6 +7725,12 @@
   "name": "Porridge poire et chocolat noir",
   "mainProtein": "DAIRY",
   "mealType": "BREAKFAST",
+  "prepMinutes": 10,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les flocons dans le lait 4 minutes.",
    "Ajouter la poire en dés et le chocolat râpé."
@@ -6751,6 +7759,12 @@
   "name": "Smoothie bowl fraises et soja",
   "mainProtein": "PLANT",
   "mealType": "BREAKFAST",
+  "prepMinutes": 10,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Mixer le yaourt au soja avec la moitié des fraises.",
    "Garnir du reste des fraises, des flocons et du chia."
@@ -6779,6 +7793,12 @@
   "name": "Porridge à l'avoine, pomme et noix",
   "mainProtein": "PLANT",
   "mealType": "BREAKFAST",
+  "prepMinutes": 10,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les flocons dans la boisson à l'avoine 4 minutes.",
    "Ajouter la pomme râpée et les noix."
@@ -6807,6 +7827,12 @@
   "name": "Pomme et amandes",
   "mainProtein": "PLANT",
   "mealType": "SNACK",
+  "prepMinutes": 2,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Croquer la pomme avec une poignée d'amandes."
   ],
@@ -6826,6 +7852,12 @@
   "name": "Banane et beurre de cacahuète",
   "mainProtein": "PLANT",
   "mealType": "SNACK",
+  "prepMinutes": 2,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Couper la banane en rondelles et les tremper dans le beurre de cacahuète."
   ],
@@ -6845,6 +7877,12 @@
   "name": "Yaourt à la grecque, miel et noix",
   "mainProtein": "DAIRY",
   "mealType": "SNACK",
+  "prepMinutes": 3,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Ajouter le miel et les noix au yaourt."
   ],
@@ -6868,6 +7906,12 @@
   "name": "Fromage blanc et framboises",
   "mainProtein": "DAIRY",
   "mealType": "SNACK",
+  "prepMinutes": 3,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Ajouter les framboises et les amandes au fromage blanc."
   ],
@@ -6891,6 +7935,12 @@
   "name": "Houmous et bâtonnets de carotte",
   "mainProtein": "PLANT",
   "mealType": "SNACK",
+  "prepMinutes": 5,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Couper la carotte en bâtonnets et les tremper dans le houmous."
   ],
@@ -6910,6 +7960,12 @@
   "name": "Galettes de riz, chocolat noir et noisettes",
   "mainProtein": "PLANT",
   "mealType": "SNACK",
+  "prepMinutes": 3,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Déguster les galettes avec le chocolat et les noisettes."
   ],
@@ -6933,6 +7989,12 @@
   "name": "Dattes et noix",
   "mainProtein": "PLANT",
   "mealType": "SNACK",
+  "prepMinutes": 2,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Ouvrir les dattes et les garnir de cerneaux de noix."
   ],
@@ -6952,6 +8014,12 @@
   "name": "Abricots secs, amandes et noisettes",
   "mainProtein": "PLANT",
   "mealType": "SNACK",
+  "prepMinutes": 2,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Mélanger les fruits secs dans un petit bol."
   ],
@@ -6975,6 +8043,12 @@
   "name": "Yaourt au soja, compote et graines de lin",
   "mainProtein": "PLANT",
   "mealType": "SNACK",
+  "prepMinutes": 3,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Mélanger le yaourt et la compote, parsemer de graines de lin."
   ],
@@ -6998,6 +8072,12 @@
   "name": "Clémentines et noix",
   "mainProtein": "PLANT",
   "mealType": "SNACK",
+  "prepMinutes": 2,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Éplucher les clémentines, servir avec les noix."
   ],
@@ -7017,6 +8097,12 @@
   "name": "Kiwis et petits-suisses",
   "mainProtein": "DAIRY",
   "mealType": "SNACK",
+  "prepMinutes": 3,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Couper les kiwis, servir avec les petits-suisses."
   ],
@@ -7036,6 +8122,12 @@
   "name": "Œuf dur et tartine complète",
   "mainProtein": "EGG",
   "mealType": "SNACK",
+  "prepMinutes": 12,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Cuire les œufs 10 minutes, les écaler.",
    "Servir avec le pain."
@@ -7056,6 +8148,12 @@
   "name": "Smoothie banane et avoine",
   "mainProtein": "DAIRY",
   "mealType": "SNACK",
+  "prepMinutes": 5,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Mixer le lait, la banane et les flocons jusqu'à obtenir une texture lisse."
   ],
@@ -7079,6 +8177,12 @@
   "name": "Tartine de comté",
   "mainProtein": "DAIRY",
   "mealType": "SNACK",
+  "prepMinutes": 3,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Poser le comté en lamelles sur le pain."
   ],
@@ -7098,6 +8202,12 @@
   "name": "Poire et noisettes",
   "mainProtein": "PLANT",
   "mealType": "SNACK",
+  "prepMinutes": 2,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Couper la poire en quartiers, servir avec les noisettes."
   ],
@@ -7117,6 +8227,12 @@
   "name": "Mangue et yaourt au soja",
   "mainProtein": "PLANT",
   "mealType": "SNACK",
+  "prepMinutes": 3,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Couper la mangue en dés et l'ajouter au yaourt."
   ],
@@ -7136,6 +8252,12 @@
   "name": "Pruneaux et amandes",
   "mainProtein": "PLANT",
   "mealType": "SNACK",
+  "prepMinutes": 2,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Servir les pruneaux avec les amandes."
   ],
@@ -7155,6 +8277,12 @@
   "name": "Yaourt nature et cerises",
   "mainProtein": "DAIRY",
   "mealType": "SNACK",
+  "prepMinutes": 3,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
   "steps": [
    "Dénoyauter les cerises et les ajouter au yaourt avec les amandes."
   ],
@@ -7170,6 +8298,481 @@
    {
     "ingredientId": "amandes",
     "grams": 10.0
+   }
+  ]
+ },
+ {
+  "id": "cookies_avoine_chocolat",
+  "name": "Cookies à l'avoine et au chocolat noir",
+  "mainProtein": "EGG",
+  "mealType": "SNACK",
+  "prepMinutes": 30,
+  "difficulty": 1,
+  "keepDays": 7,
+  "lunchbox": false,
+  "freezable": true,
+  "batch": true,
+  "steps": [
+   "Préchauffer le four à 180 °C et faire fondre le beurre.",
+   "Mélanger le beurre, le sucre et l'œuf battu, puis ajouter la farine, les flocons, la levure et le chocolat haché.",
+   "Former deux petites boules par portion sur une plaque, les aplatir et cuire 10 à 12 minutes.",
+   "Laisser refroidir sur une grille. Se garde 7 jours dans une boîte hermétique, ou au congélateur."
+  ],
+  "ingredients": [
+   {
+    "ingredientId": "flocons_avoine",
+    "grams": 15.0
+   },
+   {
+    "ingredientId": "farine",
+    "grams": 15.0
+   },
+   {
+    "ingredientId": "beurre",
+    "grams": 10.0
+   },
+   {
+    "ingredientId": "sucre_roux",
+    "grams": 10.0
+   },
+   {
+    "ingredientId": "oeuf",
+    "grams": 8.0
+   },
+   {
+    "ingredientId": "chocolat_noir",
+    "grams": 10.0
+   },
+   {
+    "ingredientId": "levure_chimique",
+    "grams": 1.0
+   }
+  ]
+ },
+ {
+  "id": "cookies_banane_cacahuete",
+  "name": "Cookies banane, avoine et beurre de cacahuète",
+  "mainProtein": "PLANT",
+  "mealType": "SNACK",
+  "prepMinutes": 25,
+  "difficulty": 1,
+  "keepDays": 5,
+  "lunchbox": false,
+  "freezable": true,
+  "batch": true,
+  "steps": [
+   "Préchauffer le four à 180 °C.",
+   "Écraser la banane, la mélanger avec le beurre de cacahuète, les flocons et le chocolat haché.",
+   "Former les cookies sur une plaque et cuire 15 minutes.",
+   "Laisser refroidir. Se garde 5 jours au frais dans une boîte ; congeler le reste et le sortir la veille."
+  ],
+  "ingredients": [
+   {
+    "ingredientId": "banane",
+    "grams": 40.0
+   },
+   {
+    "ingredientId": "flocons_avoine",
+    "grams": 25.0
+   },
+   {
+    "ingredientId": "beurre_cacahuete",
+    "grams": 15.0
+   },
+   {
+    "ingredientId": "chocolat_noir",
+    "grams": 5.0
+   }
+  ]
+ },
+ {
+  "id": "energy_balls_dattes_cacao",
+  "name": "Energy balls dattes, amandes et cacao",
+  "mainProtein": "PLANT",
+  "mealType": "SNACK",
+  "prepMinutes": 15,
+  "difficulty": 1,
+  "keepDays": 7,
+  "lunchbox": false,
+  "freezable": true,
+  "batch": true,
+  "steps": [
+   "Mixer les amandes, puis ajouter les dattes dénoyautées, les flocons et le cacao ; mixer jusqu'à obtenir une pâte.",
+   "Former trois boules par portion avec les mains légèrement humides.",
+   "Garder dans une boîte au réfrigérateur : 7 jours."
+  ],
+  "ingredients": [
+   {
+    "ingredientId": "dattes",
+    "grams": 25.0
+   },
+   {
+    "ingredientId": "amandes",
+    "grams": 12.0
+   },
+   {
+    "ingredientId": "flocons_avoine",
+    "grams": 10.0
+   },
+   {
+    "ingredientId": "cacao",
+    "grams": 3.0
+   }
+  ]
+ },
+ {
+  "id": "barres_cereales_miel",
+  "name": "Barres de céréales au miel et fruits secs",
+  "mainProtein": "PLANT",
+  "mealType": "SNACK",
+  "prepMinutes": 35,
+  "difficulty": 1,
+  "keepDays": 7,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": true,
+  "steps": [
+   "Préchauffer le four à 170 °C.",
+   "Faire tiédir le miel avec le beurre de cacahuète, puis mélanger avec les flocons, les raisins et les amandes concassées.",
+   "Tasser dans un moule recouvert de papier cuisson et cuire 20 minutes.",
+   "Découper en barres une fois refroidi. Se garde 7 jours dans une boîte hermétique."
+  ],
+  "ingredients": [
+   {
+    "ingredientId": "flocons_avoine",
+    "grams": 25.0
+   },
+   {
+    "ingredientId": "miel",
+    "grams": 10.0
+   },
+   {
+    "ingredientId": "beurre_cacahuete",
+    "grams": 8.0
+   },
+   {
+    "ingredientId": "raisins_secs",
+    "grams": 8.0
+   },
+   {
+    "ingredientId": "amandes",
+    "grams": 6.0
+   }
+  ]
+ },
+ {
+  "id": "muffins_pomme_cannelle",
+  "name": "Muffins pomme-cannelle",
+  "mainProtein": "EGG",
+  "mealType": "SNACK",
+  "prepMinutes": 35,
+  "difficulty": 1,
+  "keepDays": 4,
+  "lunchbox": false,
+  "freezable": true,
+  "batch": true,
+  "steps": [
+   "Préchauffer le four à 180 °C.",
+   "Mélanger la farine, le sucre, la levure et la cannelle ; ajouter l'œuf, le lait et l'huile, puis la pomme en petits dés.",
+   "Répartir dans des moules à muffins et cuire 20 à 25 minutes.",
+   "Se garde 4 jours dans une boîte ; congeler le reste et le sortir la veille."
+  ],
+  "ingredients": [
+   {
+    "ingredientId": "farine",
+    "grams": 25.0
+   },
+   {
+    "ingredientId": "sucre",
+    "grams": 6.0
+   },
+   {
+    "ingredientId": "oeuf",
+    "grams": 10.0
+   },
+   {
+    "ingredientId": "lait",
+    "grams": 15.0
+   },
+   {
+    "ingredientId": "huile_colza",
+    "grams": 5.0
+   },
+   {
+    "ingredientId": "pomme",
+    "grams": 25.0
+   },
+   {
+    "ingredientId": "levure_chimique",
+    "grams": 1.0
+   },
+   {
+    "ingredientId": "cannelle",
+    "grams": 1.0
+   }
+  ]
+ },
+ {
+  "id": "banana_bread_noix",
+  "name": "Banana bread aux noix",
+  "mainProtein": "EGG",
+  "mealType": "SNACK",
+  "prepMinutes": 60,
+  "difficulty": 2,
+  "keepDays": 4,
+  "lunchbox": false,
+  "freezable": true,
+  "batch": true,
+  "steps": [
+   "Préchauffer le four à 175 °C et faire fondre le beurre.",
+   "Écraser les bananes, ajouter l'œuf, le sucre et le beurre, puis la farine, la levure et les noix concassées.",
+   "Verser dans un moule à cake et cuire 45 à 50 minutes.",
+   "Découper en tranches une fois refroidi : 4 jours dans une boîte, ou congeler les tranches."
+  ],
+  "ingredients": [
+   {
+    "ingredientId": "farine",
+    "grams": 20.0
+   },
+   {
+    "ingredientId": "banane",
+    "grams": 30.0
+   },
+   {
+    "ingredientId": "oeuf",
+    "grams": 10.0
+   },
+   {
+    "ingredientId": "sucre_roux",
+    "grams": 6.0
+   },
+   {
+    "ingredientId": "beurre",
+    "grams": 6.0
+   },
+   {
+    "ingredientId": "noix",
+    "grams": 6.0
+   },
+   {
+    "ingredientId": "levure_chimique",
+    "grams": 1.0
+   }
+  ]
+ },
+ {
+  "id": "mendiants_chocolat_amandes",
+  "name": "Mendiants au chocolat noir, amandes et raisins",
+  "mainProtein": "PLANT",
+  "mealType": "SNACK",
+  "prepMinutes": 20,
+  "difficulty": 1,
+  "keepDays": 14,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": true,
+  "steps": [
+   "Faire fondre le chocolat au bain-marie ou au micro-ondes par petites périodes.",
+   "Déposer des petits disques de chocolat sur du papier cuisson et les garnir d'amandes, de noisettes et de raisins.",
+   "Laisser durcir au frais. Se garde 2 semaines dans une boîte."
+  ],
+  "ingredients": [
+   {
+    "ingredientId": "chocolat_noir",
+    "grams": 15.0
+   },
+   {
+    "ingredientId": "amandes",
+    "grams": 8.0
+   },
+   {
+    "ingredientId": "noisettes",
+    "grams": 5.0
+   },
+   {
+    "ingredientId": "raisins_secs",
+    "grams": 5.0
+   }
+  ]
+ },
+ {
+  "id": "granola_maison_yaourt",
+  "name": "Granola maison, yaourt et pomme",
+  "mainProtein": "DAIRY",
+  "mealType": "BREAKFAST",
+  "prepMinutes": 35,
+  "difficulty": 1,
+  "keepDays": 14,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": true,
+  "steps": [
+   "Préchauffer le four à 160 °C. Mélanger les flocons, les amandes concassées, le miel et l'huile.",
+   "Étaler sur une plaque et cuire 20 à 25 minutes en remuant à mi-cuisson ; laisser refroidir et garder en bocal (2 semaines).",
+   "Chaque matin : servir le granola sur le yaourt, avec la pomme coupée."
+  ],
+  "ingredients": [
+   {
+    "ingredientId": "flocons_avoine",
+    "grams": 45.0
+   },
+   {
+    "ingredientId": "amandes",
+    "grams": 10.0
+   },
+   {
+    "ingredientId": "miel",
+    "grams": 10.0
+   },
+   {
+    "ingredientId": "huile_colza",
+    "grams": 5.0
+   },
+   {
+    "ingredientId": "yaourt",
+    "grams": 125.0
+   },
+   {
+    "ingredientId": "pomme",
+    "grams": 100.0
+   }
+  ]
+ },
+ {
+  "id": "granola_noix_soja",
+  "name": "Granola noix-cannelle, yaourt au soja et banane",
+  "mainProtein": "PLANT",
+  "mealType": "BREAKFAST",
+  "prepMinutes": 35,
+  "difficulty": 1,
+  "keepDays": 14,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": true,
+  "steps": [
+   "Préchauffer le four à 160 °C. Mélanger les flocons, les noix concassées, la cannelle et l'huile.",
+   "Cuire 20 minutes en remuant à mi-cuisson, ajouter les raisins une fois refroidi et garder en bocal (2 semaines).",
+   "Chaque matin : servir sur le yaourt au soja avec la banane en rondelles."
+  ],
+  "ingredients": [
+   {
+    "ingredientId": "flocons_avoine",
+    "grams": 45.0
+   },
+   {
+    "ingredientId": "noix",
+    "grams": 10.0
+   },
+   {
+    "ingredientId": "raisins_secs",
+    "grams": 10.0
+   },
+   {
+    "ingredientId": "huile_colza",
+    "grams": 6.0
+   },
+   {
+    "ingredientId": "cannelle",
+    "grams": 1.0
+   },
+   {
+    "ingredientId": "yaourt_soja",
+    "grams": 100.0
+   },
+   {
+    "ingredientId": "banane",
+    "grams": 100.0
+   }
+  ]
+ },
+ {
+  "id": "muffins_oeufs_champignons",
+  "name": "Muffins aux œufs, champignons et emmental, pain complet",
+  "mainProtein": "EGG",
+  "mealType": "BREAKFAST",
+  "prepMinutes": 30,
+  "difficulty": 1,
+  "keepDays": 4,
+  "lunchbox": false,
+  "freezable": true,
+  "batch": true,
+  "steps": [
+   "Préchauffer le four à 180 °C. Battre les œufs, ajouter les champignons émincés, l'emmental et la ciboulette.",
+   "Répartir dans des moules à muffins et cuire 20 minutes.",
+   "Se garde 4 jours au réfrigérateur (congeler le reste) ; réchauffer 30 secondes au micro-ondes et servir avec le pain."
+  ],
+  "ingredients": [
+   {
+    "ingredientId": "oeuf",
+    "grams": 110.0
+   },
+   {
+    "ingredientId": "champignon",
+    "grams": 50.0
+   },
+   {
+    "ingredientId": "emmental",
+    "grams": 15.0
+   },
+   {
+    "ingredientId": "ciboulette",
+    "grams": 2.0
+   },
+   {
+    "ingredientId": "pain_complet",
+    "grams": 50.0
+   }
+  ]
+ },
+ {
+  "id": "banana_bread_fromage_blanc",
+  "name": "Banana bread et fromage blanc",
+  "mainProtein": "EGG",
+  "mealType": "BREAKFAST",
+  "prepMinutes": 60,
+  "difficulty": 2,
+  "keepDays": 4,
+  "lunchbox": false,
+  "freezable": true,
+  "batch": true,
+  "steps": [
+   "Préchauffer le four à 175 °C et faire fondre le beurre.",
+   "Écraser les bananes, ajouter l'œuf, le sucre et le beurre, puis la farine, la levure et les noix concassées.",
+   "Cuire 45 à 50 minutes dans un moule à cake ; découper en tranches (4 jours dans une boîte, ou congeler).",
+   "Chaque matin : une tranche avec le fromage blanc."
+  ],
+  "ingredients": [
+   {
+    "ingredientId": "farine",
+    "grams": 30.0
+   },
+   {
+    "ingredientId": "banane",
+    "grams": 45.0
+   },
+   {
+    "ingredientId": "oeuf",
+    "grams": 15.0
+   },
+   {
+    "ingredientId": "sucre_roux",
+    "grams": 8.0
+   },
+   {
+    "ingredientId": "beurre",
+    "grams": 8.0
+   },
+   {
+    "ingredientId": "noix",
+    "grams": 8.0
+   },
+   {
+    "ingredientId": "levure_chimique",
+    "grams": 1.0
+   },
+   {
+    "ingredientId": "fromage_blanc",
+    "grams": 100.0
    }
   ]
  }

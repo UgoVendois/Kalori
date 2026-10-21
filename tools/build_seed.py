@@ -130,6 +130,7 @@ class Ingredient:
     carbs: float
     fiber: float
     kcal_computed: bool
+    price: float
 
     def to_json(self) -> dict:
         return {
@@ -151,6 +152,7 @@ class Ingredient:
             "carbs": round(self.carbs, 2),
             "fiber": round(self.fiber, 2),
             "kcalComputed": self.kcal_computed,
+            "priceEurPerKg": self.price,
         }
 
 
@@ -185,6 +187,13 @@ def load_ingredients(ciqual_path: str) -> dict[str, Ingredient]:
         if "DAIRY" in diet and (food.lactose is None or food.lactose > LACTOSE_THRESHOLD):
             diet.append("LACTOSE")
 
+        try:
+            price = float(row["price"])
+        except (KeyError, TypeError, ValueError):
+            raise SeedError(f"{iid} : prix manquant ou invalide")
+        if not 0 < price < 200:
+            raise SeedError(f"{iid} : prix improbable {price} €/kg")
+
         piece_grams = float(row["piece_g"]) if row["piece_g"].strip() else None
         if row["unit"] == "piece" and piece_grams is None:
             raise SeedError(f"{iid} : unité 'piece' sans piece_g")
@@ -204,6 +213,7 @@ def load_ingredients(ciqual_path: str) -> dict[str, Ingredient]:
             piece_label=row["piece_label"].strip() or None,
             kcal=kcal,
             kcal_computed=kcal_computed,
+            price=price,
             **macros,
         )
     return result
@@ -215,6 +225,12 @@ class Recipe:
     name: str
     main_protein: str
     meal_type: str = "MAIN"
+    prep_minutes: int | None = None
+    difficulty: int = 1
+    keep_days: int = 0
+    lunchbox: bool = False
+    freezable: bool = False
+    batch: bool = False
     ingredients: list[tuple[str, float]] = field(default_factory=list)
     steps: list[str] = field(default_factory=list)
 
@@ -224,6 +240,12 @@ class Recipe:
             "name": self.name,
             "mainProtein": self.main_protein,
             "mealType": self.meal_type,
+            "prepMinutes": self.prep_minutes,
+            "difficulty": self.difficulty,
+            "keepDays": self.keep_days,
+            "lunchbox": self.lunchbox,
+            "freezable": self.freezable,
+            "batch": self.batch,
             "steps": self.steps,
             "ingredients": [{"ingredientId": i, "grams": g} for i, g in self.ingredients],
         }
@@ -252,6 +274,8 @@ def load_recipes(ingredients: dict[str, Ingredient]) -> list[Recipe]:
                 if iid not in ingredients:
                     raise SeedError(f"recipes.txt:{n} : ingrédient inconnu « {iid} » ({current.id})")
                 current.ingredients.append((iid, float(grams)))
+        elif tag == "*" and current:
+            parse_attributes(current, rest, n)
         elif tag == "-" and current:
             current.steps.append(rest.strip())
         else:
@@ -264,7 +288,37 @@ def load_recipes(ingredients: dict[str, Ingredient]) -> list[Recipe]:
     for r in recipes:
         if not r.ingredients or not r.steps:
             raise SeedError(f"{r.id} : ingrédients ou étapes manquants")
+        if r.prep_minutes is None:
+            raise SeedError(f"{r.id} : ligne « * temps=… » manquante")
+        if r.batch and r.keep_days < 7 and not r.freezable:
+            raise SeedError(f"{r.id} : une fournée doit se garder 7 jours ou se congeler")
     return recipes
+
+
+def parse_attributes(recipe: Recipe, text: str, line: int) -> None:
+    for token in text.split():
+        key, _, value = token.partition("=")
+        try:
+            if key == "temps":
+                recipe.prep_minutes = int(value)
+            elif key == "niveau" and value in ("1", "2", "3"):
+                recipe.difficulty = int(value)
+            elif key == "frigo":
+                recipe.keep_days = int(value)
+            elif key == "boite" and not value:
+                recipe.lunchbox = True
+            elif key == "congel" and not value:
+                recipe.freezable = True
+            elif key == "fournee" and not value:
+                recipe.batch = True
+            else:
+                raise ValueError
+        except ValueError:
+            raise SeedError(f"recipes.txt:{line} : attribut invalide « {token} » ({recipe.id})")
+
+
+def cost(recipe: Recipe, ingredients: dict[str, Ingredient]) -> float:
+    return sum(g / 1000 * ingredients[i].price for i, g in recipe.ingredients)
 
 
 def analyze(recipe: Recipe, ingredients: dict[str, Ingredient]) -> dict:
@@ -284,7 +338,7 @@ def analyze(recipe: Recipe, ingredients: dict[str, Ingredient]) -> dict:
 
 def report(recipes: list[Recipe], ingredients: dict[str, Ingredient]) -> None:
     print(f"\n{len(ingredients)} ingrédients, {len(recipes)} recettes\n")
-    print(f"{'recette':32} {'type':9} {'kcal':>5} {'P':>5} {'L':>5} {'G':>5} {'F':>4}  mois")
+    print(f"{'recette':32} {'type':9} {'kcal':>5} {'P':>5} {'L':>5} {'G':>5} {'F':>4} {'€':>5} {'min':>4}  mois")
     analyses = {r.id: analyze(r, ingredients) for r in recipes}
     for r in recipes:
         a = analyses[r.id]
@@ -293,7 +347,7 @@ def report(recipes: list[Recipe], ingredients: dict[str, Ingredient]) -> None:
         flag = f"  ⚠ kcal hors {lo}–{hi}" if not lo <= t["kcal"] <= hi else ""
         months = "toute l'année" if len(a["season"]) == 12 else ",".join(str(m) for m in a["season"])
         print(f"{r.id[:32]:32} {r.meal_type:9} {t['kcal']:5.0f} {t['protein']:5.1f} {t['fat']:5.1f} {t['carbs']:5.1f} "
-              f"{t['fiber']:4.1f}  {months}{flag}")
+              f"{t['fiber']:4.1f} {cost(r, ingredients):5.2f} {r.prep_minutes:4}  {months}{flag}")
 
     for meal_type in ("MAIN", "BREAKFAST", "SNACK"):
         print(f"\nRecettes {meal_type} disponibles par mois et par régime :")
@@ -304,6 +358,13 @@ def report(recipes: list[Recipe], ingredients: dict[str, Ingredient]) -> None:
                 counts.append(sum(1 for r in recipes if r.meal_type == meal_type and month in analyses[r.id]["season"]
                                   and rule(analyses[r.id]["diet"])))
             print(f"{diet_name:14} " + " ".join(f"{c:>5}" for c in counts))
+
+    print("\nCoût moyen estimé pour 1000 kcal, par type :")
+    for meal_type in ("MAIN", "BREAKFAST", "SNACK"):
+        rs = [r for r in recipes if r.meal_type == meal_type]
+        per = sorted(cost(r, ingredients) / analyses[r.id]["totals"]["kcal"] * 1000 for r in rs)
+        print(f"  {meal_type:9} min {per[0]:.2f} €  médiane {per[len(per) // 2]:.2f} €  max {per[-1]:.2f} €")
+    print("Fournées :", ", ".join(f"{r.id} ({r.meal_type})" for r in recipes if r.batch))
 
     print("\nRecettes compatibles « sans gluten » par mois :")
     print(" ".join(f"{sum(1 for a in analyses.values() if m in a['season'] and 'GLUTEN' not in a['allergens']):>5}"
