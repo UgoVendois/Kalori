@@ -2,6 +2,9 @@ package fr.kalori.app.data.profile
 
 import fr.kalori.app.core.database.dao.ProfileDao
 import fr.kalori.app.core.database.entity.UserProfileEntity
+import fr.kalori.app.domain.meal.MealSchedule
+import fr.kalori.app.domain.model.MealSlot
+import fr.kalori.app.domain.model.toFlagSet
 import fr.kalori.app.domain.nutrition.NutritionTargets
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -18,10 +21,10 @@ class ProfileRepository @Inject constructor(
 
     suspend fun saveProfile(profile: UserProfileEntity) = profileDao.upsert(profile)
 
-    /** Cible du plat du jour, ou null tant que le profil n'est pas renseigné. */
-    fun observeMealTarget(): Flow<NutritionTargets?> = profileDao.observe().map { it?.mealTarget() }
+    /** Cibles de chaque repas de la journée, ou null tant que le profil n'est pas renseigné. */
+    fun observeSlotTargets(): Flow<Map<MealSlot, NutritionTargets>?> = profileDao.observe().map { it?.slotTargets() }
 
-    suspend fun getMealTarget(): NutritionTargets? = profileDao.get()?.mealTarget()
+    suspend fun getSlotTargets(): Map<MealSlot, NutritionTargets>? = profileDao.get()?.slotTargets()
 }
 
 fun UserProfileEntity.dailyTargets() = NutritionTargets(
@@ -33,4 +36,7 @@ fun UserProfileEntity.dailyTargets() = NutritionTargets(
     notices = emptySet(),
 )
 
-fun UserProfileEntity.mealTarget(): NutritionTargets = dailyTargets().forMeal(mealShare)
+fun UserProfileEntity.enabledMains(): Set<MealSlot> = enabledSlotsMask.toFlagSet<MealSlot>()
+
+fun UserProfileEntity.slotTargets(): Map<MealSlot, NutritionTargets> =
+    MealSchedule.targets(dailyTargets(), enabledMains(), snackMode)

@@ -1,53 +1,22 @@
 package fr.kalori.app.core.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.lightColorScheme
+import androidx.compose.material3.Shapes
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.ReadOnlyComposable
+import androidx.compose.ui.unit.dp
+import fr.kalori.app.domain.model.ExerciseCategory
+import fr.kalori.app.domain.model.MealSlot
 
-private val LightColors = lightColorScheme(
-    primary = Green40,
-    onPrimary = Neutral98,
-    primaryContainer = Green90,
-    onPrimaryContainer = Green10,
-    secondary = Orange40,
-    onSecondary = Neutral98,
-    secondaryContainer = Orange90,
-    onSecondaryContainer = Orange10,
-    error = Red40,
-    onError = Neutral98,
-    errorContainer = Red90,
-    onErrorContainer = Red10,
-    background = Neutral98,
-    onBackground = Neutral10,
-    surface = Neutral98,
-    onSurface = Neutral10,
-    surfaceVariant = NeutralVariant90,
-    onSurfaceVariant = NeutralVariant30,
-    outline = NeutralVariant50,
-)
-
-private val DarkColors = darkColorScheme(
-    primary = Green80,
-    onPrimary = Green20,
-    primaryContainer = Green30,
-    onPrimaryContainer = Green90,
-    secondary = Orange80,
-    onSecondary = Orange10,
-    secondaryContainer = Orange30,
-    onSecondaryContainer = Orange90,
-    error = Red80,
-    onError = Red10,
-    errorContainer = Red40,
-    onErrorContainer = Red90,
-    background = NeutralDark,
-    onBackground = Neutral90,
-    surface = NeutralDark,
-    onSurface = Neutral90,
-    surfaceVariant = NeutralVariant30,
-    onSurfaceVariant = NeutralVariant80,
-    outline = NeutralVariant50,
+val KaloriShapes = Shapes(
+    extraSmall = RoundedCornerShape(8.dp),
+    small = RoundedCornerShape(12.dp),
+    medium = RoundedCornerShape(18.dp),
+    large = RoundedCornerShape(24.dp),
+    extraLarge = RoundedCornerShape(32.dp),
 )
 
 @Composable
@@ -55,9 +24,34 @@ fun KaloriTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit,
 ) {
-    MaterialTheme(
-        colorScheme = if (darkTheme) DarkColors else LightColors,
-        typography = KaloriTypography,
-        content = content,
-    )
+    CompositionLocalProvider(LocalKaloriColors provides if (darkTheme) DarkKaloriColors else LightKaloriColors) {
+        MaterialTheme(
+            colorScheme = if (darkTheme) DarkColors else LightColors,
+            typography = KaloriTypography,
+            shapes = KaloriShapes,
+            content = content,
+        )
+    }
+}
+
+/** Accès aux couleurs propres à Kalori : `Kalori.colors`. */
+object Kalori {
+    val colors: KaloriColors
+        @Composable @ReadOnlyComposable get() = LocalKaloriColors.current
+}
+
+@Composable
+@ReadOnlyComposable
+fun MealSlot.accent(): Accent = when (this) {
+    MealSlot.MORNING -> Kalori.colors.morning
+    MealSlot.NOON -> Kalori.colors.noon
+    MealSlot.EVENING -> Kalori.colors.evening
+    MealSlot.SNACK -> Kalori.colors.snack
+}
+
+@Composable
+@ReadOnlyComposable
+fun ExerciseCategory.accent(): Accent = when (this) {
+    ExerciseCategory.GYM -> Kalori.colors.gym
+    ExerciseCategory.STREET -> Kalori.colors.street
 }

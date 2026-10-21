@@ -4,11 +4,13 @@ import fr.kalori.app.core.database.dao.TrackingDao
 import fr.kalori.app.core.database.entity.UserProfileEntity
 import fr.kalori.app.data.meal.MealPlanRepository
 import fr.kalori.app.domain.model.ActivityLevel
+import fr.kalori.app.domain.model.MealSlot
 import fr.kalori.app.domain.model.Sex
+import fr.kalori.app.domain.model.SnackMode
+import fr.kalori.app.domain.model.toMask
 import fr.kalori.app.domain.model.UnitSystem
 import fr.kalori.app.domain.nutrition.BodyProfile
 import fr.kalori.app.domain.nutrition.EnergyCalculator
-import fr.kalori.app.domain.nutrition.MacroCalculator
 import fr.kalori.app.domain.nutrition.PaceOption
 import fr.kalori.app.domain.nutrition.PaceOptionsGenerator
 import fr.kalori.app.domain.nutrition.PacePlan
@@ -96,7 +98,8 @@ class GoalService @Inject constructor(
                 fatG = option.targets.fatG,
                 carbsG = option.targets.carbsG,
                 fiberG = option.targets.fiberG,
-                mealShare = existing?.mealShare ?: MacroCalculator.DEFAULT_MEAL_SHARE,
+                enabledSlotsMask = existing?.enabledSlotsMask ?: UserProfileEntity.DEFAULT_SLOTS_MASK,
+                snackMode = existing?.snackMode ?: SnackMode.AUTO,
                 unitSystem = existing?.unitSystem ?: UnitSystem.METRIC,
                 createdAt = existing?.createdAt ?: now,
                 updatedAt = now,
@@ -106,11 +109,12 @@ class GoalService @Inject constructor(
         mealPlanRepository.regenerateUpcoming()
     }
 
-    /** Part du plat du jour dans l'objectif journalier (30 à 50 %). */
-    suspend fun setMealShare(share: Double) {
+    /** Repas pris dans la journée (ex. sans petit-déjeuner) et mode de collation ; recompose les jours à venir. */
+    suspend fun setMealSchedule(mains: Set<MealSlot>, snackMode: SnackMode) {
         val profile = profileRepository.getProfile() ?: return
-        val bounded = share.coerceIn(MacroCalculator.MIN_MEAL_SHARE, MacroCalculator.MAX_MEAL_SHARE)
-        profileRepository.saveProfile(profile.copy(mealShare = bounded, updatedAt = Instant.now(clock)))
+        val mask = mains.filter { it in MealSlot.mains }.ifEmpty { listOf(MealSlot.NOON) }.toMask()
+        if (mask == profile.enabledSlotsMask && snackMode == profile.snackMode) return
+        profileRepository.saveProfile(profile.copy(enabledSlotsMask = mask, snackMode = snackMode, updatedAt = Instant.now(clock)))
         mealPlanRepository.regenerateUpcoming()
     }
 

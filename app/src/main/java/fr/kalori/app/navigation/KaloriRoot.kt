@@ -5,8 +5,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -15,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavDestination
@@ -97,7 +100,10 @@ private fun KaloriBottomBar(
     currentDestination: NavDestination?,
     onNavigate: (TopLevelDestination) -> Unit,
 ) {
-    NavigationBar {
+    NavigationBar(
+        containerColor = MaterialTheme.colorScheme.surfaceContainerLowest,
+        tonalElevation = 0.dp,
+    ) {
         TopLevelDestination.entries.forEach { destination ->
             val selected = currentDestination.isOnTab(destination)
             NavigationBarItem(
@@ -109,7 +115,14 @@ private fun KaloriBottomBar(
                         contentDescription = null,
                     )
                 },
-                label = { Text(stringResource(destination.labelRes)) },
+                label = { Text(stringResource(destination.labelRes), style = MaterialTheme.typography.labelMedium) },
+                colors = NavigationBarItemDefaults.colors(
+                    selectedIconColor = MaterialTheme.colorScheme.onPrimaryContainer,
+                    selectedTextColor = MaterialTheme.colorScheme.primary,
+                    indicatorColor = MaterialTheme.colorScheme.primaryContainer,
+                    unselectedIconColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                    unselectedTextColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                ),
             )
         }
     }

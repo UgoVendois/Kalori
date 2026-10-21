@@ -14,6 +14,7 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
     alias(libs.plugins.room)
+    alias(libs.plugins.roborazzi)
 }
 
 android {
@@ -62,6 +63,17 @@ android {
     buildFeatures {
         compose = true
         buildConfig = true
+    }
+
+    testOptions {
+        // Robolectric : ressources Android disponibles dans les tests JVM (rendu Compose, migrations).
+        unitTests.isIncludeAndroidResources = true
+    }
+
+    sourceSets {
+        // Schémas Room exportés, lus par le test de migration : Robolectric ne voit que les assets de la variante,
+        // d'où la variante debug (l'APK release n'en contient pas).
+        getByName("debug").assets.srcDir("$projectDir/schemas")
     }
 
     packaging {
@@ -123,6 +135,14 @@ dependencies {
     testImplementation(libs.kotlin.test)
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.turbine)
+    testImplementation(libs.robolectric)
+    testImplementation(libs.roborazzi)
+    testImplementation(libs.roborazzi.compose)
+    testImplementation(libs.androidx.test.core)
+    testImplementation(libs.androidx.test.ext.junit)
+    testImplementation(libs.room.testing)
+    testImplementation(platform(libs.compose.bom))
+    testImplementation(libs.compose.ui.test.junit4)
 
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.room.testing)

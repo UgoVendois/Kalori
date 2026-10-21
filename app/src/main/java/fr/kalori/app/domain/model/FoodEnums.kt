@@ -1,21 +1,21 @@
 package fr.kalori.app.domain.model
 
 /** Les 14 allergènes à déclaration obligatoire — règlement (UE) n° 1169/2011, annexe II. */
-enum class Allergen(override val bit: Int, val label: String) : BitFlag {
-    GLUTEN(0, "Céréales contenant du gluten"),
-    CRUSTACEANS(1, "Crustacés"),
-    EGGS(2, "Œufs"),
-    FISH(3, "Poissons"),
-    PEANUTS(4, "Arachides"),
-    SOY(5, "Soja"),
-    MILK(6, "Lait"),
-    NUTS(7, "Fruits à coque"),
-    CELERY(8, "Céleri"),
-    MUSTARD(9, "Moutarde"),
-    SESAME(10, "Graines de sésame"),
-    SULPHITES(11, "Anhydride sulfureux et sulfites"),
-    LUPIN(12, "Lupin"),
-    MOLLUSCS(13, "Mollusques"),
+enum class Allergen(override val bit: Int, val label: String, val shortLabel: String) : BitFlag {
+    GLUTEN(0, "Céréales contenant du gluten", "Gluten"),
+    CRUSTACEANS(1, "Crustacés", "Crustacés"),
+    EGGS(2, "Œufs", "Œufs"),
+    FISH(3, "Poissons", "Poissons"),
+    PEANUTS(4, "Arachides", "Arachides"),
+    SOY(5, "Soja", "Soja"),
+    MILK(6, "Lait", "Lait"),
+    NUTS(7, "Fruits à coque", "Fruits à coque"),
+    CELERY(8, "Céleri", "Céleri"),
+    MUSTARD(9, "Moutarde", "Moutarde"),
+    SESAME(10, "Graines de sésame", "Sésame"),
+    SULPHITES(11, "Anhydride sulfureux et sulfites", "Sulfites"),
+    LUPIN(12, "Lupin", "Lupin"),
+    MOLLUSCS(13, "Mollusques", "Mollusques"),
 }
 
 /** Caractéristiques d'un ingrédient utilisées par les règles de régime. */
@@ -55,6 +55,7 @@ enum class Aisle(val label: String) {
     STARCHES("Pâtes, riz et céréales"),
     CANNED_LEGUMES("Conserves et légumineuses"),
     NUTS_SEEDS("Fruits secs et graines"),
+    BREAKFAST_SWEET("Petit-déjeuner, sucré"),
     PANTRY("Huiles, sauces et condiments"),
     SPICES("Épices et herbes séchées"),
     DRINKS("Vins et boissons"),
@@ -75,6 +76,33 @@ enum class MainProtein(val label: String) {
 }
 
 enum class RecipeOrigin { BUNDLED, AI }
+
+/** Type de recette : plat (midi ou soir), petit-déjeuner ou collation. */
+enum class MealType { BREAKFAST, MAIN, SNACK }
+
+/**
+ * Créneaux d'une journée. [weight] : part de l'objectif journalier, renormalisée sur les créneaux actifs.
+ * Libellés « Matin / Midi / Soir » plutôt que déjeuner/dîner, dont le sens varie selon les régions.
+ */
+enum class MealSlot(override val bit: Int, val label: String, val mealType: MealType, val weight: Int) : BitFlag {
+    MORNING(0, "Matin", MealType.BREAKFAST, 25),
+    NOON(1, "Midi", MealType.MAIN, 35),
+    EVENING(2, "Soir", MealType.MAIN, 30),
+    SNACK(3, "Collation", MealType.SNACK, 10),
+    ;
+
+    companion object {
+        /** Repas principaux que l'utilisateur peut activer ou non (la collation a son propre réglage). */
+        val mains = listOf(MORNING, NOON, EVENING)
+    }
+}
+
+/** Collation : proposée automatiquement si besoin, toujours, ou jamais. */
+enum class SnackMode(val label: String) {
+    AUTO("Si besoin"),
+    ALWAYS("Toujours"),
+    NEVER("Jamais"),
+}
 
 enum class MealStatus { PLANNED, EATEN, SKIPPED }
 

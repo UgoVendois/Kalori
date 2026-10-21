@@ -4,18 +4,19 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.WarningAmber
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import fr.kalori.app.core.ui.theme.Kalori
 
 enum class DisclaimerKind { Info, Warning }
 
@@ -26,25 +27,21 @@ fun DisclaimerCard(
     modifier: Modifier = Modifier,
     kind: DisclaimerKind = DisclaimerKind.Info,
 ) {
-    val colors = when (kind) {
-        DisclaimerKind.Info -> CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant,
-            contentColor = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
-        DisclaimerKind.Warning -> CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.secondaryContainer,
-            contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
-        )
+    val accent = Kalori.colors.morning
+    val (container, content) = when (kind) {
+        DisclaimerKind.Info -> MaterialTheme.colorScheme.surfaceContainerHigh to MaterialTheme.colorScheme.onSurfaceVariant
+        DisclaimerKind.Warning -> accent.container to accent.content
     }
-    Card(modifier = modifier.fillMaxWidth(), colors = colors) {
+    Surface(modifier = modifier.fillMaxWidth(), shape = MaterialTheme.shapes.medium, color = container, contentColor = content) {
         Row(
-            modifier = Modifier.padding(12.dp),
-            horizontalArrangement = Arrangement.spacedBy(12.dp),
+            modifier = Modifier.padding(horizontal = 14.dp, vertical = 12.dp),
+            horizontalArrangement = Arrangement.spacedBy(10.dp),
             verticalAlignment = Alignment.Top,
         ) {
             Icon(
                 imageVector = if (kind == DisclaimerKind.Warning) Icons.Outlined.WarningAmber else Icons.Outlined.Info,
                 contentDescription = null,
+                modifier = Modifier.size(18.dp),
             )
             Text(text = text, style = MaterialTheme.typography.bodySmall)
         }

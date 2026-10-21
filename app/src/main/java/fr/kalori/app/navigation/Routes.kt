@@ -12,7 +12,8 @@ import kotlinx.serialization.Serializable
 // ── Repas ──
 @Serializable data object MealsGraph
 @Serializable data object MealsRoute
-@Serializable data class MealDetailRoute(val epochDay: Long)
+/** [slot] : nom d'un MealSlot (MORNING, NOON, EVENING, SNACK). */
+@Serializable data class MealDetailRoute(val epochDay: Long, val slot: String)
 @Serializable data object MealHistoryRoute
 @Serializable data object FoodPreferencesRoute
 @Serializable data object ShoppingListRoute

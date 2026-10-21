@@ -1,6 +1,6 @@
 # Ingrédients et correspondance Ciqual
 
-Généré par `tools/build_seed.py` le 2026-10-20 — ne pas éditer à la main.
+Généré par `tools/build_seed.py` le 2026-10-21 — ne pas éditer à la main.
 
 Source des valeurs nutritionnelles : Anses, Ciqual 2025 (fichier du 2025-11-03), DOI 10.57745/RDMHWY, Licence Ouverte / Etalab 2.0.
 Les valeurs sont reprises sans modification, pour 100 g de partie comestible. Les kcal marquées * sont
@@ -166,3 +166,22 @@ absentes de Ciqual et recalculées à partir des macronutriments (facteurs du r�
 | `thym` | Thym séché | 11038 | Thym, séché | 285 | 9.1 | 7.4 | 26.9 | 37.0 |
 | `vin_blanc` | Vin blanc sec (cuisine) | 5215 | Vin blanc sec | 55 | 0.2 | 0.0 | 0.2 | 0.0 |
 | `vin_rouge` | Vin rouge (cuisine) | 5214 | Vin rouge | 76 | 0.2 | 0.2 | 0.0 | 0.5 |
+| `yaourt_soja` | Yaourt au soja nature | 19693 | Dessert au soja, nature, sans sucres ajoutés, non enrichi, fermenté, rayon frais | 45 | 3.8 | 1.9 | 2.0 | 0.8 |
+| `boisson_avoine` | Boisson à l'avoine | 18899 | Boisson à l'avoine, nature, sans sucres ajoutés, non enrichie, préemballée | 41 | 0.2 | 1.1 | 7.8 | 0.2 |
+| `houmous` | Houmous | 25621 | Houmous, préemballé | 258 | 8.1 | 19.9 | 9.0 | 5.2 |
+| `beurre_cacahuete` | Beurre de cacahuète | 15202 | Beurre de cacahuète ou pâte d'arachide | 643 | 22.2 | 51.4 | 17.3 | 5.0 |
+| `graines_chia` | Graines de chia | 15047 | Chia, graine, séchée | 454 | 16.5 | 30.7 | 7.7 | 34.4 |
+| `graines_lin` | Graines de lin | 15034 | Lin, graine | 528 | 19.0 | 40.3 | 6.5 | 24.4 |
+| `dattes` | Dattes | 13011 | Datte, chair et peau, sans noyau, sèche | 287 | 1.8 | 0.2 | 64.7 | 7.3 |
+| `abricots_secs` | Abricots secs | 13001 | Abricot, dénoyauté, sec | 239 | 2.9 | 0.5 | 59.1 | 8.3 |
+| `pruneaux` | Pruneaux | 13042 | Pruneau, sans noyau, sec | 229 | 1.6 | 0.4 | 55.4 | 5.1 |
+| `chocolat_noir` | Chocolat noir 70 % | 31074 | Chocolat noir 70 % de cacao environ, de dégustation, tablette | 591 | 10.4 | 46.3 | 26.9 | 12.8 |
+| `compote_pomme` | Compote de pomme sans sucre ajouté | 13151 | Compote de pomme, allégée en sucres, rayon ambiant | 64 | 0.2 | 0.1 | 15.1 | 1.3 |
+| `confiture_fraise` | Confiture de fraise | 31024 | Confiture de fraise (extra ou classique) | 248 | 0.2 | 0.5 | 60.5 | 0.7 |
+| `muesli` | Muesli sans sucre ajouté | 32141 | Muesli non enrichi en vitamines et minéraux (aliment moyen) | 409 | 9.6 | 11.6 | 61.8 | 8.4 |
+| `fromage_frais` | Petit-suisse nature | 19664 | Fromage frais type petit suisse, nature, 4% MG environ | 88 | 9.7 | 3.9 | 3.1 | 0.1 |
+| `saumon_fume` | Saumon fumé | 26037 | Saumon fumé | 184 | 22.2 | 10.5 | 0.1 | 0.3 |
+| `pain_cereales` | Pain aux céréales | 7255 | Pain aux céréales et/ou graines | 269 | 9.6 | 3.2 | 46.9 | 5.2 |
+| `galette_riz` | Galette de riz soufflé | 7352 | Galette de riz complet soufflé | 381 | 8.4 | 3.0 | 77.9 | 3.4 |
+| `kaki` | Kaki | 13066 | Kaki, chair et peau, cru | 66 | 0.9 | 0.1 | 14.3 | 3.4 |
+| `mangue` | Mangue | 13025 | Mangue, chair sans peau, sans noyau, crue | 71 | 0.6 | 0.2 | 14.3 | 1.6 |

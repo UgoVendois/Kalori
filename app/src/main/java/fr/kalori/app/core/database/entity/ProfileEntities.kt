@@ -11,6 +11,7 @@ import fr.kalori.app.domain.model.ActivityLevel
 import fr.kalori.app.domain.model.GoalType
 import fr.kalori.app.domain.model.RestrictionKind
 import fr.kalori.app.domain.model.Sex
+import fr.kalori.app.domain.model.SnackMode
 import fr.kalori.app.domain.model.UnitSystem
 import java.time.Instant
 import java.time.LocalDate
@@ -41,14 +42,17 @@ data class UserProfileEntity(
     val fatG: Int,
     val carbsG: Int,
     val fiberG: Int,
-    /** Part de l'objectif journalier couverte par le plat du jour (0,30 à 0,50). */
-    val mealShare: Double,
+    /** Repas principaux pris (masque de MealSlot : matin, midi, soir). */
+    val enabledSlotsMask: Int = DEFAULT_SLOTS_MASK,
+    val snackMode: SnackMode = SnackMode.AUTO,
     val unitSystem: UnitSystem,
     val createdAt: Instant,
     val updatedAt: Instant,
 ) {
     companion object {
         const val SINGLE_ROW_ID = 1
+        /** Matin + midi + soir. */
+        const val DEFAULT_SLOTS_MASK = 0b111
     }
 }
 

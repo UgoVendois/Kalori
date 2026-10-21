@@ -173,6 +173,7 @@ class BackupRepository @Inject constructor(
     }
 
     private companion object {
-        const val FORMAT = 1
+        /** 2 : plusieurs repas par jour (créneaux). Les sauvegardes au format 1 restent importables. */
+        const val FORMAT = 2
     }
 }

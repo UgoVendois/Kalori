@@ -13,9 +13,9 @@ data class NutritionTargets(
     /** Avertissements « hors repères Anses » à afficher (aucun ne bloque). */
     val notices: Set<MacroNotice>,
 ) {
-    /** Cible du plat du jour : une part [share] de l'objectif journalier (bornée à 30–50 %). */
-    fun forMeal(share: Double): NutritionTargets {
-        val s = share.coerceIn(MacroCalculator.MIN_MEAL_SHARE, MacroCalculator.MAX_MEAL_SHARE)
+    /** Part [share] (0 à 1) de ces objectifs, par exemple pour un repas de la journée. */
+    fun scaled(share: Double): NutritionTargets {
+        val s = share.coerceIn(0.0, 1.0)
         return copy(
             kcal = (kcal * s).roundToInt(),
             proteinG = (proteinG * s).roundToInt(),
@@ -50,9 +50,6 @@ object MacroCalculator {
     const val MAX_PROTEIN_ENERGY_SHARE_ANSES = 0.20
     const val MAX_PROTEIN_G_PER_KG = 2.0
     const val FIBER_G = 30
-    const val DEFAULT_MEAL_SHARE = 0.40
-    const val MIN_MEAL_SHARE = 0.30
-    const val MAX_MEAL_SHARE = 0.50
 
     private const val KCAL_PER_G_PROTEIN = 4.0
     private const val KCAL_PER_G_CARBS = 4.0

@@ -50,10 +50,14 @@ ALLERGENS = {
 DIET_FLAGS = {"MEAT", "PORK", "FISH", "SHELLFISH", "DAIRY", "EGG", "HONEY", "ALCOHOL", "LACTOSE"}
 AISLES = {
     "FRUITS_VEGETABLES", "BUTCHER", "FISHMONGER", "DAIRY_EGGS", "PLANT_PROTEINS", "STARCHES",
-    "CANNED_LEGUMES", "BAKERY", "NUTS_SEEDS", "PANTRY", "SPICES", "DRINKS",
+    "CANNED_LEGUMES", "BAKERY", "NUTS_SEEDS", "BREAKFAST_SWEET", "PANTRY", "SPICES", "DRINKS",
 }
 UNITS = {"g": "G", "ml": "ML", "piece": "PIECE"}
 MAIN_PROTEINS = {"POULTRY", "RED_MEAT", "PORK", "FISH", "SEAFOOD", "EGG", "DAIRY", "PLANT"}
+# Type de repas : MAIN (plat de midi ou du soir), BREAKFAST (matin), SNACK (collation).
+MEAL_TYPES = {"MAIN", "BREAKFAST", "SNACK"}
+# Fourchette de kcal attendue pour une portion de base, par type.
+KCAL_RANGE = {"MAIN": (400, 800), "BREAKFAST": (250, 600), "SNACK": (120, 350)}
 
 # Au-delà de ce seuil (g/100 g), un produit laitier est marqué LACTOSE (régime « sans lactose »).
 LACTOSE_THRESHOLD = 0.5
@@ -210,6 +214,7 @@ class Recipe:
     id: str
     name: str
     main_protein: str
+    meal_type: str = "MAIN"
     ingredients: list[tuple[str, float]] = field(default_factory=list)
     steps: list[str] = field(default_factory=list)
 
@@ -218,6 +223,7 @@ class Recipe:
             "id": self.id,
             "name": self.name,
             "mainProtein": self.main_protein,
+            "mealType": self.meal_type,
             "steps": self.steps,
             "ingredients": [{"ingredientId": i, "grams": g} for i, g in self.ingredients],
         }
@@ -233,9 +239,12 @@ def load_recipes(ingredients: dict[str, Ingredient]) -> list[Recipe]:
         tag, _, rest = line.partition(" ")
         if tag == "@":
             parts = [p.strip() for p in rest.split("|")]
-            if len(parts) != 3 or parts[2] not in MAIN_PROTEINS:
+            if len(parts) not in (3, 4) or parts[2] not in MAIN_PROTEINS:
                 raise SeedError(f"recipes.txt:{n} : en-tête invalide")
-            current = Recipe(id=parts[0], name=parts[1], main_protein=parts[2])
+            meal_type = parts[3] if len(parts) == 4 else "MAIN"
+            if meal_type not in MEAL_TYPES:
+                raise SeedError(f"recipes.txt:{n} : type de repas inconnu {meal_type}")
+            current = Recipe(id=parts[0], name=parts[1], main_protein=parts[2], meal_type=meal_type)
             recipes.append(current)
         elif tag == "+" and current:
             for item in rest.split(","):
@@ -275,23 +284,26 @@ def analyze(recipe: Recipe, ingredients: dict[str, Ingredient]) -> dict:
 
 def report(recipes: list[Recipe], ingredients: dict[str, Ingredient]) -> None:
     print(f"\n{len(ingredients)} ingrédients, {len(recipes)} recettes\n")
-    print(f"{'recette':32} {'kcal':>5} {'P':>5} {'L':>5} {'G':>5} {'F':>4}  mois")
+    print(f"{'recette':32} {'type':9} {'kcal':>5} {'P':>5} {'L':>5} {'G':>5} {'F':>4}  mois")
     analyses = {r.id: analyze(r, ingredients) for r in recipes}
     for r in recipes:
         a = analyses[r.id]
         t = a["totals"]
-        flag = "  ⚠ kcal hors 400–800" if not 400 <= t["kcal"] <= 800 else ""
+        lo, hi = KCAL_RANGE[r.meal_type]
+        flag = f"  ⚠ kcal hors {lo}–{hi}" if not lo <= t["kcal"] <= hi else ""
         months = "toute l'année" if len(a["season"]) == 12 else ",".join(str(m) for m in a["season"])
-        print(f"{r.id[:32]:32} {t['kcal']:5.0f} {t['protein']:5.1f} {t['fat']:5.1f} {t['carbs']:5.1f} "
+        print(f"{r.id[:32]:32} {r.meal_type:9} {t['kcal']:5.0f} {t['protein']:5.1f} {t['fat']:5.1f} {t['carbs']:5.1f} "
               f"{t['fiber']:4.1f}  {months}{flag}")
 
-    print("\nRecettes disponibles par mois et par régime :")
-    print(f"{'régime':14} " + " ".join(f"{m:>5}" for m in MONTHS_FR))
-    for diet_name, rule in [("TOUS", lambda d: True), *DIETS.items()]:
-        counts = []
-        for month in range(1, 13):
-            counts.append(sum(1 for a in analyses.values() if month in a["season"] and rule(a["diet"])))
-        print(f"{diet_name:14} " + " ".join(f"{c:>5}" for c in counts))
+    for meal_type in ("MAIN", "BREAKFAST", "SNACK"):
+        print(f"\nRecettes {meal_type} disponibles par mois et par régime :")
+        print(f"{'régime':14} " + " ".join(f"{m:>5}" for m in MONTHS_FR))
+        for diet_name, rule in [("TOUS", lambda d: True), *DIETS.items()]:
+            counts = []
+            for month in range(1, 13):
+                counts.append(sum(1 for r in recipes if r.meal_type == meal_type and month in analyses[r.id]["season"]
+                                  and rule(analyses[r.id]["diet"])))
+            print(f"{diet_name:14} " + " ".join(f"{c:>5}" for c in counts))
 
     print("\nRecettes compatibles « sans gluten » par mois :")
     print(" ".join(f"{sum(1 for a in analyses.values() if m in a['season'] and 'GLUTEN' not in a['allergens']):>5}"

@@ -2,6 +2,7 @@
 
 package fr.kalori.app.core.database.entity
 
+import androidx.room.ColumnInfo
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.ForeignKey
@@ -12,7 +13,9 @@ import fr.kalori.app.core.database.InstantSerializer
 import fr.kalori.app.core.database.LocalDateSerializer
 import fr.kalori.app.domain.model.Aisle
 import fr.kalori.app.domain.model.MainProtein
+import fr.kalori.app.domain.model.MealSlot
 import fr.kalori.app.domain.model.MealStatus
+import fr.kalori.app.domain.model.MealType
 import fr.kalori.app.domain.model.PurchaseUnit
 import fr.kalori.app.domain.model.RecipeOrigin
 import java.time.Instant
@@ -52,6 +55,9 @@ data class RecipeEntity(
     @PrimaryKey val id: String,
     val name: String,
     val mainProtein: MainProtein,
+    /** Plat, petit-déjeuner ou collation (colonne ajoutée en v2). */
+    @ColumnInfo(defaultValue = "MAIN")
+    val mealType: MealType = MealType.MAIN,
     val steps: List<String>,
     val origin: RecipeOrigin,
     /** Modèle d'IA ayant proposé la recette (transparence AI Act), null pour les recettes embarquées. */
@@ -102,9 +108,10 @@ data class RecipeWithIngredients(
     val ingredients: List<RecipeIngredientEntity>,
 )
 
-/** Plat prévu pour un jour donné. Les nutriments sont figés au moment de la planification. */
+/** Repas prévu pour un créneau d'un jour. Les nutriments sont figés au moment de la planification. */
 @Entity(
     tableName = "meal_plan_entry",
+    primaryKeys = ["date", "slot"],
     foreignKeys = [
         ForeignKey(
             entity = RecipeEntity::class,
@@ -117,7 +124,9 @@ data class RecipeWithIngredients(
 )
 @Serializable
 data class MealPlanEntryEntity(
-    @PrimaryKey val date: LocalDate,
+    val date: LocalDate,
+    /** Valeur par défaut : anciennes sauvegardes (format 1, un seul repas par jour). */
+    val slot: MealSlot = MealSlot.NOON,
     val recipeId: String,
     val portionFactor: Double,
     val kcal: Double,

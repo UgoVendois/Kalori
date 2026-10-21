@@ -75,6 +75,7 @@ object SeedMapper {
             id = seed.id,
             name = seed.name,
             mainProtein = seed.mainProtein,
+            mealType = seed.mealType,
             steps = seed.steps,
             origin = RecipeOrigin.BUNDLED,
             aiModel = null,

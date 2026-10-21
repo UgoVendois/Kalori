@@ -4,6 +4,7 @@ import fr.kalori.app.data.seed.SeedMapper
 import fr.kalori.app.domain.meal.FoodPreferences
 import fr.kalori.app.domain.model.Allergen
 import fr.kalori.app.domain.model.Diet
+import fr.kalori.app.domain.model.MealType
 import fr.kalori.app.domain.model.RecipeOrigin
 import org.junit.Test
 import java.io.File
@@ -23,6 +24,7 @@ class AiRecipeValidatorTest {
             ingredients = ingredients,
             allowedIds = AiRecipeValidator.allowedIngredients(ingredients.values.toList(), prefs, month).map { it.id }.toSet(),
             prefs = prefs,
+            mealType = MealType.MAIN,
             model = "claude-opus-5-5",
             recipeId = "ai_test",
             now = Instant.EPOCH,

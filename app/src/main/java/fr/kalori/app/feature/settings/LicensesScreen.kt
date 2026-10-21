@@ -20,9 +20,9 @@ import fr.kalori.app.core.ui.components.KaloriScaffold
 @Composable
 fun LicensesScreen(onBack: () -> Unit) {
     val context = LocalContext.current
-    val sqlcipher = remember {
-        runCatching { context.assets.open("licenses/sqlcipher.txt").bufferedReader().use { it.readText() } }.getOrDefault("")
-    }
+    fun asset(name: String) = runCatching { context.assets.open("licenses/$name").bufferedReader().use { it.readText() } }.getOrDefault("")
+    val sqlcipher = remember { asset("sqlcipher.txt") }
+    val jakarta = remember { asset("plus_jakarta_sans_ofl.txt") }
 
     KaloriScaffold(title = "Sources et licences", onBack = onBack) { padding ->
         Column(
@@ -58,6 +58,8 @@ fun LicensesScreen(onBack: () -> Unit) {
             )
             Title("SQLCipher for Android")
             Text(sqlcipher, style = MaterialTheme.typography.bodySmall, fontFamily = FontFamily.Monospace)
+            Title("Police Plus Jakarta Sans")
+            Text(jakarta, style = MaterialTheme.typography.bodySmall, fontFamily = FontFamily.Monospace)
         }
     }
 }

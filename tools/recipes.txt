@@ -863,3 +863,225 @@
 - Cuire le riz.
 - Dorer le tofu en cubes, ajouter les courgettes et les carottes en bâtonnets et le gingembre ; cuire 5 minutes à feu vif.
 - Ajouter la sauce soja et le sésame.
+
+# ═════════════ Petits-déjeuners (type BREAKFAST) ═════════════
+
+@ porridge_banane_noix | Porridge à la banane et aux noix | DAIRY | BREAKFAST
++ flocons_avoine 60, lait 200, banane 120, noix 15, cannelle 1
+- Cuire les flocons dans le lait 4 minutes à feu doux en remuant.
+- Ajouter la banane en rondelles, les noix concassées et la cannelle.
+
+@ porridge_vegan_cacahuete | Porridge au lait de soja, banane et beurre de cacahuète | PLANT | BREAKFAST
++ flocons_avoine 60, boisson_soja 250, banane 100, beurre_cacahuete 15
+- Cuire les flocons dans la boisson au soja 4 minutes.
+- Garnir de banane et d'une cuillère de beurre de cacahuète.
+
+@ tartines_avocat_oeuf | Tartines d'avocat et œuf mollet | EGG | BREAKFAST
++ pain_complet 80, avocat 70, oeuf 55, citron 5
+- Cuire l'œuf 6 minutes, l'écaler.
+- Écraser l'avocat avec le citron, tartiner le pain grillé et poser l'œuf coupé en deux.
+
+@ tartines_cacahuete_banane | Tartines beurre de cacahuète et banane | PLANT | BREAKFAST
++ pain_complet 80, beurre_cacahuete 20, banane 100
+- Griller le pain.
+- Tartiner de beurre de cacahuète et couvrir de rondelles de banane.
+
+@ fromage_blanc_muesli | Fromage blanc, muesli, banane et miel | DAIRY | BREAKFAST
++ fromage_blanc 200, muesli 50, banane 100, miel 10
+- Verser le fromage blanc dans un bol.
+- Ajouter le muesli, la banane en rondelles et un filet de miel.
+
+@ oeufs_brouilles_tartines | Œufs brouillés à la ciboulette et pain complet | EGG | BREAKFAST
++ oeuf 110, pain_complet 70, beurre 5, ciboulette 3, orange 150
+- Battre les œufs, les cuire doucement dans le beurre en remuant.
+- Parsemer de ciboulette, servir avec le pain grillé et l'orange en quartiers.
+
+@ omelette_jambon | Omelette au jambon et tartine | EGG | BREAKFAST
++ oeuf 110, jambon 40, pain_complet 60, beurre 5
+- Battre les œufs, ajouter le jambon en dés.
+- Cuire dans le beurre et servir avec le pain grillé.
+
+@ tartines_saumon_fromage_frais | Tartines de fromage frais et saumon fumé | FISH | BREAKFAST
++ pain_complet 80, fromage_frais 60, saumon_fume 50, citron 5
+- Griller le pain et le tartiner de fromage frais.
+- Ajouter le saumon fumé et quelques gouttes de citron.
+
+@ bowl_yaourt_grec_muesli | Bol de yaourt à la grecque, muesli et noix | DAIRY | BREAKFAST
++ yaourt_grec 170, muesli 40, miel 10, noix 10
+- Verser le yaourt dans un bol.
+- Ajouter le muesli, les noix et le miel.
+
+@ tofu_brouille | Tofu brouillé aux champignons et tartine | PLANT | BREAKFAST
++ tofu 120, pain_complet 70, champignon 60, huile_olive 5, paprika 1
+- Émietter le tofu, le faire revenir dans l'huile avec les champignons émincés et le paprika.
+- Servir avec le pain grillé.
+
+@ smoothie_bowl_banane | Smoothie bowl banane, soja et chia | PLANT | BREAKFAST
++ yaourt_soja 200, banane 120, flocons_avoine 30, graines_chia 10
+- Mixer le yaourt au soja avec la moitié de la banane.
+- Verser dans un bol, garnir du reste de banane, des flocons et des graines de chia.
+
+@ pancakes_avoine_banane | Pancakes avoine et banane | EGG | BREAKFAST
++ flocons_avoine 50, oeuf 55, banane 100, lait 50, huile_colza 5
+- Mixer les flocons, l'œuf, la banane et le lait.
+- Cuire de petits pancakes dans une poêle huilée, 2 minutes par face.
+
+@ tartines_houmous | Tartines de houmous et carottes râpées | PLANT | BREAKFAST
++ pain_cereales 80, houmous 50, carotte 60
+- Griller le pain et le tartiner de houmous.
+- Ajouter la carotte finement râpée.
+
+@ galettes_riz_cacahuete | Galettes de riz, beurre de cacahuète, banane et lait de soja | PLANT | BREAKFAST
++ galette_riz 27, beurre_cacahuete 20, banane 100, boisson_soja 200
+- Tartiner les galettes de riz de beurre de cacahuète.
+- Ajouter la banane en rondelles, servir avec un verre de boisson au soja.
+
+@ yaourt_grec_banane_noix | Yaourt à la grecque, banane, noix et miel | DAIRY | BREAKFAST
++ yaourt_grec 170, banane 100, noix 15, miel 10
+- Verser le yaourt dans un bol.
+- Ajouter la banane, les noix et le miel.
+
+@ fromage_blanc_compote | Fromage blanc, compote de pomme et amandes | DAIRY | BREAKFAST
++ fromage_blanc 200, compote_pomme 100, amandes 15, galette_riz 18
+- Mélanger le fromage blanc et la compote.
+- Parsemer d'amandes concassées, servir avec les galettes de riz.
+
+@ chia_pudding_mangue | Pudding de chia à la mangue | PLANT | BREAKFAST
++ boisson_soja 200, graines_chia 25, mangue 100, amandes 15
+- La veille, mélanger la boisson au soja et les graines de chia, réserver au frais.
+- Le matin, ajouter la mangue en dés et les amandes.
+
+@ petit_dejeuner_classique | Tartines beurre-confiture et café au lait | DAIRY | BREAKFAST
++ pain_campagne 80, beurre 10, confiture_fraise 20, lait 250
+- Griller le pain, le tartiner de beurre et de confiture.
+- Servir avec un bol de lait chaud (avec café ou chicorée si souhaité).
+
+@ tartines_comte_pomme | Tartines de comté et pomme | DAIRY | BREAKFAST
++ pain_complet 70, comte 30, pomme 120
+- Griller le pain et le couvrir de fines tranches de comté.
+- Servir avec la pomme.
+
+@ yaourt_fraises_flocons | Yaourt aux fraises et flocons d'avoine | DAIRY | BREAKFAST
++ yaourt_grec 150, fraise 150, flocons_avoine 40, miel 8
+- Couper les fraises, les ajouter au yaourt.
+- Parsemer de flocons et d'un filet de miel.
+
+@ porridge_myrtilles | Porridge aux myrtilles et amandes | DAIRY | BREAKFAST
++ flocons_avoine 60, lait 200, myrtille 100, amandes 10
+- Cuire les flocons dans le lait 4 minutes.
+- Ajouter les myrtilles et les amandes effilées.
+
+@ porridge_pomme_cannelle | Porridge pomme-cannelle | DAIRY | BREAKFAST
++ flocons_avoine 60, lait 200, pomme 120, cannelle 1, noix 10
+- Faire revenir la pomme en dés avec la cannelle 3 minutes.
+- Cuire les flocons dans le lait, ajouter la pomme et les noix.
+
+@ fromage_blanc_kiwi | Fromage blanc, kiwi et muesli | DAIRY | BREAKFAST
++ fromage_blanc 200, kiwi 160, muesli 40
+- Éplucher les kiwis et les couper en rondelles.
+- Les ajouter au fromage blanc avec le muesli.
+
+@ bowl_peches | Bol de yaourt aux pêches et muesli | DAIRY | BREAKFAST
++ yaourt_grec 150, peche 150, muesli 40
+- Couper la pêche en morceaux.
+- L'ajouter au yaourt avec le muesli.
+
+@ tartines_tomate_oeuf | Tartines tomate, huile d'olive et œuf | EGG | BREAKFAST
++ pain_campagne 80, tomate 120, oeuf 55, huile_olive 5
+- Griller le pain, frotter avec la tomate coupée et arroser d'huile.
+- Cuire l'œuf au plat et le poser sur la tartine avec le reste de tomate.
+
+@ overnight_oats_abricots | Overnight oats aux abricots | DAIRY | BREAKFAST
++ flocons_avoine 50, yaourt 125, abricot 120, lait 80
+- La veille, mélanger les flocons, le yaourt et le lait, réserver au frais.
+- Le matin, ajouter les abricots en morceaux.
+
+@ porridge_poire_chocolat | Porridge poire et chocolat noir | DAIRY | BREAKFAST
++ flocons_avoine 60, lait 200, poire 120, chocolat_noir 10
+- Cuire les flocons dans le lait 4 minutes.
+- Ajouter la poire en dés et le chocolat râpé.
+
+@ smoothie_bowl_fraises | Smoothie bowl fraises et soja | PLANT | BREAKFAST
++ yaourt_soja 200, fraise 150, flocons_avoine 40, graines_chia 10
+- Mixer le yaourt au soja avec la moitié des fraises.
+- Garnir du reste des fraises, des flocons et du chia.
+
+@ porridge_vegan_pomme | Porridge à l'avoine, pomme et noix | PLANT | BREAKFAST
++ flocons_avoine 60, boisson_avoine 250, pomme 120, noix 10
+- Cuire les flocons dans la boisson à l'avoine 4 minutes.
+- Ajouter la pomme râpée et les noix.
+
+# ═════════════ Collations (type SNACK) ═════════════
+
+@ collation_pomme_amandes | Pomme et amandes | PLANT | SNACK
++ pomme 150, amandes 20
+- Croquer la pomme avec une poignée d'amandes.
+
+@ collation_banane_cacahuete | Banane et beurre de cacahuète | PLANT | SNACK
++ banane 120, beurre_cacahuete 15
+- Couper la banane en rondelles et les tremper dans le beurre de cacahuète.
+
+@ collation_yaourt_grec_miel | Yaourt à la grecque, miel et noix | DAIRY | SNACK
++ yaourt_grec 150, miel 10, noix 10
+- Ajouter le miel et les noix au yaourt.
+
+@ collation_fromage_blanc_framboises | Fromage blanc et framboises | DAIRY | SNACK
++ fromage_blanc 150, framboise 100, amandes 10
+- Ajouter les framboises et les amandes au fromage blanc.
+
+@ collation_houmous_carottes | Houmous et bâtonnets de carotte | PLANT | SNACK
++ houmous 50, carotte 120
+- Couper la carotte en bâtonnets et les tremper dans le houmous.
+
+@ collation_galettes_chocolat | Galettes de riz, chocolat noir et noisettes | PLANT | SNACK
++ galette_riz 18, chocolat_noir 15, noisettes 10
+- Déguster les galettes avec le chocolat et les noisettes.
+
+@ collation_dattes_noix | Dattes et noix | PLANT | SNACK
++ dattes 40, noix 15
+- Ouvrir les dattes et les garnir de cerneaux de noix.
+
+@ collation_fruits_secs | Abricots secs, amandes et noisettes | PLANT | SNACK
++ abricots_secs 30, amandes 15, noisettes 10
+- Mélanger les fruits secs dans un petit bol.
+
+@ collation_yaourt_soja_compote | Yaourt au soja, compote et graines de lin | PLANT | SNACK
++ yaourt_soja 200, compote_pomme 100, graines_lin 8
+- Mélanger le yaourt et la compote, parsemer de graines de lin.
+
+@ collation_clementines_noix | Clémentines et noix | PLANT | SNACK
++ clementine 210, noix 10
+- Éplucher les clémentines, servir avec les noix.
+
+@ collation_kiwi_petit_suisse | Kiwis et petits-suisses | DAIRY | SNACK
++ kiwi 160, fromage_frais 120
+- Couper les kiwis, servir avec les petits-suisses.
+
+@ collation_oeuf_dur_tartine | Œuf dur et tartine complète | EGG | SNACK
++ oeuf 110, pain_complet 40
+- Cuire les œufs 10 minutes, les écaler.
+- Servir avec le pain.
+
+@ collation_smoothie_banane | Smoothie banane et avoine | DAIRY | SNACK
++ lait 250, banane 120, flocons_avoine 20
+- Mixer le lait, la banane et les flocons jusqu'à obtenir une texture lisse.
+
+@ collation_tartine_comte | Tartine de comté | DAIRY | SNACK
++ pain_complet 50, comte 30
+- Poser le comté en lamelles sur le pain.
+
+@ collation_poire_noisettes | Poire et noisettes | PLANT | SNACK
++ poire 150, noisettes 15
+- Couper la poire en quartiers, servir avec les noisettes.
+
+@ collation_mangue_soja | Mangue et yaourt au soja | PLANT | SNACK
++ mangue 150, yaourt_soja 150
+- Couper la mangue en dés et l'ajouter au yaourt.
+
+@ collation_pruneaux_amandes | Pruneaux et amandes | PLANT | SNACK
++ pruneaux 40, amandes 15
+- Servir les pruneaux avec les amandes.
+
+@ collation_yaourt_cerises | Yaourt nature et cerises | DAIRY | SNACK
++ yaourt 125, cerise 150, amandes 10
+- Dénoyauter les cerises et les ajouter au yaourt avec les amandes.

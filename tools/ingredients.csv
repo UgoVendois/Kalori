@@ -171,3 +171,22 @@ herbes_provence;Herbes de Provence;11060;SPICES;;;;all;g;;
 thym;Thym séché;11038;SPICES;;;;all;g;;
 vin_blanc;Vin blanc sec (cuisine);5215;DRINKS;SULPHITES;;ALCOHOL;all;ml;;
 vin_rouge;Vin rouge (cuisine);5214;DRINKS;SULPHITES;;ALCOHOL;all;ml;;
+yaourt_soja;Yaourt au soja nature;19693;PLANT_PROTEINS;SOY;;;all;piece;100;pot
+boisson_avoine;Boisson à l'avoine;18899;PLANT_PROTEINS;GLUTEN;;;all;ml;;
+houmous;Houmous;25621;PLANT_PROTEINS;SESAME;;;all;g;;
+beurre_cacahuete;Beurre de cacahuète;15202;NUTS_SEEDS;PEANUTS;NUTS;;all;g;;
+graines_chia;Graines de chia;15047;NUTS_SEEDS;;NUTS;;all;g;;
+graines_lin;Graines de lin;15034;NUTS_SEEDS;;;;all;g;;
+dattes;Dattes;13011;NUTS_SEEDS;;;;all;g;;
+abricots_secs;Abricots secs;13001;NUTS_SEEDS;SULPHITES;;;all;g;;
+pruneaux;Pruneaux;13042;NUTS_SEEDS;;SULPHITES;;all;g;;
+chocolat_noir;Chocolat noir 70 %;31074;BREAKFAST_SWEET;;MILK|NUTS|SOY;;all;g;;
+compote_pomme;Compote de pomme sans sucre ajouté;13151;BREAKFAST_SWEET;;;;all;g;;
+confiture_fraise;Confiture de fraise;31024;BREAKFAST_SWEET;;;;all;g;;
+muesli;Muesli sans sucre ajouté;32141;BREAKFAST_SWEET;GLUTEN;NUTS;;all;g;;
+fromage_frais;Petit-suisse nature;19664;DAIRY_EGGS;MILK;;DAIRY;all;piece;60;pot
+saumon_fume;Saumon fumé;26037;FISHMONGER;FISH;;FISH;all;g;;
+pain_cereales;Pain aux céréales;7255;BAKERY;GLUTEN;SESAME;;all;g;;
+galette_riz;Galette de riz soufflé;7352;BAKERY;;GLUTEN;;all;piece;9;galette
+kaki;Kaki;13066;FRUITS_VEGETABLES;;;;10-12;piece;200;pièce
+mangue;Mangue;13025;FRUITS_VEGETABLES;;;;all;piece;300;pièce

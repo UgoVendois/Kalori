@@ -84,11 +84,6 @@ class SettingsViewModel @Inject constructor(
 
     fun defaultExportName(): String = "kalori-sauvegarde-${LocalDate.now()}.json"
 
-    fun setMealShare(share: Double) = viewModelScope.launch {
-        goalService.setMealShare(share)
-        messageChannel.send("Portions des plats à venir recalculées")
-    }
-
     fun setUnit(unit: UnitSystem) = viewModelScope.launch { goalService.setUnitSystem(unit) }
 
     fun setLock(enabled: Boolean) = viewModelScope.launch {

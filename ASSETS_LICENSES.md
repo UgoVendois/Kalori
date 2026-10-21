@@ -35,4 +35,10 @@ Ce fichier doit être mis à jour à chaque ajout de donnée, d'image, d'icône,
 | AndroidX Biometric (verrou de l'app) | Apache 2.0 | |
 | SDK Java Anthropic `com.anthropic:anthropic-java` 2.68.0 (IA optionnelle) et ses dépendances (OkHttp, Jackson) | MIT / Apache 2.0 | Vérifier la licence exacte du SDK lors des mises à jour |
 
+## Police
+
+| Police | Licence | Remarque |
+|---|---|---|
+| Plus Jakarta Sans (Tokotype), fichier variable `res/font/plus_jakarta_sans.ttf` | SIL Open Font License 1.1 | Texte de la licence dans `assets/licenses/plus_jakarta_sans_ofl.txt`, affiché dans l'écran Licences |
+
 Pour la release, générer la liste exhaustive avec le plugin AboutLibraries ou `oss-licenses-plugin` (étape 7).

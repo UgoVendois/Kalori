@@ -18,6 +18,8 @@ import fr.kalori.app.core.logging.SafeLogger
 import fr.kalori.app.core.security.ApiKeyStore
 import fr.kalori.app.data.meal.MealPlanRepository
 import fr.kalori.app.domain.model.MainProtein
+import fr.kalori.app.domain.model.MealSlot
+import fr.kalori.app.domain.model.MealType
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.json.Json
@@ -52,9 +54,9 @@ class AiMealService @Inject constructor(
 ) {
     private val json = Json { ignoreUnknownKeys = true }
 
-    suspend fun proposeVariant(date: LocalDate): VariantResult = withContext(io) {
+    suspend fun proposeVariant(date: LocalDate, slot: MealSlot): VariantResult = withContext(io) {
         val apiKey = apiKeyStore.read() ?: return@withContext VariantResult.Failed("Ajoute d'abord ta clé API dans Paramètres.")
-        val context = mealPlanRepository.variantContext(date) ?: return@withContext VariantResult.Failed("Aucun plat prévu ce jour-là.")
+        val context = mealPlanRepository.variantContext(date, slot) ?: return@withContext VariantResult.Failed("Aucun repas prévu à ce moment-là.")
         val ingredients = catalogDao.getIngredients()
         val allowed = AiRecipeValidator.allowedIngredients(ingredients, context.prefs, date.monthValue)
         if (allowed.size < 5) return@withContext VariantResult.Failed("Trop peu d'ingrédients compatibles avec tes restrictions.")
@@ -66,6 +68,7 @@ class AiMealService @Inject constructor(
             .system(SYSTEM_PROMPT)
             .addUserMessage(
                 buildString {
+                    appendLine("Repas : ${mealKind(context.mealType)}")
                     appendLine("Mois : ${date.monthValue}")
                     appendLine("Cible pour ce plat : environ ${context.target.kcal} kcal et au moins ${context.target.proteinG} g de protéines.")
                     if (liked.isNotEmpty()) appendLine("Aliments appréciés (à privilégier si possible) : ${liked.joinToString(", ")}")
@@ -117,6 +120,7 @@ class AiMealService @Inject constructor(
                 ingredients = ingredients.associateBy { it.id },
                 allowedIds = allowed.map { it.id }.toSet(),
                 prefs = context.prefs,
+                mealType = context.mealType,
                 model = response.model().toString(),
                 recipeId = "ai_${UUID.randomUUID()}",
                 now = Instant.now(clock),
@@ -124,10 +128,16 @@ class AiMealService @Inject constructor(
         ) {
             is AiValidation.Rejected -> VariantResult.Failed("Proposition écartée (${validation.reason}). Réessaie.")
             is AiValidation.Valid -> {
-                mealPlanRepository.applyRecipe(date, validation.recipe, validation.lines)
+                mealPlanRepository.applyRecipe(date, slot, validation.recipe, validation.lines)
                 VariantResult.Applied(validation.recipe.name)
             }
         }
+    }
+
+    private fun mealKind(type: MealType): String = when (type) {
+        MealType.BREAKFAST -> "petit-déjeuner (repas du matin)"
+        MealType.MAIN -> "plat principal (midi ou soir)"
+        MealType.SNACK -> "collation légère"
     }
 
     /** Schéma imposé à la réponse : les identifiants d'ingrédients sont limités à la liste autorisée. */
@@ -164,8 +174,9 @@ class AiMealService @Inject constructor(
         private const val TAG = "AiMealService"
 
         private val SYSTEM_PROMPT = """
-            Tu es le cuisinier de Kalori, une application de nutrition. Propose UN plat principal pour une personne,
-            simple à préparer à la maison, de saison et différent des plats déjà prévus.
+            Tu es le cuisinier de Kalori, une application de nutrition. Propose UN repas pour une personne, du type
+            indiqué (petit-déjeuner, plat principal ou collation), simple à préparer à la maison, de saison et
+            différent des repas déjà prévus.
 
             Règles :
             - Utilise uniquement des ingrédients de la liste fournie, désignés par leur id exact. Ne mentionne aucun
@@ -173,9 +184,9 @@ class AiMealService @Inject constructor(
             - Quantités en grammes de partie comestible crue, pour une portion, entre 1 et 600 g par ingrédient.
             - Vise la cible de calories et de protéines indiquée ; les valeurs nutritionnelles seront recalculées
               à partir d'une table officielle, inutile de les donner.
-            - 3 à 6 étapes courtes, en français, à l'impératif.
-            - Nom du plat en français, 60 caractères au plus.
-            - mainProtein : la source principale de protéines du plat.
+            - 2 à 6 étapes courtes, en français, à l'impératif.
+            - Nom en français, 60 caractères au plus.
+            - mainProtein : la source principale de protéines du repas.
         """.trimIndent()
     }
 }

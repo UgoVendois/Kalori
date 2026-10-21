@@ -30,7 +30,7 @@ import fr.kalori.app.core.database.entity.WorkoutTemplateExerciseEntity
  * qui effacerait les données de santé de l'utilisateur sans son accord.
  */
 @Database(
-    version = 1,
+    version = 2,
     exportSchema = true,
     entities = [
         UserProfileEntity::class,

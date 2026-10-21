@@ -6,6 +6,7 @@ import fr.kalori.app.domain.model.DietFlag
 import fr.kalori.app.domain.model.ExerciseCategory
 import fr.kalori.app.domain.model.ExerciseIcon
 import fr.kalori.app.domain.model.MainProtein
+import fr.kalori.app.domain.model.MealType
 import fr.kalori.app.domain.model.MuscleGroup
 import fr.kalori.app.domain.model.PurchaseUnit
 import fr.kalori.app.domain.model.WorkoutGoal
@@ -59,6 +60,7 @@ data class SeedRecipe(
     val id: String,
     val name: String,
     val mainProtein: MainProtein,
+    val mealType: MealType = MealType.MAIN,
     val steps: List<String>,
     val ingredients: List<SeedRecipeLine>,
 )

@@ -46,10 +46,10 @@ class MacroCalculatorTest {
     }
 
     @Test
-    fun `meal share is bounded between 30 and 50 percent`() {
+    fun `targets can be scaled to a share of the day`() {
         val day = MacroCalculator.targets(2000, 70.0, GoalType.MAINTAIN)
-        assertEquals(800, day.forMeal(0.40).kcal)
-        assertEquals(1000, day.forMeal(0.9).kcal)
-        assertEquals(600, day.forMeal(0.1).kcal)
+        assertEquals(700, day.scaled(0.35).kcal)
+        assertEquals(30, day.scaled(1.0).fiberG)
+        assertEquals(0, day.scaled(-1.0).kcal)
     }
 }

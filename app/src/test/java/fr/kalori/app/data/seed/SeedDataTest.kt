@@ -2,6 +2,7 @@ package fr.kalori.app.data.seed
 
 import fr.kalori.app.domain.model.Allergen
 import fr.kalori.app.domain.model.DietFlag
+import fr.kalori.app.domain.model.MealType
 import fr.kalori.app.domain.model.PurchaseUnit
 import fr.kalori.app.domain.model.SeasonMask
 import fr.kalori.app.domain.model.toMask
@@ -36,22 +37,31 @@ class SeedDataTest {
         for (seed in bundle.recipes) {
             val (recipe, lines) = SeedMapper.recipe(seed, facts, Instant.EPOCH)
             assertTrue(recipe.seasonMask != 0, "${seed.id} n'est disponible aucun mois")
-            assertTrue(recipe.kcal in 350.0..900.0, "${seed.id} : ${recipe.kcal} kcal par portion")
+            val range = when (recipe.mealType) {
+                MealType.MAIN -> 350.0..900.0
+                MealType.BREAKFAST -> 250.0..600.0
+                MealType.SNACK -> 120.0..350.0
+            }
+            assertTrue(recipe.kcal in range, "${seed.id} (${recipe.mealType}) : ${recipe.kcal} kcal par portion")
             assertTrue(recipe.steps.isNotEmpty(), "${seed.id} sans étape")
             assertEquals(seed.ingredients.size, lines.size)
         }
     }
 
     @Test
-    fun `every month offers enough vegan recipes to avoid repeating within two weeks`() {
+    fun `every month offers enough vegan recipes of each meal type`() {
         val veganForbidden = listOf(
             DietFlag.MEAT, DietFlag.PORK, DietFlag.FISH, DietFlag.SHELLFISH,
             DietFlag.DAIRY, DietFlag.EGG, DietFlag.HONEY,
         ).toMask()
         val recipes = bundle.recipes.map { SeedMapper.recipe(it, facts, Instant.EPOCH).first }
         for (month in 1..12) {
-            val count = recipes.count { SeasonMask.contains(it.seasonMask, month) && it.dietMask and veganForbidden == 0 }
-            assertTrue(count >= 14, "mois $month : seulement $count recettes véganes")
+            fun count(type: MealType) = recipes.count {
+                it.mealType == type && SeasonMask.contains(it.seasonMask, month) && it.dietMask and veganForbidden == 0
+            }
+            assertTrue(count(MealType.MAIN) >= 14, "mois $month : seulement ${count(MealType.MAIN)} plats véganes")
+            assertTrue(count(MealType.BREAKFAST) >= 5, "mois $month : seulement ${count(MealType.BREAKFAST)} petits-déjeuners véganes")
+            assertTrue(count(MealType.SNACK) >= 5, "mois $month : seulement ${count(MealType.SNACK)} collations véganes")
         }
     }
 

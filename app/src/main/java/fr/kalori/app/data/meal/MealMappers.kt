@@ -17,6 +17,7 @@ fun RecipeEntity.nutrition() = Nutrition(kcal, protein, fat, carbs, fiber)
 fun RecipeWithIngredients.toCandidate() = MealCandidate(
     id = recipe.id,
     mainProtein = recipe.mainProtein,
+    mealType = recipe.mealType,
     nutrition = recipe.nutrition(),
     allergensMask = recipe.allergensMask,
     dietMask = recipe.dietMask,

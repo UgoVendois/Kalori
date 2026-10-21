@@ -11,6 +11,7 @@ import fr.kalori.app.domain.meal.MealPlanner
 import fr.kalori.app.domain.meal.RecipeAnalyzer
 import fr.kalori.app.domain.meal.RecipeLine
 import fr.kalori.app.domain.model.MainProtein
+import fr.kalori.app.domain.model.MealType
 import fr.kalori.app.domain.model.RecipeOrigin
 import fr.kalori.app.domain.model.SeasonMask
 import fr.kalori.app.domain.model.toMask
@@ -43,8 +44,12 @@ object AiRecipeValidator {
 
     const val MIN_GRAMS = 1
     const val MAX_GRAMS = 600
-    const val MIN_KCAL = 250.0
-    const val MAX_KCAL = 1200.0
+    /** Portion de base plausible selon le type de repas. */
+    fun kcalRange(mealType: MealType): ClosedFloatingPointRange<Double> = when (mealType) {
+        MealType.MAIN -> 250.0..1200.0
+        MealType.BREAKFAST -> 200.0..900.0
+        MealType.SNACK -> 80.0..500.0
+    }
 
     /**
      * Ingrédients proposés à l'IA : compatibles avec les allergènes (et traces), les régimes, les goûts,
@@ -65,6 +70,7 @@ object AiRecipeValidator {
         ingredients: Map<String, IngredientEntity>,
         allowedIds: Set<String>,
         prefs: FoodPreferences,
+        mealType: MealType,
         model: String,
         recipeId: String,
         now: Instant,
@@ -85,12 +91,13 @@ object AiRecipeValidator {
         val facts = proposal.ingredients.associate { it.id to SeedMapper.facts(ingredients.getValue(it.id)) }
         val lines = proposal.ingredients.map { RecipeLine(it.id, it.grams.toDouble()) }
         val analysis = RecipeAnalyzer.analyze(lines, facts)
-        if (analysis.nutrition.kcal !in MIN_KCAL..MAX_KCAL) return AiValidation.Rejected("portion de ${analysis.nutrition.kcal.toInt()} kcal hors bornes")
+        if (analysis.nutrition.kcal !in kcalRange(mealType)) return AiValidation.Rejected("portion de ${analysis.nutrition.kcal.toInt()} kcal hors bornes")
 
         // Contre-vérification stricte, identique à celle des recettes embarquées (dont la règle casher viande + lait).
         val candidate = MealCandidate(
             id = recipeId,
             mainProtein = mainProtein,
+            mealType = mealType,
             nutrition = analysis.nutrition,
             allergensMask = analysis.allergensMask,
             dietMask = analysis.dietMask,
@@ -103,6 +110,7 @@ object AiRecipeValidator {
             id = recipeId,
             name = name,
             mainProtein = mainProtein,
+            mealType = mealType,
             steps = steps,
             origin = RecipeOrigin.AI,
             aiModel = model,
