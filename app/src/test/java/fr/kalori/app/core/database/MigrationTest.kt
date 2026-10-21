@@ -102,8 +102,33 @@ class MigrationTest {
         }
     }
 
+    @Test
+    fun `v3 to v4 keeps the budget as a weekly amount and defaults to standard prices`() {
+        helper.createDatabase(DB_V3, 3).apply {
+            execSQL(
+                "INSERT INTO user_profile (id, sex, birthYear, birthMonth, heightCm, startWeightKg, targetWeightKg, activityLevel, " +
+                    "goalType, paceKgPerWeek, kcalTarget, proteinG, fatG, carbsG, fiberG, enabledSlotsMask, snackMode, unitSystem, " +
+                    "createdAt, updatedAt, weeklyBudgetEur, cookingLevel, lunchLeftovers, weeklyBreakfast, weeklySnack) VALUES " +
+                    "(1, 'MALE', 1995, 3, 180.0, 70.0, 76.0, 'ACTIVE', 'GAIN', 0.25, 2720, 112, 106, 324, 30, 7, 'AUTO', 'METRIC', " +
+                    "0, 0, 50, 'SIMPLE', 1, 0, 1)",
+            )
+            close()
+        }
+
+        val db = helper.runMigrationsAndValidate(DB_V3, 4, true, MIGRATION_3_4)
+
+        db.query("SELECT weeklyBudgetEur, budgetPeriod, priceTier, cookingLevel FROM user_profile").use {
+            it.moveToFirst()
+            assertEquals(50, it.getInt(0))
+            assertEquals("WEEK", it.getString(1))
+            assertEquals("STANDARD", it.getString(2))
+            assertEquals("SIMPLE", it.getString(3))
+        }
+    }
+
     private companion object {
         const val DB = "migration-test.db"
         const val DB_V2 = "migration-test-v2.db"
+        const val DB_V3 = "migration-test-v3.db"
     }
 }

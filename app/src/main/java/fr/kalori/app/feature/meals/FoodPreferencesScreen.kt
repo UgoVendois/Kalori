@@ -73,12 +73,15 @@ import fr.kalori.app.core.ui.components.KaloriScaffold
 import fr.kalori.app.core.ui.components.icon
 import fr.kalori.app.core.ui.theme.Kalori
 import fr.kalori.app.core.ui.theme.accent
+import fr.kalori.app.domain.meal.Budget
 import fr.kalori.app.domain.meal.DietRules
 import fr.kalori.app.domain.model.Aisle
 import fr.kalori.app.domain.model.Allergen
+import fr.kalori.app.domain.model.BudgetPeriod
 import fr.kalori.app.domain.model.CookingLevel
 import fr.kalori.app.domain.model.Diet
 import fr.kalori.app.domain.model.MealSlot
+import fr.kalori.app.domain.model.PriceTier
 import fr.kalori.app.domain.model.SnackMode
 import java.text.Normalizer
 
@@ -93,6 +96,8 @@ class FoodPreferencesActions(
     val onToggleMainSlot: (MealSlot) -> Unit,
     val onSnackMode: (SnackMode) -> Unit,
     val onBudget: (String) -> Unit = {},
+    val onBudgetPeriod: (BudgetPeriod) -> Unit = {},
+    val onPriceTier: (PriceTier) -> Unit = {},
     val onCookingLevel: (CookingLevel) -> Unit = {},
     val onLunchLeftovers: (Boolean) -> Unit = {},
     val onWeeklyBreakfast: (Boolean) -> Unit = {},
@@ -109,6 +114,8 @@ fun FoodPreferencesViewModel.actions() = FoodPreferencesActions(
     onToggleMainSlot = ::toggleMainSlot,
     onSnackMode = ::setSnackMode,
     onBudget = ::setBudget,
+    onBudgetPeriod = ::setBudgetPeriod,
+    onPriceTier = ::setPriceTier,
     onCookingLevel = ::setCookingLevel,
     onLunchLeftovers = ::setLunchLeftovers,
     onWeeklyBreakfast = ::setWeeklyBreakfast,
@@ -289,26 +296,51 @@ private fun OrganizationCard(schedule: ScheduleState, actions: FoodPreferencesAc
     KaloriCard {
         CardTitle("Budget et organisation", "Les repas à venir sont recomposés à chaque changement.")
 
+        Text("Où tu fais tes courses", style = MaterialTheme.typography.labelLarge)
+        SingleChoiceSegmentedButtonRow(Modifier.fillMaxWidth()) {
+            PriceTier.entries.forEachIndexed { index, tier ->
+                SegmentedButton(
+                    selected = organization.priceTier == tier,
+                    onClick = { actions.onPriceTier(tier) },
+                    shape = SegmentedButtonDefaults.itemShape(index, PriceTier.entries.size),
+                ) { Text(tier.label, maxLines = 1) }
+            }
+        }
+        Hint(organization.priceTier.description)
+
+        val period = organization.budgetPeriod
         OutlinedTextField(
-            value = organization.weeklyBudgetEur?.toString().orEmpty(),
+            value = organization.budgetEur?.toString().orEmpty(),
             onValueChange = actions.onBudget,
             modifier = Modifier.fillMaxWidth(),
             singleLine = true,
             shape = MaterialTheme.shapes.medium,
-            label = { Text("Budget courses par semaine") },
+            label = { Text("Budget courses") },
             placeholder = { Text("Pas de limite") },
             leadingIcon = { Icon(Icons.Outlined.Savings, contentDescription = null) },
-            suffix = { Text("€") },
+            suffix = { Text("€ / ${period.short}") },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             supportingText = {
                 Text(
                     buildString {
-                        schedule.cheapestWeek?.let { append("Pour ton objectif, compte au moins ~$it € par semaine. ") }
+                        schedule.cheapestWeek?.let { weekly ->
+                            val minimum = kotlin.math.ceil(Budget(1, period).fromWeek(weekly) / 5.0).toInt() * 5
+                            append("Pour ton objectif, compte au moins ~$minimum € par ${period.short} avec ces prix. ")
+                        }
                         append("Prix moyens estimés, modifiables dans la liste de courses.")
                     },
                 )
             },
         )
+        SingleChoiceSegmentedButtonRow(Modifier.fillMaxWidth()) {
+            BudgetPeriod.entries.forEachIndexed { index, p ->
+                SegmentedButton(
+                    selected = period == p,
+                    onClick = { actions.onBudgetPeriod(p) },
+                    shape = SegmentedButtonDefaults.itemShape(index, BudgetPeriod.entries.size),
+                ) { Text(p.label) }
+            }
+        }
 
         Text("Niveau de cuisine", style = MaterialTheme.typography.labelLarge)
         SingleChoiceSegmentedButtonRow(Modifier.fillMaxWidth()) {

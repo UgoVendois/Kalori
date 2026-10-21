@@ -73,7 +73,9 @@ import fr.kalori.app.core.ui.components.SnackbarMessages
 import fr.kalori.app.core.ui.components.Tag
 import fr.kalori.app.core.ui.theme.Kalori
 import fr.kalori.app.data.meal.DayMeal
+import fr.kalori.app.domain.meal.Budget
 import fr.kalori.app.domain.meal.PrepKind
+import fr.kalori.app.domain.model.BudgetPeriod
 import fr.kalori.app.domain.model.MealSlot
 import fr.kalori.app.domain.model.MealStatus
 import fr.kalori.app.domain.model.Nutrition
@@ -145,7 +147,7 @@ fun MealsContent(
             else -> {
                 item { DaySelector(state.dates, state.selectedDate, state.today, state.meals, onSelectDate) }
                 item { DaySummary(state.selectedMeals, state.dailyKcal) }
-                item { WeekBudget(state.weekCost, state.weeklyBudget, onOpenPreferences) }
+                item { WeekBudget(state.weekCost, state.budget, onOpenPreferences) }
                 val meals = state.selectedMeals.associateBy { it.slot }
                 state.slotTargets.keys.sortedBy { it.ordinal }.forEach { slot ->
                     item(key = "${state.selectedDate}_$slot") {
@@ -325,34 +327,31 @@ fun DayMeal.prepTag(): Pair<String, ImageVector>? = when (prep.kind) {
     PrepKind.FROM_BATCH -> "De ta fournée" to Icons.Outlined.Kitchen
 }
 
-/** Courses estimées des 7 jours, comparées au budget s'il y en a un. */
+/** Courses estimées des 7 jours, comparées au budget (à la semaine ou ramené au mois). */
 @Composable
-private fun WeekBudget(cost: Double, budget: Int?, onOpenPreferences: () -> Unit) {
+private fun WeekBudget(cost: Double, budget: Budget?, onOpenPreferences: () -> Unit) {
     if (cost <= 0.0) return
-    val over = budget != null && cost > budget
+    val over = budget != null && cost > budget.perWeek
     KaloriCard(contentPadding = 14.dp, spacing = 8.dp) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             IconBadge(Icons.Outlined.ShoppingCart, if (over) Kalori.colors.noon else Kalori.colors.snack, size = 36.dp)
             Spacer(Modifier.width(12.dp))
             Column(Modifier.weight(1f)) {
                 Text("Courses des 7 jours", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                Row(verticalAlignment = Alignment.Bottom) {
-                    Text("≈ ${Format.eurosRounded(cost)}", style = MaterialTheme.typography.titleLarge)
-                    if (budget != null) {
-                        Text(
-                            " / $budget € de budget",
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            modifier = Modifier.padding(bottom = 2.dp),
-                        )
+                Text("≈ ${Format.eurosRounded(cost)}", style = MaterialTheme.typography.titleLarge)
+                if (budget != null) {
+                    val text = when (budget.period) {
+                        BudgetPeriod.WEEK -> "sur ${budget.amountEur} € de budget par semaine"
+                        BudgetPeriod.MONTH -> "soit ~${Format.eurosRounded(budget.fromWeek(cost))} par mois, sur ${budget.amountEur} € de budget"
                     }
+                    Text(text, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
                 }
             }
             if (budget == null) TextButton(onClick = onOpenPreferences) { Text("Fixer un budget") }
         }
         if (budget != null) {
             LinearProgressIndicator(
-                progress = { (cost / budget).toFloat().coerceIn(0f, 1f) },
+                progress = { (cost / budget.perWeek).toFloat().coerceIn(0f, 1f) },
                 modifier = Modifier.fillMaxWidth().height(8.dp).clip(CircleShape),
                 color = if (over) MaterialTheme.colorScheme.error else Kalori.colors.snack.solid,
                 trackColor = MaterialTheme.colorScheme.surfaceContainerHighest,
@@ -360,7 +359,8 @@ private fun WeekBudget(cost: Double, budget: Int?, onOpenPreferences: () -> Unit
             )
             if (over) {
                 Text(
-                    "Au-dessus de ton budget : remplace un plat, ou corrige les prix dans la liste de courses.",
+                    "Au-dessus de ton budget : vérifie la gamme de prix dans Mes goûts et restrictions, " +
+                        "corrige les prix dans la liste de courses ou remplace un plat.",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.error,
                 )

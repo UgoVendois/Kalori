@@ -1363,3 +1363,111 @@
 - Écraser les bananes, ajouter l'œuf, le sucre et le beurre, puis la farine, la levure et les noix concassées.
 - Cuire 45 à 50 minutes dans un moule à cake ; découper en tranches (4 jours dans une boîte, ou congeler).
 - Chaque matin : une tranche avec le fromage blanc.
+
+# ───────────── Petit budget (produits de base, toute l'année) ─────────────
+
+@ lentilles_riz_carottes | Lentilles vertes mijotées aux carottes, riz | PLANT
+* temps=40 niveau=1 frigo=3 boite congel
++ lentilles_vertes 105, riz_blanc 45, carotte 100, oignon 60, huile_colza 10, cumin 2, ail 3
+- Rincer les lentilles et les cuire 25 minutes dans trois fois leur volume d'eau, avec les carottes en rondelles.
+- Cuire le riz à part, 11 minutes dans l'eau bouillante salée.
+- Faire revenir l'oignon et l'ail dans l'huile avec le cumin, puis mélanger avec les lentilles égouttées.
+- Servir avec le riz.
+
+@ dahl_eco_riz | Dahl de lentilles corail à la tomate, riz | PLANT
+* temps=30 niveau=1 frigo=3 boite congel
++ lentilles_corail 115, riz_blanc 50, tomates_pelees 150, oignon 60, carotte 60, curry 3, huile_colza 10
+- Faire revenir l'oignon et la carotte râpée dans l'huile avec le curry.
+- Ajouter les lentilles rincées, les tomates et 2 fois leur volume d'eau ; cuire 15 à 20 minutes en remuant.
+- Pendant ce temps, cuire le riz 11 minutes. Servir ensemble.
+
+@ pates_tomate_oeufs | Pâtes à la sauce tomate et œufs durs | EGG
+* temps=20 niveau=1 frigo=2 boite
++ pates 120, tomates_pelees 200, oignon 50, huile_colza 10, oeuf 110, herbes_provence 1
+- Cuire les œufs 10 minutes, les refroidir et les écaler.
+- Faire revenir l'oignon dans l'huile, ajouter les tomates et les herbes, laisser réduire 10 minutes.
+- Cuire les pâtes, les mélanger à la sauce et servir avec les œufs coupés en quartiers.
+
+@ riz_saute_oeufs_mais | Riz sauté aux œufs, maïs et carottes | EGG
+* temps=20 niveau=1 frigo=2 boite
++ riz_blanc 100, oeuf 110, mais 60, carotte 70, oignon 40, huile_colza 12, sauce_soja 10
+- Cuire le riz (idéalement la veille, il saute mieux froid).
+- Faire revenir l'oignon et les carottes en petits dés dans l'huile, ajouter le maïs égoutté.
+- Ajouter le riz, puis les œufs battus en remuant jusqu'à ce qu'ils prennent ; assaisonner de sauce soja.
+
+@ chili_eco_riz | Chili de haricots rouges, riz | PLANT
+* temps=30 niveau=1 frigo=3 boite congel
++ haricots_rouges 260, riz_blanc 65, tomates_pelees 150, oignon 60, huile_colza 8, cumin 2, paprika 2
+- Cuire le riz 11 minutes.
+- Faire revenir l'oignon dans l'huile avec les épices, ajouter les tomates et les haricots rincés.
+- Laisser mijoter 15 minutes et servir avec le riz.
+
+@ semoule_pois_chiches_chou | Semoule aux pois chiches, carottes et chou | PLANT
+* temps=30 niveau=1 frigo=3 boite congel
++ semoule 70, pois_chiches 210, carotte 80, chou_vert 100, oignon 50, huile_colza 10, cumin 2
+- Faire revenir l'oignon dans l'huile, ajouter les carottes en rondelles, le chou émincé et le cumin.
+- Couvrir d'un fond d'eau et cuire 15 minutes, puis ajouter les pois chiches rincés.
+- Verser la semoule dans le même volume d'eau bouillante salée, couvrir 5 minutes et égrener. Servir avec les légumes.
+
+@ gratin_pates_emmental | Gratin de pâtes au lait et à l'emmental | DAIRY
+* temps=35 niveau=1 frigo=3 boite congel
++ pates 100, lait 200, emmental 25, oeuf 110, farine 10
+- Cuire les pâtes 2 minutes de moins qu'indiqué et préchauffer le four à 200 °C.
+- Battre l'œuf avec le lait et la farine, saler, poivrer.
+- Mélanger avec les pâtes dans un plat, parsemer d'emmental et gratiner 20 minutes.
+
+@ poulet_cuisse_riz_carottes | Cuisse de poulet rôtie, riz et carottes | POULTRY
+* temps=50 niveau=1 frigo=3 boite
++ poulet_cuisse 150, riz_blanc 90, carotte 120, oignon 50, huile_colza 8, herbes_provence 1
+- Préchauffer le four à 200 °C. Disposer la cuisse, les carottes en bâtons et l'oignon en quartiers sur une plaque.
+- Arroser d'huile, parsemer d'herbes et rôtir 40 minutes en retournant à mi-cuisson.
+- Servir avec le riz cuit 11 minutes.
+
+@ pates_lentilles_tomate | Pâtes aux lentilles corail et à la tomate | PLANT
+* temps=25 niveau=1 frigo=3 boite congel
++ pates 75, lentilles_corail 75, tomates_pelees 200, oignon 50, carotte 60, huile_colza 8, herbes_provence 1
+- Faire revenir l'oignon et la carotte râpée dans l'huile.
+- Ajouter les lentilles rincées, les tomates, les herbes et un verre d'eau ; cuire 15 minutes.
+- Cuire les pâtes et les mélanger à la sauce.
+
+@ pdt_oeufs_oignons | Pommes de terre sautées, œufs au plat et oignons | EGG
+* temps=30 niveau=1 frigo=1
++ pomme_de_terre 350, oeuf 110, oignon 60, huile_colza 15
+- Couper les pommes de terre en dés et les faire dorer 20 minutes à la poêle dans l'huile, avec l'oignon émincé.
+- Cuire les œufs au plat dans la même poêle et servir aussitôt.
+
+@ soupe_pois_chiches_pain | Soupe épaisse de pois chiches, carottes et pain | PLANT
+* temps=35 niveau=1 frigo=3 boite congel
++ pois_chiches 220, carotte 120, pomme_de_terre 100, oignon 60, huile_colza 10, cumin 2, pain_campagne 70
+- Faire revenir l'oignon dans l'huile, ajouter les carottes et les pommes de terre en morceaux et le cumin.
+- Couvrir d'eau et cuire 20 minutes, ajouter les pois chiches rincés et mixer grossièrement.
+- Servir avec le pain.
+
+@ porridge_lait_banane | Porridge au lait et à la banane | DAIRY | BREAKFAST
+* temps=10 niveau=1 frigo=0
++ flocons_avoine 80, lait 300, banane 100
+- Cuire les flocons dans le lait 5 minutes à feu doux en remuant.
+- Servir avec la banane en rondelles.
+
+@ pain_cacahuete_lait | Pain, beurre de cacahuète et bol de lait | PLANT | BREAKFAST
+* temps=5 niveau=1 frigo=0
++ pain_campagne 100, beurre_cacahuete 20, lait 250
+- Tartiner le pain de beurre de cacahuète et servir avec un bol de lait.
+
+@ crepes_maison | Crêpes maison au sucre | EGG | BREAKFAST
+* temps=40 niveau=1 frigo=3 congel fournee
++ farine 60, lait 150, oeuf 30, sucre 10, huile_colza 5
+- Mélanger la farine et le sucre, ajouter les œufs puis le lait petit à petit pour éviter les grumeaux ; laisser reposer 30 minutes si possible.
+- Cuire les crêpes une à une dans une poêle huilée bien chaude.
+- Empiler, laisser refroidir et garder 3 jours au frais ; congeler le reste (séparées par du papier cuisson).
+
+@ pain_chocolat_gouter | Pain et carré de chocolat noir | PLANT | SNACK
+* temps=2 niveau=1 frigo=0
++ pain_campagne 60, chocolat_noir 15
+- Servir le pain avec le chocolat.
+
+@ semoule_au_lait | Gâteau de semoule au lait | DAIRY | SNACK
+* temps=20 niveau=1 frigo=4
++ semoule 30, lait 200, sucre 12, cannelle 1
+- Porter le lait à frémir avec le sucre et la cannelle, verser la semoule en pluie.
+- Cuire 5 minutes en remuant, verser dans des ramequins et laisser prendre au frais.

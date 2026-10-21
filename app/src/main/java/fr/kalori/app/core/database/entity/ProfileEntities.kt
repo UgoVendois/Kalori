@@ -9,14 +9,17 @@ import androidx.room.PrimaryKey
 import fr.kalori.app.core.database.InstantSerializer
 import fr.kalori.app.core.database.LocalDateSerializer
 import fr.kalori.app.domain.model.ActivityLevel
+import fr.kalori.app.domain.model.BudgetPeriod
+import fr.kalori.app.domain.model.CookingLevel
 import fr.kalori.app.domain.model.GoalType
+import fr.kalori.app.domain.model.PriceTier
 import fr.kalori.app.domain.model.RestrictionKind
 import fr.kalori.app.domain.model.Sex
-import fr.kalori.app.domain.model.CookingLevel
 import fr.kalori.app.domain.model.SnackMode
 import fr.kalori.app.domain.model.UnitSystem
 import java.time.Instant
 import java.time.LocalDate
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.UseSerializers
 
@@ -47,8 +50,18 @@ data class UserProfileEntity(
     /** Repas principaux pris (masque de MealSlot : matin, midi, soir). */
     val enabledSlotsMask: Int = DEFAULT_SLOTS_MASK,
     val snackMode: SnackMode = SnackMode.AUTO,
-    /** Budget courses par semaine en euros, null = pas de limite (colonnes ajoutées en v3). */
-    val weeklyBudgetEur: Int? = null,
+    /**
+     * Budget courses en euros, dans la période [budgetPeriod] ; null = pas de limite (v3).
+     * La colonne garde son nom d'origine (le budget était hebdomadaire avant la v4).
+     */
+    @ColumnInfo(name = "weeklyBudgetEur")
+    @SerialName("weeklyBudgetEur")
+    val budgetEur: Int? = null,
+    @ColumnInfo(defaultValue = "WEEK")
+    val budgetPeriod: BudgetPeriod = BudgetPeriod.WEEK,
+    /** Gamme de prix des courses (v4). */
+    @ColumnInfo(defaultValue = "STANDARD")
+    val priceTier: PriceTier = PriceTier.STANDARD,
     @ColumnInfo(defaultValue = "NORMAL")
     val cookingLevel: CookingLevel = CookingLevel.NORMAL,
     /** Midi = restes du dîner de la veille (repas emporté). */

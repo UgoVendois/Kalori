@@ -1,15 +1,17 @@
 package fr.kalori.app.data.profile
 
-import fr.kalori.app.domain.model.CookingLevel
 import fr.kalori.app.core.database.dao.TrackingDao
 import fr.kalori.app.core.database.entity.UserProfileEntity
 import fr.kalori.app.data.meal.MealPlanRepository
 import fr.kalori.app.domain.model.ActivityLevel
+import fr.kalori.app.domain.model.BudgetPeriod
+import fr.kalori.app.domain.model.CookingLevel
 import fr.kalori.app.domain.model.MealSlot
+import fr.kalori.app.domain.model.PriceTier
 import fr.kalori.app.domain.model.Sex
 import fr.kalori.app.domain.model.SnackMode
-import fr.kalori.app.domain.model.toMask
 import fr.kalori.app.domain.model.UnitSystem
+import fr.kalori.app.domain.model.toMask
 import fr.kalori.app.domain.nutrition.BodyProfile
 import fr.kalori.app.domain.nutrition.EnergyCalculator
 import fr.kalori.app.domain.nutrition.PaceOption
@@ -123,7 +125,9 @@ class GoalService @Inject constructor(
     suspend fun setOrganization(organization: Organization) {
         val profile = profileRepository.getProfile() ?: return
         val updated = profile.copy(
-            weeklyBudgetEur = organization.weeklyBudgetEur?.coerceIn(MIN_BUDGET, MAX_BUDGET),
+            budgetEur = organization.budgetEur?.coerceIn(MIN_BUDGET, MAX_BUDGET),
+            budgetPeriod = organization.budgetPeriod,
+            priceTier = organization.priceTier,
             cookingLevel = organization.cookingLevel,
             lunchLeftovers = organization.lunchLeftovers,
             weeklyBreakfast = organization.weeklyBreakfast,
@@ -142,14 +146,17 @@ class GoalService @Inject constructor(
 
 /** Budget et organisation de la semaine, tels que réglés dans « Mes goûts et restrictions ». */
 data class Organization(
-    val weeklyBudgetEur: Int? = null,
+    val budgetEur: Int? = null,
+    val budgetPeriod: BudgetPeriod = BudgetPeriod.WEEK,
+    val priceTier: PriceTier = PriceTier.STANDARD,
     val cookingLevel: CookingLevel = CookingLevel.NORMAL,
     val lunchLeftovers: Boolean = false,
     val weeklyBreakfast: Boolean = false,
     val weeklySnack: Boolean = false,
 )
 
-fun UserProfileEntity.organization() = Organization(weeklyBudgetEur, cookingLevel, lunchLeftovers, weeklyBreakfast, weeklySnack)
+fun UserProfileEntity.organization() =
+    Organization(budgetEur, budgetPeriod, priceTier, cookingLevel, lunchLeftovers, weeklyBreakfast, weeklySnack)
 
 private const val MIN_BUDGET = 1
-private const val MAX_BUDGET = 1000
+private const val MAX_BUDGET = 5000

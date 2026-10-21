@@ -111,6 +111,34 @@ enum class CookingLevel(val label: String, val maxDifficulty: Int, val descripti
     ELABORATE("Élaboré", 3, "Plats mijotés et recettes travaillées"),
 }
 
+/**
+ * Gamme de prix des courses. Les prix embarqués sont ceux d'une gamme courante en supermarché ;
+ * les autres gammes appliquent un coefficient estimé par rayon (l'écart est fort sur l'épicerie
+ * et les féculents, faible sur les produits frais).
+ */
+enum class PriceTier(val label: String, val description: String) {
+    DISCOUNT("Premiers prix", "Marques distributeur, hard-discount"),
+    STANDARD("Courant", "Supermarché, marques courantes"),
+    ORGANIC("Bio", "Produits issus de l'agriculture biologique"),
+    ;
+
+    fun factor(aisle: Aisle): Double = when (this) {
+        STANDARD -> 1.0
+        ORGANIC -> 1.5
+        DISCOUNT -> when (aisle) {
+            Aisle.STARCHES, Aisle.CANNED_LEGUMES, Aisle.BAKERY, Aisle.PANTRY, Aisle.BREAKFAST_SWEET -> 0.6
+            Aisle.SPICES -> 0.5
+            Aisle.DAIRY_EGGS, Aisle.BUTCHER, Aisle.NUTS_SEEDS, Aisle.DRINKS -> 0.75
+            Aisle.FRUITS_VEGETABLES, Aisle.FISHMONGER, Aisle.PLANT_PROTEINS -> 0.8
+        }
+    }
+}
+
+enum class BudgetPeriod(val label: String, val short: String) {
+    WEEK("Par semaine", "semaine"),
+    MONTH("Par mois", "mois"),
+}
+
 enum class MealStatus { PLANNED, EATEN, SKIPPED }
 
 enum class RestrictionKind { ALLERGEN, DIET, LIKE, DISLIKE }

@@ -26,21 +26,28 @@ import fr.kalori.app.data.meal.ReplaceResult
 import fr.kalori.app.data.meal.ShoppingList
 import fr.kalori.app.data.profile.GoalService
 import fr.kalori.app.data.profile.Organization
-import fr.kalori.app.data.profile.organization
 import fr.kalori.app.data.profile.ProfileRepository
+import fr.kalori.app.data.profile.budget
 import fr.kalori.app.data.profile.enabledMains
+import fr.kalori.app.data.profile.organization
 import fr.kalori.app.data.profile.slotTargets
+import fr.kalori.app.domain.meal.Budget
 import fr.kalori.app.domain.meal.FoodPreferences
 import fr.kalori.app.domain.meal.ShoppingListBuilder
 import fr.kalori.app.domain.model.Aisle
 import fr.kalori.app.domain.model.Allergen
+import fr.kalori.app.domain.model.BudgetPeriod
 import fr.kalori.app.domain.model.CookingLevel
 import fr.kalori.app.domain.model.Diet
 import fr.kalori.app.domain.model.MealSlot
 import fr.kalori.app.domain.model.MealStatus
+import fr.kalori.app.domain.model.PriceTier
 import fr.kalori.app.domain.model.SnackMode
 import fr.kalori.app.domain.nutrition.NutritionTargets
 import fr.kalori.app.navigation.MealDetailRoute
+import java.time.LocalDate
+import javax.inject.Inject
+import kotlin.math.roundToInt
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.channels.Channel
@@ -58,8 +65,6 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import java.time.LocalDate
-import javax.inject.Inject
 
 private val sharing = SharingStarted.WhileSubscribed(5_000)
 
@@ -83,7 +88,7 @@ data class MealsUiState(
     /** Créneaux actifs et leur cible, dans l'ordre de la journée. */
     val slotTargets: Map<MealSlot, NutritionTargets> = emptyMap(),
     val dailyKcal: Int = 0,
-    val weeklyBudget: Int? = null,
+    val budget: Budget? = null,
 ) {
     val selectedMeals: List<DayMeal> get() = meals[selectedDate].orEmpty()
 
@@ -119,7 +124,7 @@ class MealsViewModel @Inject constructor(
             meals = meals.groupBy { it.date },
             slotTargets = profile?.slotTargets().orEmpty(),
             dailyKcal = profile?.kcalTarget ?: 0,
-            weeklyBudget = profile?.weeklyBudgetEur,
+            budget = profile?.budget(),
         )
     }.stateIn(viewModelScope, sharing, MealsUiState(today = repository.today(), selectedDate = repository.today()))
 
@@ -236,7 +241,7 @@ data class ScheduleState(
     val snackMode: SnackMode = SnackMode.AUTO,
     val organization: Organization = Organization(),
     /** Ordre de grandeur du budget minimal pour l'objectif (plats les moins chers), en €/semaine. */
-    val cheapestWeek: Int? = null,
+    val cheapestWeek: Double? = null,
 )
 
 data class FoodPreferencesUiState(
@@ -316,8 +321,17 @@ class FoodPreferencesViewModel @Inject constructor(
     /** Budget saisi au clavier : enregistré après une courte pause de frappe. */
     fun setBudget(text: String) {
         val budget = text.filter(Char::isDigit).take(4).toIntOrNull()?.takeIf { it > 0 }
-        editOrganization(debounce = true) { it.copy(weeklyBudgetEur = budget) }
+        editOrganization(debounce = true) { it.copy(budgetEur = budget) }
     }
+
+    /** Changer de période convertit le montant (100 €/mois ≈ 23 €/semaine) plutôt que de le garder tel quel. */
+    fun setBudgetPeriod(period: BudgetPeriod) = editOrganization { org ->
+        if (org.budgetPeriod == period) return@editOrganization org
+        val amount = org.budgetEur?.let { Budget(it, period).fromWeek(Budget(it, org.budgetPeriod).perWeek).roundToInt() }
+        org.copy(budgetEur = amount, budgetPeriod = period)
+    }
+
+    fun setPriceTier(tier: PriceTier) = editOrganization { it.copy(priceTier = tier) }
 
     fun setCookingLevel(level: CookingLevel) = editOrganization { it.copy(cookingLevel = level) }
 
@@ -339,7 +353,9 @@ class FoodPreferencesViewModel @Inject constructor(
             // Hors du ViewModel : quitter l'écran juste après ne perd pas le réglage.
             applicationScope.launch {
                 goalService.setOrganization(organization)
-                draft.update { it.copy(saveState = SaveState.SAVED) }
+                // Le minimum indicatif dépend de la gamme de prix.
+                val cheapest = mealPlanRepository.cheapestWeekEstimate()
+                draft.update { it.copy(schedule = it.schedule.copy(cheapestWeek = cheapest), saveState = SaveState.SAVED) }
             }
         }
     }

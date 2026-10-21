@@ -2,6 +2,7 @@ package fr.kalori.app.data.profile
 
 import fr.kalori.app.core.database.dao.ProfileDao
 import fr.kalori.app.core.database.entity.UserProfileEntity
+import fr.kalori.app.domain.meal.Budget
 import fr.kalori.app.domain.meal.MealSchedule
 import fr.kalori.app.domain.meal.PlanSettings
 import fr.kalori.app.domain.model.MealSlot
@@ -54,3 +55,5 @@ fun UserProfileEntity.planSettings(): PlanSettings {
         },
     )
 }
+
+fun UserProfileEntity.budget(): Budget? = budgetEur?.let { Budget(it, budgetPeriod) }

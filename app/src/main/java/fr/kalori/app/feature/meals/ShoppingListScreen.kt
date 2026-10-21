@@ -52,6 +52,7 @@ import fr.kalori.app.core.ui.components.SnackbarMessages
 import fr.kalori.app.core.ui.theme.Kalori
 import fr.kalori.app.data.meal.ShoppingList
 import fr.kalori.app.domain.meal.ShoppingItem
+import fr.kalori.app.domain.model.BudgetPeriod
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -192,13 +193,17 @@ fun ShoppingListScreen(
 /** Total estimé de la liste, comparé au budget de la semaine. */
 @Composable
 private fun CostSummary(list: ShoppingList, modifier: Modifier = Modifier) {
-    val budget = list.weeklyBudget
-    val over = budget != null && list.total > budget
+    val budget = list.budget
+    val over = budget != null && list.total > budget.perWeek
     KaloriCard(modifier = modifier, contentPadding = 14.dp, spacing = 6.dp) {
         Row(verticalAlignment = Alignment.Bottom) {
             Text("≈ ${Format.eurosRounded(list.total)}", style = MaterialTheme.typography.headlineSmall)
             Text(
-                if (budget != null) "  sur $budget € de budget" else "  estimés",
+                when {
+                    budget == null -> "  estimés"
+                    budget.period == BudgetPeriod.WEEK -> "  sur ${budget.amountEur} € de budget"
+                    else -> "  (~${Format.eurosRounded(budget.fromWeek(list.total))}/mois sur ${budget.amountEur} €)"
+                },
                 style = MaterialTheme.typography.bodyMedium,
                 color = if (over) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.padding(bottom = 3.dp),

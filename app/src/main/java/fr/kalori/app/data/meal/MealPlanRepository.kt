@@ -14,10 +14,12 @@ import fr.kalori.app.core.database.entity.UserProfileEntity
 import fr.kalori.app.core.di.IoDispatcher
 import fr.kalori.app.core.logging.SafeLogger
 import fr.kalori.app.data.profile.ProfileRepository
+import fr.kalori.app.data.profile.budget
 import fr.kalori.app.data.profile.dailyTargets
 import fr.kalori.app.data.profile.planSettings
 import fr.kalori.app.data.profile.slotTargets
 import fr.kalori.app.data.seed.SeedImporter
+import fr.kalori.app.domain.meal.Budget
 import fr.kalori.app.domain.meal.FoodPreferences
 import fr.kalori.app.domain.meal.MealCandidate
 import fr.kalori.app.domain.meal.MealContext
@@ -38,6 +40,7 @@ import fr.kalori.app.domain.model.MealSlot
 import fr.kalori.app.domain.model.MealStatus
 import fr.kalori.app.domain.model.MealType
 import fr.kalori.app.domain.model.Nutrition
+import fr.kalori.app.domain.model.PriceTier
 import fr.kalori.app.domain.model.RecipeOrigin
 import fr.kalori.app.domain.model.RestrictionKind
 import fr.kalori.app.domain.model.SeasonMask
@@ -112,7 +115,7 @@ data class ShoppingList(
     val pricePerKg: Map<String, Double> = emptyMap(),
     /** Articles dont le prix a été saisi par l'utilisateur. */
     val customPrices: Set<String> = emptySet(),
-    val weeklyBudget: Int? = null,
+    val budget: Budget? = null,
 ) {
     val total: Double get() = itemCosts.values.sum()
 }
@@ -131,9 +134,16 @@ data class VariantContext(
     val mustTravel: Boolean = false,
 )
 
-/** Prix au kilo de chaque ingrédient : estimation embarquée, remplacée par le prix saisi s'il existe. */
-class PriceBook(ingredients: List<IngredientEntity>, custom: List<IngredientPriceEntity>) {
-    private val base = ingredients.associate { it.id to it.priceEurPerKg }
+/**
+ * Prix au kilo de chaque ingrédient : estimation embarquée (gamme courante) ajustée à la gamme de
+ * prix choisie, remplacée par le prix saisi par l'utilisateur s'il existe.
+ */
+class PriceBook(
+    ingredients: List<IngredientEntity>,
+    custom: List<IngredientPriceEntity>,
+    tier: PriceTier = PriceTier.STANDARD,
+) {
+    private val base = ingredients.associate { it.id to it.priceEurPerKg * tier.factor(it.aisle) }
     private val overrides = custom.associate { it.ingredientId to it.eurPerKg }
 
     val customIds: Set<String> get() = overrides.keys
@@ -169,8 +179,11 @@ class MealPlanRepository @Inject constructor(
 
     fun upcomingDates(): List<LocalDate> = (0L until DAYS).map { today().plusDays(it) }
 
-    fun observePriceBook(): Flow<PriceBook> =
-        combine(catalogDao.observeIngredients(), catalogDao.observePrices()) { ingredients, prices -> PriceBook(ingredients, prices) }
+    fun observePriceBook(): Flow<PriceBook> = combine(
+        catalogDao.observeIngredients(),
+        catalogDao.observePrices(),
+        profileRepository.observeProfile(),
+    ) { ingredients, prices, profile -> PriceBook(ingredients, prices, profile?.priceTier ?: PriceTier.STANDARD) }
 
     fun observeUpcoming(): Flow<List<DayMeal>> {
         val dates = upcomingDates()
@@ -381,7 +394,7 @@ class MealPlanRepository @Inject constructor(
      * Ordre de grandeur du budget minimal (€/semaine) : chaque repas servi par la recette compatible
      * la moins chère pour ses calories. Sert d'indication à côté du champ budget.
      */
-    suspend fun cheapestWeekEstimate(): Int? = withContext(io) {
+    suspend fun cheapestWeekEstimate(): Double? = withContext(io) {
         val inputs = loadInputs() ?: return@withContext null
         val pool = MealPlanner.eligible(inputs.candidates, inputs.prefs)
         val perDay = inputs.targets.entries.sumOf { (slot, target) ->
@@ -389,7 +402,7 @@ class MealPlanRepository @Inject constructor(
                 .minOfOrNull { it.cost / it.nutrition.kcal }
                 ?.let { it * target.kcal } ?: 0.0
         }
-        (kotlin.math.ceil(perDay * DAYS / 5.0) * 5).toInt().takeIf { it > 0 }
+        (perDay * DAYS).takeIf { it > 0 }
     }
 
     // ── Prix ──
@@ -404,7 +417,7 @@ class MealPlanRepository @Inject constructor(
             }
         }
         // Le budget en dépend : les repas encore prévus sont recomposés avec les nouveaux prix.
-        if (profileRepository.getProfile()?.weeklyBudgetEur != null) regenerateUpcoming()
+        if (profileRepository.getProfile()?.budgetEur != null) regenerateUpcoming()
     }
 
     // ── Liste de courses ──
@@ -444,7 +457,7 @@ class MealPlanRepository @Inject constructor(
                 itemCosts = grams.mapValues { (id, g) -> g / 1000.0 * prices.perKg(id) },
                 pricePerKg = grams.keys.associateWith { prices.perKg(it) },
                 customPrices = prices.customIds,
-                weeklyBudget = profile?.weeklyBudgetEur,
+                budget = profile?.budget(),
             )
         }
     }
@@ -470,7 +483,7 @@ class MealPlanRepository @Inject constructor(
         val prefs: FoodPreferences,
         val targets: Map<MealSlot, NutritionTargets>,
         val settings: PlanSettings,
-        val weeklyBudget: Int?,
+        val weeklyBudget: Double?,
         val dailyKcal: Int,
     ) {
         /** Le budget de la semaine est réparti entre les repas au prorata de leurs calories. */
@@ -485,11 +498,11 @@ class MealPlanRepository @Inject constructor(
     private suspend fun loadInputs(): Inputs? {
         val profile = profileRepository.getProfile() ?: return null
         seedImporter.ready.first { it }
-        val prices = PriceBook(catalogDao.getIngredients(), catalogDao.getPrices())
+        val prices = PriceBook(catalogDao.getIngredients(), catalogDao.getPrices(), profile.priceTier)
         val candidates = catalogDao.getActiveRecipes().map { it.toCandidate(prices.cost(it.ingredients)) }
         val prefs = restrictionDao.getAll().toFoodPreferences()
         val targets = profile.slotTargets()
-        return Inputs(candidates, prefs, targets, profile.planSettings(), profile.weeklyBudgetEur, profile.dailyTargets().kcal)
+        return Inputs(candidates, prefs, targets, profile.planSettings(), profile.budget()?.perWeek, profile.dailyTargets().kcal)
     }
 
     private suspend fun existingKeys(): Set<Pair<LocalDate, MealSlot>> {

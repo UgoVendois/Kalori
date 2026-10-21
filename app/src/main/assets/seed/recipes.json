@@ -8775,5 +8775,651 @@
     "grams": 100.0
    }
   ]
+ },
+ {
+  "id": "lentilles_riz_carottes",
+  "name": "Lentilles vertes mijotées aux carottes, riz",
+  "mainProtein": "PLANT",
+  "mealType": "MAIN",
+  "prepMinutes": 40,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
+  "steps": [
+   "Rincer les lentilles et les cuire 25 minutes dans trois fois leur volume d'eau, avec les carottes en rondelles.",
+   "Cuire le riz à part, 11 minutes dans l'eau bouillante salée.",
+   "Faire revenir l'oignon et l'ail dans l'huile avec le cumin, puis mélanger avec les lentilles égouttées.",
+   "Servir avec le riz."
+  ],
+  "ingredients": [
+   {
+    "ingredientId": "lentilles_vertes",
+    "grams": 105.0
+   },
+   {
+    "ingredientId": "riz_blanc",
+    "grams": 45.0
+   },
+   {
+    "ingredientId": "carotte",
+    "grams": 100.0
+   },
+   {
+    "ingredientId": "oignon",
+    "grams": 60.0
+   },
+   {
+    "ingredientId": "huile_colza",
+    "grams": 10.0
+   },
+   {
+    "ingredientId": "cumin",
+    "grams": 2.0
+   },
+   {
+    "ingredientId": "ail",
+    "grams": 3.0
+   }
+  ]
+ },
+ {
+  "id": "dahl_eco_riz",
+  "name": "Dahl de lentilles corail à la tomate, riz",
+  "mainProtein": "PLANT",
+  "mealType": "MAIN",
+  "prepMinutes": 30,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
+  "steps": [
+   "Faire revenir l'oignon et la carotte râpée dans l'huile avec le curry.",
+   "Ajouter les lentilles rincées, les tomates et 2 fois leur volume d'eau ; cuire 15 à 20 minutes en remuant.",
+   "Pendant ce temps, cuire le riz 11 minutes. Servir ensemble."
+  ],
+  "ingredients": [
+   {
+    "ingredientId": "lentilles_corail",
+    "grams": 115.0
+   },
+   {
+    "ingredientId": "riz_blanc",
+    "grams": 50.0
+   },
+   {
+    "ingredientId": "tomates_pelees",
+    "grams": 150.0
+   },
+   {
+    "ingredientId": "oignon",
+    "grams": 60.0
+   },
+   {
+    "ingredientId": "carotte",
+    "grams": 60.0
+   },
+   {
+    "ingredientId": "curry",
+    "grams": 3.0
+   },
+   {
+    "ingredientId": "huile_colza",
+    "grams": 10.0
+   }
+  ]
+ },
+ {
+  "id": "pates_tomate_oeufs",
+  "name": "Pâtes à la sauce tomate et œufs durs",
+  "mainProtein": "EGG",
+  "mealType": "MAIN",
+  "prepMinutes": 20,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
+  "steps": [
+   "Cuire les œufs 10 minutes, les refroidir et les écaler.",
+   "Faire revenir l'oignon dans l'huile, ajouter les tomates et les herbes, laisser réduire 10 minutes.",
+   "Cuire les pâtes, les mélanger à la sauce et servir avec les œufs coupés en quartiers."
+  ],
+  "ingredients": [
+   {
+    "ingredientId": "pates",
+    "grams": 120.0
+   },
+   {
+    "ingredientId": "tomates_pelees",
+    "grams": 200.0
+   },
+   {
+    "ingredientId": "oignon",
+    "grams": 50.0
+   },
+   {
+    "ingredientId": "huile_colza",
+    "grams": 10.0
+   },
+   {
+    "ingredientId": "oeuf",
+    "grams": 110.0
+   },
+   {
+    "ingredientId": "herbes_provence",
+    "grams": 1.0
+   }
+  ]
+ },
+ {
+  "id": "riz_saute_oeufs_mais",
+  "name": "Riz sauté aux œufs, maïs et carottes",
+  "mainProtein": "EGG",
+  "mealType": "MAIN",
+  "prepMinutes": 20,
+  "difficulty": 1,
+  "keepDays": 2,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
+  "steps": [
+   "Cuire le riz (idéalement la veille, il saute mieux froid).",
+   "Faire revenir l'oignon et les carottes en petits dés dans l'huile, ajouter le maïs égoutté.",
+   "Ajouter le riz, puis les œufs battus en remuant jusqu'à ce qu'ils prennent ; assaisonner de sauce soja."
+  ],
+  "ingredients": [
+   {
+    "ingredientId": "riz_blanc",
+    "grams": 100.0
+   },
+   {
+    "ingredientId": "oeuf",
+    "grams": 110.0
+   },
+   {
+    "ingredientId": "mais",
+    "grams": 60.0
+   },
+   {
+    "ingredientId": "carotte",
+    "grams": 70.0
+   },
+   {
+    "ingredientId": "oignon",
+    "grams": 40.0
+   },
+   {
+    "ingredientId": "huile_colza",
+    "grams": 12.0
+   },
+   {
+    "ingredientId": "sauce_soja",
+    "grams": 10.0
+   }
+  ]
+ },
+ {
+  "id": "chili_eco_riz",
+  "name": "Chili de haricots rouges, riz",
+  "mainProtein": "PLANT",
+  "mealType": "MAIN",
+  "prepMinutes": 30,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
+  "steps": [
+   "Cuire le riz 11 minutes.",
+   "Faire revenir l'oignon dans l'huile avec les épices, ajouter les tomates et les haricots rincés.",
+   "Laisser mijoter 15 minutes et servir avec le riz."
+  ],
+  "ingredients": [
+   {
+    "ingredientId": "haricots_rouges",
+    "grams": 260.0
+   },
+   {
+    "ingredientId": "riz_blanc",
+    "grams": 65.0
+   },
+   {
+    "ingredientId": "tomates_pelees",
+    "grams": 150.0
+   },
+   {
+    "ingredientId": "oignon",
+    "grams": 60.0
+   },
+   {
+    "ingredientId": "huile_colza",
+    "grams": 8.0
+   },
+   {
+    "ingredientId": "cumin",
+    "grams": 2.0
+   },
+   {
+    "ingredientId": "paprika",
+    "grams": 2.0
+   }
+  ]
+ },
+ {
+  "id": "semoule_pois_chiches_chou",
+  "name": "Semoule aux pois chiches, carottes et chou",
+  "mainProtein": "PLANT",
+  "mealType": "MAIN",
+  "prepMinutes": 30,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
+  "steps": [
+   "Faire revenir l'oignon dans l'huile, ajouter les carottes en rondelles, le chou émincé et le cumin.",
+   "Couvrir d'un fond d'eau et cuire 15 minutes, puis ajouter les pois chiches rincés.",
+   "Verser la semoule dans le même volume d'eau bouillante salée, couvrir 5 minutes et égrener. Servir avec les légumes."
+  ],
+  "ingredients": [
+   {
+    "ingredientId": "semoule",
+    "grams": 70.0
+   },
+   {
+    "ingredientId": "pois_chiches",
+    "grams": 210.0
+   },
+   {
+    "ingredientId": "carotte",
+    "grams": 80.0
+   },
+   {
+    "ingredientId": "chou_vert",
+    "grams": 100.0
+   },
+   {
+    "ingredientId": "oignon",
+    "grams": 50.0
+   },
+   {
+    "ingredientId": "huile_colza",
+    "grams": 10.0
+   },
+   {
+    "ingredientId": "cumin",
+    "grams": 2.0
+   }
+  ]
+ },
+ {
+  "id": "gratin_pates_emmental",
+  "name": "Gratin de pâtes au lait et à l'emmental",
+  "mainProtein": "DAIRY",
+  "mealType": "MAIN",
+  "prepMinutes": 35,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
+  "steps": [
+   "Cuire les pâtes 2 minutes de moins qu'indiqué et préchauffer le four à 200 °C.",
+   "Battre l'œuf avec le lait et la farine, saler, poivrer.",
+   "Mélanger avec les pâtes dans un plat, parsemer d'emmental et gratiner 20 minutes."
+  ],
+  "ingredients": [
+   {
+    "ingredientId": "pates",
+    "grams": 100.0
+   },
+   {
+    "ingredientId": "lait",
+    "grams": 200.0
+   },
+   {
+    "ingredientId": "emmental",
+    "grams": 25.0
+   },
+   {
+    "ingredientId": "oeuf",
+    "grams": 110.0
+   },
+   {
+    "ingredientId": "farine",
+    "grams": 10.0
+   }
+  ]
+ },
+ {
+  "id": "poulet_cuisse_riz_carottes",
+  "name": "Cuisse de poulet rôtie, riz et carottes",
+  "mainProtein": "POULTRY",
+  "mealType": "MAIN",
+  "prepMinutes": 50,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": false,
+  "batch": false,
+  "steps": [
+   "Préchauffer le four à 200 °C. Disposer la cuisse, les carottes en bâtons et l'oignon en quartiers sur une plaque.",
+   "Arroser d'huile, parsemer d'herbes et rôtir 40 minutes en retournant à mi-cuisson.",
+   "Servir avec le riz cuit 11 minutes."
+  ],
+  "ingredients": [
+   {
+    "ingredientId": "poulet_cuisse",
+    "grams": 150.0
+   },
+   {
+    "ingredientId": "riz_blanc",
+    "grams": 90.0
+   },
+   {
+    "ingredientId": "carotte",
+    "grams": 120.0
+   },
+   {
+    "ingredientId": "oignon",
+    "grams": 50.0
+   },
+   {
+    "ingredientId": "huile_colza",
+    "grams": 8.0
+   },
+   {
+    "ingredientId": "herbes_provence",
+    "grams": 1.0
+   }
+  ]
+ },
+ {
+  "id": "pates_lentilles_tomate",
+  "name": "Pâtes aux lentilles corail et à la tomate",
+  "mainProtein": "PLANT",
+  "mealType": "MAIN",
+  "prepMinutes": 25,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
+  "steps": [
+   "Faire revenir l'oignon et la carotte râpée dans l'huile.",
+   "Ajouter les lentilles rincées, les tomates, les herbes et un verre d'eau ; cuire 15 minutes.",
+   "Cuire les pâtes et les mélanger à la sauce."
+  ],
+  "ingredients": [
+   {
+    "ingredientId": "pates",
+    "grams": 75.0
+   },
+   {
+    "ingredientId": "lentilles_corail",
+    "grams": 75.0
+   },
+   {
+    "ingredientId": "tomates_pelees",
+    "grams": 200.0
+   },
+   {
+    "ingredientId": "oignon",
+    "grams": 50.0
+   },
+   {
+    "ingredientId": "carotte",
+    "grams": 60.0
+   },
+   {
+    "ingredientId": "huile_colza",
+    "grams": 8.0
+   },
+   {
+    "ingredientId": "herbes_provence",
+    "grams": 1.0
+   }
+  ]
+ },
+ {
+  "id": "pdt_oeufs_oignons",
+  "name": "Pommes de terre sautées, œufs au plat et oignons",
+  "mainProtein": "EGG",
+  "mealType": "MAIN",
+  "prepMinutes": 30,
+  "difficulty": 1,
+  "keepDays": 1,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
+  "steps": [
+   "Couper les pommes de terre en dés et les faire dorer 20 minutes à la poêle dans l'huile, avec l'oignon émincé.",
+   "Cuire les œufs au plat dans la même poêle et servir aussitôt."
+  ],
+  "ingredients": [
+   {
+    "ingredientId": "pomme_de_terre",
+    "grams": 350.0
+   },
+   {
+    "ingredientId": "oeuf",
+    "grams": 110.0
+   },
+   {
+    "ingredientId": "oignon",
+    "grams": 60.0
+   },
+   {
+    "ingredientId": "huile_colza",
+    "grams": 15.0
+   }
+  ]
+ },
+ {
+  "id": "soupe_pois_chiches_pain",
+  "name": "Soupe épaisse de pois chiches, carottes et pain",
+  "mainProtein": "PLANT",
+  "mealType": "MAIN",
+  "prepMinutes": 35,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": true,
+  "freezable": true,
+  "batch": false,
+  "steps": [
+   "Faire revenir l'oignon dans l'huile, ajouter les carottes et les pommes de terre en morceaux et le cumin.",
+   "Couvrir d'eau et cuire 20 minutes, ajouter les pois chiches rincés et mixer grossièrement.",
+   "Servir avec le pain."
+  ],
+  "ingredients": [
+   {
+    "ingredientId": "pois_chiches",
+    "grams": 220.0
+   },
+   {
+    "ingredientId": "carotte",
+    "grams": 120.0
+   },
+   {
+    "ingredientId": "pomme_de_terre",
+    "grams": 100.0
+   },
+   {
+    "ingredientId": "oignon",
+    "grams": 60.0
+   },
+   {
+    "ingredientId": "huile_colza",
+    "grams": 10.0
+   },
+   {
+    "ingredientId": "cumin",
+    "grams": 2.0
+   },
+   {
+    "ingredientId": "pain_campagne",
+    "grams": 70.0
+   }
+  ]
+ },
+ {
+  "id": "porridge_lait_banane",
+  "name": "Porridge au lait et à la banane",
+  "mainProtein": "DAIRY",
+  "mealType": "BREAKFAST",
+  "prepMinutes": 10,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
+  "steps": [
+   "Cuire les flocons dans le lait 5 minutes à feu doux en remuant.",
+   "Servir avec la banane en rondelles."
+  ],
+  "ingredients": [
+   {
+    "ingredientId": "flocons_avoine",
+    "grams": 80.0
+   },
+   {
+    "ingredientId": "lait",
+    "grams": 300.0
+   },
+   {
+    "ingredientId": "banane",
+    "grams": 100.0
+   }
+  ]
+ },
+ {
+  "id": "pain_cacahuete_lait",
+  "name": "Pain, beurre de cacahuète et bol de lait",
+  "mainProtein": "PLANT",
+  "mealType": "BREAKFAST",
+  "prepMinutes": 5,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
+  "steps": [
+   "Tartiner le pain de beurre de cacahuète et servir avec un bol de lait."
+  ],
+  "ingredients": [
+   {
+    "ingredientId": "pain_campagne",
+    "grams": 100.0
+   },
+   {
+    "ingredientId": "beurre_cacahuete",
+    "grams": 20.0
+   },
+   {
+    "ingredientId": "lait",
+    "grams": 250.0
+   }
+  ]
+ },
+ {
+  "id": "crepes_maison",
+  "name": "Crêpes maison au sucre",
+  "mainProtein": "EGG",
+  "mealType": "BREAKFAST",
+  "prepMinutes": 40,
+  "difficulty": 1,
+  "keepDays": 3,
+  "lunchbox": false,
+  "freezable": true,
+  "batch": true,
+  "steps": [
+   "Mélanger la farine et le sucre, ajouter les œufs puis le lait petit à petit pour éviter les grumeaux ; laisser reposer 30 minutes si possible.",
+   "Cuire les crêpes une à une dans une poêle huilée bien chaude.",
+   "Empiler, laisser refroidir et garder 3 jours au frais ; congeler le reste (séparées par du papier cuisson)."
+  ],
+  "ingredients": [
+   {
+    "ingredientId": "farine",
+    "grams": 60.0
+   },
+   {
+    "ingredientId": "lait",
+    "grams": 150.0
+   },
+   {
+    "ingredientId": "oeuf",
+    "grams": 30.0
+   },
+   {
+    "ingredientId": "sucre",
+    "grams": 10.0
+   },
+   {
+    "ingredientId": "huile_colza",
+    "grams": 5.0
+   }
+  ]
+ },
+ {
+  "id": "pain_chocolat_gouter",
+  "name": "Pain et carré de chocolat noir",
+  "mainProtein": "PLANT",
+  "mealType": "SNACK",
+  "prepMinutes": 2,
+  "difficulty": 1,
+  "keepDays": 0,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
+  "steps": [
+   "Servir le pain avec le chocolat."
+  ],
+  "ingredients": [
+   {
+    "ingredientId": "pain_campagne",
+    "grams": 60.0
+   },
+   {
+    "ingredientId": "chocolat_noir",
+    "grams": 15.0
+   }
+  ]
+ },
+ {
+  "id": "semoule_au_lait",
+  "name": "Gâteau de semoule au lait",
+  "mainProtein": "DAIRY",
+  "mealType": "SNACK",
+  "prepMinutes": 20,
+  "difficulty": 1,
+  "keepDays": 4,
+  "lunchbox": false,
+  "freezable": false,
+  "batch": false,
+  "steps": [
+   "Porter le lait à frémir avec le sucre et la cannelle, verser la semoule en pluie.",
+   "Cuire 5 minutes en remuant, verser dans des ramequins et laisser prendre au frais."
+  ],
+  "ingredients": [
+   {
+    "ingredientId": "semoule",
+    "grams": 30.0
+   },
+   {
+    "ingredientId": "lait",
+    "grams": 200.0
+   },
+   {
+    "ingredientId": "sucre",
+    "grams": 12.0
+   },
+   {
+    "ingredientId": "cannelle",
+    "grams": 1.0
+   }
+  ]
  }
 ]

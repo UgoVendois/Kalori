@@ -109,7 +109,8 @@ data class MealContext(
  *   de préférence une fournée (cookies, granola…) ou un assemblage sans préparation ;
  * - niveau de cuisine et budget du repas.
  * Ces préférences s'assouplissent si rien ne convient : d'abord le niveau, puis l'organisation,
- * puis la répétition rapprochée, et le budget en dernier.
+ * puis la répétition (jusqu'à 3 jours d'écart), et enfin le budget plutôt que de servir le même plat
+ * tous les jours.
  */
 object MealPlanner {
 
@@ -246,9 +247,11 @@ object MealPlanner {
         if (available.isEmpty()) return null
         val month = request.date.monthValue
         val levels = if (mealType == MealType.MAIN) mainLevels else lightLevels
-        // Répétition rapprochée (fenêtres courtes) seulement après avoir assoupli l'organisation.
+        // Répétition rapprochée (fenêtres courtes) seulement après avoir assoupli l'organisation. Un budget
+        // intenable ne doit pas servir le même plat tous les jours : au-delà de la fenêtre courte, on le dépasse
+        // (le coût reste pénalisé dans le score et l'écran signale le dépassement).
         val phases = listOf(Strictness.ALL, Strictness.NO_LEVEL, Strictness.BUDGET_ONLY).map { it to levels.take(3) } +
-            listOf(Strictness.ALL, Strictness.NO_LEVEL, Strictness.BUDGET_ONLY).map { it to levels.drop(3) } +
+            listOf(Strictness.ALL, Strictness.NO_LEVEL, Strictness.BUDGET_ONLY).map { it to levels.subList(3, 4) } +
             listOf(Strictness.NONE to levels)
         for ((strictness, phaseLevels) in phases) {
             val allowed = available.filter { satisfies(it, request, settings, strictness) }

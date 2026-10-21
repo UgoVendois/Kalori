@@ -14,7 +14,10 @@ import fr.kalori.app.data.meal.DayMeal
 import fr.kalori.app.data.meal.MealDetail
 import fr.kalori.app.data.profile.Organization
 import fr.kalori.app.domain.meal.PrepKind
+import fr.kalori.app.domain.meal.Budget
 import fr.kalori.app.domain.meal.PrepInfo
+import fr.kalori.app.domain.model.BudgetPeriod
+import fr.kalori.app.domain.model.PriceTier
 import fr.kalori.app.data.meal.PriceBook
 import fr.kalori.app.data.profile.slotTargets
 import fr.kalori.app.data.seed.SeedMapper
@@ -65,7 +68,7 @@ class ScreenshotTest {
     private val ingredients = bundle.ingredients.map(SeedMapper::ingredient)
     private val facts = ingredients.associate { it.id to SeedMapper.facts(it) }
     private val recipes = bundle.recipes.associate { seed -> seed.id to SeedMapper.recipe(seed, facts, Instant.EPOCH) }
-    private val prices = PriceBook(ingredients, emptyList())
+    private val prices = PriceBook(ingredients, emptyList(), PriceTier.DISCOUNT)
 
     private val today = LocalDate.of(2026, 10, 21)
     private val profile = UserProfileEntity(
@@ -150,7 +153,7 @@ class ScreenshotTest {
                 meal(date, MealSlot.EVENING, "lentilles_lardons", prep = { PrepInfo(PrepKind.COOK_WITH_LEFTOVERS, it * 2.1) }),
             )
         }
-        MealsScreenPreview(mealsState.copy(meals = dates.associateWith(day), weeklyBudget = 60))
+        MealsScreenPreview(mealsState.copy(meals = dates.associateWith(day), budget = Budget(100, BudgetPeriod.MONTH)))
     }
 
     /** Dîner cuisiné en double pour le lendemain midi : quantités « à cuisiner » affichées d'emblée. */
@@ -194,8 +197,8 @@ class ScreenshotTest {
                 available = true,
                 mains = setOf(MealSlot.NOON, MealSlot.EVENING),
                 snackMode = SnackMode.AUTO,
-                organization = Organization(weeklyBudgetEur = 60, lunchLeftovers = true, weeklySnack = true),
-                cheapestWeek = 45,
+                organization = Organization(budgetEur = 100, budgetPeriod = BudgetPeriod.MONTH, priceTier = PriceTier.DISCOUNT, lunchLeftovers = true, weeklySnack = true),
+                cheapestWeek = 21.0,
             ),
             saveState = SaveState.SAVED,
         )

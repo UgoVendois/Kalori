@@ -81,3 +81,11 @@ val MIGRATION_2_3 = object : Migration(2, 3) {
         )
     }
 }
+
+/** v3 → v4 : budget au mois ou à la semaine, gamme de prix (premiers prix, courant, bio). */
+val MIGRATION_3_4 = object : Migration(3, 4) {
+    override fun migrate(db: SupportSQLiteDatabase) {
+        db.execSQL("ALTER TABLE `user_profile` ADD COLUMN `budgetPeriod` TEXT NOT NULL DEFAULT 'WEEK'")
+        db.execSQL("ALTER TABLE `user_profile` ADD COLUMN `priceTier` TEXT NOT NULL DEFAULT 'STANDARD'")
+    }
+}
